@@ -1,0 +1,92 @@
+.header {
+    background-color:  rgb(64, 64, 64) !important ;
+    z-index: 9999;
+    font-size: 18px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 5px;
+    border-radius: 0px;
+    min-height: 50px !important;
+    padding-top: 10px;
+}
+
+.subheader{
+    background-color:  rgb(119, 147, 60) !important ;
+    padding-left: 35px !important;
+}
+
+.modules{
+    background-color: rgb(195, 219, 155) !important;
+}
+
+.white{
+    color: white !important;
+}
+
+.login{
+    background-color: rgb(65, 65, 65) !important;
+}
+
+.centered{
+    margin-top: 30% !important;
+    background-color: rgb(245, 245, 245);
+    padding-right: 8%;
+    padding-left: 8%;
+    border-radius: 10px;
+}
+
+.submit{
+    margin-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.nav>li>a{
+    position: relative;
+    display: block;
+    padding: 0px 0px !important;
+    color: white;
+    width: 1in;
+    text-align: center;
+}
+
+.right{
+    color: white !important;
+    padding-right: 10px;
+}
+
+.fontsizeheader{
+    font-size:20px !important;
+    padding-left:35px !important;
+    padding-right:15px !important;
+    min-height: 50px !important;
+    padding-top: 10px !important; 
+   
+}
+
+.menu{
+    color:black !important;
+    margin-left:50px !important;
+    margin-right: 5px;
+7
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block; 
+    font-family: Arial !important;
+}
+
+.alert-info{
+    color: #333 !important;
+    background-color: rgba(93, 255, 26, 0.59) !important;
+    border-color: rgba(93, 255, 26, 0.59) !important;
+}
+
+.table-striped{
+    margin-top: 2px;
+}
+
+.productlist_line{
+
+    border-bottom:solid 1px;
+    margin-bottom:13px;
+}
+
