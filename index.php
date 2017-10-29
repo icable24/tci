@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Tumandok Craft Industries</title>
+<link rel="icon" type="image/png" href="img/tci.png">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -82,130 +83,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="head-top">
 				<div class="logo">
-					<h1><a href="index.html">Mattress</a></h1>
+					<h1><a href="index.php"><img src="img/tci-logo.png"></a></h1>
 				</div>
-		  <div class=" h_menu4">
-				<ul class="memenu skyblue">
-					  <li><a class="color8" href="index.html">BED LINEN</a></li>	
-				      <li><a class="color1" href="#">CUSHIONS</a>
-				      	<div class="mepanel">
+				<br>
+		<div class=" h_menu4">
+			<ul class="memenu skyblue" style="font-family: verdana; font-weight: regular">
+				<li><a class="color1" href="index.php">Home</a>
+				<li><a class="color1" href="#">Products</a>
+				    <div class="mepanel">
 						<div class="row">
-							<div class="col1">
+							<div class="*">
 								<div class="h_nav">
 									<ul>
-										<li><a href="products.html">Bedskirt</a></li>
-										<li><a href="products.html">Blanket/Throw</a></li>
-										<li><a href="products.html">Collection/Duvet</a></li>
-										<li><a href="products.html">Comforter</a></li>
-										<li><a href="products.html">Comforter Set</a></li>
-										<li><a href="products.html">Decorative Pillow</a></li>
-										<li><a href="products.html">Mattress Pad </a></li>
-										<li><a href="products.html">Mattress Topper</a></li>
-										<li><a href="products.html">Pillow</a></li>
-										<li><a href="products.html">Pillow Protector</a></li>
-										
+									<li><a href="#">Light Furnitures</a></li>
+									<li><a href="#">Gifts and Housewares</a></li>
+									<li><a href="#">Luminaries</a></li>
 									</ul>	
 								</div>							
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="products.html">Alpaca</a></li>
-										<li><a href="products.html">Cashmere</a></li>
-										<li><a href="products.html">Cotton</a></li>
-										<li><a href="products.html">Cotton Blend</a></li>
-										<li><a href="products.html">Down</a></li>
-										<li><a href="products.html">Down Alternative</a></li>
-										<li><a href="products.html">Egyptian Cotton</a></li>
-										<li><a href="products.html">Modal</a></li>
-										<li><a href="products.html">Pima Cotton</a></li>
-										<li><a href="products.html">Silk </a></li>
-										
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="products.html">Bedskirt</a></li>
-										<li><a href="products.html">Blanket/Throw</a></li>
-										<li><a href="products.html">Collection/Duvet</a></li>
-										<li><a href="products.html">Comforter</a></li>
-										<li><a href="products.html">Comforter Set</a></li>
-										<li><a href="products.html">Decorative Pillow</a></li>
-										<li><a href="products.html">Mattress Pad </a></li>
-										<li><a href="products.html">Mattress Topper</a></li>
-										<li><a href="products.html">Pillow</a></li>
-										<li><a href="products.html">Pillow Protector</a></li>
-									</ul>	
-								</div>												
-							</div>
-						  </div>
-						</div>
-					</li>
-				    <li class="grid"><a class="color2" href="#">BEDSPREADS</a>
-					  	<div class="mepanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="products.html">Bedskirt</a></li>
-										<li><a href="products.html">Blanket/Throw</a></li>
-										<li><a href="products.html">Collection/Duvet</a></li>
-										<li><a href="products.html">Comforter</a></li>
-										<li><a href="products.html">Comforter Set</a></li>
-										<li><a href="products.html">Decorative Pillow</a></li>
-										<li><a href="products.html">Mattress Pad </a></li>
-										<li><a href="products.html">Mattress Topper</a></li>
-										<li><a href="products.html">Pillow</a></li>
-										<li><a href="products.html">Pillow Protector</a></li>
-										
-									</ul>	
-								</div>								
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="products.html">Alpaca</a></li>
-										<li><a href="products.html">Cashmere</a></li>
-										<li><a href="products.html">Cotton</a></li>
-										<li><a href="products.html">Cotton Blend</a></li>
-										<li><a href="products.html">Down</a></li>
-										<li><a href="products.html">Down Alternative</a></li>
-										<li><a href="products.html">Egyptian Cotton</a></li>
-										<li><a href="products.html">Modal</a></li>
-										<li><a href="products.html">Pima Cotton</a></li>
-										<li><a href="products.html">Silk </a></li>
-										
-									</ul>		
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									
-									<ul>
-										<li><a href="products.html">Bedskirt</a></li>
-										<li><a href="products.html">Blanket/Throw</a></li>
-										<li><a href="products.html">Collection/Duvet</a></li>
-										<li><a href="products.html">Comforter</a></li>
-										<li><a href="products.html">Comforter Set</a></li>
-										<li><a href="products.html">Decorative Pillow</a></li>
-										<li><a href="products.html">Mattress Pad </a></li>
-										<li><a href="products.html">Mattress Topper</a></li>
-										<li><a href="products.html">Pillow</a></li>
-										<li><a href="products.html">Pillow Protector</a></li>
-									</ul>	
-								</div>												
-							</div>
-						  </div>
-						</div>
-			    </li>
 				<li><a class="color4" href="login.php">Login</a></li>				
-				<li><a class="color6" href="contact.html">Contact</a></li>
-			  </ul> 
-			</div>
+				<li><a class="color6" href="contact.html">Contact Us</a></li>
+			</ul> 
+		</div>
 				
-				<div class="clearfix"> </div>
+		<div class="clearfix"> </div>
 		</div>
 		</div>
 	</div>
@@ -371,59 +272,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!---->
 </div>
-<div class="footer w3layouts">
-				<div class="container">
-			<div class="footer-top-at w3">
-			
-				<div class="col-md-3 amet-sed w3l">
-				<h4>MORE INFO</h4>
-				<ul class="nav-bottom">
-						<li><a href="#">How to order</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="contact.html">Location</a></li>
-						<li><a href="#">Shipping</a></li>
-						<li><a href="#">Membership</a></li>	
-					</ul>	
-				</div>
-				<div class="col-md-3 amet-sed w3ls">
-					<h4>CATEGORIES</h4>
-					<ul class="nav-bottom">
-						<li><a href="#">Bed linen</a></li>
-						<li><a href="#">Cushions</a></li>
-						<li><a href="#">Duvets</a></li>
-						<li><a href="#">Pillows</a></li>
-						<li><a href="#">Protectors</a></li>	
-					</ul>
-					
-				</div>
-				<div class="col-md-3 amet-sed agileits">
-					<h4>NEWSLETTER</h4>
-					<div class="stay agileinfo">
-						<div class="stay-left wthree">
-							<form action="#" method="post">
-								<input type="text" placeholder="Enter your email " required="">
-							</form>
-						</div>
-						<div class="btn-1 w3-agileits">
-							<form action="#" method="post">
-								<input type="submit" value="Subscribe">
-							</form>
-						</div>
-							<div class="clearfix"> </div>
-			</div>
-					
-				</div>
-				<div class="col-md-3 amet-sed agileits-w3layouts">
-				<h4>CONTACT US</h4>
-					<p>Contrary to popular belief</p>
-					<p>The standard chunk</p>
-					<p>office :  +12 34 995 0792</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
+<!--footer-->
+<div class="container">
 		<div class="footer-class w3-agile">
-		<p>© 2015 Mattress . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+		<p>&copy; 2016-2017 Information System | <a href="http://www.uno-r.edu.ph/academics/departments/information-technology/">College of Information Technology</a> | <a href="http://www.uno-r.edu.ph/">University of Negros Occidental-Recoletos</a></p> 
 		</div>
 		</div>
 </body>
