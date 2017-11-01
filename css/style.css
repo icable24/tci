@@ -282,11 +282,10 @@ i.inst:hover{
 /*--banner--*/
 /*-- agileits --*/
 .banner{
-	background: url(../images/1.jpg) no-repeat ;
 	background-size: cover;
 	width:100%;
 	min-height: 560px;
-	  position: relative;
+	position: relative;
 }
 /*--- slider-css --*/
 

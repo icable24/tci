@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Tumandok Craft Industries</title>
 <link rel="icon" type="image/png" href="img/tci.png">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="./css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="js/simpleCart.min.js"> </script>
 </head>
-<body>
+<body >
 <!--header-->
 <div class="header">
 	<div class="header-top">
@@ -41,29 +41,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#"><i class="twiter"> </i></a></li>
 					<li><a href="#"><i class="inst"> </i></a></li>
 					<li><a href="#"><i class="goog"> </i></a></li>
-						<div class="clearfix"></div>	
+					<div class="clearfix"></div>	
 				</ul>
 			</div>
-			<div class="header-left">
-			
-				<div class="search-box">
-					<div id="sb-search" class="sb-search">
-						<form action="#" method="post">
-							<input class="sb-search-input" placeholder="Enter your search term..." type="search"  id="search">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
+					<div class="header-left">
+			<div class="search-box">
+				<div id="sb-search" class="sb-search">
+					<form action="#" method="post">
+						<input class="sb-search-input" placeholder="Enter your search term..." type="search"  id="search">
+						<input class="sb-search-submit" type="submit" value="">
+						<span class="sb-icon-search"> </span>
+					</form>
 				</div>
-			
-<!-- search-scripts -->
+			</div>
+			<!-- search-scripts -->
 					<script src="js/classie.js"></script>
 					<script src="js/uisearch.js"></script>
 						<script>
 							new UISearch( document.getElementById( 'sb-search' ) );
 						</script>
 					<!-- //search-scripts -->
-
 				<div class="ca-r">
 					<div class="cart box_1">
 						<a href="checkout.html">
@@ -77,7 +74,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 					<div class="clearfix"> </div>
 			</div>
-				
 		</div>
 		</div>
 		<div class="container">
@@ -89,15 +85,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class=" h_menu4">
 			<ul class="memenu skyblue" style="font-family: verdana; font-weight: regular">
 				<li><a class="color1" href="index.php">Home</a>
-				<li><a class="color1" href="#">Products</a>
+				<li><a class="color1" href="products.html">Products</a>
 				    <div class="mepanel">
 						<div class="row">
 							<div class="*">
 								<div class="h_nav">
 									<ul>
 									<li><a href="#">Light Furnitures</a></li>
-									<li><a href="#">Gifts and Housewares</a></li>
-									<li><a href="#">Luminaries</a></li>
+									<li><a href="#">Office Accessories</a></li>
+									<li><a href="#">Bathroom Accessories</a></li>
+									<li><a href="#">Furniture Compliments</a></li>
+									<li><a href="#">Dining Room Accessories</a></li>
+									<li><a href="#">Furniture and Home Accessories</a></li>
 									</ul>	
 								</div>							
 							</div>
@@ -110,6 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		</div>
 	</div>
+
 	<div class="banner">
 		<div class="container">
 			  <script src="js/responsiveslides.min.js"></script>
@@ -127,32 +127,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div  id="top" class="callbacks_container">
 			<ul class="rslides" id="slider">
 			    <li>
-					
-						<div class="banner-text">
-							<h3>Lorem Ipsum is   </h3>
-						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-						
-						</div>
-				
+					<div class="banner">
+						<img src="img/tci_slide1.jpg">
+					</div>
 				</li>
 				<li>
-					
-						<div class="banner-text">
-							<h3>There are many  </h3>
-						<p>Popular belief Contrary to , Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-												
-
-						</div>
-					
+					<div class="banner">
+						<img src="img/tci_slide2.jpg">
+					</div>
 				</li>
 				<li>
-						<div class="banner-text">
-							<h3>Sed ut perspiciatis</h3>
-						<p>Lorem Ipsum is not simply random text. Contrary to popular belief, It has roots in a piece of classical Latin literature from 45 BC.</p>
-								
-
-						</div>
-					
+					<div class="banner">
+						<img src="img/tci_slide3.jpg">
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -163,114 +150,107 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--content-->
 <div class="container">
 	<div class="cont">
-		<div class="content">
+		<div class="content" style="background-color: #ebebc6">
 			<div class="content-top-bottom">
 				<h2>Featured PRODUCTS</h2>
 				<div class="col-md-6 men">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t1.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/zebra.jpg" alt="">
 						<div class="b-wrapper">
-											<h3 class="b-animate b-from-top top-in   b-delay03 ">
-												<span>TRIBECA LIVING</span>	
-											</h3>
-										</div>
+							<h3 class="b-animate b-from-top top-in   b-delay03 ">
+								<span>Wall Decor - Zebra</span>	
+							</h3>
+						</div>
 					</a>
-					
-					
 				</div>
-				<div class="col-md-6">
-					<div class="col-md1 ">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t2.jpg" alt="">
-							<div class="b-wrapper">
-											<h3 class="b-animate b-from-top top-in1   b-delay03 ">
-												<span>CLARISSA</span>	
-											</h3>
-										</div>
-						</a>
-						
-					</div>
-					<div class="col-md2">
-						<div class="col-md-6 men1">
-							<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t3.jpg" alt="">
-									<div class="b-wrapper">
-											<h3 class="b-animate b-from-top top-in2   b-delay03 ">
-												<span>COLORMATE</span>	
-											</h3>
-										</div>
-							</a>
-							
+			<div class="col-md-6">
+				<div class="col-md1 ">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/uneven bowl.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-top top-in1   b-delay03 ">
+								<span>Uneven Bowl</span>	
+							</h3>
 						</div>
-						<div class="col-md-6 men2">
-							<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t4.jpg" alt="">
-									<div class="b-wrapper">
-											<h3 class="b-animate b-from-top top-in2   b-delay03 ">
-												<span>HERLEQUIN</span>	
-											</h3>
-										</div>
-							</a>
-							
-						</div>
-						<div class="clearfix"> </div>
-					</div>
+					</a>
 				</div>
+			<div class="col-md2">
+				<div class="col-md-6 men1">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/notavailable.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+								<span>.......</span>	
+							</h3>
+						</div>
+					</a>
+				</div>
+			<div class="col-md-6 men2">
+				<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/notavailable.jpg" alt="">
+					<div class="b-wrapper">
+						<h3 class="b-animate b-from-top top-in2   b-delay03 ">
+							<span>.......</span>	
+						</h3>
+					</div>
+				</a>
+			</div>
+				<div class="clearfix"> </div>
+			</div>
+			</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="content-top">
 				<h1>NEW PRODUCTS</h1>
 				<div class="grid-in">
 					<div class="col-md-3 grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi.jpg" alt="">
+						<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/notavailable.jpg" alt="">
 							<div class="b-wrapper">
 								<h3 class="b-animate b-from-left    b-delay03 ">
-									<span>TRIBECA LIVING</span>
+									<span>.........</span>
 									
 								</h3>
 							</div>
 						</a>
 				
 
-					<p><a href="single.html">TRIBECA LIVING</a></p>
+					<p><a href="single.php">TRIBECA LIVING</a></p>
 					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 					</div>
 					<div class="col-md-3 grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi1.jpg" alt="">
+						<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/notavailable.jpg" alt="">
 							<div class="b-wrapper">
 											<h3 class="b-animate b-from-left    b-delay03 ">
 												<span>ESSENTIAL</span>	
 											</h3>
 										</div>
 						</a>
-					<p><a href="single.html">ESSENTIAL</a></p>
+					<p><a href="single.php">ESSENTIAL</a></p>
 					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 					</div>
 					<div class="col-md-3 grid-top simpleCart_shelfItem">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi2.jpg" alt="">
+						<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/notavailable.jpg" alt="">
 							<div class="b-wrapper">
 											<h3 class="b-animate b-from-left    b-delay03 ">
 												<span>CLARISSA</span>	
 											</h3>
 										</div>
 						</a>
-					<p><a href="single.html">CLARISSA</a></p>
+					<p><a href="single.php">CLARISSA</a></p>
 					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 					</div>
 					<div class="col-md-3 grid-top">
-						<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi4.jpg" alt="">
+						<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="img/products/notavailable.jpg" alt="">
 							<div class="b-wrapper">
 											<h3 class="b-animate b-from-left    b-delay03 ">
 												<span>LITTLE HOME</span>	
 											</h3>
 										</div>
 						</a>
-					<p><a href="single.html">LITTLE HOME</a></p>
+					<p><a href="single.php">LITTLE HOME</a></p>
 					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
 					</div>
 							<div class="clearfix"> </div>
 				</div>
 			</div>
 		</div>
-	<!----->
-	</div>
-	<!---->
+    </div>
 </div>
 <!--footer-->
 <div class="container">
