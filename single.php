@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="checkout.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> </div>
 							<img src="images/cart.png" alt=""/></h3>
@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class=" h_menu4">
 			<ul class="memenu skyblue" style="font-family: verdana; font-weight: regular">
 				<li><a class="color1" href="index.php">Home</a>
-				<li><a class="color1" href="products.html">Products</a>
+				<li><a class="color1" href="products.php">Products</a>
 				    <div class="mepanel">
 						<div class="row">
 							<div class="*">
@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>							
 							</div>
 				<li><a class="color4" href="login.php">Login</a></li>				
-				<li><a class="color6" href="contact.html">Contact Us</a></li>
+				<li><a class="color6" href="contact.php">Contact Us</a></li>
 			</ul> 
 		</div>
 				
