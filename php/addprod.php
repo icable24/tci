@@ -18,20 +18,23 @@
 	$file = $_FILES['image']['tmp_name'];
 	// $prod_image=$_POST['prod_image'];
 
-	$query = $pdo->prepare("SELECT pf_id FROM productfinish WHERE pf_name = ?");
-	$query->execute(array($pf_name));
-	$pf = $query->fetch(PDO::FETCH_ASSOC);
+	// $query = $pdo->prepare("SELECT pf_id FROM productfinish WHERE pf_name = ?");
+	// $query->execute(array($pf_name));
+	// $pf = $query->fetch(PDO::FETCH_ASSOC);
 
-	$query = $pdo->prepare("SELECT pc_id FROM productcategory WHERE pc_name = ?");
-	$query->execute(array($pc_name));
-	$pc = $query->fetch(PDO::FETCH_ASSOC);
+	// $query = $pdo->prepare("SELECT pc_id FROM productcategory WHERE pc_name = ?");
+	// $query->execute(array($pc_name));
+	// $pc = $query->fetch(PDO::FETCH_ASSOC);
 
-	$query = $pdo->prepare("SELECT pg_id FROM productgroup WHERE pg_name = ?");
-	$query->execute(array($pg_name));
-	$pg = $query->fetch(PDO::FETCH_ASSOC);
+	// $query = $pdo->prepare("SELECT pg_id FROM productgroup WHERE pg_name = ?");
+	// $query->execute(array($pg_name));
+	// $pg = $query->fetch(PDO::FETCH_ASSOC);
 
-	$query = $pdo->prepare("INSERT INTO product(prod_name, prod_desc, prod_price, prod_length, prod_width, prod_height, pf_id, pc_id, pg_id, prod_stock, prod_image) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	$query->execute(array($prod_name, $prod_desc, $prod_price, $prod_length, $prod_width, $prod_height, $pf['pf_id'], $pc['pc_id'], $pg['pg_id'], $prod_stock, $prod_image));	
-	move_uploaded_file($file, $destination);
+	// $query = $pdo->prepare("INSERT INTO product(prod_name, prod_desc, prod_price, prod_length, prod_width, prod_height, pf_id, pc_id, pg_id, prod_stock, prod_image) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	// $query->execute(array($prod_name, $prod_desc, $prod_price, $prod_length, $prod_width, $prod_height, $pf['pf_id'], $pc['pc_id'], $pg['pg_id'], $prod_stock, $prod_image));	
+	// move_uploaded_file($file, $destination);
+
+	echo $prod_name;
+	echo $pf_name;
 
 	?>

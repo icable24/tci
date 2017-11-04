@@ -14,16 +14,15 @@
       <!-- Body Section -->
       <br>
       <div class="container-fluid">
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="offset-1 col-10">
+          <div class="alert alert-success">
+            <div>
               <h1>New Product</h1>
-              <br>
             </div>
-            <div class="panel-body">
-              <form action="#" enctype="multipart/form-data" method="post">
+            <div class="card-block">
+              <form action="../php/addprod.php" enctype="multipart/form-data" method="post">
                 <div class="row justify-content-center">
-                  <div class="col-5">
+                  <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="prod_name">
                         Product Name
@@ -33,7 +32,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-5">
+                  <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="pf_name">Finish</label>
                       <div class="controls">
@@ -47,7 +46,7 @@
                   </div>
                 </div>
                 <div class="row justify-content-center">
-                  <div class="col-5">
+                  <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="prod_price">Product Price </label>
                       <div class="controls">
@@ -55,7 +54,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-5">
+                  <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="pc_name">Category</label>
                         <div class="controls">
@@ -70,56 +69,72 @@
                   </div>
                 </div>
                 <div class="row justify-content-center">
-                  <div class="col-5">
+                  <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="prod_desc">Description</label>
                       <textarea class="form-control" rows="5" name="prod_desc" id="prod_desc"></textarea>
                     </div>
                   </div>
-                  <div class="col-5">
+                  <div class="col-6">
                       <div>
-                        <div class="control-group">
-                          <label for="dimension" class="control-label">Dimension</label>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-4">
-                            <div class="control-group">
-                              <label for="" class="control-label">Length</label>
-                              <div class="controls">
-                                <input type="number" step="0.01" class="form-control" name="prod_length" required>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div class="control-group">
-                              <label for="" class="control-label">Width</label>
-                              <div class="controls">
-                                <input type="number" step="0.01" class="form-control" name="prod_width" required>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div class="control-group">
-                              <label for="" class="control-label">Height</label>
-                              <div class="controls">
-                                <input type="number" step="0.01" class="form-control" name="prod_height" required>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-start">
-                          <div class="col-4">
+                        <div class="row justify-content-end">
+                          <div class="col-12">
                             <div class="control-group">
                               <label for="prod_image" class="control-label">Upload Image</label>
                               <div class="controls">
                                 <input type="hidden" name="size" value="1000000">
-                                <input type="file" name="image">
+                                <input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" onchange="readURL(this);">
+                                  <br>
+                                  <div class="row justify-content-center">
+                                    <img id="blah" src="#" alt="" />
+                                  </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <label>Dimension:</label>
+                    </div>
+                  </div>
+                  <div class="row justify-content-start">
+                    <div class="col-6">
+                      <div class="row justify-content-center">
+                        <div class="col-4">
+                          <div class="control-group">
+                            <label for="" class="control-label">Length</label>
+                            <div class="controls">
+                              <input type="number" step="0.1" class="form-control" name="prod_length" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="control-group">
+                            <label for="" class="control-label">Width</label>
+                            <div class="controls">
+                              <input type="number" step="0.01" class="form-control" name="prod_width" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="control-group">
+                            <label for="" class="control-label">Height</label>
+                            <div class="controls">
+                              <input type="number" step="0.01" class="form-control" name="prod_height" required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer">
+                  <div class="form-actions text-center forms">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a class="btn btn-secondary" href="productlist.php">Cancel</a>
                   </div>
                 </div>
               </form>
@@ -131,5 +146,21 @@
     </div>
     <!-- Javascript files-->
     <?php include('js.php'); ?>
+    <script type="text/javascript">
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(100)
+                    .height(100);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+  </script>
   </body>
 </html>

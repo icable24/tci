@@ -20,12 +20,12 @@
       <br>
       <div class="container">
          <div>
-          <a href="productcreate.php" class="btn btn-success btn-md">Add Product</a>
+          <a href="productcreate.php" class="btn btn-info btn-md">Add Product</a>
           <br><br>
          </div>
          <table class="table">
             <thead>
-              <tr class="alert-info">
+              <tr class="alert-success">
                 <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Category</th>
@@ -53,7 +53,7 @@
                     echo '<td>'.' Php '.$row['prod_price'].'</td>';
                     echo '<td>'.$row['prod_length'].' x '. $row['prod_width'] . ' x ' . $row['prod_height'] .'</td>';
                     echo '<td class="text-center">
-                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit"></span></a>
+                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="glyphicon glyphicon-edit"></span></a>
                           </td>';                 
                   echo '</tr>';
                   
