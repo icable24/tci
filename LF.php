@@ -37,7 +37,7 @@ body {
   <!-- grow -->
   <div class="grow">
     <div class="container">
-      <h2 style="font-family: verdana">Products</h2>
+      <h2 style="font-family: verdana">Light Furnitures</h2>
     </div>
   </div>
   <!-- grow -->

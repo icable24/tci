@@ -1,5 +1,23 @@
 <header>
 <!--header-->
+<div class="header" style="background-color: #999999">
+           <p style="margin-right: 0.70in">
+                    <a style="text-decoration: none; color: white" class="pull-right" href="signup.php">Signup</a> 
+                    &nbsp;&nbsp; 
+                    <a style="text-decoration: none" class="pull-right">|</a> 
+                    &nbsp;&nbsp;
+                    <a style="text-decoration: none; color: white" class="pull-right" href="login.php">Login</a>
+                   <!-- &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
+                    <a href="#"><i class="facebok pull-right" style="align-items: center;"> </i></a>
+                    &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
+                    <a href="#"><i class="twiter pull-right"> </i></a>
+                    &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
+                    <a href="#"><i class="inst pull-right"> </i></a>
+                    &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
+                    <a href="#"><i class="goog pull-right"> </i></a>-->
+                    
+                </p>
+        </div>
 <div class="header">
     <div class="header-top">
         <div class="container">
@@ -57,23 +75,23 @@
           <div class=" h_menu4">
                 <ul class="memenu skyblue" style="font-family: verdana; font-weight: regular">
                       <li><a class="color1" href="index.php">Home</a>
-                      <li><a class="color1" href="products.php">Products</a>
+                      <li><a class="color1" href="#">Products</a>
                         <div class="mepanel">
                         <div class="row">
                             <div class="*">
                                 <div class="h_nav">
                                     <ul>
-                                    <li><a href="#">Light Furnitures</a></li>
-                                    <li><a href="#">Office Accessories</a></li>
-                                    <li><a href="#">Bathroom Accessories</a></li>
-                                    <li><a href="#">Furniture Compliments</a></li>
-                                    <li><a href="#">Dining Room Accessories</a></li>
-                                    <li><a href="#">Furniture and Home Accessories</a></li>
+                                    <li><a href="LF.php">Light Furnitures</a></li>
+                                    <li><a href="OA.php">Office Accessories</a></li>
+                                    <li><a href="BA.php">Bathroom Accessories</a></li>
+                                    <li><a href="FC.php">Furniture Compliments</a></li>
+                                    <li><a href="DRA.php">Dining Room Accessories</a></li>
+                                    <li><a href="FAHA.php">Furniture and Home Accessories</a></li>
                                     </ul>   
                                 </div>                          
                             </div>
                     
-                <li><a class="color4" href="login.php">Login</a></li>               
+                              
                 <li><a class="color6" href="contact.php">Contact Us</a></li>
               </ul> 
             </div>
