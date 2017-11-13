@@ -20,7 +20,7 @@
                     		<label class="control-label" for="email">E-mail Address:</label>
                     		<div class="form-group input-group">
                     			<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    			<input class="form-control" type="text" required="" id="email" name="email" placeholder="Email Address"/>
+                    			<input class="form-control" type="text" required="" id="email" name="email" placeholder="Email Address" focus=""/>
                     		</div>
 
                     		<label class="control-label" for="password">Password:</label>

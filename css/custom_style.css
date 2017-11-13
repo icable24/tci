@@ -27,7 +27,15 @@
 }
 
 .centered{
-    margin-top: 30% !important;
+    margin-top: 30%;
+    background-color: rgb(245, 245, 245);
+    padding-right: 8%;
+    padding-left: 8%;
+    border-radius: 10px;
+}
+
+.signup-centered{
+    margin-top: 10% !important;
     background-color: rgb(245, 245, 245);
     padding-right: 8%;
     padding-left: 8%;

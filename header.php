@@ -73,7 +73,8 @@
                                 </div>                          
                             </div>
                     
-                <li><a class="color4" href="login.php">Login</a></li>               
+                <li><a class="color4" href="login.php">Login</a></li>
+                <li><a class="color4" href="signup.php">Signup</a></li>               
                 <li><a class="color6" href="contact.php">Contact Us</a></li>
               </ul> 
             </div>

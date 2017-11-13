@@ -3,38 +3,52 @@
 	
 
 	$pdo = Database::connect();
+	//variables
+	$prod_code = $_POST['prod_code'];
 	$prod_name = $_POST['prod_name'];
 	$pf_name = $_POST['pf_name'];
 	$prod_price = $_POST['prod_price'];
 	$pc_name = $_POST['pc_name'];
 	$prod_desc = $_POST['prod_desc'];
-	$pg_name = $_POST['pg_name'];
-	$prod_length = $_POST['prod_length'];
-	$prod_width = $_POST['prod_width'];
-	$prod_height = $_POST['prod_height'];
-	$prod_stock= $_POST['prod_stock'];
-	$prod_image = $_FILES['image']['name'];
-	$destination = "../prod_img/".basename($_FILES['image']['name']);
-	$file = $_FILES['image']['tmp_name'];
-	// $prod_image=$_POST['prod_image'];
+	$prod_image = $_FILES['prod_image']['name'];
+	$destination = "../prod_img/".basename($_FILES['prod_image']['name']);
+	$prod_length = "";
+	$prod_width = "";
+	$prod_height = "";
+	$prod_diameter = "";
+	$prod_height2 = "";
 
-	// $query = $pdo->prepare("SELECT pf_id FROM productfinish WHERE pf_name = ?");
-	// $query->execute(array($pf_name));
-	// $pf = $query->fetch(PDO::FETCH_ASSOC);
+	if(isset($_POST['prod_height']) || isset($_POST['prod_width']) || isset($_POST['prod_length'])){
+	$prod_length = $_POST["prod_length"];
+	$prod_width = $_POST["prod_width"];
+	$prod_height = $_POST["prod_height"];
+	}
 
-	// $query = $pdo->prepare("SELECT pc_id FROM productcategory WHERE pc_name = ?");
-	// $query->execute(array($pc_name));
-	// $pc = $query->fetch(PDO::FETCH_ASSOC);
+	// check if variable is set
+	if(isset($_POST['prod_diameter']) || isset($_POST['prod_height2'])){
+		$prod_diameter = $_POST["prod_diameter"];
+		$prod_height2 = $_POST["prod_height2"];	
+	}
 
-	// $query = $pdo->prepare("SELECT pg_id FROM productgroup WHERE pg_name = ?");
-	// $query->execute(array($pg_name));
-	// $pg = $query->fetch(PDO::FETCH_ASSOC);
+	//check in database where product finish is equals to input finish
+	$query = $pdo->prepare("SELECT pf_id FROM productfinish WHERE pf_name = ?");
+	$query->execute(array($pf_name));
+	$pf = $query->fetch(PDO::FETCH_ASSOC);
+	// check in database where product category equals to input category
+	$query = $pdo->prepare("SELECT pc_id FROM productcategory WHERE pc_name = ?");
+	$query->execute(array($pc_name));
+	$pc = $query->fetch(PDO::FETCH_ASSOC);
 
-	// $query = $pdo->prepare("INSERT INTO product(prod_name, prod_desc, prod_price, prod_length, prod_width, prod_height, pf_id, pc_id, pg_id, prod_stock, prod_image) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	// $query->execute(array($prod_name, $prod_desc, $prod_price, $prod_length, $prod_width, $prod_height, $pf['pf_id'], $pc['pc_id'], $pg['pg_id'], $prod_stock, $prod_image));	
-	// move_uploaded_file($file, $destination);
+	//prepares sql to store data in databse
+	$query = $pdo->prepare("INSERT INTO product(prod_code, prod_name, pf_name, prod_price, pc_name, prod_desc, prod_image, prod_length, prod_width, prod_height, prod_diameter, prod_height2) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 
-	echo $prod_name;
-	echo $pf_name;
+	//execute sql statement to store into database
+	$query->execute(array($prod_code, $prod_name, $pf['pf_id'], $prod_price, $pc['pc_id'], $prod_desc, $prod_image, $prod_length, $prod_width, $prod_height, $prod_diameter, $prod_height2));	
+	// if(move_uploaded_file($_FILES['prod_image']['name'], $destination)){
+	// 	echo "File Uploaded";
+	// }else{
+	// 	echo "Not Uploaded";
+	// }
 
+	header('Location: ../admin/productlist.php');
 	?>

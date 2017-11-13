@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2017 at 11:05 AM
+-- Generation Time: Nov 10, 2017 at 08:33 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -110,37 +110,27 @@ INSERT INTO `employee` (`emp_id`, `emp_name`, `emp_address`, `emp_position`, `em
 
 CREATE TABLE `product` (
   `prod_id` int(11) NOT NULL,
-  `prod_name` varchar(20) NOT NULL,
-  `prod_desc` varchar(20) NOT NULL,
-  `prod_price` int(11) NOT NULL,
-  `prod_size` varchar(6) NOT NULL,
-  `prod_length` float NOT NULL,
-  `prod_height` float NOT NULL,
-  `prod_width` float NOT NULL,
-  `prod_stock` varchar(4) NOT NULL,
-  `prod_color` varchar(50) NOT NULL,
-  `pf_id` int(11) NOT NULL,
-  `pc_id` int(11) NOT NULL,
-  `pg_id` int(11) NOT NULL,
-  `prod_image` longblob NOT NULL,
-  `name` varchar(200) NOT NULL
+  `prod_code` varchar(20) NOT NULL,
+  `prod_name` varchar(50) NOT NULL,
+  `pf_name` int(11) NOT NULL,
+  `prod_price` decimal(10,0) NOT NULL,
+  `pc_name` int(11) NOT NULL,
+  `prod_desc` varchar(100) NOT NULL,
+  `prod_image` varchar(50) NOT NULL,
+  `prod_length` int(11) NOT NULL,
+  `prod_width` int(11) NOT NULL,
+  `prod_height` int(11) NOT NULL,
+  `prod_diameter` int(11) NOT NULL,
+  `prod_height2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`prod_id`, `prod_name`, `prod_desc`, `prod_price`, `prod_size`, `prod_length`, `prod_height`, `prod_width`, `prod_stock`, `prod_color`, `pf_id`, `pc_id`, `pg_id`, `prod_image`, `name`) VALUES
-(1, 'Uneven Bowl', 'This is a bowl.', 1500, '', 8.5, 3.4, 0.82, '', '', 1, 1, 1, '', ''),
-(2, 'Even Bowl', '', 1000, '', 8.5, 3, 1, '', '', 0, 0, 0, '', ''),
-(3, 'producttest', 'fsdfsfdsfsfdsfsdfsdf', 500, '', 0.03, 0.03, 0.02, '', '', 0, 0, 0, '', ''),
-(4, 'asdadasda', 'ddddd', 1, '', 0.02, 0.02, 0.02, '2', '', 1, 2, 1, '', ''),
-(5, 'dasdadasd', '2', 300, '', 0.05, 0.03, 0.04, '5', '', 1, 1, 1, '', ''),
-(6, 'ddddd', 'dddd', 400, '', 0.04, 0.06, 0.03, '4', '', 1, 2, 1, '', ''),
-(7, 'dsdadasdas', '3', 400, '', 0.01, 0.01, 0.01, '2', '', 2, 1, 1, '', ''),
-(8, 'sdadas', '22131321', 200, '', 0.04, 0.02, 0.03, '2', '', 2, 1, 1, '', ''),
-(9, 'adssadadsa', 'asdasdadasd', 300, '', 0.05, 0.04, 0.03, '3', '', 1, 1, 1, '', ''),
-(10, 'sdadadsad', 'sdadas', 400, '', 0.02, 0.02, 0.02, '3', '', 1, 1, 1, '', '');
+INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `pf_name`, `prod_price`, `pc_name`, `prod_desc`, `prod_image`, `prod_length`, `prod_width`, `prod_height`, `prod_diameter`, `prod_height2`) VALUES
+(2, 'NTF04-WD-001', 'Wall Decor - Antharium', 1, '500', 8, 'Wicker Vine', 'Wall Decor - Antharium.PNG', 100, 100, 8, 0, 0),
+(3, 'NTF04-HF-085', 'Milky Vase - White and Grey Pottery', 1, '500', 1, 'Charcoal(Grey), Ricehull(White)', 'Capture.PNG', 0, 0, 0, 21, 25);
 
 -- --------------------------------------------------------
 
@@ -150,7 +140,7 @@ INSERT INTO `product` (`prod_id`, `prod_name`, `prod_desc`, `prod_price`, `prod_
 
 CREATE TABLE `productcategory` (
   `pc_id` int(11) NOT NULL,
-  `pc_name` varchar(20) NOT NULL
+  `pc_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -158,8 +148,14 @@ CREATE TABLE `productcategory` (
 --
 
 INSERT INTO `productcategory` (`pc_id`, `pc_name`) VALUES
-(1, 'Houseware'),
-(2, 'Wall Decors');
+(1, 'Light Furnitures'),
+(2, 'Office Accessories'),
+(3, 'Light Furnitures'),
+(4, 'Office Accesssories'),
+(5, 'Bathroom Accessories'),
+(6, 'Furniture Compliments'),
+(7, 'Dining Room Accessories'),
+(8, 'Furniture and Home Accessories');
 
 -- --------------------------------------------------------
 
@@ -177,27 +173,9 @@ CREATE TABLE `productfinish` (
 --
 
 INSERT INTO `productfinish` (`pf_id`, `pf_name`) VALUES
-(1, 'Glossy'),
-(2, 'Matte');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `productgroup`
---
-
-CREATE TABLE `productgroup` (
-  `pg_id` int(11) NOT NULL,
-  `pg_name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `productgroup`
---
-
-INSERT INTO `productgroup` (`pg_id`, `pg_name`) VALUES
-(1, 'Bowl'),
-(2, 'Furnitures');
+(1, 'Semi Gloss'),
+(2, 'High Gloss'),
+(3, 'Diamond');
 
 -- --------------------------------------------------------
 
@@ -235,7 +213,9 @@ ALTER TABLE `employee`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`prod_id`);
+  ADD PRIMARY KEY (`prod_id`),
+  ADD KEY `pf_name` (`pf_name`),
+  ADD KEY `pc_name` (`pc_name`);
 
 --
 -- Indexes for table `productcategory`
@@ -248,12 +228,6 @@ ALTER TABLE `productcategory`
 --
 ALTER TABLE `productfinish`
   ADD PRIMARY KEY (`pf_id`);
-
---
--- Indexes for table `productgroup`
---
-ALTER TABLE `productgroup`
-  ADD PRIMARY KEY (`pg_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -278,22 +252,28 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `productfinish`
 --
 ALTER TABLE `productfinish`
-  MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `productgroup`
+-- Constraints for dumped tables
 --
-ALTER TABLE `productgroup`
-  MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`pf_name`) REFERENCES `productfinish` (`pf_id`),
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`pc_name`) REFERENCES `productcategory` (`pc_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

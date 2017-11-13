@@ -20,10 +20,20 @@
               <h1>New Product</h1>
             </div>
             <div class="card-block">
-              <form action="../php/addprod.php" enctype="multipart/form-data" method="post">
-                <div class="row justify-content-center">
+              <form action="../php/addprod.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+                <div class="row">
                   <div class="col-6">
                     <div class="control-group">
+                      <label for="prod_code">Product Code</label>
+                      <div class="controls">
+                        <input type="text" name="prod_code" id="prod_code" placeholder="Product Code" class="form-control" required="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-6">
+                    <div class="control-gr  oup">
                       <label class="control-label" for="prod_name">
                         Product Name
                       </label>
@@ -38,8 +48,9 @@
                       <div class="controls">
                         <select id="pf_name" name="pf_name"  class="form-control" required="">
                           <option></option>
-                          <option >Glossy</option>
-                          <option>Matte</option>
+                          <option >Semi Gloss</option>
+                          <option>High Gloss</option>
+                          <option>Diamond</option>
                         </select>
                     </div>
                     </div>
@@ -61,14 +72,17 @@
                           <select class="form-control" name="pc_name" id="pc_name">
                             <option></option>
                             <option>Light Furnitures</option>
-                            <option>Gifts and Housewares</option>
-                            <option>Luminaries</option>
+                            <option>Office Accesssories</option>
+                            <option>Bathroom Accessories</option>
+                            <option>Furniture Compliments</option>
+                            <option>Dining Room Accessories</option>
+                            <option>Furniture and Home Accessories</option>
                           </select>
                         </div>
                     </div>
                   </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-start">
                   <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="prod_desc">Description</label>
@@ -76,61 +90,91 @@
                     </div>
                   </div>
                   <div class="col-6">
-                      <div>
-                        <div class="row justify-content-end">
-                          <div class="col-12">
-                            <div class="control-group">
-                              <label for="prod_image" class="control-label">Upload Image</label>
-                              <div class="controls">
-                                <input type="hidden" name="size" value="1000000">
-                                <input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" onchange="readURL(this);">
-                                  <br>
-                                  <div class="row justify-content-center">
-                                    <img id="blah" src="#" alt="" />
-                                  </div>
+                    <div class="row justify-content-start">
+                      <div class="col-12">
+                        <div class="control-group">
+                          <label for="prod_image" class="control-label">Upload Image</label>
+                          <div class="controls">
+                            <input type="hidden" name="size" value="1000000">
+                            <input type="file" id="prod_image" name="prod_image" accept="image/gif, image/jpeg, image/png, image/jpg" onchange="readURL(this);">
+                              <br>
+                              <div class="row justify-content-center">
+                                <img id="blah" src="#" alt="" />
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <label>Dimension:</label>
-                    </div>
-                  </div>
-                  <div class="row justify-content-start">
-                    <div class="col-6">
-                      <div class="row justify-content-center">
-                        <div class="col-4">
-                          <div class="control-group">
-                            <label for="" class="control-label">Length</label>
-                            <div class="controls">
-                              <input type="number" step="0.1" class="form-control" name="prod_length" required>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="control-group">
-                            <label for="" class="control-label">Width</label>
-                            <div class="controls">
-                              <input type="number" step="0.01" class="form-control" name="prod_width" required>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="control-group">
-                            <label for="" class="control-label">Height</label>
-                            <div class="controls">
-                              <input type="number" step="0.01" class="form-control" name="prod_height" required>
-                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              <div class="row">
+                <div class="col">
+                  <label>Dimension:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="radio1">
+                    <input type="radio" name="test" id="lwh" value="radio1" checked="" onclick="btnCheck()" />
+                  </label> 
+                </div>
+                <div class="col">
+                  <label for="radio2">
+                    <input type="radio" name="test" value="radio2" onclick="btnCheck2()">
+                  </label>
+                </div>
+              </div>
+              <div class="row justify-content-start">
+                <div class="col-6">
+                  <div class="row justify-content-center">
+                    <div class="col-4">
+                      <div class="control-group">
+                        <label for="prod_length" class="control-label">Length</label>
+                        <div class="controls">
+                          <input type="number" step="0.1" class="form-control" name="prod_length" id="prod_length" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="control-group">
+                        <label for="prod_width" class="control-label">Width</label>
+                        <div class="controls">
+                          <input type="number" step="0.1" class="form-control" name="prod_width" id="prod_width" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="control-group">
+                        <label for="prod_height" class="control-label">Height</label>
+                        <div class="controls">
+                          <input type="number" step="0.1" class="form-control" name="prod_height" id="prod_height" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row justify-content-center">
+                    <div class="col-4">
+                      <div class="control-group">
+                        <label for="prod_diameter">Diameter</label>
+                        <div class="controls">
+                          <input type="number" name="prod_diameter" id="prod_diameter" step="0.1" class="form-control" disabled="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="control-group">
+                        <label for="prod_height2">Height</label>
+                        <div class="controls">
+                          <input type="number" name="prod_height2" id="prod_height2" step="0.1" class="form-control" disabled="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              </div>
                 <div class="footer">
                   <div class="form-actions text-center forms">
                     <button type="submit" class="btn btn-success">Submit</button>
@@ -147,20 +191,37 @@
     <!-- Javascript files-->
     <?php include('js.php'); ?>
     <script type="text/javascript">
+      // readURL for uploading product images
       function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
                 $('#blah')
                     .attr('src', e.target.result)
                     .width(100)
                     .height(100);
             };
-
             reader.readAsDataURL(input.files[0]);
         }
-    }
+      }
+      
+      //enable diamension by length, width and height
+      function btnCheck2(){
+        document.getElementById('prod_length').disabled = true;
+        document.getElementById('prod_width').disabled = true;
+        document.getElementById('prod_height').disabled = true;
+        document.getElementById('prod_diameter').disabled = false;
+        document.getElementById('prod_height2').disabled = false;
+      }
+
+      // enable dimension by diameter, height
+      function btnCheck(){
+        document.getElementById('prod_length').disabled = false;
+        document.getElementById('prod_width').disabled = false;
+        document.getElementById('prod_height').disabled = false;
+        document.getElementById('prod_diameter').disabled = true;
+        document.getElementById('prod_height2').disabled = true;
+      }
   </script>
   </body>
 </html>

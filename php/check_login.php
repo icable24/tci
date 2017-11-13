@@ -8,7 +8,7 @@ session_start();
     $pass=$_POST['password'];
     $pdo = Database::connect();
     $query = $pdo->prepare("SELECT * FROM account WHERE 
-                         user_name='$user' and user_pass='$pass'");
+                         acc_email='$user' and acc_password ='$pass'");
     $query->execute();
     $count = $query->fetch(PDO::FETCH_ASSOC);
     if($count!="")

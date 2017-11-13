@@ -7,22 +7,19 @@
 <?php 
   $user_name = $_SESSION['login_username'];
   $pdo = Database::connect();
-  $name = $pdo->prepare("SELECT * FROM account WHERE user_name like '$user_name'");
+  $name = $pdo->prepare("SELECT * FROM account WHERE acc_email like '$user_name'");
   $name->execute();
   $name = $name->fetch(PDO::FETCH_ASSOC); 
 ?>
 <nav class="side-navbar">
   <div class="side-navbar-wrapper">
     <div class="sidenav-header d-flex align-items-center justify-content-center">
-      <div class="sidenav-header-inner text-center"><img src="<?php echo "img/" . $name['fname'] . ".jpg" ?>"" alt="person" class="img-fluid rounded-circle">
+      <div class="sidenav-header-inner text-center"><img src="<?php echo "img/" . $name['acc_name'] . ".jpg" ?>"" alt="person" class="img-fluid rounded-circle">
         <h2 class="h5 text-uppercase">
           <?php
-            echo $name['fname'] . ' ' . substr($name['mname'],0,1) . '. ' .$name['lname'];
+            echo $name['acc_name'];
           ?>  
         </h2><span class="text-uppercase">
-          <?php
-            echo $name['work_type'];
-          ?>
         </span>
       </div>
       <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"><strong class="text-primary">TCI</strong></a></div>
