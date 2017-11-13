@@ -1,4 +1,8 @@
-
+<style type="text/css">
+	.modal-content{
+		background-color: #fcf8e3;
+	}
+</style>
 <!DOCTYPE html>
 <html>
 <?php include('head.php'); ?>
@@ -151,5 +155,24 @@
 <!--footer-->
   <?php include('footer.php'); ?>
 </body>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: #fcf8e3;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="color: #8a6d3b;">Warning!</h4>
+      </div>
+      <div class="modal-body">
+        <p style="color: #8a6d3b;">Please Login first </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </html>
 			

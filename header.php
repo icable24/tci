@@ -2,11 +2,17 @@
 <!--header-->
 <div class="header" style="background-color: #999999">
            <p style="margin-right: 0.70in">
+                <?php session_start();
+                if(!isset($_SESSION['login_username'])){ ?>
                     <a style="text-decoration: none; color: white" class="pull-right" href="signup.php">Signup</a> 
                     &nbsp;&nbsp; 
-                    <a style="text-decoration: none" class="pull-right">|</a> 
+                    <a style="text-decoration: none;" class="pull-right">|</a> 
                     &nbsp;&nbsp;
                     <a style="text-decoration: none; color: white" class="pull-right" href="login.php">Login</a>
+                <?php }else{ ?>
+                    <a style="text-decoration: none; color: white" class="pull-right" href="php/logout.php">Logout</a> 
+                    &nbsp;&nbsp;
+                <?php } ?>
                    <!-- &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
                     <a href="#"><i class="facebok pull-right" style="align-items: center;"> </i></a>
                     &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
@@ -14,9 +20,8 @@
                     &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
                     <a href="#"><i class="inst pull-right"> </i></a>
                     &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
-                    <a href="#"><i class="goog pull-right"> </i></a>-->
-                    
-                </p>
+                    <a href="#"><i class="goog pull-right"> </i></a>-->        
+            </p>
         </div>
 <div class="header">
     <div class="header-top">
@@ -50,9 +55,15 @@
                         </script>
                     <!-- //search-scripts -->
 
-                <div class="ca-r">
+                <div class="ca-r"   >
                     <div class="cart box_1">
-                        <a href="checkout.php">
+                        <?php if(isset($_SESSION['login_username'])){
+                                echo '<a href="checkout.php">';
+                            }
+                            else{
+                                echo '<a href="#" data-toggle="modal" data-target="#myModal">';
+                            }
+                         ?>
                         <h3> <div class="total">
                             <span class="simpleCart_total"></span> </div>
                             <img src="images/cart.png" alt=""/></h3>

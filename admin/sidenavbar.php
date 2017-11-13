@@ -46,7 +46,7 @@
           <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Account</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="account-nav-list" class="collapse list-unstyled">
               <li><a href="#">Profile</a></li>
-              <li><a href="../index.php">Logout</a></li>
+              <li><a href="../php/logout.php">Logout</a></li>
             </ul>
           </li>
         </ul>

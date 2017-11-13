@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2017 at 08:33 AM
+-- Generation Time: Nov 13, 2017 at 05:12 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -29,78 +29,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `account` (
-  `user_id` int(11) NOT NULL,
-  `user_name` varchar(20) NOT NULL,
-  `user_pass` varchar(20) NOT NULL,
-  `user_type` varchar(20) NOT NULL,
-  `fname` varchar(20) NOT NULL,
-  `mname` varchar(20) NOT NULL,
-  `lname` varchar(20) NOT NULL,
-  `work_type` varchar(20) NOT NULL
+  `acc_id` int(11) NOT NULL,
+  `acc_name` varchar(50) NOT NULL,
+  `acc_email` varchar(30) NOT NULL,
+  `acc_password` varchar(30) NOT NULL,
+  `acc_sex` varchar(6) NOT NULL,
+  `acc_contact` varchar(11) NOT NULL,
+  `user_type` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`user_id`, `user_name`, `user_pass`, `user_type`, `fname`, `mname`, `lname`, `work_type`) VALUES
-(1, 'admin', 'admin', 'admin', 'Alvin', 'Apellido', 'Talite', 'Sales Representative'),
-(3, 'customer', 'customer', 'customer', '', '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer`
---
-
-CREATE TABLE `customer` (
-  `cust_id` int(11) NOT NULL,
-  `cust_name` varchar(50) NOT NULL,
-  `cust_email` varchar(30) NOT NULL,
-  `cust_address` varchar(50) NOT NULL,
-  `cust_password` varchar(15) NOT NULL,
-  `cust_conpassword` varchar(15) NOT NULL,
-  `cust_contactnumber` varchar(13) NOT NULL,
-  `buy_agent` varchar(50) NOT NULL,
-  `cust_gender` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`cust_id`, `cust_name`, `cust_email`, `cust_address`, `cust_password`, `cust_conpassword`, `cust_contactnumber`, `buy_agent`, `cust_gender`) VALUES
-(1, 'sdfsdfsdfsf', '', 'dasdasdsad', '12312312312312', '132312312312', 'adasdsadasd', 'adasdsadad', ''),
-(2, 'dddd', '', 'dadsadsad', 'ddd', '3123123', '12312312', 'dasdadada', ''),
-(3, 'dsfsdfsfsdf', 'asdasdasd', 'fsdfsdfsd', '3123123123', 'sdasdasd', 'adasdsad', '312312312312', 'male'),
-(4, 'asdadsadadasd', 'ssadsdadasd', 'asdasdasdas', 'asddsad', 'adadas', 'dasdasda', 'asdasda', 'male'),
-(5, 'bintot', '@gmail.com', 'binbin', 'asdasdasdas', 'asdasdsadsad', 'dasdadasd', 'adasda', 'male');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employee`
---
-
-CREATE TABLE `employee` (
-  `emp_id` int(11) NOT NULL,
-  `emp_name` varchar(50) NOT NULL,
-  `emp_address` varchar(50) NOT NULL,
-  `emp_position` varchar(25) NOT NULL,
-  `emp_password` varchar(12) NOT NULL,
-  `emp_conpassword` varchar(12) NOT NULL,
-  `emp_email` varchar(50) NOT NULL,
-  `emp_gender` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `employee`
---
-
-INSERT INTO `employee` (`emp_id`, `emp_name`, `emp_address`, `emp_position`, `emp_password`, `emp_conpassword`, `emp_email`, `emp_gender`) VALUES
-(1, 'binbin', 'dddddddddd', 'dd', 'ddd', 'ddd', 'ddd', 'male'),
-(2, 'adasda', 'dasdasd', 'dasa', 'adad', 'asdad', 'asdas', 'female'),
-(3, 'adasda', 'dasdasd', 'dasa', 'dasd', 'dasd', 'asdas', 'female');
+INSERT INTO `account` (`acc_id`, `acc_name`, `acc_email`, `acc_password`, `acc_sex`, `acc_contact`, `user_type`) VALUES
+(1, 'Alvin A. Talite', 'alvin@tci.com', 'admin', 'Male', '09123456789', 'admin'),
+(2, 'John S. D', 'jdoe@tci.com', 'customer', 'Male', '09234567890', 'customer'),
+(3, 'Jayson', 'jayson@tci.com', 'customer', 'male', '09341234567', 'customer'),
+(4, 'Jayson', 'jayson@tci.com', 'admin', 'male', '09341234567', 'customer');
 
 -- --------------------------------------------------------
 
@@ -115,7 +61,7 @@ CREATE TABLE `product` (
   `pf_name` int(11) NOT NULL,
   `prod_price` decimal(10,0) NOT NULL,
   `pc_name` int(11) NOT NULL,
-  `prod_desc` varchar(100) NOT NULL,
+  `prod_desc` varchar(500) NOT NULL,
   `prod_image` varchar(50) NOT NULL,
   `prod_length` int(11) NOT NULL,
   `prod_width` int(11) NOT NULL,
@@ -130,7 +76,8 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `pf_name`, `prod_price`, `pc_name`, `prod_desc`, `prod_image`, `prod_length`, `prod_width`, `prod_height`, `prod_diameter`, `prod_height2`) VALUES
 (2, 'NTF04-WD-001', 'Wall Decor - Antharium', 1, '500', 8, 'Wicker Vine', 'Wall Decor - Antharium.PNG', 100, 100, 8, 0, 0),
-(3, 'NTF04-HF-085', 'Milky Vase - White and Grey Pottery', 1, '500', 1, 'Charcoal(Grey), Ricehull(White)', 'Capture.PNG', 0, 0, 0, 21, 25);
+(3, 'NTF04-HF-085', 'Milky Vase - White and Grey Pottery', 3, '200', 1, 'Charcoal(Grey), Ricehull(White)', '', 0, 0, 0, 21, 25),
+(4, 'NTF04-WD-002', 'Wall Decor - Zebra', 3, '500', 1, 'Capiz Gold White, Charcoal', '', 100, 100, 8, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -180,11 +127,22 @@ INSERT INTO `productfinish` (`pf_id`, `pf_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sample`
+-- Table structure for table `productgroup`
 --
 
-CREATE TABLE `sample` (
-  `sample_A` varchar(50) NOT NULL
+CREATE TABLE `productgroup` (
+  `pg_id` int(11) NOT NULL,
+  `pg_name` varchar(30) NOT NULL,
+  `prod_1` int(11) NOT NULL,
+  `prod_2` int(11) NOT NULL,
+  `prod_3` int(11) NOT NULL,
+  `prod_4` int(11) NOT NULL,
+  `prod_5` int(11) NOT NULL,
+  `prod_6` int(11) NOT NULL,
+  `prod_7` int(11) NOT NULL,
+  `prod_8` int(11) NOT NULL,
+  `prod_9` int(11) NOT NULL,
+  `prod_10` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -195,19 +153,7 @@ CREATE TABLE `sample` (
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`cust_id`);
-
---
--- Indexes for table `employee`
---
-ALTER TABLE `employee`
-  ADD PRIMARY KEY (`emp_id`);
+  ADD PRIMARY KEY (`acc_id`);
 
 --
 -- Indexes for table `product`
@@ -230,6 +176,12 @@ ALTER TABLE `productfinish`
   ADD PRIMARY KEY (`pf_id`);
 
 --
+-- Indexes for table `productgroup`
+--
+ALTER TABLE `productgroup`
+  ADD PRIMARY KEY (`pg_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -237,22 +189,12 @@ ALTER TABLE `productfinish`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `customer`
---
-ALTER TABLE `customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `employee`
---
-ALTER TABLE `employee`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
@@ -263,6 +205,11 @@ ALTER TABLE `productcategory`
 --
 ALTER TABLE `productfinish`
   MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `productgroup`
+--
+ALTER TABLE `productgroup`
+  MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
