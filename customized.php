@@ -34,49 +34,46 @@ body {
 <body>
 <!--header-->
 <?php include('header.php'); ?>
-	<!-- grow -->
-	<div class="grow">
-		<div class="container">
-			<h2 style="font-family: verdana">Place Order</h2>
-		</div>
-	</div>
-	<!-- grow -->
+  <!-- grow -->
+  <div class="grow">
+    <div class="container">
+      <h2 style="font-family: verdana">Place Order</h2>
+    </div>
+  </div>
+  <!-- grow -->
 <!--content-->
-			
+      
   
   <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Product Summary</h3>
   <div class="container-fluid" style="width: 12.5in;">
         <div class="col-lg-12">
           <div class="panel panel-default">
-            <div class="panel-body" style="overflow-y: auto; max-height: 5in">
+            <div class="panel-heading">
+              <span></span>
+              <br>
+            </div>
+            <div class="panel-body">
               <form action="setaddress.php" enctype="multipart/form-data" method="post">
                 <div class="row">
-                  <div class="column">
-                    <span>1</span>
+                    <div class="column simpleCart_shelfItem">
+            <div class="product-at ">
+              <a href="single.php"><img class="img-responsive" src="images/pi3.jpg" alt="">
+              <div class="pro-grid">
+                    <span class="buy-in">Buy Now</span>
+              </div>
+            </a>  
+            </div>
+            <p class="tun">CLARISSA</p>
+            <div class="ca-rt">
+              <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
+            </div>
+          </div>
                   </div>
                   <div class="column">
                     <span>2</span>
                   </div>
                   <div class="column">
                     <span>3</span>
-                  </div>
-                  <div class="column">
-                    <span>4</span>
-                  </div>
-                  <div class="column">
-                    <span>5</span>
-                  </div>
-                  <div class="column">
-                    <span>6</span>
-                  </div>
-                  <div class="column">
-                    <span>7</span>
-                  </div>
-                  <div class="column">
-                    <span>8</span>
-                  </div>
-                  <div class="column">
-                    <span>9</span>
                   </div>
                 </div>
               </div>
@@ -88,7 +85,7 @@ body {
       </div>
     </div>
 
-		<br>
+    <br>
     <br>
 <!--//content-->
 <!--
@@ -115,4 +112,4 @@ function showDivs(n) {
 <?php include('footer.php'); ?>
 </body>
 </html>
-			
+      

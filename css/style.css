@@ -150,7 +150,8 @@ a.item_add {
 	color: #ffffff;
 }
 .sb-search-input::-moz-placeholder {
-	color: #efb480;
+	color: gray;
+	font-weight: bold;
 }
 .sb-search-input:-ms-input-placeholder {
 	color: #ffffff;
