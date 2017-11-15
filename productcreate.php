@@ -140,8 +140,8 @@
 									<div class="control-group">
 										<label for="prod_image" class="control-label">Upload Image</label>
 										<div class="controls">
-											<input type="hidden" name="size" value="1000000">
-											<input type="file" name="image" accept="image/gif, image/jpeg, image/png, image/jpg" onchange="readURL(this);">
+											<input type="hidden" name="size" value="1000000" >
+											<input type="file" name="image" id="image" accept="image/gif, image/jpeg, image/png, image/jpg" onchange="readURL(this);">
     										<img id="blah" src="#" alt="" />
 										</div>
 									</div>

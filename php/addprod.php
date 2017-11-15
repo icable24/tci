@@ -11,7 +11,9 @@
 	$pc_name = $_POST['pc_name'];
 	$prod_desc = $_POST['prod_desc'];
 	$prod_image = $_FILES['prod_image']['name'];
-	$destination = "../prod_img/".basename($_FILES['prod_image']['name']);
+	$target_dir = "../prod_img/";
+	$target_file = $target_dir . basename($_FILES['prod_image']['name']);
+	$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 	$prod_length = "";
 	$prod_width = "";
 	$prod_height = "";
@@ -44,11 +46,11 @@
 
 	//execute sql statement to store into database
 	$query->execute(array($prod_code, $prod_name, $pf['pf_id'], $prod_price, $pc['pc_id'], $prod_desc, $prod_image, $prod_length, $prod_width, $prod_height, $prod_diameter, $prod_height2));	
-	// if(move_uploaded_file($_FILES['prod_image']['name'], $destination)){
-	// 	echo "File Uploaded";
-	// }else{
-	// 	echo "Not Uploaded";
-	// }
+	if(move_uploaded_file($_FILES['prod_image']['tmp_name'], $target_file)){
+		echo "File Uploaded";
+	}else{
+		echo "Not Uploaded";
+	}
 
 	header('Location: ../admin/productlist.php');
 	?>

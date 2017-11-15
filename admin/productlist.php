@@ -27,6 +27,7 @@
             <thead>
               <tr class="alert-success">
                 <th>Product ID</th>
+                <th>Product Image</th>
                 <th>Product Name</th>
                 <th>Category</th>
                 <th>Price</th>
@@ -49,6 +50,7 @@
                   $pc = $query->fetch(PDO::FETCH_ASSOC);  
                   echo '<tr>';
                     echo '<td>'.$row['prod_code'] . '</td>';
+                    echo '<td>'. '<img src="../prod_img/'. $row['prod_image'] . '" alt="Product Image" style="width:100px;height:100px;"/>' . '</td>';
                     echo '<td>'.$row['prod_name']. '</td>';
                     echo '<td>'.$pc['pc_name'].'</td>';
                     echo '<td>'.' Php '.$row['prod_price'].'</td>';

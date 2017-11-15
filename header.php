@@ -85,9 +85,9 @@
                 <br>
           <div class=" h_menu4">
                 <ul class="memenu skyblue" style="font-family: verdana; font-weight: regular">
-                      <li><a class="color1" href="index.php">Home</a>
-                      <li><a class="color1" href="#">Products</a>
-                        <div class="mepanel">
+                    <li><a class="color1" href="index.php">Home</a>
+                    <li><a class="color1" href="#">Products</a>
+                    <div class="mepanel">
                         <div class="row">
                             <div class="*">
                                 <div class="h_nav">
@@ -101,6 +101,8 @@
                                     </ul>   
                                 </div>                          
                             </div>
+                        </div>
+                    </div>
                 <li><a class="color6" href="contact.php">Contact Us</a></li>
               </ul> 
             </div>

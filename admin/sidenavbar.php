@@ -41,7 +41,7 @@
           </ul>
         </li>
       <li> <a href="#"> <i class="icon-interface-windows"> </i><span>Purchase Order</span></a></li>
-      <div class="admin-menu">
+      <!-- <div class="admin-menu">
         <ul id="side-admin-menu" class="side-menu list-unstyled">
           <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Account</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="account-nav-list" class="collapse list-unstyled">
@@ -50,7 +50,8 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div> -->
+      <li><a href="#"><i class="icon-user"></i><span>Customer Accounts</span></a></li>
       </ul>
     </div>
   </div>
