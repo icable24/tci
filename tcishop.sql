@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2017 at 05:12 AM
+-- Generation Time: Nov 16, 2017 at 04:27 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -59,7 +59,7 @@ CREATE TABLE `product` (
   `prod_code` varchar(20) NOT NULL,
   `prod_name` varchar(50) NOT NULL,
   `pf_name` int(11) NOT NULL,
-  `prod_price` decimal(10,0) NOT NULL,
+  `prod_price` decimal(11,2) NOT NULL,
   `pc_name` int(11) NOT NULL,
   `prod_desc` varchar(500) NOT NULL,
   `prod_image` varchar(50) NOT NULL,
@@ -75,9 +75,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `pf_name`, `prod_price`, `pc_name`, `prod_desc`, `prod_image`, `prod_length`, `prod_width`, `prod_height`, `prod_diameter`, `prod_height2`) VALUES
-(2, 'NTF04-WD-001', 'Wall Decor - Antharium', 1, '500', 8, 'Wicker Vine', 'Wall Decor - Antharium.PNG', 100, 100, 8, 0, 0),
-(3, 'NTF04-HF-085', 'Milky Vase - White and Grey Pottery', 3, '200', 1, 'Charcoal(Grey), Ricehull(White)', '', 0, 0, 0, 21, 25),
-(4, 'NTF04-WD-002', 'Wall Decor - Zebra', 3, '500', 1, 'Capiz Gold White, Charcoal', '', 100, 100, 8, 0, 0);
+(8, 'NTF04-WD-001', 'Wall Decor - Antharium', 1, '500.00', 1, 'Wicker Vine, Wing Oyster Shell', 'Wall Decor - Antharium.PNG', 100, 100, 8, 0, 0),
+(9, 'NTF04-WD-002', 'Wall Decor - Zebra', 1, '500.00', 1, 'Capiz Gold White, Charcoal', 'Wall Decor - Zebra.png.PNG', 100, 100, 8, 0, 0),
+(10, 'NTF04-WD-003', 'Wall Decor - Eclipse', 1, '500.00', 1, 'Capiz Gold Shell, Charcoal', 'Wall Decor - Zebra.png', 100, 100, 8, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -97,12 +97,10 @@ CREATE TABLE `productcategory` (
 INSERT INTO `productcategory` (`pc_id`, `pc_name`) VALUES
 (1, 'Light Furnitures'),
 (2, 'Office Accessories'),
-(3, 'Light Furnitures'),
-(4, 'Office Accesssories'),
-(5, 'Bathroom Accessories'),
-(6, 'Furniture Compliments'),
-(7, 'Dining Room Accessories'),
-(8, 'Furniture and Home Accessories');
+(3, 'Bathroom Accessories'),
+(4, 'Furniture Compliments'),
+(5, 'Dining Room Accessories'),
+(6, 'Furniture and Home Accessories');
 
 -- --------------------------------------------------------
 
@@ -194,12 +192,12 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `productfinish`
 --

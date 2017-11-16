@@ -35,7 +35,7 @@ body {
 <!--header-->
 <?php include('header.php'); ?>
   <!-- grow -->
-  <div class="grow">
+  <div class="alert alert-success">
     <div class="container">
       <h2 style="font-family: verdana">Light Furnitures</h2>
     </div>
@@ -48,34 +48,35 @@ body {
           <div class="panel panel-default">
             <div class="panel-body">
                 <div class="row">
+
                     <div class="column simpleCart_shelfItem">
-                    <div class="product-at ">
-                    <a href="single.php"><img class="img-responsive" src="images/pi3.jpg" alt="">
-                    <div class="pro-grid">
-                    <span class="buy-in">Buy Now</span>
-                    </div>
-                    </a>  
-                    </div>
-                    <p class="tun">CLARISSA</p>
-                    <div class="ca-rt">
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
-                    </div>
-                    </div>
-                  
-                    <div class="column simpleCart_shelfItem">
-                    <div class="product-at ">
-                    <a href="single.php"><img class="img-responsive" src="images/pi1.jpg" alt="">
-                    <div class="pro-grid">
-                    <span class="buy-in">Buy Now</span>
-                    </div>
-                    </a>  
-                    </div>
-                    <p class="tun">CLARISS</p>
-                    <div class="ca-rt">
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
-                    </div>         
+                        <div class="product-at ">
+                            <a href="single.php"><img class="img-responsive" src="images/pi3.jpg" alt="">
+                                <div class="pro-grid">
+                                    <span class="buy-in">Buy Now</span>
+                                </div>
+                            </a>  
+                        </div>
+                        <p class="tun">CLARISSA</p>
+                        <div class="ca-rt">
+                            <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
+                        </div>
                     </div>
 
+                    <div class="column simpleCart_shelfItem">
+                        <div class="product-at ">
+                            <a href="single.php">
+                                <img class="img-responsive" src="images/pi1.jpg" alt="">
+                                <div class="pro-grid">
+                                    <span class="buy-in">Buy Now</span>
+                                </div>
+                            </a>  
+                        </div>
+                        <p class="tun">CLARISS</p>
+                        <div class="ca-rt">
+                            <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
+                        </div>         
+                    </div>
                     <div class="column simpleCart_shelfItem">
                     <div class="product-at ">
                     <a href="single.php"><img class="img-responsive" src="images/pi5.jpg" alt="">
@@ -88,20 +89,6 @@ body {
                     <div class="ca-rt">
                     <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
                     </div>  
-                    </div>
-
-                    <div class="column simpleCart_shelfItem" style="margin-top: 2in; margin-bottom: 1in">
-                    <div class="product-at ">
-                    <a href="single.php"><img class="img-responsive" src="images/pi.jpg" alt="">
-                    <div class="pro-grid">
-                    <span class="buy-in">Buy Now</span>
-                    </div>
-                    </a>  
-                    </div>
-                    <p class="tun">CLARISSA</p>
-                    <div class="ca-rt">
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
-                    </div>          
                     </div>
 
                 </div>
@@ -137,7 +124,6 @@ function showDivs(n) {
 }
 </script> -->
 <!--footer-->
-<?php include('footer.php'); ?>
 </body>
 </html>
       

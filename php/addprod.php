@@ -52,5 +52,5 @@
 		echo "Not Uploaded";
 	}
 
-	header('Location: ../admin/productlist.php');
+	ed
 	?>

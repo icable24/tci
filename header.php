@@ -92,12 +92,12 @@
                             <div class="*">
                                 <div class="h_nav">
                                     <ul>
-                                    <li><a href="LF.php">Light Furnitures</a></li>
-                                    <li><a href="OA.php">Office Accessories</a></li>
-                                    <li><a href="BA.php">Bathroom Accessories</a></li>
-                                    <li><a href="FC.php">Furniture Compliments</a></li>
-                                    <li><a href="DRA.php">Dining Room Accessories</a></li>
-                                    <li><a href="FAHA.php">Furniture and Home Accessories</a></li>
+                                    <li><a href="productcatalog.php?id=1">Light Furnitures</a></li>
+                                    <li><a href="productcatalog.php?id=2">Office Accessories</a></li>
+                                    <li><a href="productcatalog.php?id=3">Bathroom Accessories</a></li>
+                                    <li><a href="productcatalog.php?id=4">Furniture Compliments</a></li>
+                                    <li><a href="productcatalog.php?id=5">Dining Room Accessories</a></li>
+                                    <li><a href="productcatalog.php?id=6">Furniture and Home Accessories</a></li>
                                     </ul>   
                                 </div>                          
                             </div>
@@ -111,3 +111,8 @@
         </div>
         </div>
         </header>
+        <script type="text/javascript">
+            $('#myModal').on('shown.bs.modal', function () {
+              $('#myInput').focus()
+            })
+        </script>
