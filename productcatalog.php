@@ -69,7 +69,7 @@ body {
 							foreach($product as $row){
 								echo '<div class="column simpleCart_shelfItem">';
 									echo '<div class="product-at ">';
-										echo '<a href="#">';
+										echo '<a href="productdetails.php">';
 											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
 											echo '<div class="pro-grid">';
 												echo '<span class="buy-in">Buy Now</span>';

@@ -27,7 +27,7 @@
                 		</div>
                     	<form action="php/cust_signup.php?user_type=customer" method="post">
                             <?php $_POST['user_type'] = "customer"?>
-                    		<label class="control-label" for="acc_ame">Name:</label>
+                    		<label class="control-label" for="acc_name">Name:</label>
                     		<div class="control-group">
                     			<input class="form-control" type="text" required="" id="acc_name" name="acc_name" placeholder="Name" focus=""/>
                     		</div>
@@ -49,7 +49,7 @@
 
                             <label class="control-label">Sex:</label><br>
                             <input type="radio" name="acc_sex" value="male">Male</input>&nbsp&nbsp&nbsp
-                            <input type="radio" name="acc_sex" value="female">female
+                            <input type="radio" name="acc_sex" value="female">Female
                             <br>
 
                             <label class="control-label">Contact Number</label>

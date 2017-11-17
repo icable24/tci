@@ -1,3 +1,16 @@
+<?php
+include 'login_success.php';
+  require 'database.php';
+
+ $acc_email = $_SESSION['login_username'];
+  $pdo = Database:: connect();
+  $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $cust = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+        $cust->execute(array($acc_email));
+  $cust = $cust->fetch(PDO:: FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include('head.php'); ?>
@@ -50,18 +63,11 @@ body {
               <form action="payment.php" enctype="multipart/form-data" method="post">
                 <div class="row">
                   <div class="column">
-                   <label class="control-label" for="prod_name">
-                        First Name
+                   <label class="control-label" for="setaddress">
+                        Name
                       </label>
                       <div class="controls">
-                        <input id="prod_name" name="prod_name" type="text" class="form-control" required="">               
-                      </div>
-                      <br>
-                      <label class="control-label" for="prod_name">
-                        Last Name
-                      </label>
-                      <div class="controls">
-                        <input id="prod_name" name="prod_name" type="text" class="form-control" required="">               
+                        <input value="<?php echo $cust['acc_name']?>" disabled  type="text" class="form-control" required="">               
                       </div>
                       <br>
                       <label class="control-label" for="prod_name">
@@ -82,19 +88,12 @@ body {
                         Tel. No. / Mobile No.
                       </label>
                       <div class="controls">
-                        <input id="prod_name" name="prod_name" type="text" class="form-control" required="">               
+                        <input id="acc_contact" name="acc_contact" value="<?php echo $cust['acc_contact']?>" type="text" class="form-control" required="" disabled>               
                       </div>
                   </div>
                   <div class="column">
                     <label class="control-label" for="prod_name">
-                        City
-                      </label>
-                      <div class="controls">
-                        <input id="prod_name" name="prod_name" type="text" class="form-control" required="">               
-                      </div>
-                      <br>
-                      <label class="control-label" for="prod_name">
-                        State
+                        City/State
                       </label>
                       <div class="controls">
                         <input id="prod_name" name="prod_name" type="text" class="form-control" required="">               
