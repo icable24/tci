@@ -93,11 +93,10 @@
                                 <div class="h_nav">
                                     <ul>
                                     <li><a href="productcatalog.php?id=1">Light Furnitures</a></li>
-                                    <li><a href="productcatalog.php?id=2">Office Accessories</a></li>
-                                    <li><a href="productcatalog.php?id=3">Bathroom Accessories</a></li>
-                                    <li><a href="productcatalog.php?id=4">Furniture Compliments</a></li>
-                                    <li><a href="productcatalog.php?id=5">Dining Room Accessories</a></li>
-                                    <li><a href="productcatalog.php?id=6">Furniture and Home Accessories</a></li>
+                                    <li><a href="productcatalog.php?id=2">Accessories</a></li>
+                                    <li><a href="productcatalog.php?id=3">Wall Decor</a></li>
+                                    <li><a href="productcatalog.php?id=4">Luminaries</a></li>
+                                    <li><a href="productcatalog.php?id=5">Home Furnitures</a></li>
                                     </ul>   
                                 </div>                          
                             </div>

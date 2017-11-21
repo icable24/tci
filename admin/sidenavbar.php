@@ -51,7 +51,7 @@
           </li>
         </ul>
       </div> -->
-      <li><a href="#"><i class="icon-user"></i><span>Customer Accounts</span></a></li>
+      <li><a href="customerlist.php"><i class="icon-user"></i><span>Customer Accounts</span></a></li>
       </ul>
     </div>
   </div>

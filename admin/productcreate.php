@@ -72,11 +72,10 @@
                           <select class="form-control" name="pc_name" id="pc_name">
                             <option></option>
                             <option>Light Furnitures</option>
-                            <option>Office Accesssories</option>
-                            <option>Bathroom Accessories</option>
-                            <option>Furniture Compliments</option>
-                            <option>Dining Room Accessories</option>
-                            <option>Furniture and Home Accessories</option>
+                            <option>Accessories</option>
+                            <option>Wall Decor</option>
+                            <option>Luminaries</option>
+                            <option>Home Furnitures</option>
                           </select>
                         </div>
                     </div>
