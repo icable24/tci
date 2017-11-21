@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2017 at 04:27 AM
+-- Generation Time: Nov 21, 2017 at 06:18 AM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `acc_id` int(11) NOT NULL,
-  `acc_name` varchar(50) NOT NULL,
+  `acc_name` varchar(20) NOT NULL,
   `acc_email` varchar(30) NOT NULL,
   `acc_password` varchar(30) NOT NULL,
   `acc_sex` varchar(6) NOT NULL,
@@ -43,10 +43,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`acc_id`, `acc_name`, `acc_email`, `acc_password`, `acc_sex`, `acc_contact`, `user_type`) VALUES
-(1, 'Alvin A. Talite', 'alvin@tci.com', 'admin', 'Male', '09123456789', 'admin'),
-(2, 'John S. D', 'jdoe@tci.com', 'customer', 'Male', '09234567890', 'customer'),
-(3, 'Jayson', 'jayson@tci.com', 'customer', 'male', '09341234567', 'customer'),
-(4, 'Jayson', 'jayson@tci.com', 'admin', 'male', '09341234567', 'customer');
+(1, 'Alvin', 'alvin@tci.com', 'admin', 'Male', '09123456789', 'admin'),
+(2, 'Jayson', 'jdoe@tci.com', 'customer', 'Male', '09234567890', 'customer');
 
 -- --------------------------------------------------------
 
@@ -75,9 +73,48 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `pf_name`, `prod_price`, `pc_name`, `prod_desc`, `prod_image`, `prod_length`, `prod_width`, `prod_height`, `prod_diameter`, `prod_height2`) VALUES
-(8, 'NTF04-WD-001', 'Wall Decor - Antharium', 1, '500.00', 1, 'Wicker Vine, Wing Oyster Shell', 'Wall Decor - Antharium.PNG', 100, 100, 8, 0, 0),
-(9, 'NTF04-WD-002', 'Wall Decor - Zebra', 1, '500.00', 1, 'Capiz Gold White, Charcoal', 'Wall Decor - Zebra.png.PNG', 100, 100, 8, 0, 0),
-(10, 'NTF04-WD-003', 'Wall Decor - Eclipse', 1, '500.00', 1, 'Capiz Gold Shell, Charcoal', 'Wall Decor - Zebra.png', 100, 100, 8, 0, 0);
+(25, 'OFS201710-WD001', 'Wall Decor - Sun Flower', 3, '22000.00', 3, 'Inlaid with coconut stick and twig', 'OFS201710-WD001.jpg', 0, 0, 0, 1, 1),
+(26, 'OFS201710-WD002', 'Wall Decor - Miracle Flower', 1, '20000.00', 3, 'Inlaid with banana bark and wicker vine', 'OFS201710-WD002.jpg', 0, 0, 0, 1, 1),
+(27, 'OFS201710-LF003', 'Mirror Frame - Plain', 1, '12500.00', 1, 'Capiz Gold and Banana Bark', 'OFS201710-LF003.jpg', 107, 81, 3, 0, 0),
+(28, 'OFS201710-LF004', 'Bar Counter with Iron Leg', 1, '16500.00', 1, 'Hardwood', 'OFS201710-LF004.jpg', 100, 80, 41, 0, 0),
+(29, 'OFS201710-LF005', 'Round Bar Stool with Iron Leg', 1, '8800.00', 1, 'Inlaid with Banana Bark Natural', 'OFS201710-LF005.jpg', 90, 40, 81, 0, 0),
+(30, 'OFS201710-LF006', 'Console Table', 1, '20000.00', 1, 'Capiz Gold and Banana Bark', 'OFS201710-LF006.jpg', 120, 40, 81, 0, 0),
+(31, 'OFS201710-LF007', 'Nesting Table - Small', 1, '5200.00', 1, 'Capiz Gold, Banana Bark', 'OFS201710-LF007.jpg', 43, 37, 48, 0, 0),
+(32, 'OFS201710-LF008', 'Nesting Table - Medium', 1, '6600.00', 1, 'Capiz Gold, Banana Bark', 'OFS201710-LF008.jpg', 55, 40, 55, 0, 0),
+(33, 'OFS201710-LF009', 'Nesting Table - Large', 1, '8000.00', 1, 'Capiz Gold, Banana Bark', 'OFS201710-LF009.jpg', 66, 42, 63, 0, 0),
+(34, 'OFS201710-LF010', 'Round Table - Small', 1, '7000.00', 1, 'Capiz Gold Shell, Sentimento Black', 'OFS201710-LF010.jpg', 0, 0, 0, 51, 52),
+(35, 'OFS201710-LF011', 'Round Table - Large', 1, '8500.00', 1, 'Capiz Gold Shell, Sentimento Black', 'OFS201710-LF011.jpg', 0, 0, 0, 61, 62),
+(36, 'OFS201710-LF012', 'Round Table with Iron Leg - Large', 1, '11500.00', 1, 'Inlaid with Banana Inverted in Black Stain and Natural Banana Bark', 'OFS201710-LF012.jpg', 0, 0, 0, 71, 71),
+(37, 'OFS201710-LF012', 'Round Table with Iron Leg - Small', 1, '5000.00', 1, 'Inlaid Banana Inverted in Black Stain and Natural Banana Bark', 'OFS201710-LF013.jpg', 0, 0, 0, 26, 46),
+(38, 'OFS201710-LM014', 'Square Table Lamp - Small', 1, '4100.00', 4, 'Inlaid with Banana Bark with Walnut Stain, Sinamay and Capiz Gold Strips', 'OFS201710-LM014.jpg', 0, 0, 0, 13, 41),
+(39, 'OFS201710-LM015', 'Square Table Lamp - Large', 1, '5300.00', 4, 'Inlaid Banana Bark with Walnut Stain, Sinamay and Capiz Gold Strips', 'OFS201710-LM015.jpg', 0, 0, 0, 16, 46),
+(40, 'OFS201710-LM016', 'Container Hanging Lamp - Small', 1, '3300.00', 4, 'Inlaid with Banana Bark Natural', 'OFS201710-LM016.jpg', 0, 0, 0, 16, 33),
+(41, 'OFS201710-LM017', 'Round Container Hanging Lamp', 1, '7200.00', 4, 'Inlaid Banana Bark Natural ', 'OFS201710-LM017.jpg', 0, 0, 0, 26, 52),
+(42, 'OFS201710-LM018', 'Container Hanging Lamp - Large', 1, '7700.00', 4, 'Inlaid with Banana Bark Natural', 'OFS201710-LM018.jpg', 33, 17, 45, 0, 0),
+(43, 'OFS201710-HF019', 'Bowl - Small', 3, '3700.00', 5, 'Inlaid with Capiz Gold Shell and Coconut Twig in Black', 'OFS201710-HF019.jpg', 0, 0, 0, 41, 16),
+(44, 'OFS201710-HF020', 'Bowl - Medium', 3, '4900.00', 5, 'Inlaid with Capiz Gold Shell and Coconut Twig in Black', 'OFS201710-HF020.jpg', 0, 0, 0, 46, 18),
+(45, 'OFS201710-HF021', 'Bowl - Large', 3, '7500.00', 5, 'Inlaid with Capiz Gold Shell and Coconut Twig in Black', 'OFS201710-HF021.jpg', 0, 0, 0, 56, 22),
+(46, 'OFS201710-AC042', 'Picture Frame - Small', 1, '700.00', 2, 'Inlaid with Banana Bark and Capiz Gold Shell', 'OFS201710-AC042.jpg', 0, 0, 0, 4, 6),
+(47, 'OFS201710-AC043', 'Picture Frame - Large', 1, '800.00', 2, 'Inlaid with Banana Bark and Capiz Gold Shell', 'OFS201710-AC043.jpg', 0, 0, 0, 5, 7),
+(48, 'OFS201710-AC044', 'Jewelry Box', 1, '800.00', 2, 'Inlaid with Banana Bark and Capiz Gold Shell', 'OFS201710-AC044.jpg', 0, 0, 0, 4, 6),
+(49, 'OFS201710-HF022', 'Gandal Fruit Bowl - Small', 3, '2600.00', 5, 'Hatchet Shell and Capiz Gold Strips', 'OFS201710-HF022.jpg', 33, 15, 9, 0, 0),
+(50, 'OFS201710-HF023', 'Gandal Fruit Bowl - Large', 3, '3900.00', 5, 'Hatchet Shell and Capiz Gold Shell', 'OFS201710-HF023.jpg', 52, 16, 10, 0, 0),
+(51, 'OFS201710-HF024', 'Sailmoon Bowl -Small', 3, '1000.00', 5, 'Hatchet Shell and Capiz Gold Strips', 'OFS201710-HF024.jpg', 19, 17, 8, 0, 0),
+(52, 'OFS201710-HF025', 'Sailmoon Bowl - Medium', 3, '1400.00', 5, 'Hatchet Shell and Capiz Gold Strips', 'OFS201710-HF025.jpg', 25, 22, 11, 0, 0),
+(53, 'OFS201710-HF026', 'Sailmoon Bowl - Large', 3, '1800.00', 5, 'Hatchet Shell and Capiz Gold Strips', 'OFS201710-HF026.jpg', 31, 26, 13, 0, 0),
+(54, 'OFS201710-HF027', 'Bowl - Medium', 3, '4900.00', 5, 'Hatchet Shell and Capiz Gold Strips', 'OFS201710-HF027.jpg', 0, 0, 0, 46, 7),
+(55, 'OFS201710-HF028', 'Rectangular Tray with Stand', 3, '1700.00', 5, 'Capiz Gold Strips', 'OFS201710-HF028.jpg', 35, 20, 4, 0, 0),
+(56, 'OFS201710-HF029', 'Rectangular Tray with Stand - Medium', 3, '2100.00', 5, 'Capiz Gold Strips', 'OFS201710-HF029.jpg', 40, 25, 4, 0, 0),
+(57, 'OFS201710-HF030', 'Rectangular Tray with Stand - Large', 3, '2700.00', 5, 'Capiz Gold Strips', 'OFS201710-HF030.jpg', 46, 30, 4, 0, 0),
+(58, 'OFS201710-HF031', 'Xanna Vase', 3, '4800.00', 5, 'Golden Coco Twig', 'OFS201710-HF031.jpg', 42, 14, 46, 0, 0),
+(59, 'OFS201710-HF032', 'Ring Vase - Small', 3, '4800.00', 5, 'Hatchet Black', 'OFS201710-HF032.jpg', 35, 12, 35, 0, 0),
+(60, 'OFS201710-HF033', 'Ring Vase - Large', 3, '6200.00', 5, 'Hatchet Black', 'OFS201710-HF033.jpg', 45, 114, 45, 0, 0),
+(61, 'OFS201710-HF034', 'Akhabar Vase - Small', 3, '3200.00', 5, 'Hatchet Shell, Wicker Vine and Capiz Gold Shell ', 'OFS201710-HF034.jpg', 20, 9, 57, 0, 0),
+(62, 'OFS201710-HF035', 'Akhabar Vase - Medium', 3, '3900.00', 5, 'Hatchet Shell, Wicker Vine and Capiz Gold Shell', 'OFS201710-HF035.jpg', 20, 11, 65, 0, 0),
+(63, 'OFS201710-HF036', 'Akhabar Vase - Large', 3, '4600.00', 5, 'Hatchet Shell, Wicker Vine and Capiz Gold Shell', 'OFS201710-HF036.jpg', 0, 0, 0, 26, 13),
+(64, 'OFS201710-HF037', 'Inverted Collard Vase', 3, '4200.00', 5, 'Inlaid with Banana Bark and Capiz Gold Shell', 'OFS201710-HF037.jpg', 0, 0, 0, 21, 46),
+(65, 'OFS201710-HF038', 'Kalubay Vase - Small', 1, '3000.00', 5, 'Inlaid with Capiz Gold Shell and Banana Bark ', 'OFS201710-HF038.jpg', 0, 0, 0, 11, 61),
+(66, 'OFS201710-HF039', 'Kalubay Vase - Large', 1, '4000.00', 5, 'Inlaid with Capiz Gold Shell and Banana Bark', 'OFS201710-HF039.jpg', 0, 0, 0, 13, 77);
 
 -- --------------------------------------------------------
 
@@ -96,11 +133,10 @@ CREATE TABLE `productcategory` (
 
 INSERT INTO `productcategory` (`pc_id`, `pc_name`) VALUES
 (1, 'Light Furnitures'),
-(2, 'Office Accessories'),
-(3, 'Bathroom Accessories'),
-(4, 'Furniture Compliments'),
-(5, 'Dining Room Accessories'),
-(6, 'Furniture and Home Accessories');
+(2, 'Accessories'),
+(3, 'Wall Decor'),
+(4, 'Luminaries'),
+(5, 'Home Furnitures');
 
 -- --------------------------------------------------------
 
@@ -187,27 +223,32 @@ ALTER TABLE `productgroup`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `productfinish`
 --
 ALTER TABLE `productfinish`
   MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `productgroup`
 --
 ALTER TABLE `productgroup`
   MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
