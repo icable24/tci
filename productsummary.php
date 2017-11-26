@@ -35,9 +35,9 @@ body {
 <!--header-->
 <?php include('header.php'); ?>
 	<!-- grow -->
-	<div class="grow">
+	<div class="grow" style="background-color: #dff0d8; border-color: #d6e9c6">
 		<div class="container">
-			<h2 style="font-family: verdana">Place Order</h2>
+			<h2 style="color: #3c763d; font-weight: regular;">Place Order</h2>
 		</div>
 	</div>
 	<!-- grow -->
@@ -84,6 +84,7 @@ body {
         <br>
         <br>
          <button type="submit" class="w3-button pull-right" onclick="plusDivs(1)" style=" font-family: verdana; background-color: #8de78b; color: white; font-weight: bold;"> Address &#10095;</button>
+         <a href="checkout.php" class="w3-button pull-right" style="margin-right: 0.78in; font-family: verdana; background-color: #8de78b; color: white; font-weight: bold; width: 1.2in; text-decoration: none" title="Product Summary">  &#10094; &nbsp; Back </a>
          </form>
       </div>
     </div>

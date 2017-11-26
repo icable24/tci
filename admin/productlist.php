@@ -12,6 +12,35 @@
 <html>
   <?php include('head.php'); ?>
   <body>
+<!-- Search -->
+  <style>
+    select, input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]{
+   background-image: url('../img/searchicon.png');
+}
+select{
+   width: 20%;
+    background-image: url('../img/filter-icon.png');
+}
+
+input[type=text]:focus {
+    width: 50%;
+}
+    </style>
+
     <!-- Side Navbar -->
     <?php include('sidenavbar.php'); ?>
     <div class="page home-page">
@@ -20,10 +49,21 @@
       <br>
       <div class="container">
          <div>
-          <a href="productcreate.php" class="btn btn-info btn-md">Add Product</a>
+          <!--<a href="productcreate.php" class="btn btn-info btn-md">Add Product</a>-->
+          <div> <input type="text" id="myInput" onkeyup="myFunction()" name="search" placeholder="Search..">                 
+              <select id="filters" name="filters" onChange="myFilter()" placeholder="filter" class="pull-right">
+              <option disabled selected style="color: gray">Filter</option>
+              <option></option>
+              <option>Light Furnitures</option>
+              <option>Accessories</option>
+              <option>Wall Decor</option>
+              <option>Luminaries</option>
+              <option>Home Furniture</option>
+            </select>
+            </div>
           <br><br>
          </div>
-         <table class="table">
+         <table class="table" id="myTable">
             <thead>
               <tr class="alert-success">
                 <th>Product ID</th>
@@ -74,5 +114,42 @@
     </div>
     <!-- Javascript files-->
     <?php include('js.php'); ?>
+    <!-- for Search -->
+    <script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+function myFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("filters");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
   </body>
 </html>

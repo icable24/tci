@@ -30,14 +30,30 @@ body {
     display: table;
     clear: both;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 </style>
 <body>
 <!--header-->
 <?php include('header.php'); ?>
 	<!-- grow -->
-	<div class="grow">
+	<div class="grow" style="background-color: #dff0d8; border-color: #d6e9c6">
 		<div class="container">
-			<h2 style="font-family: verdana">Place Order</h2>
+			<h2 style="color: #3c763d; font-weight: regular;">Place Order</h2>
 		</div>
 	</div>
 	<!-- grow -->
@@ -53,41 +69,24 @@ body {
               <br>
             </div>
             <div class="panel-body">
-              <form action="setaddress.php" enctype="multipart/form-data" method="post">
-                <div class="row">
-                  <div class="column">
-                    <span>1</span>
-                  </div>
-                  <div class="column">
-                    <span>2</span>
-                  </div>
-                  <div class="column">
-                    <span>3</span>
-                  </div>
-                  <div class="column">
-                    <span>4</span>
-                  </div>
-                  <div class="column">
-                    <span>5</span>
-                  </div>
-                  <div class="column">
-                    <span>6</span>
-                  </div>
-                  <div class="column">
-                    <span>7</span>
-                  </div>
-                  <div class="column">
-                    <span>8</span>
-                  </div>
-                  <div class="column">
-                    <span>9</span>
-                  </div>
-                </div>
+              <form action="paynoteinfo.php" enctype="multipart/form-data" method="post">
+                <table>
+                  <tr>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr>
+                  </tr>
+                </table>
               </div>
         </div>
         <br>
         <br>
-         <a href="setaddress.php" class="w3-button pull-right" onclick="plusDivs(1)" style=" font-family: verdana; background-color: #8de78b; color: white; font-weight: bold; width: 1.2in; text-decoration: none " title="Set Address"> &#10094; &nbsp; Back</a>
+        <button type="submit" class="w3-button pull-right" onclick="plusDivs(1)" style=" font-family: verdana; background-color: #8de78b; color: white; font-weight: bold;"> Proceed &#10095;</button>
+         <a href="setaddress.php" class="w3-button pull-right" style="margin-right: 0.78in; font-family: verdana; background-color: #8de78b; color: white; font-weight: bold; width: 1.2in; text-decoration: none" title="Product Summary">  &#10094; &nbsp; Back </a>
          </form>
       </div>
     </div>

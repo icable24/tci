@@ -20,7 +20,7 @@
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
+    background-image: url('../img/searchicon.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -29,7 +29,7 @@
 }
 
 input[type=text]:focus {
-    width: 100%;
+    width: 50%;
 }
     </style>
     <!-- Side Navbar -->
@@ -48,6 +48,8 @@ input[type=text]:focus {
                 <th>Customer Name</th>
                 <th>Email</th>
                 <th>Contact Number</th>
+                <th>Address</th>
+
                 <th></th>
               </tr>
             </thead>
@@ -56,14 +58,15 @@ input[type=text]:focus {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //sql statement to get products and sort by product code
-                $sql = 'SELECT * FROM account ORDER BY acc_id ASC';
+                $sql = 'SELECT * FROM account WHERE user_type = "customer" ORDER BY acc_id ASC';
 
                 //display all products in the database
                 foreach ($pdo->query($sql) as $row) {
               echo '<tr>';
-                echo '<td>'. $row['acc_name'] . '</td>';
+                echo '<td>'. $row['acc_fname'] ." ". $row['acc_lname'] . '</td>';
                 echo '<td>'.$row['acc_email'].'</td>';
                 echo '<td>'.$row['acc_contact'].'</td>';
+                echo '<td>'.$row['acc_add'].'</td>';
                 echo '</tr>';
                 }
                 Database::disconnect();

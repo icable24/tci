@@ -27,14 +27,24 @@
                 		</div>
                     	<form action="php/cust_signup.php?user_type=customer" method="post">
                             <?php $_POST['user_type'] = "customer"?>
-                    		<label class="control-label" for="acc_name">Name:</label>
+                    		<label class="control-label" for="acc_fname">Firstname:</label>
                     		<div class="control-group">
-                    			<input class="form-control" type="text" required="" id="acc_name" name="acc_name" placeholder="Name" focus=""/>
+                    			<input class="form-control" type="text" required="" id="acc_fname" name="acc_fname" placeholder="Firstname" focus=""/>
                     		</div>
+
+                            <label class="control-label" for="acc_lname">Lastname:</label>
+                            <div class="control-group">
+                                <input class="form-control" type="text" required="" id="acc_lname" name="acc_lname" placeholder="Lastname" focus=""/>
+                            </div>
+
+                            <label class="control-label" for="acc_add">Address:</label>
+                            <div class="control-group">
+                                <input class="form-control" type="text" required="" id="acc_add" name="acc_add" placeholder="Address" focus=""/>
+                            </div>
 
                     		<label class="control-label" for="acc_email">E-mail:</label>
                     		<div class="control-group">
-                    			<input class="form-control" type="text" required="" id="acc_email" name="acc_email" placeholder="E-main Address"></input>
+                    			<input class="form-control" type="text" required="" id="acc_email" name="acc_email" placeholder="E-mail Address"></input>
                     		</div>
 
                             <label class="control-label" for="password1">Password:</label>
@@ -46,11 +56,6 @@
                             <div class="control-group">
                                 <input class="form-control" type="password" required="" id="password2" name="password2" placeholder="Password"></input>
                             </div>
-
-                            <label class="control-label">Sex:</label><br>
-                            <input type="radio" name="acc_sex" value="male">Male</input>&nbsp&nbsp&nbsp
-                            <input type="radio" name="acc_sex" value="female">Female
-                            <br>
 
                             <label class="control-label">Contact Number</label>
                             <div class="control-group">

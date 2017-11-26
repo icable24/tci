@@ -14,10 +14,10 @@
 <nav class="side-navbar">
   <div class="side-navbar-wrapper">
     <div class="sidenav-header d-flex align-items-center justify-content-center">
-      <div class="sidenav-header-inner text-center"><img src="<?php echo "img/" . $name['acc_name'] . ".jpg" ?>"" alt="person" class="img-fluid rounded-circle">
+      <div class="sidenav-header-inner text-center"><img src="<?php echo "img/" . $name['acc_fname'] . ".jpg" ?>"" alt="person" class="img-fluid rounded-circle">
         <h2 class="h5 text-uppercase">
           <?php
-            echo $name['acc_name'];
+            echo $name['acc_fname']." ".$name['acc_lname'];
           ?>  
         </h2><span class="text-uppercase">
         </span>
@@ -52,6 +52,14 @@
         </ul>
       </div> -->
       <li><a href="customerlist.php"><i class="icon-user"></i><span>Customer Accounts</span></a></li>
+      <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-list-alt"></i><span>Reports</span>
+          <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+          <ul id="account-nav-list" class="collapse list-unstyled">
+            <li> <a href="sales.php">Sales</a></li>
+            <li><a href="inventory.php">Inventory</a></li>
+            <li> <a href="delivery.php">Delivery</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

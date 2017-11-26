@@ -60,6 +60,7 @@ body {
 				<div class="panel-body">
 					<div class="row">
 						<?php 
+						if(isset($_SESSION['login_username'])){
 							$pc_id = $category['pc_id'];
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 							$product= $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM product WHERE pc_name = ? ORDER BY prod_code');
@@ -81,12 +82,38 @@ body {
 										echo '<a href="#" class="item_add"><p class="number item_price"><i> </i> Php '. $row['prod_price'] . '</p></a>';
 									echo '</div>';
 								echo '</div>';
-							}
+										}
+									}else{
+										$pc_id = $category['pc_id'];
+							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							$product= $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM product WHERE pc_name = ? ORDER BY prod_code');
+							$product->execute(array($pc_id));
+							$product = $product->fetchAll(PDO::FETCH_ASSOC);
+
+							foreach($product as $row){
+								echo '<div class="column simpleCart_shelfItem">';
+									echo '<div class="product-at ">';
+										echo '<a title="You need to log in">';
+											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
+											echo '<div class="pro-grid">';
+											echo '</div>';
+										echo '</a>';
+									echo '</div>';
+									echo '<p class="tun">'. $row['prod_name'] . '</p>';
+									echo '<div class="ca-rt">';
+										echo '<a href="#"><p class="number item_price"><i> </i> Php '. $row['prod_price'] . '</p></a>';
+									echo '</div>';
+								echo '</div>';
+										}
+										 
+									}
 						?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!--footer-->
+  <?php include('footer.php'); ?>
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2017 at 06:18 AM
+-- Generation Time: Nov 26, 2017 at 03:44 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -30,10 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `acc_id` int(11) NOT NULL,
-  `acc_name` varchar(20) NOT NULL,
+  `acc_fname` varchar(20) NOT NULL,
+  `acc_lname` varchar(20) NOT NULL,
+  `acc_add` varchar(50) NOT NULL,
   `acc_email` varchar(30) NOT NULL,
   `acc_password` varchar(30) NOT NULL,
-  `acc_sex` varchar(6) NOT NULL,
   `acc_contact` varchar(11) NOT NULL,
   `user_type` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -42,9 +43,9 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`acc_id`, `acc_name`, `acc_email`, `acc_password`, `acc_sex`, `acc_contact`, `user_type`) VALUES
-(1, 'Alvin', 'alvin@tci.com', 'admin', 'Male', '09123456789', 'admin'),
-(2, 'Jayson', 'jdoe@tci.com', 'customer', 'Male', '09234567890', 'customer');
+INSERT INTO `account` (`acc_id`, `acc_fname`, `acc_lname`, `acc_add`, `acc_email`, `acc_password`, `acc_contact`, `user_type`) VALUES
+(1, 'Alvin', 'Talite', 'Bacolod City', 'alvin@tci.com', 'admin', '09123456789', 'admin'),
+(2, 'Jayson', 'Solinap', 'Bacolod City', 'jayson@tci.com', 'customer', '09234567890', 'customer');
 
 -- --------------------------------------------------------
 

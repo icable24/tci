@@ -33,7 +33,7 @@
                 </div>
                 <div class="row justify-content-center">
                   <div class="col-6">
-                    <div class="control-gr  oup">
+                    <div class="control-group">
                       <label class="control-label" for="prod_name">
                         Product Name
                       </label>

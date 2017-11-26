@@ -12,9 +12,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--header-->
 <?php include('header.php'); ?>
 	<!-- grow -->
-	<div class="grow">
+	<div class="grow" style="background-color: #dff0d8; border-color: #d6e9c6">
 		<div class="container">
-			<h2>Checkout</h2>
+			<h2 style="color: #3c763d; font-weight: regular;">Checkout</h2>
 		</div>
 	</div>
 	<!-- grow -->
