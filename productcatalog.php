@@ -70,7 +70,7 @@ body {
 							foreach($product as $row){
 								echo '<div class="column simpleCart_shelfItem">';
 									echo '<div class="product-at ">';
-										echo '<a href="productdetails.php">';
+										echo '<a href="productdetails.php'. "?id=". $row['prod_code'].'">';
 											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
 											echo '<div class="pro-grid">';
 												echo '<span class="buy-in">Buy Now</span>';
@@ -79,12 +79,12 @@ body {
 									echo '</div>';
 									echo '<p class="tun">'. $row['prod_name'] . '</p>';
 									echo '<div class="ca-rt">';
-										echo '<a href="#" class="item_add"><p class="number item_price"><i> </i> Php '. $row['prod_price'] . '</p></a>';
+										echo '<p class="number item_price"><i> </i> Php '. number_format($row['prod_price'], 2) . '</p>'	;
 									echo '</div>';
 								echo '</div>';
-										}
-									}else{
-										$pc_id = $category['pc_id'];
+								}
+						}else{
+							$pc_id = $category['pc_id'];
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 							$product= $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM product WHERE pc_name = ? ORDER BY prod_code');
 							$product->execute(array($pc_id));
@@ -101,7 +101,6 @@ body {
 									echo '</div>';
 									echo '<p class="tun">'. $row['prod_name'] . '</p>';
 									echo '<div class="ca-rt">';
-										echo '<a href="#"><p class="number item_price"><i> </i> Php '. $row['prod_price'] . '</p></a>';
 									echo '</div>';
 								echo '</div>';
 										}

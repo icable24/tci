@@ -1,3 +1,18 @@
+<?php 
+	include('database.php');
+
+	$pdo = Database::connect();
+	if(!empty($_GET['id'])){
+		$prod_code = $_REQUEST['id'];
+
+		$prod = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
+		$prod->execute(array($prod_code));
+		$prod = $prod->fetch(PDO::FETCH_ASSOC);
+
+	}else{
+		header('location:index.php');
+	}
+?>
 <!--A Design by W3layouts 
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -5,29 +20,30 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
+<style type="text/css">
+	.img-responsive{
+	height: 500px;
+	width: 500px;
+	}
+</style>
 <html>
 <?php include('head.php'); ?>
 <body>
 <?php include('header.php'); ?>
 	<!-- grow -->
-	<div class="grow">
+	<div class="alert alert-success">
 		<div class="container">
-			<h2>Products</h2>
+			<h2 style="font-family: verdana;"><?php echo $prod['prod_name'] ?></h2>
 		</div>
 	</div>
 	<!-- grow -->
 		<div class="product">
 			<div class="container">
-				
 				<div class="product-price1">
 				<div class="top-sing">
 				<div class="col-md-7 single-top">	
 						<div class="flexslider">
-			  <ul class="slides">
-			    <li data-thumb="images/si.jpg">
-			        <div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
-			    </li>
-			  </ul>
+			        <div> <img <?php echo "src=prod_img/" . $prod['prod_image'] ?> data-imagezoom="true" class="img-responsive"> </div>
 		</div>
 
 	<div class="clearfix"> </div>
@@ -57,20 +73,12 @@ $(window).load(function() {
 					</div>	
 					<div class="col-md-5 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
-						<h4>Lorem Ipsum</h4>
-							<div class="star-on">
-								
-								<div class="review">
-									<a href="#"> 1 customer review </a>
-									
-								</div>
-							<div class="clearfix"> </div>
-							</div>
-							
-							<h5 class="item_price">$ 500.00</h5>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-diam nonummy nibh euismod tincidunt ut laoreet dolore 
-magna aliquam erat </p>
+							<h5 class="item_price">
+								<?php 
+									echo "Php " . number_format($prod['prod_price'], 2);
+								?>
+							</h5>
+							<p><?php echo $prod['prod_desc']; ?></p>
 							<div>
 								<span>
 								<a style="width: 1.3in" href="#" class="add-cart item_add">ADD TO CART</a>
