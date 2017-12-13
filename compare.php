@@ -6,7 +6,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
-<?php include('head.php'); ?>
+<?php include('head.php'); 
+      include('Database.php');
+?>
 <style>
 * {
     box-sizing: border-box;
@@ -44,7 +46,7 @@ body {
 <!--content-->
       
   
-  <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Product Summary</h3>
+  <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Compare Products</h3>
   <div class="container-fluid" style="width: 12.5in;">
         <div class="col-lg-12">
           <div class="panel panel-default">
@@ -55,28 +57,22 @@ body {
             <div class="panel-body">
               <form action="setaddress.php" enctype="multipart/form-data" method="post">
                 <div class="row">
-                    <div class="column simpleCart_shelfItem">
-            <div class="product-at ">
-              <a href="single.php"><img class="img-responsive" src="images/pi3.jpg" alt="">
-              <div class="pro-grid">
-                    <span class="buy-in">Buy Now</span>
-              </div>
-            </a>  
-            </div>
-            <p class="tun">CLARISSA</p>
-            <div class="ca-rt">
-              <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
+                  <!-- <div class="column simpleCart_shelfItem">
+                    <div class="product-at ">
+                      <a href="single.php"><img class="img-responsive" src="images/pi3.jpg" alt="">
+                      <div class="pro-grid">
+                        <span class="buy-in">Buy Now</span>
+                      </div>
+                      </a>  
+                    </div>
+                    <p class="tun">CLARISSA</p>
+                    <div class="ca-rt">
+                      <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
+                    </div>
+                  </div> -->
+                </div>
             </div>
           </div>
-                  </div>
-                  <div class="column">
-                    <span>2</span>
-                  </div>
-                  <div class="column">
-                    <span>3</span>
-                  </div>
-                </div>
-              </div>
         </div>
         <br>
         <br>

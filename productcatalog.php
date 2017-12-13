@@ -93,9 +93,10 @@ body {
 							foreach($product as $row){
 								echo '<div class="column simpleCart_shelfItem">';
 									echo '<div class="product-at ">';
-										echo '<a title="You need to log in">';
+										echo '<a href="productdetails.php'. "?id=". $row['prod_code'].'">';
 											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
 											echo '<div class="pro-grid">';
+												echo '<span class="buy-in">View</span>';
 											echo '</div>';
 										echo '</a>';
 									echo '</div>';
