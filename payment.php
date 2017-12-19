@@ -62,25 +62,51 @@ tr:nth-child(even) {
   
   <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Payment</h3>
   <div class="container-fluid" style="width: 12.5in;">
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <span></span>
-              <br>
-            </div>
-            <div class="panel-body">
-              <form action="paynoteinfo.php" enctype="multipart/form-data" method="post">
-                <table>
-                  <tr>
+    <form action="paynoteinfo.php" enctype="multipart/form-data" method="post">
+   <table>
+              <tr>
                     <th>Product Code</th>
                     <th>Product Name</th>
                     <th>Unit Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
                   </tr>
-                  <tr>
-                  </tr>
-                </table>
+               
+   
+                    <?php
+          $pdo = Database::connect();
+          $count = 0;
+          $tprice = 0;
+          if(isset($_SESSION['cart'])){
+            foreach($_SESSION['cart'] as $prod){
+              $product = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
+              $product->execute(array($prod));
+              $product = $product->fetch();
+              
+              echo '<tr>';
+              echo '<th>';
+              echo '<span>' . $product['prod_code'] . '</span>';
+              echo '</th>';
+              echo '<th>';
+              echo '<span>' . $product['prod_name'] . '</span>';
+              echo '</th>';
+              echo '<th>';
+              echo '<span>' . $product['prod_price'] . '</span>';
+              echo '</th>';
+              echo '<th>';
+              echo '<span>' . $_SESSION['quantity'][$count] . '</span>';
+              echo '</th>';
+              echo '<th>';
+              echo '<span>' . number_format($product['prod_price'] * $_SESSION['quantity'][$count], 2)  . '</span>';
+              $tprice += $product['prod_price'] * $_SESSION['quantity'][$count];
+               $count++;
+              echo '</th>';
+              echo '</tr>';
+              
+            }
+          }
+              ?>
+            </table>
               </div>
         </div>
         <br>

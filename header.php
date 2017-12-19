@@ -1,8 +1,17 @@
+<?php 
+       
+    include('database.php');
+
+    $pdo = Database::connect();
+
+    $cartPrice = 0;
+    $num = 0;
+?>
 <header>
 <!--header-->
 <div class="header" style="background-color: #999999">
            <p style="margin-right: 0.70in">
-                <?php session_start();
+                <?php session_start(); 
                 if(!isset($_SESSION['login_username'])){ ?>
                     <a style="text-decoration: none; color: white" class="pull-right" href="signup.php">Signup</a> 
                     &nbsp;&nbsp; 
@@ -46,15 +55,13 @@
                         </form>
                     </div>
                 </div>
-            
-<!-- search-scripts -->
+                <!-- search-scripts -->
                     <script src="js/classie.js"></script>
                     <script src="js/uisearch.js"></script>
                         <script>
                             new UISearch( document.getElementById( 'sb-search' ) );
                         </script>
                     <!-- //search-scripts -->
-
                 <div class="ca-r"   >
                     <div class="cart box_1">
                         <?php if(isset($_SESSION['login_username'])){
@@ -65,14 +72,25 @@
                             }
                          ?>
                         <h3> <div class="total">
-                            <span class="simpleCart_total"></span> </div>
+
+                            <span><?php
+
+                            if(!empty($_SESSION['cart'])){
+                                foreach($_SESSION['cart'] as $pprice){
+                                    $tprice = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
+                                    $tprice->execute(array($pprice));
+                                    $tprice = $tprice->fetch();
+
+                                    $cartPrice += $tprice['prod_price'];
+                                }
+                            } 
+                            echo "Php " . number_format($cartPrice, 2); ?>
+                                
+                            </span> </div>
                             <img src="images/cart.png" alt=""/></h3>
                         </a>
-                        <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-
-                    </div>
+                        </div>
                 </div>
-                    <div class="clearfix"> </div>
             </div>
                 
         </div>
@@ -102,7 +120,8 @@
                             </div>
                         </div>
                     </div>
-                <li><a class="color6" href="contact.php">Contact Us</a></li>
+                    <li><a class="color6" href="contact.php">Contact Us</a></li>
+                    <li><a href="compare.php">Compare Product</a></li>
               </ul> 
             </div>
                 

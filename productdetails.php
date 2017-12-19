@@ -1,5 +1,5 @@
 <?php 
-	include('database.php');
+	require 'database.php';
 
 	$pdo = Database::connect();
 	if(!empty($_GET['id'])){
@@ -41,7 +41,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="container">
 				<div class="product-price1">
 				<div class="top-sing">
-				<div class="col-md-7 single-top">	
+				<div class="col-md-6 single-top">	
 						<div class="flexslider">
 			        <div> <img <?php echo "src=prod_img/" . $prod['prod_image'] ?> data-imagezoom="true" class="img-responsive"> </div>
 		</div>
@@ -62,81 +62,80 @@ $(window).load(function() {
     controlNav: "thumbnails"
   });
 });
-</script>
-
-	
-	
-	
-	
-	
-	
-					</div>	
-					<div class="col-md-5 single-top-in simpleCart_shelfItem">
+</script>	
+				</div>	
+					<div class="col-md-6 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
 							<h5 class="item_price">
 								<?php 
-									echo "Php " . number_format($prod['prod_price'], 2);
+									if(isset($_SESSION['login_username'])){
+										echo "Php " . number_format($prod['prod_price'], 2);
+									}
 								?>
 							</h5>
 							<p><?php echo $prod['prod_desc']; ?></p>
-							<div>
-								<span>
-								<a style="width: 1.3in" href="#" class="add-cart item_add">ADD TO CART</a>
-								&nbsp;&nbsp;&nbsp;
-								<a style="width: 1.3in" href="compare.php" class="add-cart item_add">&nbsp;&nbsp;&nbsp;Compare</a> 
-								&nbsp;&nbsp;&nbsp;
-								<a style="width: 1.3in" href="customized.php" class="add-cart item_add">&nbsp;Customized</a>
-								</span>
+							<?php if(isset($_SESSION['login_username'])) ?>
+								<div class="row">
+									<div class="col-md-6">
+										<form method="POST" action="php/addToCart.php?id=<?php echo $prod_code?>">
+												&nbsp; &nbsp; <label>Quantity</label>
+												<input type="Number" name="quantity" id="quantity" style="width: 40px;" value="1">
+												<button type="submit" class="btn btn-success">Add To Cart</button>
+										</form>
+									</div>
+									<div class="col-md-6">
+										<form method="POST" action="php/addCompare.php">
+											<div class="row">
+												<input type="hidden" name="compProd" id="compProd" value="<?php echo $prod_code ?>">
+												<button type="submit" class="btn btn-success">Compare</button>
+											</div>
+										</form>
+									</div> 
+								</div>
 							</div>
-							
-								
-							
-						</div>
-					</div>
-				<div class="clearfix"> </div>
 				</div>
 			<!---->
 
-		<div class=" bottom-product">
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="#"><img class="img-responsive" src="images/pi3.jpg" alt="">
-							<div class="pro-grid">
-										<span class="buy-in">Buy Now</span>
-							</div>
-						</a>	
-						</div>
-						<p class="tun"><span>Lorem ipsum establish</span><br>CLARISSA</p>
-						<div class="ca-rt">
-							<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
-						</div>						
+		<!-- <div class=" bottom-product">
+			<div class="col-md-4 bottom-cd simpleCart_shelfItem">
+				<div class="product-at ">
+					<a href="#"><img class="img-responsive" src="images/pi3.jpg" alt="">
+					<div class="pro-grid">
+								<span class="buy-in">Buy Now</span>
 					</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="#"><img class="img-responsive" src="images/pi1.jpg" alt="">
-							<div class="pro-grid">
-										<span class="buy-in">Buy Now</span>
-							</div>
-						</a>	
-						</div>
-						<p class="tun"><span>Lorem ipsum establish</span><br>CLARISSA</p>
-						<div class="ca-rt">
-							<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
-						</div>					</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="#"><img class="img-responsive" src="images/pi4.jpg" alt="">
-							<div class="pro-grid">
-										<span class="buy-in">Buy Now</span>
-							</div>
-						</a>	
-						</div>
-						<p class="tun"><span>Lorem ipsum establish</span><br>CLARISSA</p>
-						<div class="ca-rt">
-							<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
-						</div>					</div>
-					<div class="clearfix"> </div>
+				</a>	
 				</div>
+				<p class="tun"><span>Lorem ipsum establish</span><br>CLARISSA</p>
+				<div class="ca-rt">
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
+				</div>						
+			</div>
+			<div class="col-md-4 bottom-cd simpleCart_shelfItem">
+				<div class="product-at ">
+					<a href="#"><img class="img-responsive" src="images/pi1.jpg" alt="">
+					<div class="pro-grid">
+								<span class="buy-in">Buy Now</span>
+					</div>
+				</a>	
+				</div>
+				<p class="tun"><span>Lorem ipsum establish</span><br>CLARISSA</p>
+				<div class="ca-rt">
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
+				</div>					</div>
+			<div class="col-md-4 bottom-cd simpleCart_shelfItem">
+				<div class="product-at ">
+					<a href="#"><img class="img-responsive" src="images/pi4.jpg" alt="">
+					<div class="pro-grid">
+								<span class="buy-in">Buy Now</span>
+					</div>
+				</a>	
+				</div>
+				<p class="tun"><span>Lorem ipsum establish</span><br>CLARISSA</p>
+				<div class="ca-rt">
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>						
+				</div>					</div>
+			<div class="clearfix"> </div>
+		</div> -->
 </div>
 
 		<div class="clearfix"> </div>
@@ -146,5 +145,4 @@ $(window).load(function() {
 <!--footer-->
 <?php include('footer.php'); ?>
 </body>
-</html>
-			
+</html>		

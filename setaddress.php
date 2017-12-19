@@ -1,15 +1,6 @@
+
 <?php
-include 'login_success.php';
   require 'database.php';
-
- $acc_email = $_SESSION['login_username'];
-  $pdo = Database:: connect();
-  $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $cust = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
-        $cust->execute(array($acc_email));
-  $cust = $cust->fetch(PDO:: FETCH_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +32,15 @@ body {
 <body>
 <!--header-->
 <?php include('header.php'); ?>
-  
+  <?php 
+    $acc_email = $_SESSION['login_username'];
+  $pdo = Database:: connect();
+  $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $cust = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+        $cust->execute(array($acc_email));
+        $cust = $cust->fetch(PDO:: FETCH_ASSOC);
+  ?>
   <!-- grow -->
   <div class="grow" style="background-color: #dff0d8; border-color: #d6e9c6">
     <div class="container">

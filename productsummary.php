@@ -42,45 +42,58 @@ body {
 	</div>
 	<!-- grow -->
 <!--content-->
-			
+
   
   <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Product Summary</h3>
-  <div class="container-fluid" style="width: 12.5in;">
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-body" style="overflow-y: auto; max-height: 5in">
-              <form action="setaddress.php" enctype="multipart/form-data" method="post">
-                <div class="row">
-                  <div class="column">
-                    <span>1</span>
-                  </div>
-                  <div class="column">
-                    <span>2</span>
-                  </div>
-                  <div class="column">
-                    <span>3</span>
-                  </div>
-                  <div class="column">
-                    <span>4</span>
-                  </div>
-                  <div class="column">
-                    <span>5</span>
-                  </div>
-                  <div class="column">
-                    <span>6</span>
-                  </div>
-                  <div class="column">
-                    <span>7</span>
-                  </div>
-                  <div class="column">
-                    <span>8</span>
-                  </div>
-                  <div class="column">
-                    <span>9</span>
-                  </div>
+  <div class="container-fluid">
+    <div class="col-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form action="setaddress.php" enctype="multipart/form-data" method="post">
+          <div class="row">
+                   <?php
+          $pdo = Database::connect();
+          $count = 0;
+          $tprice = 0;
+          if(isset($_SESSION['cart'])){
+            foreach($_SESSION['cart'] as $prod){
+              $product = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
+              $product->execute(array($prod));
+              $product = $product->fetch();
+              echo '<div class=row>';
+                echo '<div class="cart-header">';
+                  echo '<div class="cart-sec simpleCart_shelfItem">';
+                    echo '<div class="cart-item cyc">';
+                      echo '<img src="prod_img/'. $product['prod_image'] .'" class="img-responsive" alt=""/>';
+                    echo '</div>';
+                    echo '<div class="cart-item-info">';
+                      echo '<h3><a href="#">' . $product['prod_name'] . '</h3>';
+                      echo '<ul class="qty">';
+                        echo '<li><p>Qty : '. $_SESSION['quantity'][$count] .'</p></li>';
+                        
+                      echo '</ul>';
+                      echo '<div>';
+                        echo '<div class=column>';
+                          echo '<p>Item Price: ' . number_format($product['prod_price'], 2) . '</p>'; 
+                        echo '</div>';
+                        echo '<div class=column>';
+                          echo '<p>Total Price: ' . number_format($product['prod_price'] * $_SESSION['quantity'][$count], 2) . '</p>';
+                          $tprice += $product['prod_price'] * $_SESSION['quantity'][$count];
+                        echo '</div>';
+                      echo '</div>';
+                    echo '</div>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+              $count++;
+            }
+          }
+        ?>    
                 </div>
-              </div>
         </div>
+      </div>
+    </div>
+  </div>
         <br>
         <br>
          <button type="submit" class="w3-button pull-right" onclick="plusDivs(1)" style=" font-family: verdana; background-color: #8de78b; color: white; font-weight: bold;"> Address &#10095;</button>
