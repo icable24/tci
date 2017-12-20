@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2017 at 03:44 PM
+-- Generation Time: Dec 13, 2017 at 05:38 AM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -225,31 +225,26 @@ ALTER TABLE `productgroup`
 --
 ALTER TABLE `account`
   MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
-
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
   MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `productfinish`
 --
 ALTER TABLE `productfinish`
   MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `productgroup`
 --
 ALTER TABLE `productgroup`
   MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --

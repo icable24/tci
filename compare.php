@@ -27,10 +27,9 @@ body {
 }
 
 /* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.img-responsive{
+  width: 500px
+  height: 300px;
 }
 </style>
 <body>
@@ -47,65 +46,53 @@ body {
       
   
   <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Compare Products</h3>
-  <div class="container-fluid" style="width: 12.5in;">
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <span></span>
-              <br>
-            </div>
-            <div class="panel-body">
-              <form action="setaddress.php" enctype="multipart/form-data" method="post">
-                <div class="row">
-                  <!-- <div class="column simpleCart_shelfItem">
-                    <div class="product-at ">
-                      <a href="single.php"><img class="img-responsive" src="images/pi3.jpg" alt="">
-                      <div class="pro-grid">
-                        <span class="buy-in">Buy Now</span>
-                      </div>
-                      </a>  
-                    </div>
-                    <p class="tun">CLARISSA</p>
-                    <div class="ca-rt">
-                      <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>           
-                    </div>
-                  </div> -->
-                </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
-         <button type="submit" class="w3-button pull-right" onclick="plusDivs(1)" style=" font-family: verdana; background-color: #8de78b; color: white; font-weight: bold;"> Address &#10095;</button>
-         </form>
+  <div class="container">
+    <div class="col-10">
+        <!-- <?php
+          $pdo = Database::connect();
+
+          for($i = 0; $i < 3; $i++){
+            $pp = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
+            $pp->execute(array($_SESSION['compare'][$i]));
+            $pp = $pp->fetch();
+
+            echo '<div class="column simpleCart_shelfItem">';
+              echo '<div class="row">'; 
+                echo '<div class="product-at ">';
+                  echo '<img src="prod_img/'. $pp['prod_image'] .'" class="img-responsive" alt=""/>';
+                echo '</div>';
+              echo '</div>';
+              echo '<div class="row">';
+                echo '<div class="product-at ">';
+                  echo '<img src="prod_img/'. $pp['prod_image'] .'" class="img-responsive" alt=""/>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          }
+        ?> -->
+        <div class="table-responsive">
+          <table class="table table-hover table-striped" id="myTable">
+            <thead class="success-info">
+            
+          </thead>
+            <?php 
+              $pdo = Database::connect();
+
+              for($i = 0; $i < 3; $i++){
+                $pp = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
+                $pp->execute(array($_SESSION['compare'][$i]));
+                $pp = $pp->fetch();
+
+                echo '';
+              }
+            ?>
+        </table>
       </div>
     </div>
-
-    <br>
-    <br>
-<!--//content-->
-<!--
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script> -->
+  </div>
 <!--footer-->
-<?php include('footer.php'); ?>
 </body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<?php include('footer.php'); ?>
 </html>
       

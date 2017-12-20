@@ -77,14 +77,14 @@ $(window).load(function() {
 							<?php if(isset($_SESSION['login_username'])){ ?>
 								<div class="row">
 									<div class="col-md-6">
-										<form method="POST" action="php/addToCart.php?id=<?php echo $prod_code?>">
+										<form method="POST" action="php/addSession.php?id=<?php echo $prod_code; ?>&type=cart">
 												&nbsp; &nbsp; <label>Quantity</label>
 												<input type="Number" name="quantity" id="quantity" style="width: 40px;" value="1">
 												<button type="submit" class="btn btn-success">Add To Cart</button>
 										</form>
 									</div>
 									<div class="col-md-6">
-										<form method="POST" action="php/addCompare.php">
+										<form method="POST" action="php/addSession.php?type=compare">
 											<div class="row">
 												<input type="hidden" name="compProd" id="compProd" value="<?php echo $prod_code ?>">
 												<button type="submit" class="btn btn-success">Compare</button>
@@ -93,6 +93,7 @@ $(window).load(function() {
 									</div> 
 								</div>
 							</div>
+							<?php } ?>
 				</div>
 			<!---->
 

@@ -1,5 +1,4 @@
-<?php 
-       
+<?php session_start();       
     include('database.php');
 
     $pdo = Database::connect();
@@ -11,7 +10,7 @@
 <!--header-->
 <div class="header" style="background-color: #999999">
            <p style="margin-right: 0.70in">
-                <?php session_start(); 
+                <?php 
                 if(!isset($_SESSION['login_username'])){ ?>
                     <a style="text-decoration: none; color: white" class="pull-right" href="signup.php">Signup</a> 
                     &nbsp;&nbsp; 
