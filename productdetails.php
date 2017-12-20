@@ -74,7 +74,7 @@ $(window).load(function() {
 								?>
 							</h5>
 							<p><?php echo $prod['prod_desc']; ?></p>
-							<?php if(isset($_SESSION['login_username'])){ ?>
+							<?php if(isset($_SESSION['login_username'])) ?>
 								<div class="row">
 									<div class="col-md-6">
 										<form method="POST" action="php/addSession.php?id=<?php echo $prod_code; ?>&type=cart">
@@ -146,5 +146,4 @@ $(window).load(function() {
 <!--footer-->
 <?php include('footer.php'); ?>
 </body>
-</html>
-			
+</html>		

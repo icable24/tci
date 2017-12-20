@@ -73,7 +73,7 @@ body {
 										echo '<a href="productdetails.php'. "?id=". $row['prod_code'].'">';
 											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
 											echo '<div class="pro-grid">';
-												echo '<span class="buy-in">Buy Now</span>';
+												echo '<span class="buy-in">View</span>';
 											echo '</div>';
 										echo '</a>';
 									echo '</div>';
@@ -93,11 +93,8 @@ body {
 							foreach($product as $row){
 								echo '<div class="column simpleCart_shelfItem">';
 									echo '<div class="product-at ">';
-										echo '<a href="productdetails.php'. "?id=". $row['prod_code'].'">';
+										echo '<a href="#" >';
 											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
-											echo '<div class="pro-grid">';
-												echo '<span class="buy-in">View</span>';
-											echo '</div>';
 										echo '</a>';
 									echo '</div>';
 									echo '<p class="tun">'. $row['prod_name'] . '</p>';

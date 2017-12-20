@@ -118,7 +118,7 @@
 			  ?>		
 		 </div>
 		  <div class="col-md-3 cart-total">
-			 <a class="continue" href="#">Continue to basket</a>
+			 <a class="continue" href="#">Continue Shopping</a>
 			 <div class="price-details">
 				 <h3>Price Details</h3>
 				 <span>Total</span>
@@ -142,7 +142,7 @@
 				 <h3>OPTIONS</h3>
 				 <h4>COUPONS</h4>
 				 <a class="cpns" href="#">Apply Coupons</a>
-				 <p><a href="#">Log In</a> to use accounts - linked coupons</p>
+				 
 			 </div>
 			</div>
 		
