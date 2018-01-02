@@ -50,7 +50,7 @@
 .nav>li>a{
     position: relative;
     display: block;
-    padding: 0px 0px !important;
+    padding: 0px 0px;
     color: white;
     width: 1in;
     text-align: center;

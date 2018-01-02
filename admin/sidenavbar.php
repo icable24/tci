@@ -22,25 +22,45 @@
         </h2><span class="text-uppercase">
         </span>
       </div>
-      <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"><strong class="text-primary">TCI</strong></a></div>
+      <div class="sidenav-header-logo"><a href="../index.php" class="brand-small text-center"><strong class="text-primary">TCI</strong></a></div>
     </div>
     <div class="main-menu">
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
-        <li><a href="index.php"> <i class="icon-home"></i><span>Home</span></a></li>  
+        <li><a href="index.php"> <i class="icon-home"></i><span>Home</span></a></li> 
       </ul>
     </div>
     <div class="admin-menu">
       <ul id="side-admin-menu" class="side-menu list-unstyled"> 
-        <li><a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-form"></i><span>Product</span>
+         <li><a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-padnote"></i><span>Profiles</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="pages-nav-list" class="collapse list-unstyled">
-            <li> <a href="productlist.php">Product List</a></li>
-            <li><a href="productcreate.php">Add New Product</a></li>
-            <li> <a href="#">Featured Product</a></li>
-            <li><a href="#">Materials</a></li>
+            <li><a href="#product-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-form"></i><span>Product</span>
+              <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+              <ul id="product-nav-list" class="collapse list-unstyled">
+                <li> <a href="productlist.php">Product List</a></li>
+                <li><a href="productcreate.php">Add New Product</a></li>
+                <li> <a href="#">Featured Product</a></li>
+                <li><a href="#">Materials</a></li>
+              </ul>
+            </li>
+            <li><a href="#customer-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Customer</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+              <ul id="customer-nav-list" class="collapse list-unstyled">
+                <li><a href="#"><span>Add Customer</span></a></li>
+                <li><a href="customerlist.php"><span>Customer Accounts</span></a></li>
+              </ul>
+            </li>   
           </ul>
         </li>
-      <li> <a href="#"> <i class="icon-interface-windows"> </i><span>Purchase Order</span></a></li>
+
+      <li><a href="#transact-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-interface-windows"></i><span>Transaction</span>
+        <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+        <ul id="transact-nav-list" class="collapse list-unstyled">
+          <li><a href="#">Purchase Order</a></li>
+          <li><a href="#">Inquiry</a></li>
+          <li><a href="#">Inventory</a></li>
+          <li><a href="#">Add Quantity  </a></li>
+        </ul>
+      </li>
       <!-- <div class="admin-menu">
         <ul id="side-admin-menu" class="side-menu list-unstyled">
           <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Account</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
@@ -51,7 +71,6 @@
           </li>
         </ul>
       </div> -->
-      <li><a href="customerlist.php"><i class="icon-user"></i><span>Customer Accounts</span></a></li>
       <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-list-alt"></i><span>Reports</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="account-nav-list" class="collapse list-unstyled">

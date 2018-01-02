@@ -74,10 +74,10 @@ $(window).load(function() {
 								?>
 							</h5>
 							<p><?php echo $prod['prod_desc']; ?></p>
-							<?php if(isset($_SESSION['login_username'])) ?>
+							<?php if(isset($_SESSION['login_username'])){ ?>
 								<div class="row">
 									<div class="col-md-6">
-										<form method="POST" action="php/addSession.php?id=<?php echo $prod_code; ?>&type=cart">
+										<form method="POST" action="php/addToCart.php?id=<?php echo $prod_code; ?>">
 												&nbsp; &nbsp; <label>Quantity</label>
 												<input type="Number" name="quantity" id="quantity" style="width: 40px;" value="1">
 												<button type="submit" class="btn btn-success">Add To Cart</button>

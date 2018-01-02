@@ -73,17 +73,41 @@
                         <h3> <div class="total">
 
                             <span><?php
-
+                            $ct = 0;
                             if(!empty($_SESSION['cart'])){
                                 foreach($_SESSION['cart'] as $pprice){
                                     $tprice = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
                                     $tprice->execute(array($pprice));
                                     $tprice = $tprice->fetch();
 
-                                    $cartPrice += $tprice['prod_price'];
+                                    $cartPrice += $tprice['prod_price'] * $_SESSION['quantity'][$ct];
+                                    $ct++;
                                 }
                             } 
-                            echo "Php " . number_format($cartPrice, 2); ?>
+                           // echo "Php " . number_format($cartPrice, 2); ?>
+
+                            <?php 
+                                if(!empty($_SESSION['login_username'])){
+                                    $acc_email =  $_SESSION['login_username'];
+                                    $user_id = $pdo->prepare("SELECT acc_id FROM account WHERE acc_email = '$acc_email'");
+                                    $user_id->execute();
+                                    $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
+
+                                    $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ?");
+                                    $cartProd->execute(array($user_id['acc_id']));
+                                    $cartProd = $cartProd->fetchAll();
+
+                                    foreach($cartProd as $row){
+                                        $price = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+                                        $price->execute(array($row['prod_id']));
+                                        $price = $price->fetch();
+
+                                        $itemPrice = $price['prod_price'] * $row['quantity'];
+                                        $cartPrice += $itemPrice;
+                                    }
+                                }
+                                echo "Php " . number_format($cartPrice, 2);
+                            ?>
                                 
                             </span> </div>
                             <img src="images/cart.png" alt=""/></h3>
@@ -113,7 +137,7 @@
                                     <li><a href="productcatalog.php?id=2">Accessories</a></li>
                                     <li><a href="productcatalog.php?id=3">Wall Decor</a></li>
                                     <li><a href="productcatalog.php?id=4">Luminaries</a></li>
-                                    <li><a href="productcatalog.php?id=5">Home Furnitures</a></li>
+                                    <li><a href="productcatalog.php?id=5">Home Furnishing</a></li>
                                     </ul>   
                                 </div>                          
                             </div>

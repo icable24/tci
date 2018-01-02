@@ -30,7 +30,7 @@ body {
 .column {
     float: left;
     width: 33.33%;
-    padding: 10px;/* Should be removed. Only for demonstration */
+    /* Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
