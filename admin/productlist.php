@@ -100,7 +100,8 @@ input[type=text]:focus {
                       echo '<td>'.$row['prod_diameter']. ' Dia. x '. $row['prod_height2'] . ' Ht.'. '</td>';
                     }
                     echo '<td class="text-center">
-                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit"></span></a>
+                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit">Edit</span></a>
+                          <a class="btn btn-warning btn-md" href="../addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit">Feature</span></a>
                           </td>';                 
                   echo '</tr>';
                 }

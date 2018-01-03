@@ -39,7 +39,7 @@
               <ul id="product-nav-list" class="collapse list-unstyled">
                 <li> <a href="productlist.php">Product List</a></li>
                 <li><a href="productcreate.php">Add New Product</a></li>
-                <li> <a href="#">Featured Product</a></li>
+                <li> <a href="featuredproduct.php">Featured Product</a></li>
                 <li><a href="#">Materials</a></li>
               </ul>
             </li>
