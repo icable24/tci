@@ -226,6 +226,13 @@ tr:nth-child(even) {
               ?>
             </table>
 
+                      <label class="control-label" for="zip_code">
+                        Zip/Postal Code *
+                      </label>
+                      <div class="controls">
+                        <input id="zip_code" name="zip_code" type="text" class="form-control" required="">
+                      </div>
+
             <?php
             echo '<table>';
              echo '<tr>';
@@ -237,7 +244,6 @@ tr:nth-child(even) {
             ?>
               </div>
         </div>
-
         <br>
         <br>
         <br>
