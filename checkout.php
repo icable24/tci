@@ -95,7 +95,7 @@
 			
 			 
 			 <div class="clearfix"></div>
-			 <a class="order" href="productsummary.php">Place Order</a>
+			 <a class="order" href="placeorder.php">Place Order</a>
 			</div>
 		
 			<div class="clearfix"> </div>
