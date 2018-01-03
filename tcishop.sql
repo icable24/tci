@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2018 at 04:21 AM
+-- Generation Time: Jan 03, 2018 at 11:14 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -72,6 +72,24 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`) VALUES
 (1, 2, 47, 6),
 (2, 2, 26, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `featuredprod`
+--
+
+CREATE TABLE `featuredprod` (
+  `featured_id` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `featuredprod`
+--
+
+INSERT INTO `featuredprod` (`featured_id`, `prod_id`) VALUES
+(1, 29);
 
 -- --------------------------------------------------------
 
@@ -225,6 +243,13 @@ ALTER TABLE `cart`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `featuredprod`
+--
+ALTER TABLE `featuredprod`
+  ADD PRIMARY KEY (`featured_id`),
+  ADD KEY `prod_id` (`prod_id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -265,6 +290,11 @@ ALTER TABLE `account`
 ALTER TABLE `cart`
   MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `featuredprod`
+--
+ALTER TABLE `featuredprod`
+  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
@@ -294,6 +324,12 @@ ALTER TABLE `productgroup`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `account` (`acc_id`);
+
+--
+-- Constraints for table `featuredprod`
+--
+ALTER TABLE `featuredprod`
+  ADD CONSTRAINT `featuredprod_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`);
 
 --
 -- Constraints for table `product`
