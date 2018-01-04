@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2018 at 11:14 AM
+-- Generation Time: Jan 04, 2018 at 01:33 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -62,16 +62,17 @@ CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `prod_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
+  `quantity` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`) VALUES
-(1, 2, 47, 6),
-(2, 2, 26, 1);
+INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`) VALUES
+(1, 2, 47, 6, 1),
+(2, 2, 26, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -90,6 +91,30 @@ CREATE TABLE `featuredprod` (
 
 INSERT INTO `featuredprod` (`featured_id`, `prod_id`) VALUES
 (1, 29);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `acc_id` int(11) NOT NULL,
+  `shippingaddress` varchar(50) NOT NULL,
+  `country` varchar(20) NOT NULL,
+  `state` varchar(20) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `zip_code` int(10) NOT NULL,
+  `order_amount` decimal(11,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`) VALUES
+(1, 1, 'bacolod', 'Brunei', 'negros occidental', 'city', 145, '0.00');
 
 -- --------------------------------------------------------
 
@@ -240,7 +265,8 @@ ALTER TABLE `account`
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
   ADD KEY `prod_id` (`prod_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `order_id` (`order_id`);
 
 --
 -- Indexes for table `featuredprod`
@@ -248,6 +274,13 @@ ALTER TABLE `cart`
 ALTER TABLE `featuredprod`
   ADD PRIMARY KEY (`featured_id`),
   ADD KEY `prod_id` (`prod_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `acc_id` (`acc_id`);
 
 --
 -- Indexes for table `product`
@@ -293,7 +326,12 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
-  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `product`
 --
@@ -323,13 +361,20 @@ ALTER TABLE `productgroup`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `account` (`acc_id`);
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `account` (`acc_id`),
+  ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 -- Constraints for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
   ADD CONSTRAINT `featuredprod_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`acc_id`) REFERENCES `account` (`acc_id`);
 
 --
 -- Constraints for table `product`
