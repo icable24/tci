@@ -1,8 +1,7 @@
 <?php 
 	session_start();
 	require '../database.php';
-
-	$acc_email = $_SESSION['login_username'];
+	
 	$name = $_POST['name'];
 	$acc_company = $_POST['acc_company'];
 	$shippingaddress = $_POST['shippingaddress'];
@@ -12,7 +11,6 @@
 	$acc_email = $_POST['acc_email'];
 	$acc_contact = $_POST['acc_contact'];
 	$zip_code = $_POST['zip_code'];
-	$order_amount = $_POST['order_amount'];
 	
 
 	$pdo = Database::connect();
@@ -25,9 +23,9 @@
 
 	$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO orders (name, acc_company, shippingaddress, country, state, city, acc_email, acc_contact, zip_code, order_amount) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO orders (name, acc_company, shippingaddress, country, state, city, acc_email, acc_contact, zip_code) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
-        $q->execute(array($name, $acc_company, $shippingaddress, $country, $state, $city, $acc_email, $acc_contact, $zip_code, $order_amount));
+        $q->execute(array($name, $acc_company, $shippingaddress, $country, $state, $city, $acc_email, $acc_contact, $zip_code));
         Database::disconnect();
 
 

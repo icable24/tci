@@ -19,7 +19,7 @@
 				header("Location: ../admin/productlist.php");
 			}else{
 				header("Location: ../admin/featuredproduct.php");
-			}	
+			}		
 			echo $type;
 		}
 		echo $prod_id;
