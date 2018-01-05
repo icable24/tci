@@ -46,6 +46,7 @@ input[type=text]:focus {
             <thead>
               <tr class="alert-success">
                 <th>Customer Name</th>
+                <th>Company Name</th>
                 <th>Email</th>
                 <th>Contact Number</th>
                 <th>Address</th>
@@ -58,12 +59,13 @@ input[type=text]:focus {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //sql statement to get products and sort by product code
-                $sql = 'SELECT * FROM account WHERE user_type = "customer" ORDER BY acc_id ASC';
+                $sql = 'SELECT * FROM account WHERE user_type != "admin" ORDER BY acc_id ASC';
 
                 //display all products in the database
                 foreach ($pdo->query($sql) as $row) {
               echo '<tr>';
                 echo '<td>'. $row['acc_fname'] ." ". $row['acc_lname'] . '</td>';
+                echo '<td>'.$row['acc_company'].'</td>';
                 echo '<td>'.$row['acc_email'].'</td>';
                 echo '<td>'.$row['acc_contact'].'</td>';
                 echo '<td>'.$row['acc_add'].'</td>';

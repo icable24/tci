@@ -18,6 +18,8 @@
       <!-- navbar-->
       <?php include('header.php'); ?>
       <!-- Body Section -->
+      <br>
+      <?php include('usercount.php'); ?>
       <!-- Footer Section -->
       <?php include('footer.php'); ?>
     </div>
