@@ -15,18 +15,13 @@
 
 	$pdo = Database::connect();
 
-	$acc_email =  $_SESSION['login_username'];
-	$user_id = $pdo->prepare("SELECT acc_id FROM account WHERE acc_email = '$acc_email'");
-	$user_id->execute();
-	$user_id = $user_id->fetch(PDO::FETCH_ASSOC);
+	$user_id = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+	$user_id->execute(array($_SESSION['login_username']));
+	$user_id = $user_id->fetchAll();
 
-
-	$pdo = Database::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO orders (name, acc_company, shippingaddress, country, state, city, acc_email, acc_contact, zip_code) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$q = $pdo->prepare($sql);
-        $q->execute(array($name, $acc_company, $shippingaddress, $country, $state, $city, $acc_email, $acc_contact, $zip_code));
-        Database::disconnect();
+	$order_id = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND cart_finish = ?");
+	$order_id->execute(array($user_id['user_id'], "No"));
+	$order_id = $order_id->fetchAll();
 
 
 	

@@ -18,8 +18,23 @@
                     &nbsp;&nbsp;
                     <a style="text-decoration: none; color: white" class="pull-right" href="login.php">Login</a>
                 <?php }else{ ?>
+                    <?php 
+                        $acc = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+                        $acc->execute(array($_SESSION['login_username']));
+                        $acc = $acc->fetchAll();
+
+                    ?>
                     <a style="text-decoration: none; color: white" class="pull-right" href="php/logout.php">Logout</a> 
                     &nbsp;&nbsp;
+                    <?php 
+                        if($acc[0]["user_type"] == "admin"){
+                            echo "
+                                <a style='text-decoration: none;' class='pull-right'>|</a> 
+                                 &nbsp;&nbsp;
+                                <a style='text-decoration: none; color: white' class='pull-right' href='admin/index.php'>Admin Dashboard</a>
+                            ";
+                        }
+                    ?>
                 <?php } ?>
                    <!-- &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
                     <a href="#"><i class="facebok pull-right" style="align-items: center;"> </i></a>
@@ -72,19 +87,7 @@
                          ?>
                         <h3> <div class="total">
 
-                            <span><?php
-                            $ct = 0;
-                            if(!empty($_SESSION['cart'])){
-                                foreach($_SESSION['cart'] as $pprice){
-                                    $tprice = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
-                                    $tprice->execute(array($pprice));
-                                    $tprice = $tprice->fetch();
-
-                                    $cartPrice += $tprice['prod_price'] * $_SESSION['quantity'][$ct];
-                                    $ct++;
-                                }
-                            } 
-                           // echo "Php " . number_format($cartPrice, 2); ?>
+                            <span>
 
                             <?php 
                                 if(!empty($_SESSION['login_username'])){
@@ -93,8 +96,8 @@
                                     $user_id->execute();
                                     $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
 
-                                    $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ?");
-                                    $cartProd->execute(array($user_id['acc_id']));
+                                    $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? and cart_finish = ?");
+                                    $cartProd->execute(array($user_id['acc_id'], "No"));
                                     $cartProd = $cartProd->fetchAll();
 
                                     foreach($cartProd as $row){

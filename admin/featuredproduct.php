@@ -4,7 +4,7 @@
 
   $pdo = Database::connect();
 
-  $featured = $pdo->prepare("SELECT * FROM featuredprod");
+  $featured = $pdo->prepare("SELECT * FROM featuredprod ORDER BY featured_id");
   $featured->execute();
   $featured = $featured->fetchAll();
 
@@ -51,7 +51,7 @@
 	            				</div>
 	            			</div>
 	            			<div class="clearfix"></div>
-	            			<br>
+	            			<br><br>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -73,7 +73,7 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<a href="#" class="btn btn-danger">Remove</a>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[0]["prod_code"] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<div class="clearfix"></div>
@@ -99,7 +99,85 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<a href="#" class="btn btn-danger">Remove</a>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[1]["prod_code"] ?>" class="btn btn-danger">Remove</a>
+			            		</div>
+			            	</div>
+			            	<div class="clearfix"></div>
+			            	<br><br>
+			            	<div class="row">
+			            		<div class="col-1">
+			            			<br><br><br>
+			            			<label><h3>3</h3></label>
+			            		</div>
+			            		<div class="col-3">
+			            			<img src="<?php echo $img[2] ?>" style="width: 150px; height: 150px;" alt="Image">
+			            		</div>
+			            		<div class="col-6">
+			            			<div class="row">
+			            				<label><?php echo $prod[2]["prod_name"] ?></label>
+			            			</div>
+			            			<div class="row">
+			            				<label><?php echo $prod[2]["prod_code"] ?></label>
+			            			</div>
+			            			<div class="row">
+			            				<label><?php echo "Php " . number_format($prod[2]['prod_price'], 2) ?></label>
+			            			</div>
+			            		</div>
+			            		<div class="">
+			            			<br><br>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[2]["prod_code"] ?>" class="btn btn-danger">Remove</a>
+			            		</div>
+			            	</div>
+			            	<div class="clearfix"></div>
+			            	<br><br>
+			            	<div class="row">
+			            		<div class="col-1">
+			            			<br><br><br>
+			            			<label><h3>4</h3></label>
+			            		</div>
+			            		<div class="col-3">
+			            			<img src="<?php echo $img[3] ?>" style="width: 150px; height: 150px;" alt="Image">
+			            		</div>
+			            		<div class="col-6">
+			            			<div class="row">
+			            				<label><?php echo $prod[3]["prod_name"] ?></label>
+			            			</div>
+			            			<div class="row">
+			            				<label><?php echo $prod[3]["prod_code"] ?></label>
+			            			</div>
+			            			<div class="row">
+			            				<label><?php echo "Php " . number_format($prod[3]['prod_price'], 2) ?></label>
+			            			</div>
+			            		</div>
+			            		<div class="">
+			            			<br><br>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[3]["prod_code"] ?>" class="btn btn-danger">Remove</a>
+			            		</div>
+			            	</div>
+			            	<div class="clearfix"></div>
+			            	<br><br>
+			            	<div class="row">
+			            		<div class="col-1">
+			            			<br><br><br>
+			            			<label><h3>5</h3></label>
+			            		</div>
+			            		<div class="col-3">
+			            			<img src="<?php echo $img[4] ?>" style="width: 150px; height: 150px;" alt="Image">
+			            		</div>
+			            		<div class="col-6">
+			            			<div class="row">
+			            				<label><?php echo $prod[4]["prod_name"] ?></label>
+			            			</div>
+			            			<div class="row">
+			            				<label><?php echo $prod[4]["prod_code"] ?></label>
+			            			</div>
+			            			<div class="row">
+			            				<label><?php echo "Php " . number_format($prod[4]['prod_price'], 2) ?></label>
+			            			</div>
+			            		</div>
+			            		<div class="">
+			            			<br><br>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[4]["prod_code"] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<div class="clearfix"></div>
