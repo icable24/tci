@@ -23,7 +23,7 @@
 	$order_id->execute(array($user_id['user_id'], "No"));
 	$order_id = $order_id->fetchAll();
 
-
+	
 	
 	header("location: ../paynoteinfo.php");
 ?>

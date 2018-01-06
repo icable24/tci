@@ -202,7 +202,7 @@ $row9 = mysqli_fetch_object($query9);
 <table align="center">
     <tr>
      <td class="circle-tile ">
-      <a href="#"><div class="circle-tile-heading green"><i class="fa fa-archive fa-fw fa-3x"></i></div></a>
+      <a href="productlist.php"><div class="circle-tile-heading green"><i class="fa fa-archive fa-fw fa-3x"></i></div></a>
     </td>
     </tr>
      
@@ -244,7 +244,7 @@ $row9 = mysqli_fetch_object($query9);
       <td class="circle-tile ">
         <div class="circle-tile-content green">
           <div class="circle-tile-number text-faded "><?php echo $row2->total2;?></div>
-          <a class="circle-tile-footer" style="color: white">Product Inventory</a>
+          <a class="circle-tile-footer" style="color: white">Total Products</a>
         </div>
       </td>
   </tr> 

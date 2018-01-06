@@ -73,7 +73,7 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<a href="../php/removeFeature.php?id=<?php echo $prod[0]["prod_code"] ?>" class="btn btn-danger">Remove</a>
+			            			<a class="btn btn-danger" data-toggle="modal" data-target="#myModal" value="<?php echo $prod[0]['prod_code'] ?>">Remove</a>
 			            		</div>
 			            	</div>
 			            	<div class="clearfix"></div>
@@ -187,5 +187,55 @@
             </div>	
 		</div>
 	</div>
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog "> 
+
+    <!-- Modal content-->
+    <div class="modal-content" style="margin-top: 40%">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Donor List</h4>
+      </div>
+      <div class="modal-body">
+      <?php 
+      require 'dbconnect.php';
+      $pdo = Database::connect();
+	  $donor = $pdo->prepare("
+		SELECT SQL_CALC_FOUND_ROWS * 
+		FROM donor WHERE dremarks = 'Accepted'
+	");
+	$donor->execute();
+
+	$donor = $donor->fetchAll(PDO::FETCH_ASSOC);
+      ?>
+    	<div class="table-responsive">
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr class="alert-info">
+							<th>Donor ID</th>
+							<th>Name</th>
+							<th class="text-center">Action</th>
+						</tr>
+					</thead>	
+					<tbody>					
+						<?php								
+							foreach ($donor as $row) {
+								echo '<tr>';
+									echo '<td>'. $row['did'] . '</td>';
+									echo '<td>'.$row['dfname'] . ' ' . substr($row['dmname'], 0 , 1) . '. ' .  $row['dlname'].'</td>';
+									echo '<td class="text-center">
+													<a class="btn btn-primary btn-md" href="bloodcollection.php?id='.$row['did'].'" data-toggle="tooltip" title="Update"><span class="glyphicon glyphicon-edit">
+									  		  </td>';
+								echo '</tr>';
+							}
+							Database::disconnect();
+						?>
+					</tbody>
+				</table>
+			</div>
+      </div>
+    </div>
+  </div>
+</div>
 	</body>
 </html>

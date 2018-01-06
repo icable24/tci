@@ -101,7 +101,7 @@ input[type=text]:focus {
                     }
                     echo '<td class="text-center">
                           <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit">Edit</span></a>
-                          <a class="btn btn-warning btn-md" href="../addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit">Feature</span></a>
+                          <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View">Feature</a>
                           </td>';                 
                   echo '</tr>';
                 }

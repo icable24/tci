@@ -30,19 +30,21 @@
 	$order_id->execute(array($user_id['acc_id'], "No"));
 	$order_id = $order_id->fetch();
 
-	var_dump($order_id);
+	
 	if($check < 1){
-		$addToCart = $pdo->prepare("INSERT INTO cart(user_id, prod_id, quantity, order_id) VALUES(?,?,?,?)");
-		$addToCart->execute(array($user_id['acc_id'], $prod_id['prod_id'], $quantity, $order_id["order_id"]));
+		$addToCart = $pdo->prepare("INSERT INTO cart(user_id, prod_id, quantity, order_id, cart_finish) VALUES(?,?,?,?,?)");
+		$addToCart->execute(array($user_id['acc_id'], $prod_id['prod_id'], $quantity, $order_id["order_id"], "No"));
+		echo "ok";
 	}else{
-		$oldQuantity = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND prod_id = ?");
-		$oldQuantity->execute(array($user_id['acc_id'], $prod_id['prod_id']));
+		$oldQuantity = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND prod_id = ? AND cart_finish = ?");
+		$oldQuantity->execute(array($user_id['acc_id'], $prod_id['prod_id'], "No"));
 		$oldQuantity = $oldQuantity->fetch(PDO::FETCH_ASSOC);
 
 		$newQuantity = $quantity + $oldQuantity['quantity'];
 
 		$updateCart = $pdo->prepare("UPDATE cart SET quantity = ? WHERE user_id = ? AND prod_id = ?");
 		$updateCart->execute(array($newQuantity, $user_id['acc_id'], $prod_id['prod_id']));
+		echo "not";
 	}
 	header("location: ../productdetails.php?id=$prod_code");
 ?>

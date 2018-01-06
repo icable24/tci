@@ -33,7 +33,13 @@
                                  &nbsp;&nbsp;
                                 <a style='text-decoration: none; color: white' class='pull-right' href='admin/index.php'>Admin Dashboard</a>
                             ";
-                        }
+                        }else{
+                             echo "
+                                <a style='text-decoration: none;' class='pull-right'>|</a> 
+                                 &nbsp;&nbsp;
+                                <a style='text-decoration: none; color: white' class='pull-right' href='#''>My Account</a>
+                            ";
+                        }   
                     ?>
                 <?php } ?>
                    <!-- &nbsp;&nbsp; <a class="pull-right">|</a> &nbsp;&nbsp;
