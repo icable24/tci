@@ -11,6 +11,7 @@
 	
 
 	$pdo = Database::connect();
+<<<<<<< HEAD
 	$acc_email =  $_SESSION['login_username'];
 	$user_id = $pdo->prepare("SELECT acc_id FROM account WHERE acc_email = '$acc_email'");
 	$user_id->execute();
@@ -28,6 +29,16 @@
 		$q = $pdo->prepare($sql);
         $q->execute(array($shippingaddress, $country, $state, $city, $zip_code));
         Database::disconnect();
+=======
+
+	$user_id = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+	$user_id->execute(array($_SESSION['login_username']));
+	$user_id = $user_id->fetchAll();
+
+	$order_id = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND cart_finish = ?");
+	$order_id->execute(array($user_id['user_id'], "No"));
+	$order_id = $order_id->fetchAll();
+>>>>>>> d8f73ea2b372753aede96f54931bc7385d157295
 
 
 	

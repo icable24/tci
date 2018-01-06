@@ -50,6 +50,7 @@
                       <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
                     </ul> -->
                 </li>
+                <li class="nav-item"><a href="../index.php" class="nav-link logout">View Shop</a></li>
                 <li class="nav-item"><a href="../php/logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>

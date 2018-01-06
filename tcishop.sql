@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2018 at 01:33 PM
+-- Generation Time: Jan 05, 2018 at 03:50 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -63,16 +63,18 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL,
   `prod_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL
+  `order_id` int(11) NOT NULL,
+  `cart_finish` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`) VALUES
-(1, 2, 47, 6, 1),
-(2, 2, 26, 1, 1);
+INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`, `cart_finish`) VALUES
+(23, 2, 32, 2, 4, 'Yes'),
+(24, 2, 48, 1, 4, 'No'),
+(25, 2, 40, 1, 4, 'No');
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,11 @@ CREATE TABLE `featuredprod` (
 --
 
 INSERT INTO `featuredprod` (`featured_id`, `prod_id`) VALUES
-(1, 29);
+(4, 27),
+(1, 29),
+(3, 32),
+(5, 43),
+(2, 46);
 
 -- --------------------------------------------------------
 
@@ -106,15 +112,16 @@ CREATE TABLE `orders` (
   `state` varchar(20) NOT NULL,
   `city` varchar(20) NOT NULL,
   `zip_code` int(10) NOT NULL,
-  `order_amount` decimal(11,2) NOT NULL
+  `order_amount` decimal(11,2) NOT NULL,
+  `order_finish` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`) VALUES
-(1, 1, 'bacolod', 'Brunei', 'negros occidental', 'city', 145, '0.00');
+INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`) VALUES
+(4, 2, '', '', '', '', 0, '0.00', 'No');
 
 -- --------------------------------------------------------
 
@@ -321,17 +328,17 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
-  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product`
 --

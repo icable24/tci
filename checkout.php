@@ -31,8 +31,8 @@
                 $user_id->execute();
                 $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
 
-                $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ?");
-                $cartProd->execute(array($user_id['acc_id']));
+                $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? and cart_finish = ?");
+                $cartProd->execute(array($user_id['acc_id'], "No"));
                 $cartProd = $cartProd->fetchAll();
 
                 foreach($cartProd as $row){
