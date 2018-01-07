@@ -10,11 +10,15 @@
 
   $prod =array();
 
-  for($i = 0; $i < 5; $i++){
-  	$prod[$i] = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
-  	$prod[$i]->execute(array($featured[$i]["prod_id"]));
-  	$prod[$i] = $prod[$i]->fetch();
-  }
+    if(!empty($featured)){
+	  $ct = 0;
+	  foreach($featured as $row){
+	  	$prod[$ct] = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+	  	$prod[$ct]->execute(array($row["prod_id"]));
+	  	$prod[$ct] = $prod[$ct]->fetch();
+	  	$ct++;
+	  }
+    }
 ?>
 <!DOCTYPE html>
 <style>
@@ -22,6 +26,7 @@
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -34,7 +39,7 @@
 /* Modal Content */
 .modal-content {
     position: relative;
-    background-color: #ff9800;
+    background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
@@ -60,7 +65,7 @@
 /* The Close Button */
 .close {
     color: white;
-    float: right !important;
+    float: right;
     font-size: 28px;
     font-weight: bold;
 }
@@ -84,6 +89,7 @@
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
+}
 }
 </style>
 <html>
@@ -110,8 +116,11 @@
 			            <div class="card-block">
 			            	<?php 
 	            				$img = array();
-	            				for($a = 0; $a < 5; $a++){
-	            					$img[$a] = "../prod_img/" . $prod[$a]['prod_image'];
+
+	            				$a = 0;
+	            				foreach($prod as $row){
+	            					$img[$a] = "../prod_img/" . $row['prod_image'];
+	            					$a++;	
 	            				}
 	            			?>
 	            			<div class="row">
@@ -121,6 +130,7 @@
 	            			</div>
 	            			<div class="clearfix"></div>
 	            			<br><br>
+	            			<?php if(!empty($prod[0])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -145,8 +155,10 @@
 			            			<button class="btn btn-danger" id="myBtn1">Remove</button>
 			            		</div>
 			            	</div>
+			            	<?php } ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
+			            	<?php if(!empty($prod[1])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -171,8 +183,10 @@
 			            			<button class="btn btn-danger" id="myBtn2">Remove</button>
 			            		</div>
 			            	</div>
+			            	<?php } ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
+			            	<?php if(!empty($prod[2])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -197,8 +211,10 @@
 			            			<button class="btn btn-danger" id="myBtn3">Remove</button>
 			            		</div>
 			            	</div>
+			            	<?php } ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
+			            	<?php if(!empty($prod[3])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -223,8 +239,10 @@
 			            			<button class="btn btn-danger" id="myBtn4">Remove</button>
 			            		</div>
 			            	</div>
+			            	<?php } ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
+			            	<?php if(!empty($prod[4])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -251,6 +269,7 @@
 			            			} ?>>Remove</button>
 			            		</div>
 			            	</div>
+			            	<?php } ?>
 			            	<div class="clearfix"></div>
 			            </div>
             		</div>
@@ -264,7 +283,9 @@
 	    <div class="modal-body">
 	      <p>Are you sure you want to remove this product?</p>
 	      <div class="row" style="text-align: center;">
-	      	<p style="margin-left: 20%;"><?php echo $prod[0]["prod_name"] ?></p>
+	      	<div class="col" style="text-align: center;">
+	      		<p><?php echo $prod[0]["prod_name"] ?></p>
+	      	</div>
 	      </div>
 	      <div class="row" style="text-align: center;">
 	      	<div class="col">
@@ -281,7 +302,9 @@
 	    <div class="modal-body">
 	      <p>Are you sure you want to remove this product?</p>
 	      <div class="row" style="text-align: center;">
-	      	<p style="margin-left: 20%;"><?php echo $prod[1]["prod_name"] ?></p>
+	      	<div class="col" style="text-align: center;">
+	      		<p><?php echo $prod[1]["prod_name"] ?></p>
+	      	</div>
 	      </div>
 	      <div class="row" style="text-align: center;">
 	      	<div class="col">
@@ -298,7 +321,7 @@
 	    <div class="modal-body">
 	      <p>Are you sure you want to remove this product?</p>
 	      <div class="row" style="text-align: center;">
-	      	<p style="margin-left: 20%;"><?php echo $prod[2]["prod_name"] ?></p>
+	      	<p style="margin-left: 30%;"><?php echo $prod[2]["prod_name"] ?></p>
 	      </div>
 	      <div class="row" style="text-align: center;">
 	      	<div class="col">
@@ -315,7 +338,7 @@
 	    <div class="modal-body">
 	      <p>Are you sure you want to remove this product?</p>
 	      <div class="row" style="text-align: center;">
-	      	<p style="margin-left: 20%;"><?php echo $prod[3]["prod_name"] ?></p>
+	      	<p style="margin-left: 30%;"><?php echo $prod[3]["prod_name"] ?></p>
 	      </div>
 	      <div class="row" style="text-align: center;">
 	      	<div class="col">
@@ -332,7 +355,7 @@
 	    <div class="modal-body">
 	      <p>Are you sure you want to remove this product?</p>
 	      <div class="row" style="text-align: center;">
-	      	<p style="margin-left: 20%;"><?php echo $prod[4]["prod_name"] ?></p>
+	      	<p style="margin-left: 30%;"><?php echo $prod[4]["prod_name"] ?></p>
 	      </div>
 	      <div class="row" style="text-align: center;">
 	      	<div class="col"> 
@@ -409,7 +432,7 @@ cc5.onclick = function() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-   modal1.style.display = "none";
+   	modal1.style.display = "none";
     modal2.style.display = "none";
     modal3.style.display = "none";
     modal4.style.display = "none";
