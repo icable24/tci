@@ -96,10 +96,10 @@
 		                          <select class="form-control" name="pc_name" id="pc_name">
 		                            <option></option>
 		                            <option <?php if($category['pc_name'] == 'Light Furnitures')echo 'selected="selected"'; ?>>Light Furnitures</option>
-		                            <option <?php if($category['pc_name'] == 'Bathroom Accessories')echo 'selected="selected"'; ?>>Bathroom Accessories</option>
-		                            <option <?php if($category['pc_name'] == 'Furniture Compliments')echo 'selected="selected"'; ?>>Furniture Compliments</option>
-		                            <option <?php if($category['pc_name'] == 'Dining Room Accessories')echo 'selected="selected"'; ?>>Dining Room Accessories</option>
-		                            <option <?php if($category['pc_name'] == 'Furniture and Home Accessories')echo 'selected="selected"'; ?>>Furniture and Home Accessories</option>
+		                            <option <?php if($category['pc_name'] == 'Accessories')echo 'selected="selected"'; ?>>Accessories</option>
+		                            <option <?php if($category['pc_name'] == 'Wall Decor')echo 'selected="selected"'; ?>>Wall Decor</option>
+		                            <option <?php if($category['pc_name'] == 'Luminaries')echo 'selected="selected"'; ?>>Luminaries</option>
+		                            <option <?php if($category['pc_name'] == 'Home Furnishing')echo 'selected="selected"'; ?>>Home Furnishing</option>
 		                          </select>
 		                        </div>
 		                    </div>

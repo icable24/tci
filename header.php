@@ -37,7 +37,7 @@
                              echo "
                                 <a style='text-decoration: none;' class='pull-right'>|</a> 
                                  &nbsp;&nbsp;
-                                <a style='text-decoration: none; color: white' class='pull-right' href='#''>My Account</a>
+                                <a style='text-decoration: none; color: white' class='pull-right' href='orderhistory.php'>Order History</a>
                             ";
                         }   
                     ?>
@@ -152,8 +152,9 @@
                             </div>
                         </div>
                     </div>
+                    </li>
                     <li><a class="color6" href="contact.php">Contact Us</a></li>
-                    <li><a href="compare.php">Compare Product</a></li>
+                    <li><a class="color6" href="compare.php">Compare Product</a></li>
               </ul> 
             </div>
                 

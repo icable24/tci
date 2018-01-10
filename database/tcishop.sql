@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2018 at 03:50 PM
+-- Generation Time: Jan 10, 2018 at 03:01 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -47,9 +47,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`acc_id`, `acc_fname`, `acc_lname`, `acc_add`, `acc_email`, `acc_password`, `acc_contact`, `user_type`, `acc_company`, `acc_comp_contact`) VALUES
 (1, 'Alvin', 'Talite', 'Bacolod City', 'alvin@tci.com', 'admin', '09123456789', 'admin', '', ''),
-(2, 'Jayson', 'Solinap', 'Bacolod City', 'jayson@tci.com', 'customer', '09234567890', 'customer', '', ''),
+(2, 'Jayson', 'Solinap', 'Bacolod City', 'jayson@tci.com', 'customer', '09234567890', 'Single Buyer', '', ''),
 (4, 'JJ', 'Belo', 'Bacolod City', 'jjbelo@tci.com', '1234', '09123212341', 'Company', 'Belo Inc.', '09333232231'),
-(5, 'JJ', 'Belo', 'Bacolod City', 'jjbelo@tci.com', '1234', '09123212341', 'Company', 'Belo Inc.', '09333232231'),
 (6, 'asd', 'asd', '', 'asd', 'asd', '123', 'Single Buyer', '', '');
 
 -- --------------------------------------------------------
@@ -73,8 +72,9 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`, `cart_finish`) VALUES
 (23, 2, 32, 2, 4, 'Yes'),
-(24, 2, 48, 1, 4, 'No'),
-(25, 2, 40, 1, 4, 'No');
+(24, 2, 48, 1, 4, 'Yes'),
+(25, 2, 40, 1, 4, 'Yes'),
+(26, 2, 28, 3, 4, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -93,10 +93,10 @@ CREATE TABLE `featuredprod` (
 
 INSERT INTO `featuredprod` (`featured_id`, `prod_id`) VALUES
 (4, 27),
-(1, 29),
 (3, 32),
-(5, 43),
-(2, 46);
+(5, 46),
+(6, 52),
+(7, 53);
 
 -- --------------------------------------------------------
 
@@ -113,15 +113,17 @@ CREATE TABLE `orders` (
   `city` varchar(20) NOT NULL,
   `zip_code` int(10) NOT NULL,
   `order_amount` decimal(11,2) NOT NULL,
-  `order_finish` varchar(3) NOT NULL
+  `order_finish` varchar(3) NOT NULL,
+  `date_ordered` date NOT NULL,
+  `date_finished` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`) VALUES
-(4, 2, '', '', '', '', 0, '0.00', 'No');
+INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`, `date_ordered`, `date_finished`) VALUES
+(4, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '0.00', 'No', '2018-01-10', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -328,12 +330,12 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
-  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `orders`
 --

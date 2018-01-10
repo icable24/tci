@@ -80,17 +80,17 @@ tr:nth-child(even) {
                 <div class="row">
                   <div class="column">
                    <label class="control-label" for="name">
-                        Name *
+                        Name
                       </label>
                       <div class="controls">
-                        <input id="name" name="name" value="<?php echo $user_id['acc_fname'].' '.$user_id['acc_lname'] ?>" type="text" class="form-control" required="">               
+                        <input id="name" name="name" value="<?php echo $user_id['acc_fname'].' '.$user_id['acc_lname'] ?>" type="text" class="form-control" required="" disabled>               
                       </div>
                       <br>
                       <label class="control-label" for="acc_company">
                         Company
                       </label>
                       <div class="controls">
-                        <input id="acc_company" name="acc_company" type="text" class="form-control">               
+                        <input id="acc_company" name="acc_company" type="text" class="form-control" disabled="">               
                       </div>
                       <br>
                       <label class="control-label" for="shippingaddress">
@@ -119,7 +119,7 @@ tr:nth-child(even) {
                       </div>
                       <br>
                       <label class="control-label" for="state">
-                        State *
+                        State/Province *
                       </label>
                       <div class="controls">
                         <input id="state" name="state" type="text" class="form-control" required="">               
@@ -135,10 +135,10 @@ tr:nth-child(even) {
                   </div>
                   <div class="column">
                     <label class="control-label" for="acc_email">
-                        Email *
+                        Email
                       </label>
                       <div class="controls">
-                        <input id="acc_email" name="acc_email" value="<?php echo $user_id['acc_email']?>" type="text" class="form-control" required="">               
+                        <input id="acc_email" name="acc_email" value="<?php echo $user_id['acc_email']?>" type="text" class="form-control" required="" disabled>               
                       </div>
                        <br>
                       <label class="control-label" for="acc_contact">
@@ -152,7 +152,7 @@ tr:nth-child(even) {
                         Zip/Postal Code *
                       </label>
                       <div class="controls">
-                        <input id="zip_code" name="zip_code" type="text" class="form-control" required="">
+                        <input id="zip_code" name="zip_code" type="Number" class="form-control" required="">
                       </div>
                      
                   </div>

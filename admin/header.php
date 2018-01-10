@@ -1,3 +1,11 @@
+<?php 
+ $pdo = Database::connect();
+
+ $PO = $pdo->prepare("SELECT SQL_CALC_FOUND_ROW * FROM orders WHERE order_finish = 'NO'");
+ $PO->execute();
+ $PO = $PO->fetchAll();
+ $notif = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+?>
 <header class="header">
          <nav class="navbar">
           <div class="container-fluid">
@@ -5,7 +13,7 @@
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.php" class="navbar-brand">
                   <div class="brand-text hidden-sm-down"><span>Tumandok Craft and Industries Management Information System</span></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><!-- <span class="badge badge-warning">12</span> --></a>
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php echo $notif; ?></span></a>
                   <!-- <ul aria-labelledby="notifications" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item"> 
                         <div class="notification d-flex justify-content-between">
