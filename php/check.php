@@ -8,6 +8,9 @@
 	$city = $_POST['city'];
 	$zip_code = $_POST['zip_code'];
 	$order_amount = 0;
+	$getDate = getDate();
+
+	$Date = $getDate['year']. '-' . $getDate['mon']. '-' . $getDate['mday']; 
 	
 
 	$pdo = Database::connect();
@@ -28,13 +31,16 @@
 		$order_amount += $itemprice;
 	}
 	
-	$update_order = $pdo->prepare("UPDATE orders SET shippingaddress = ?, country = ?, state = ?, city = ?, zip_code = ?, order_amount = ?");
-	$update_order->execute(array($shippingaddress, $country, $state, $city, $zip_code, $order_amount));
+	$update_order = $pdo->prepare("UPDATE orders SET shippingaddress = ?, country = ?, state = ?, city = ?, zip_code = ?, order_amount = ?, order_finish = ?, date_ordered = ? WHERE order_finish = 'No'");
+	$update_order->execute(array($shippingaddress, $country, $state, $city, $zip_code, $order_amount, "Pending", $Date));
 
 	foreach($order_id as $row){
 		$update = $pdo->prepare("UPDATE cart SET cart_finish = ? WHERE cart_id = ?");
 		$update->execute(array("Yes", $row['cart_id']));
 	}
+
+	$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?,?)");
+	$order->execute(array($user_id['acc_id'], "No"));
 
 	header("location: ../paynoteinfo.php");
 ?>

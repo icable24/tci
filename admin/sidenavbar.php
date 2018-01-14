@@ -55,7 +55,7 @@
       <li><a href="#transact-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-interface-windows"></i><span>Transaction</span>
         <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
         <ul id="transact-nav-list" class="collapse list-unstyled">
-          <li><a href="#">Purchase Order</a></li>
+          <li><a href="orderlist.php">Purchase Order</a></li>
           <li><a href="#">Inquiry</a></li>
           <li><a href="#">Inventory</a></li>
           <li><a href="#">Add Quantity  </a></li>

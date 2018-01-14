@@ -22,16 +22,17 @@
 	$user_id = $user_id->fetch(PDO::FETCH_ASSOC);
 
 
-	$check = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM cart WHERE user_id = ? AND prod_id = ?");
+	$check = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM cart WHERE user_id = ? AND prod_id = ? AND cart_finish = 'No'");
 	$check->execute(array($user_id['acc_id'], $prod_id['prod_id']));
 	$check = $check->fetch();
+	$num = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 
 	$order_id = $pdo->prepare("SELECT order_id FROM orders WHERE acc_id = ? AND order_finish = ?");
 	$order_id->execute(array($user_id['acc_id'], "No"));
 	$order_id = $order_id->fetch();
 
-	
-	if($check < 1){
+	var_dump($order_id);	
+	if($num < '1'){
 		$addToCart = $pdo->prepare("INSERT INTO cart(user_id, prod_id, quantity, order_id, cart_finish) VALUES(?,?,?,?,?)");
 		$addToCart->execute(array($user_id['acc_id'], $prod_id['prod_id'], $quantity, $order_id["order_id"], "No"));
 		echo "ok";

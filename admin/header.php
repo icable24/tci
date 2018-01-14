@@ -1,10 +1,13 @@
 <?php 
  $pdo = Database::connect();
 
- $PO = $pdo->prepare("SELECT SQL_CALC_FOUND_ROW * FROM orders WHERE order_finish = 'NO'");
+ $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE order_finish = 'Pending'");
+ $NPO->execute();
+ $NPO = $NPO->fetch();
+
+ $PO = $pdo->prepare("SELECT * FROM orders WHERE order_finish = 'Pending'");
  $PO->execute();
  $PO = $PO->fetchAll();
- $notif = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 ?>
 <header class="header">
          <nav class="navbar">
@@ -13,30 +16,30 @@
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.php" class="navbar-brand">
                   <div class="brand-text hidden-sm-down"><span>Tumandok Craft and Industries Management Information System</span></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php echo $notif; ?></span></a>
-                  <!-- <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification d-flex justify-content-between">
-                          <div class="notification-content"><i class="fa fa-envelope"></i>You have 6 new messages </div>
-                          <div class="notification-time"><small>4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification d-flex justify-content-between">
-                          <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
-                          <div class="notification-time"><small>4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification d-flex justify-content-between">
-                          <div class="notification-content"><i class="fa fa-upload"></i>Server Rebooted</div>
-                          <div class="notification-time"><small>4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
-                        <div class="notification d-flex justify-content-between">
-                          <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
-                          <div class="notification-time"><small>10 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-bell"></i>view all notifications                                            </strong></a></li>
-                  </ul> -->
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php echo $NPO['count(*)']; ?></span></a>
+                 <!--  <?php 
+                    if($notif > 0){
+                      foreach($PO as $row){
+                        $order_id = $row['order_id'];
+
+                        $user = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
+                        $user->execute(array($row['acc_id']));
+                        $user = $user->fetch();
+
+                        $name = $user['acc_fname'] . ' ' . $user['acc_lname'];
+                        $amount = $row['order_amount'];
+                        echo "
+                          <ul aria-labelledby='notifications' class='dropdown-menu'>
+                            <li><a rel='nofollow' href='purchaseorder.php?id=php' class='dropdown-item'> 
+                            <div class='notification d-flex justify-content-between'>
+                              <div class='notification-content'><i class='fa fa-envelope'></i></div>
+                              <div class='notification-time'><small>$amount</small></div>
+                            </div></a></li>
+                          </ul>
+                        ";
+                      }
+                    } 
+                  ?> -->
                 </li>
                 <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><!-- <span class="badge badge-info">10</span> --></a>
                     <!-- <ul aria-labelledby="notifications" class="dropdown-menu">

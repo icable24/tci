@@ -48,7 +48,7 @@ input[type=text]:focus {
       <?php include('header.php'); ?>
       <br>
       <div class="container">
-         <div>
+        <div>
           <!--<a href="productcreate.php" class="btn btn-info btn-md">Add Product</a>-->
           <div> <input type="text" id="myInput" onkeyup="myFunction()" name="search" placeholder="Search..">                 
               <select id="filters" name="filters" onChange="myFilter()" placeholder="filter" class="pull-right">
@@ -62,6 +62,8 @@ input[type=text]:focus {
             </select>
             </div>
           <br><br>
+          <div><h1>Products</h1></div>
+          <br>
          </div>
          <table class="table" id="myTable">
             <thead>

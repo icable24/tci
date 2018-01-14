@@ -90,7 +90,6 @@
     background-color: #5cb85c;
     color: white;
 }
-}
 </style>
 <html>
 	<?php 
@@ -152,13 +151,13 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<button class="btn btn-danger" id="myBtn1">Remove</button>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[0]['prod_id'] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<?php } ?>
+			            	<?php if(!empty($prod[1])){ ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
-			            	<?php if(!empty($prod[1])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -180,13 +179,13 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<button class="btn btn-danger" id="myBtn2">Remove</button>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[1]['prod_id'] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<?php } ?>
+			            	<?php if(!empty($prod[2])){ ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
-			            	<?php if(!empty($prod[2])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -208,13 +207,13 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<button class="btn btn-danger" id="myBtn3">Remove</button>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[2]['prod_id'] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<?php } ?>
+			            	<?php if(!empty($prod[3])){ ?>
 			            	<div class="clearfix"></div>
 			            	<br><br>
-			            	<?php if(!empty($prod[3])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -236,13 +235,13 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<button class="btn btn-danger" id="myBtn4">Remove</button>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[3]['prod_id'] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<?php } ?>
+			            	<?php if(!empty($prod[4])){ ?>	
 			            	<div class="clearfix"></div>
 			            	<br><br>
-			            	<?php if(!empty($prod[4])){ ?>
 			            	<div class="row">
 			            		<div class="col-1">
 			            			<br><br><br>
@@ -264,9 +263,7 @@
 			            		</div>
 			            		<div class="">
 			            			<br><br>
-			            			<button class="btn btn-danger" id="myBtn5" <?php if(empty($prod[4]["prod_id"])){
-			            				echo "disabled";
-			            			} ?>>Remove</button>
+			            			<a href="../php/removeFeature.php?id=<?php echo $prod[0]['prod_id'] ?>" class="btn btn-danger">Remove</a>
 			            		</div>
 			            	</div>
 			            	<?php } ?>
@@ -277,7 +274,7 @@
             </div>	
 		</div>
 	</div>
-	<div id="modal1" class="modal">
+	<div id="modal" class="modal">
   <!-- Modal content -->
 	  <div class="modal-content">
 	    <div class="modal-body">
@@ -290,7 +287,7 @@
 	      <div class="row" style="text-align: center;">
 	      	<div class="col">
 	      		<a href='../php/removeFeature.php?id=<?php echo $prod[0]["prod_id"] ?>' class="btn btn-success">Yes</a>
-	      		<button class="btn btn-danger"><span id="modclose1">No</span></button>
+	      		<button class="btn btn-danger" id="btnclose1" data-dismiss="modal"><span">No</span></button>
 	      	</div>
 	    </div>
 	  </div>
@@ -368,95 +365,4 @@
 </div>
 <?php include('js.php'); ?>
 	</body>
-	<script>
-// Get the modal
-var modal1 = document.getElementById('modal1');
-var modal2 = document.getElementById('modal2');
-var modal3 = document.getElementById('modal3');
-var modal4 = document.getElementById('modal4');
-var modal5 = document.getElementById('modal5');
-
-// Get the button that opens the modal
-var btn1 = document.getElementById("myBtn1");
-var btn2 = document.getElementById("myBtn2");
-var btn3 = document.getElementById("myBtn3");
-var btn4 = document.getElementById("myBtn4");
-var btn5 = document.getElementById("myBtn5");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-var cc1 = document.getElementById("modclose1");
-var cc2 = document.getElementById("modclose2");
-var cc3 = document.getElementById("modclose3");
-var cc4 = document.getElementById("modclose4");
-var cc5 = document.getElementById("modclose5");
-
-// When the user clicks the button, open the modal 
-btn1.onclick = function() {
-    modal1.style.display = "block";
-}
-
-btn2.onclick = function() {
-    modal2.style.display = "block";
-}
-
-btn3.onclick = function() {
-    modal3.style.display = "block";
-}
-
-btn4.onclick = function() {
-    modal4.style.display = "block";
-}
-
-btn5.onclick = function() {
-    modal5.style.display = "block";
-}
-
-
-cc1.onclick = function() {
-    modal1.style.display = "none";
-}
-cc2.onclick = function() {
-    modal2.style.display = "none";
-}
-cc3.onclick = function() {
-    modal3.style.display = "none";
-}
-cc4.onclick = function() {
-    modal4.style.display = "none";
-}
-cc5.onclick = function() {
-    modal5.style.display = "none";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-   	modal1.style.display = "none";
-    modal2.style.display = "none";
-    modal3.style.display = "none";
-    modal4.style.display = "none";
-    modal5.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-    if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
-    if (event.target == modal4) {
-        modal4.style.display = "none";
-    }
-    if (event.target == modal5) {
-        modal5.style.display = "none";
-    }
-}
-</script>
-
 </html>

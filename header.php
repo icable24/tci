@@ -22,7 +22,6 @@
                         $acc = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
                         $acc->execute(array($_SESSION['login_username']));
                         $acc = $acc->fetchAll();
-
                     ?>
                     <a style="text-decoration: none; color: white" class="pull-right" href="php/logout.php">Logout</a> 
                     &nbsp;&nbsp;

@@ -182,7 +182,7 @@ tr:nth-child(even) {
                 $user_id->execute();
                 $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
 
-                $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ?");
+                $cartProd = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND cart_finish = 'No'");
                 $cartProd->execute(array($user_id['acc_id']));
                 $cartProd = $cartProd->fetchAll();
 
