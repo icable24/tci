@@ -1,17 +1,16 @@
-<?php 
+<?php
   include('../login_success.php');
   include('../database.php');
-
 ?>
 <!DOCTYPE html>
 <html>
-  <?php include('head.php'); ?>
+  <?php include('head.php');?>
   <body>
     <!-- Side Navbar -->
-    <?php include('sidenavbar.php'); ?>
+    <?php include('sidenavbar.php');?>
     <div class="page home-page">
       <!-- navbar-->
-      <?php include('header.php'); ?>
+      <?php include('header.php');?>
       <!-- Body Section -->
       <br>
       	<div class="container-fluid">
@@ -21,86 +20,36 @@
               <h1>Inventory Report</h1>
             </div>
             <div class="card-block">
-              <form action="../php/addprod.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+              <form action="tcireport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 
-				<div class="row justify-content-center">
-                  <div class="col-6">
-                    <div class="control-group">
-                      <label class="control-label" for="sdate">Start Date:</label>
-                      										  <div class="controls">
-                                                              <input id="sdate" name="sdate" type="sdate" class="form-control datepicker" style="width: 2in">
-							    		<script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#sdate').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-										</script>
-							  								  </div>
-							  								  </div>
-							  								  </div>
-
-                                                        <!-- Text input-->
-							
-				  <div class="col-6">
-                    <div class="control-group">
-                      <label class="control-label" for="edate">End Date:</label>
-                      										  <div class="controls">
-                                                              <input id="edate" name="edate" type="edate" class="form-control datepicker" style="width: 2in">
-							    		<script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#edate').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-										</script>
-							  									</div>
-																</div>
-																</div>
-				</div>
-
-							<br></br>
-
-
-                                                     <!-- Select Basic -->
-
-				<div class="row">
-                <div class="col">
-                  <label for="radio1">
-                    <span><a href="#specify"><input type="radio" name="test" id="all" value="radio1" checked="" onclick="btnCheck()" /> &nbsp;All</a></span>
-                  </label> 
-                </div>
-                <div class="col">
-                  <label for="radio2">
-                    <span>
-                    	<input type="radio" name="test" id="specify" value="radio2" onclick="btnCheck2()">
-                     &nbsp;Specify</span>
-                  </label>
-                </div>
-              	</div>
-                        
-<br><br><br><br>
-<button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button>	
+                    <br>
+                    <center>
+                      <div class="control-group">
+                      <label class="control-label" for="inputcategory">Report Category</label>
+                      <div class="controls">
+                        <select  style="width: 3in" class="form-control" required="required" id="inputcategory" name="category">
+                          <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Category ------</option>
+                          <option value="all">All</option>
+                          <option value="LF">Light Furniture</option>
+                          <option value="A">Accessories</option>
+                          <option value="WD">Wall Decor</option>
+                          <option value="L">Luminaries</option>
+                          <option value="HF">Home Furniture</option>
+                        </select>
+                    </div>
+                  </div>
+                  </center>
+                   <br><br><br>
+<button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>Generate </button>
 </center>
 </div>
 </div>
 </div>
 </div>
 </form>
+<br>
+</form>
 </div>
-
-
-
       <!-- Footer Section -->
       <?php include('footer.php'); ?>
     </div>

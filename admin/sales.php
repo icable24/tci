@@ -88,14 +88,14 @@
 				<div class="row">
                 <div class="col">
                   <label for="radio1">
-                    <span><a href="#specify"><input type="radio" name="test" id="all" value="radio1" checked="" onclick="btnCheck()" /> &nbsp;All</a></span>
+                    <span><input type="radio" name="test" id="all" value="radio1" checked="" onclick="btnCheck()" /> &nbsp;All</a></span>
                   </label> 
                 </div>
                 <div class="col">
                   <label for="radio2">
                     <span>
-                    	<input type="radio" name="test" id="specify" value="radio2" onclick="btnCheck2()">
-                     &nbsp;Specify</span>
+                    	<a href="#specify"><input type="radio" name="test" id="specify" value="radio2" onclick="btnCheck2()">
+                     &nbsp;Specify</a></span>
                   </label>
                 </div>
               	</div>
