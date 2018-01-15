@@ -22,6 +22,7 @@
                         $acc = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
                         $acc->execute(array($_SESSION['login_username']));
                         $acc = $acc->fetchAll();
+
                     ?>
                     <a style="text-decoration: none; color: white" class="pull-right" href="php/logout.php">Logout</a> 
                     &nbsp;&nbsp;
@@ -67,9 +68,9 @@
             
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form action="#" method="post">
-                            <input class="sb-search-input" placeholder="Enter your search term..." type="search"  id="search">
-                            <input class="sb-search-submit" type="submit" value="">
+                        <form action="search.php" method="GET">
+                            <input class="sb-search-input" placeholder="Enter your search term..." name="query" type="text" >
+                            <input class="sb-search-submit" type="submit" value="Search">
                             <span class="sb-icon-search"> </span>
                         </form>
                     </div>
