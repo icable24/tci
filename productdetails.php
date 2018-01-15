@@ -142,6 +142,7 @@ $(window).load(function() {
 		<div class="clearfix"> </div>
 		</div>
 		</div>
+	</div>
 <!--//content-->
 <!--footer-->
 <?php include('footer.php'); ?>
