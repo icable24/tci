@@ -1,6 +1,10 @@
 <?php 
   include('../login_success.php');
   include('../database.php');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
   $pdo = Database::connect();
   if(isset($_GET['id'])){
     $id = $_REQUEST['id'];
@@ -13,6 +17,29 @@
   $inv = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ?");
   $inv->execute(array($id));
   $inv = $inv->fetch();
+<<<<<<< HEAD
+=======
+=======
+
+  $pdo = Database::connect();
+
+  if(isset($_GET['id'])){
+    $id = $_REQUEST['id'];
+  }
+
+  $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+  $product->execute(array($id));
+  $product = $product->fetch();
+
+  $prod_id = $product['prod_code'];
+  $prod_name = $product['prod_name'];
+
+  $inv = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ?");
+  $inv->execute(array($id));
+  $inv = $inv->fetch();
+
+>>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
+>>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
   if($inv){
     $quantity = $inv['quantity'];
   }else{
