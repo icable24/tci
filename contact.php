@@ -4,11 +4,26 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+	require 'database.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <?php include('head.php'); ?>
 <body>
 	<?php include('header.php'); ?>
+	<!--<?php 
+
+	$acc_email //= $_SESSION['login_username'];
+  //$pdo //= Database:: connect();
+ // $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+      //  $user_id = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+      //  $user_id->execute(array($acc_email));
+       // $user_id = $user_id->fetch(PDO:: FETCH_ASSOC);
+	?>-->
+
 
 	<!-- grow -->
 	<div class="grow" style="background-color: #dff0d8; border-color: #d6e9c6">
@@ -22,21 +37,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 			<div class="container">
 				<h4 >Please use the form below and we’ll get back as soon as possible.</h4>
-			<div class="contact-form">
+				<div class="contact-form">
 
 				<div class="col-md-8 contact-grid">
-					<form action="#" method="post">
-						<input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
-					
-						<input type="text" value="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
-						<input type="text" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+					<form action="./php/addinquiry.php" method="post">
 						
-						<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-						<div class="send">
-							<input type="submit" value="Send">
-						</div>
+						<input id="acc_name" name="acc_name" type="text" placeholder="Enter Fullname" required>
+						<input id="acc_email" name="acc_email" type="text" placeholder="Enter Email" required>
+						<input id="subject" name="subject" placeholder="Enter Subject" type="text">
+						<textarea id="message" name="message" cols="77" rows="6" required>Message</textarea>
+					<div class="send">
+					<input type="submit" value="Send">
+					</div>
 					</form>
-				</div>
+				</div> 
+		
+			
 				<div class="col-md-4 contact-in">
 
 						<div class="address-more">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2018 at 03:01 PM
+-- Generation Time: Jan 17, 2018 at 03:00 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -97,6 +97,29 @@ INSERT INTO `featuredprod` (`featured_id`, `prod_id`) VALUES
 (5, 46),
 (6, 52),
 (7, 53);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inquiry`
+--
+
+CREATE TABLE `inquiry` (
+  `inquiryID` int(5) NOT NULL,
+  `acc_name` varchar(50) NOT NULL,
+  `acc_email` varchar(30) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `status` varchar(9) NOT NULL DEFAULT 'Unread'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inquiry`
+--
+
+INSERT INTO `inquiry` (`inquiryID`, `acc_name`, `acc_email`, `subject`, `message`, `status`) VALUES
+(2, 'Jayson Solinap', 'jayson@tci.com', 'customization', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', 'Unread'),
+(3, 'Jayson Solinap', 'jayson@tci.com', 'Needs', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', 'Read');
 
 -- --------------------------------------------------------
 
@@ -258,6 +281,28 @@ CREATE TABLE `productgroup` (
   `prod_10` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statbar`
+--
+
+CREATE TABLE `statbar` (
+  `statbID` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL,
+  `pc_name` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `statbar`
+--
+
+INSERT INTO `statbar` (`statbID`, `prod_id`, `pc_name`) VALUES
+(1, 25, 3),
+(2, 26, 3),
+(3, 27, 1),
+(4, 28, 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -283,6 +328,12 @@ ALTER TABLE `cart`
 ALTER TABLE `featuredprod`
   ADD PRIMARY KEY (`featured_id`),
   ADD KEY `prod_id` (`prod_id`);
+
+--
+-- Indexes for table `inquiry`
+--
+ALTER TABLE `inquiry`
+  ADD PRIMARY KEY (`inquiryID`);
 
 --
 -- Indexes for table `orders`
@@ -318,6 +369,14 @@ ALTER TABLE `productgroup`
   ADD PRIMARY KEY (`pg_id`);
 
 --
+-- Indexes for table `statbar`
+--
+ALTER TABLE `statbar`
+  ADD PRIMARY KEY (`statbID`),
+  ADD KEY `stat_ibfk_1` (`prod_id`),
+  ADD KEY `stat_ibfk_2` (`pc_name`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -326,41 +385,61 @@ ALTER TABLE `productgroup`
 --
 ALTER TABLE `account`
   MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
   MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- AUTO_INCREMENT for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
   MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `inquiry`
+--
+ALTER TABLE `inquiry`
+  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
   MODIFY `pc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `productfinish`
 --
 ALTER TABLE `productfinish`
   MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `productgroup`
 --
 ALTER TABLE `productgroup`
   MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `statbar`
+--
+ALTER TABLE `statbar`
+  MODIFY `statbID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Constraints for dumped tables
 --
@@ -391,6 +470,12 @@ ALTER TABLE `orders`
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`pf_name`) REFERENCES `productfinish` (`pf_id`),
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`pc_name`) REFERENCES `productcategory` (`pc_id`);
+
+--
+-- Constraints for table `statbar`
+--
+ALTER TABLE `statbar`
+  ADD CONSTRAINT `stat_ibfk_2` FOREIGN KEY (`pc_name`) REFERENCES `product` (`pc_name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

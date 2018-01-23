@@ -37,44 +37,44 @@
 				<div class="row justify-content-center">
                   <div class="col-6">
                     <div class="control-group">
-                      <label class="control-label" for="sdate">Start Date:</label>
-                      										  <div class="controls">
-                                                              <input id="sdate" name="sdate" type="sdate" class="form-control datepicker" style="width: 2in">
-							    		<script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#sdate').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-										</script>
-							  								  </div>
-							  								  </div>
-							  								  </div>
+                     <label class="control-label" for="sdate">Start Date:</label>
+                                            <div class="controls">
+                                                              <input style="background-color: white; text-align: center;" id="sdate" name="sdate" type="sdate" class="form-control datepicker" style="width: 2in">
+                    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.2/combined/js/gijgo.min.js" type="text/javascript"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.2/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+                    <script type="text/javascript">
+                      // When the document is ready
+                      
+                        
+                        $('#sdate').datepicker({
+                          format: "yyyy-mm-dd"
+                        });  
+                      
+                    </script>
+                                  </div>
+                                  </div>
+                                  </div>
 
                                                         <!-- Text input-->
-							
-				  <div class="col-6">
+              
+          <div class="col-6">
                     <div class="control-group">
                       <label class="control-label" for="edate">End Date:</label>
-                      										  <div class="controls">
-                                                              <input id="edate" name="edate" type="edate" class="form-control datepicker" style="width: 2in">
-							    		<script src="js/jquery-1.9.1.min.js"></script>
-										<script src="js/bootstrap-datepicker.js"></script>
-										<script type="text/javascript">
-											// When the document is ready
-											$(document).ready(function () {
-												
-												$('#edate').datepicker({
-													format: "yyyy-mm-dd"
-												});  
-											
-											});
-										</script>
+                                            <div class="controls">
+                                                              <input style="background-color: white; text-align: center;" id="edate" name="edate" type="edate" class="form-control datepicker" style="width: 2in">
+                     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.2/combined/js/gijgo.min.js" type="text/javascript"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.2/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+                    <script type="text/javascript">
+                      // When the document is ready
+                      
+                        
+                        $('#edate').datepicker({
+                          format: "yyyy-mm-dd"
+                        });  
+                      
+                    </script>
 							  									</div>
 																</div>
 																</div>
