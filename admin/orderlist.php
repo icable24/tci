@@ -1,9 +1,7 @@
 <?php 
 	include('../login_success.php');
  	include('../database.php');
-
  	$pdo = Database::connect();
-
  	$orders = $pdo->prepare("SELECT * FROM orders WHERE NOT (order_finish = 'No')");
  	$orders->execute();
  	$orders = $orders->fetchAll();
@@ -26,7 +24,6 @@
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 	}
-
 	input[type=text]{
 	   background-image: url('../img/searchicon.png');
 	}
@@ -34,7 +31,6 @@
 	   width: 20%;
 	    background-image: url('../img/filter-icon.png');
 	}
-
 	input[type=text]:focus {
 	    width: 50%;
 	}
@@ -69,10 +65,9 @@
 							$customer = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 							$customer->execute(array($row['acc_id']));
 							$customer = $customer->fetch();
-
 							$customerName = $customer['acc_fname'] . ' ' . $customer['acc_lname'];
 							$order_id = $row['order_id'];
-							$total = $row['order_amount'];
+							$total = "Php " . number_format($row['order_amount'], 2);
 							$date_ordered = $row['date_ordered'];
 							$status = $row['order_finish'];
 							echo "
@@ -89,12 +84,13 @@
 							";
 						}
 					?>
+					<tr>	
+					<td></td>
+					</tr>
 				</tbody>          		
           	</table>
         </div>
-	</div>	
 		<?php include("footer.php"); ?>
-	</div>
 	<?php include("js.php"); ?>
 </body>
 </html>

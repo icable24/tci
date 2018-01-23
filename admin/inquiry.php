@@ -58,7 +58,7 @@ input[type=text]:focus {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //sql statement to get products and sort by product code
-                $sql = 'SELECT * FROM inquiry WHERE status = "read" ORDER BY inquiryID ASC';
+                $sql = 'SELECT * FROM inquiry WHERE status = "seen" ORDER BY inquiryID ASC';
 
                 //display all products in the database
                 foreach ($pdo->query($sql) as $row) {

@@ -37,7 +37,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	<!-- grow -->
-	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">You need to login or create an account in order to perform a transaction </span>
 		<div class="product">
 			<div class="container">
 				<div class="product-price1">

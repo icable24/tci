@@ -1,7 +1,6 @@
 <?php 
   include('../login_success.php');
   include('../database.php');
-
   $user_name = $_SESSION['login_username'];
   $pdo = Database::connect();
   $name = $pdo->prepare("SELECT * FROM account WHERE user_name like '$user_name'");
@@ -27,7 +26,6 @@
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-
 input[type=text]{
    background-image: url('../img/searchicon.png');
 }
@@ -35,7 +33,6 @@ select{
    width: 20%;
     background-image: url('../img/filter-icon.png');
 }
-
 input[type=text]:focus {
     width: 50%;
 }
@@ -83,10 +80,8 @@ input[type=text]:focus {
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //sql statement to get products and sort by product code
                 $sql = 'SELECT * FROM product ORDER BY prod_code ASC';
-
                 //display all products in the database
                 foreach ($pdo->query($sql) as $row) {
-
                 $query = $pdo->prepare("SELECT * FROM productcategory WHERE pc_id = ?");
                   $query->execute(array($row['pc_name']));
                   $pc = $query->fetch(PDO::FETCH_ASSOC);  
@@ -101,9 +96,10 @@ input[type=text]:focus {
                     }else{
                       echo '<td>'.$row['prod_diameter']. ' Dia. x '. $row['prod_height2'] . ' Ht.'. '</td>';
                     }
-                    echo '<td class="text-center">
-                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit">Edit</span></a>
-                          <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Feature">Feature</a>
+                    echo '<td>
+                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit"></span></a>
+                          <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Feature"><span class="fa fa-star"></span></a>
+                          <a class="btn btn-info btn-md" href="addinventory.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Add Inventory"><span class="fa fa-cube"></span></a>
                           </td>';                 
                   echo '</tr>';
                 }

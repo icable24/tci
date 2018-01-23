@@ -117,7 +117,7 @@ body {
          
     }
     else{ // if query length is less than minimum
-        echo "Minimum length is ".$min_length;
+        echo "<p style='color:red'>Minimum length is ".$min_length. "</p>";
     }
 ?>
 					</div>
