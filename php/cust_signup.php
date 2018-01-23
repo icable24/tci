@@ -48,7 +48,7 @@
 							$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 							$order->execute(array($id['acc_id'], "No"));
 						}
-					//	header('location:../admin/customerlist.php');
+						header('location:../admin/customerlist.php');
 					}
 				}
 			}
@@ -85,6 +85,7 @@
 						$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 						$order->execute(array($id['acc_id'], "No"));
 					}
+				header('location:../index.php');
 				}
 			}
 		}
