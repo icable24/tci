@@ -37,15 +37,15 @@
             <li><a href="#product-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-form"></i><span>Product</span>
               <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
               <ul id="product-nav-list" class="collapse list-unstyled">
-                <li> <a href="productlist.php">Product List</a></li>
-                <li><a href="productcreate.php">Add New Product</a></li>
-                <li> <a href="featuredproduct.php">Featured Product</a></li>
-                <li><a href="#">Materials</a></li>
+                <li> <a href="productlist.php"><span>Product List</span></a></li>
+                <li><a href="productcreate.php"><span>Add New Product</span></a></li>
+                <li> <a href="featuredproduct.php"><span>Featured Product</span></a></li>
+                <li><a href="#"><span>Materials</span></a></li>
               </ul>
             </li>
             <li><a href="#customer-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Customer</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
               <ul id="customer-nav-list" class="collapse list-unstyled">
-                <li><a href="#"><span>Add Customer</span></a></li>
+                <li><a href="../signup.php"><span>Add Customer</span></a></li>
                 <li><a href="customerlist.php"><span>Customer Accounts</span></a></li>
               </ul>
             </li>   
@@ -55,10 +55,14 @@
       <li><a href="#transact-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-interface-windows"></i><span>Transaction</span>
         <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
         <ul id="transact-nav-list" class="collapse list-unstyled">
-          <li><a href="orderlist.php">Purchase Order</a></li>
-          <li><a href="#">Inquiry</a></li>
-          <li><a href="#">Inventory</a></li>
-          <li><a href="#">Add Quantity  </a></li>
+          <li><a href="orderlist.php"><span>Purchase Order</span></a></li>
+          <li><a href="#"><span>Inquiry</span></a></li>
+          <li><a href="#inventory-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-cube"></i><span>Inventory</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+            <ul id="inventory-nav-list" class="collapse list-unstyled">
+              <li><a href="inventorylist.php"><span>Inventory List</span></a></li>
+              <li><a href="addinventory.php"><span>Add New Inventory</span></a></li>    
+            </ul>
+          </li>
         </ul>
       </li>
       <!-- <div class="admin-menu">
@@ -71,12 +75,12 @@
           </li>
         </ul>
       </div> -->
-      <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-list-alt"></i><span>Reports</span>
+      <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-bar-chart"></i><span>Reports</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="account-nav-list" class="collapse list-unstyled">
-            <li> <a href="sales.php">Sales</a></li>
-            <li><a href="inventory.php">Inventory</a></li>
-            <li> <a href="delivery.php">Delivery</a></li>
+            <li> <a href="sales.php"><span>Sales</span></a></li>
+            <li><a href="inventoryreport.php"><span>Inventory</span></a></li>
+            <li> <a href="delivery.php"><span>Delivery</span></a></li>
           </ul>
         </li>
       </ul>

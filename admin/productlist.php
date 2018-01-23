@@ -101,9 +101,10 @@ input[type=text]:focus {
                     }else{
                       echo '<td>'.$row['prod_diameter']. ' Dia. x '. $row['prod_height2'] . ' Ht.'. '</td>';
                     }
-                    echo '<td class="text-center">
-                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit">Edit</span></a>
-                          <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Feature">Feature</a>
+                    echo '<td>
+                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit"></span></a>
+                          <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Feature"><span class="fa fa-star"></span></a>
+                          <a class="btn btn-info btn-md" href="addinventory.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Add Inventory"><span class="fa fa-cube"></span></a>
                           </td>';                 
                   echo '</tr>';
                 }
