@@ -1,12 +1,15 @@
 <?php 
 	include('../login_success.php');
  	include('../database.php');
+
  	$pdo = Database::connect();
+
  	if(isset($_GET['id'])){
- 		$order_id = $_REQUEST['id'];
+ 		$order_id = $_GET['id'];
  	}else{
  		header("location: orderlist.php");
  	}
+
  	$setViewed = $pdo->prepare("UPDATE orders SET isViewed = ? WHERE order_id = ?");
  	$setViewed->execute(array(1, $order_id));
 ?>
@@ -28,11 +31,14 @@
 	<div class="page home-page">
 		<?php 
 			include("header.php"); 
+
 			$pdo = Database::connect();
+
 			$order = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
 			$order->execute(array($order_id));
 			$order = $order->fetch();
 			$date = strtotime($order['date_ordered']);
+
 			$customer = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 			$customer->execute(array($order['acc_id']));
 			$customer = $customer->fetch();
@@ -125,11 +131,14 @@
 							$item = $pdo->prepare("SELECT * FROM cart WHERE order_id = ?");
 							$item->execute(array($order_id));
 							$item = $item->fetchAll();
+
 							$grandTotal = 0;
+
 							foreach($item as $row){
 								$prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
 								$prod->execute(array($row['prod_id']));
 								$prod = $prod->fetch();
+
 								$prod_id = $prod['prod_code'];
 								$prod_name = $prod['prod_name'];
 								$prod_price = "Php " . number_format($prod['prod_price'], 2);
@@ -137,6 +146,7 @@
 								$total = "Php " . number_format($prod['prod_price'] * $quantity, 2);
 								$grandTotal += $prod['prod_price'] * $quantity;
 								$prod_image = "../prod_img/" . $prod['prod_image'];
+
 								echo "
 									<tr>
 										<td>$prod_id</td>

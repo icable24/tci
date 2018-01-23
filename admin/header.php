@@ -1,9 +1,11 @@
 <?php 
  $pdo = Database::connect();
- $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE isViewed = 0");
+
+ $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE isViewed = 0 AND order_finish = 'Pending'");
  $NPO->execute();
  $NPO = $NPO->fetch();
- $PO = $pdo->prepare("SELECT * FROM orders WHERE isViewed = 0");
+
+ $PO = $pdo->prepare("SELECT * FROM orders WHERE isViewed = 0 AND order_finish = 'Pending'");
  $PO->execute();
  $PO = $PO->fetchAll();
 ?>
@@ -19,9 +21,11 @@
                     if($NPO['count(*)'] > 0){
                       foreach($PO as $row){
                         $order_id = $row['order_id'];
+
                         $user = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
                         $user->execute(array($row['acc_id']));
                         $user = $user->fetch();
+
                         $name = $user['acc_fname'] . ' ' . $user['acc_lname'];
                         echo "
                             <li><a rel='nofollow' href='vieworder.php?id=$order_id' class='dropdown-item'> 
@@ -31,6 +35,25 @@
                             </div></a></li>
                         ";
                       }
+
+                      // for($i = 0; $i < 4; $i++){
+                      //   $order_id = $PO[$i]['order_id'];
+
+                      //   $user = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
+                      //   $user->execute(array($PO[$i]['acc_id']));
+                      //   $user = $user->fetch();
+
+                      //   $name = $user['acc_fname'] . ' ' . $user['acc_lname'];
+                      //   if(!empty($order_id)){
+                      //   echo "
+                      //       <li><a rel='nofollow' href='vieworder.php?id=$order_id' class='dropdown-item'> 
+                      //       <div class='notification d-flex justify-content-between'>
+                      //         <div class='notification-content'><i class='fa fa-user'></i>$name</div>
+                      //         <div class='notification-time'><small>Order Number: $order_id</small></div>
+                      //       </div></a></li>
+                      //   ";
+                      //   }
+                      // }
                     } 
                   ?>
                   </ul>
@@ -61,4 +84,4 @@
             </div>
           </div>
         </nav>
-</header>
+      </header>

@@ -31,8 +31,8 @@
 		$order_amount += $itemprice;
 	}
 	
-	$update_order = $pdo->prepare("UPDATE orders SET shippingaddress = ?, country = ?, state = ?, city = ?, zip_code = ?, order_amount = ?, order_finish = ?, date_ordered = ? WHERE order_finish = 'No'");
-	$update_order->execute(array($shippingaddress, $country, $state, $city, $zip_code, $order_amount, "Pending", $Date));
+	$update_order = $pdo->prepare("UPDATE orders SET shippingaddress = ?, country = ?, state = ?, city = ?, zip_code = ?, order_amount = ?, order_finish = ?, date_ordered = ? WHERE order_finish = 'No' AND acc_id = ?");
+	$update_order->execute(array($shippingaddress, $country, $state, $city, $zip_code, $order_amount, "Pending", $Date, $user_id['acc_id']));
 
 	foreach($order_id as $row){
 		$update = $pdo->prepare("UPDATE cart SET cart_finish = ? WHERE cart_id = ?");
