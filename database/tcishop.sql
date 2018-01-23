@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2018 at 03:01 PM
+-- Generation Time: Jan 22, 2018 at 07:57 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -48,8 +48,7 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`acc_id`, `acc_fname`, `acc_lname`, `acc_add`, `acc_email`, `acc_password`, `acc_contact`, `user_type`, `acc_company`, `acc_comp_contact`) VALUES
 (1, 'Alvin', 'Talite', 'Bacolod City', 'alvin@tci.com', 'admin', '09123456789', 'admin', '', ''),
 (2, 'Jayson', 'Solinap', 'Bacolod City', 'jayson@tci.com', 'customer', '09234567890', 'Single Buyer', '', ''),
-(4, 'JJ', 'Belo', 'Bacolod City', 'jjbelo@tci.com', '1234', '09123212341', 'Company', 'Belo Inc.', '09333232231'),
-(6, 'asd', 'asd', '', 'asd', 'asd', '123', 'Single Buyer', '', '');
+(4, 'JJ', 'Belo', 'Bacolod City', 'jjbelo@tci.com', '1234', '09123212341', 'Company', 'Belo Inc.', '09333232231');
 
 -- --------------------------------------------------------
 
@@ -71,10 +70,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`, `cart_finish`) VALUES
-(23, 2, 32, 2, 4, 'Yes'),
-(24, 2, 48, 1, 4, 'Yes'),
-(25, 2, 40, 1, 4, 'Yes'),
-(26, 2, 28, 3, 4, 'Yes');
+(32, 2, 28, 1, 10, 'Yes'),
+(33, 2, 26, 1, 11, 'Yes'),
+(34, 2, 48, 1, 12, 'Yes'),
+(35, 2, 39, 1, 12, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -92,11 +91,24 @@ CREATE TABLE `featuredprod` (
 --
 
 INSERT INTO `featuredprod` (`featured_id`, `prod_id`) VALUES
-(4, 27),
-(3, 32),
-(5, 46),
-(6, 52),
-(7, 53);
+(14, 43),
+(15, 44),
+(13, 46),
+(10, 47),
+(12, 48),
+(16, 49);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `inventory_id` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -113,17 +125,20 @@ CREATE TABLE `orders` (
   `city` varchar(20) NOT NULL,
   `zip_code` int(10) NOT NULL,
   `order_amount` decimal(11,2) NOT NULL,
-  `order_finish` varchar(3) NOT NULL,
+  `order_finish` varchar(7) NOT NULL,
   `date_ordered` date NOT NULL,
-  `date_finished` date NOT NULL
+  `date_finished` date NOT NULL,
+  `isViewed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`, `date_ordered`, `date_finished`) VALUES
-(4, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '0.00', 'No', '2018-01-10', '0000-00-00');
+INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`, `date_ordered`, `date_finished`, `isViewed`) VALUES
+(10, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '16500.00', 'Pending', '2018-01-11', '0000-00-00', 1),
+(11, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '20000.00', 'Pending', '2018-01-11', '0000-00-00', 0),
+(12, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '6100.00', 'Pending', '2018-01-12', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -193,7 +208,8 @@ INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `pf_name`, `prod_pri
 (63, 'OFS201710-HF036', 'Akhabar Vase - Large', 3, '4600.00', 5, 'Hatchet Shell, Wicker Vine and Capiz Gold Shell', 'OFS201710-HF036.jpg', 0, 0, 0, 26, 13),
 (64, 'OFS201710-HF037', 'Inverted Collard Vase', 3, '4200.00', 5, 'Inlaid with Banana Bark and Capiz Gold Shell', 'OFS201710-HF037.jpg', 0, 0, 0, 21, 46),
 (65, 'OFS201710-HF038', 'Kalubay Vase - Small', 1, '3000.00', 5, 'Inlaid with Capiz Gold Shell and Banana Bark ', 'OFS201710-HF038.jpg', 0, 0, 0, 11, 61),
-(66, 'OFS201710-HF039', 'Kalubay Vase - Large', 1, '4000.00', 5, 'Inlaid with Capiz Gold Shell and Banana Bark', 'OFS201710-HF039.jpg', 0, 0, 0, 13, 77);
+(66, 'OFS201710-HF039', 'Kalubay Vase - Large', 1, '4000.00', 5, 'Inlaid with Capiz Gold Shell and Banana Bark', 'OFS201710-HF039.jpg', 0, 0, 0, 13, 77),
+(67, 'NTF04-WD-065', 'asd', 1, '100.00', 1, 'asdasd', 'image_demo.jpg', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -285,6 +301,13 @@ ALTER TABLE `featuredprod`
   ADD KEY `prod_id` (`prod_id`);
 
 --
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`inventory_id`),
+  ADD KEY `prod_id` (`prod_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -325,27 +348,32 @@ ALTER TABLE `productgroup`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
-  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `featured_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `inventory`
+--
+ALTER TABLE `inventory`
+  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
@@ -378,6 +406,12 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `featuredprod`
   ADD CONSTRAINT `featuredprod_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`);
+
+--
+-- Constraints for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`);
 
 --
 -- Constraints for table `orders`

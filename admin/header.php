@@ -1,11 +1,11 @@
 <?php 
  $pdo = Database::connect();
 
- $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE order_finish = 'Pending'");
+ $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE isViewed = 0");
  $NPO->execute();
  $NPO = $NPO->fetch();
 
- $PO = $pdo->prepare("SELECT * FROM orders WHERE order_finish = 'Pending'");
+ $PO = $pdo->prepare("SELECT * FROM orders WHERE isViewed = 0");
  $PO->execute();
  $PO = $PO->fetchAll();
 ?>
@@ -16,9 +16,9 @@
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.php" class="navbar-brand">
                   <div class="brand-text hidden-sm-down"><span>Tumandok Craft and Industries Management Information System</span></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php echo $NPO['count(*)']; ?></span></a>
-                 <!--  <?php 
-                    if($notif > 0){
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php if($NPO['count(*)'] > 0){echo $NPO['count(*)'];} ?></span></a><ul aria-labelledby='notifications' class='dropdown-menu'>
+                 <?php 
+                    if($NPO['count(*)'] > 0){
                       foreach($PO as $row){
                         $order_id = $row['order_id'];
 
@@ -27,19 +27,17 @@
                         $user = $user->fetch();
 
                         $name = $user['acc_fname'] . ' ' . $user['acc_lname'];
-                        $amount = $row['order_amount'];
                         echo "
-                          <ul aria-labelledby='notifications' class='dropdown-menu'>
-                            <li><a rel='nofollow' href='purchaseorder.php?id=php' class='dropdown-item'> 
+                            <li><a rel='nofollow' href='vieworder.php?id=$order_id' class='dropdown-item'> 
                             <div class='notification d-flex justify-content-between'>
-                              <div class='notification-content'><i class='fa fa-envelope'></i></div>
-                              <div class='notification-time'><small>$amount</small></div>
+                              <div class='notification-content'><i class='fa fa-user'></i>$name</div>
+                              <div class='notification-time'><small>Order Number: $order_id</small></div>
                             </div></a></li>
-                          </ul>
                         ";
                       }
                     } 
-                  ?> -->
+                  ?>
+                  </ul>
                 </li>
                 <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><!-- <span class="badge badge-info">10</span> --></a>
                     <!-- <ul aria-labelledby="notifications" class="dropdown-menu">

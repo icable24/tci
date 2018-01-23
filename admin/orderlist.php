@@ -72,7 +72,7 @@
 
 							$customerName = $customer['acc_fname'] . ' ' . $customer['acc_lname'];
 							$order_id = $row['order_id'];
-							$total = $row['order_amount'];
+							$total = "Php " . number_format($row['order_amount'], 2);
 							$date_ordered = $row['date_ordered'];
 							$status = $row['order_finish'];
 							echo "
@@ -89,12 +89,13 @@
 							";
 						}
 					?>
+					<tr>	
+					<td></td>
+					</tr>
 				</tbody>          		
           	</table>
         </div>
-	</div>	
 		<?php include("footer.php"); ?>
-	</div>
 	<?php include("js.php"); ?>
 </body>
 </html>
