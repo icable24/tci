@@ -84,6 +84,8 @@ body {
 								echo '</div>';
 								}
 						}else{
+
+
 							$pc_id = $category['pc_id'];
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 							$product= $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM product WHERE pc_name = ? ORDER BY prod_code');
@@ -91,9 +93,10 @@ body {
 							$product = $product->fetchAll(PDO::FETCH_ASSOC);
 
 							foreach($product as $row){
+
 								echo '<div class="column simpleCart_shelfItem">';
 									echo '<div class="product-at ">';
-										echo '<a href="productdetails.php'. "?id=". $row['prod_code'].'" >';
+										echo '<a href="productdetailsnotlogin.php'. "?id=". $row['prod_code'].'" >';
 											echo '<img class="img-responsive" src="prod_img/' . $row['prod_image'] . '" alt ="'. $row['prod_image'] . '">';
 											echo '<div class="pro-grid">';
 												echo '<span class="buy-in">View</span>';
