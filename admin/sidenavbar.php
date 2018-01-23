@@ -55,15 +55,7 @@
         <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
         <ul id="transact-nav-list" class="collapse list-unstyled">
           <li><a href="orderlist.php"><span>Purchase Order</span></a></li>
-<<<<<<< HEAD
           <li><a href="inquiry.php"><span>Inquiry</span></a></li>
-=======
-<<<<<<< HEAD
-          <li><a href="inquiry.php"><span>Inquiry</span></a></li>
-=======
-          <li><a href="#"><span>Inquiry</span></a></li>
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
           <li><a href="#inventory-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-cube"></i><span>Inventory</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="inventory-nav-list" class="collapse list-unstyled">
               <li><a href="inventorylist.php"><span>Inventory List</span></a></li>

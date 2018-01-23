@@ -7,13 +7,6 @@
  	}else{
  		header("location: orderlist.php");
  	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
  	$setViewed = $pdo->prepare("UPDATE orders SET isViewed = ? WHERE order_id = ?");
  	$setViewed->execute(array(1, $order_id));
 ?>
@@ -40,13 +33,6 @@
 			$order->execute(array($order_id));
 			$order = $order->fetch();
 			$date = strtotime($order['date_ordered']);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 			$customer = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 			$customer->execute(array($order['acc_id']));
 			$customer = $customer->fetch();
@@ -139,28 +125,11 @@
 							$item = $pdo->prepare("SELECT * FROM cart WHERE order_id = ?");
 							$item->execute(array($order_id));
 							$item = $item->fetchAll();
-<<<<<<< HEAD
 							$grandTotal = 0;
-=======
-<<<<<<< HEAD
-							$grandTotal = 0;
-=======
-
-							$grandTotal = 0;
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 							foreach($item as $row){
 								$prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
 								$prod->execute(array($row['prod_id']));
 								$prod = $prod->fetch();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 								$prod_id = $prod['prod_code'];
 								$prod_name = $prod['prod_name'];
 								$prod_price = "Php " . number_format($prod['prod_price'], 2);
@@ -168,13 +137,6 @@
 								$total = "Php " . number_format($prod['prod_price'] * $quantity, 2);
 								$grandTotal += $prod['prod_price'] * $quantity;
 								$prod_image = "../prod_img/" . $prod['prod_image'];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 								echo "
 									<tr>
 										<td>$prod_id</td>

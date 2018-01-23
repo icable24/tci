@@ -1,13 +1,6 @@
 <?php 
   include('../login_success.php');
   include('../database.php');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
   $pdo = Database::connect();
 ?>
 <!DOCTYPE html>
@@ -39,46 +32,18 @@
               $inventory = $pdo->prepare("SELECT * FROM inventory");
               $inventory->execute();
               $inventory = $inventory->fetchAll();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
               foreach($inventory as $row){
                 $prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
                 $prod->execute(array($row['prod_id']));
                 $prod = $prod->fetch();
-<<<<<<< HEAD
                 $store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
                 $store->execute(array($row['storeid']));
                 $store = $store->fetch();
-=======
-<<<<<<< HEAD
-                $store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
-                $store->execute(array($row['storeid']));
-                $store = $store->fetch();
-=======
-
-                $store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
-                $store->execute(array($row['storeid']));
-                $store = $store->fetch();
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
                 $prod_id = $prod['prod_code'];
                 $prod_image = "../prod_img/" . $prod['prod_image'];
                 $prod_name = $prod['prod_name'];
                 $quantity = $row['quantity'];
                 $store = $store['storename'];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
                 echo "
                   <tr>
                     <td>$prod_id</td>

@@ -11,36 +11,15 @@
 	$acc_company = $_POST['acc_company'];
 	$acc_comp_contact = $_POST['acc_comp_contact'];
 	$acc_add = $_POST['acc_add'];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 	if(isset($_SESSION['login_username'])){
 		$account = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
 		$account->execute(array($_SESSION['login_username']));
 		$account = $account->fetch();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 		if($account['user_type'] == "admin"){
 			if(!empty($_GET['user_type'])){
 				$user_type = $_REQUEST['user_type'];
 				if($password1 == $password2){
 					$acc_password = $password1;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 					if($user_type == 'Single Buyer'){
 						$query = $pdo->prepare("INSERT INTO account(acc_fname, acc_lname, acc_email, acc_password, acc_contact, user_type) VALUES(?, ?, ?, ?, ?, ?)");
 						$query->execute(array($acc_fname, $acc_lname, $acc_email, $acc_password, $acc_contact, $user_type));
@@ -48,13 +27,6 @@
 							$id = $pdo->prepare("SELECT * FROM account ORDER BY acc_id DESC LIMIT 0, 1");
 							$id->execute();
 							$id = $id->fetch();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 							$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 							$order->execute(array($id['acc_id'], "No"));
 						}	
@@ -66,13 +38,6 @@
 							$id = $pdo->prepare("SELECT * FROM account ORDER BY acc_id DESC LIMIT 0, 1");
 							$id->execute();
 							$id = $id->fetch();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 							$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 							$order->execute(array($id['acc_id'], "No"));
 						}
@@ -89,13 +54,6 @@
 			$user_type = $_REQUEST['user_type'];
 			if($password1 == $password2){
 				$acc_password = $password1;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 				if($user_type == 'Single Buyer'){
 					$query = $pdo->prepare("INSERT INTO account(acc_fname, acc_lname, acc_email, acc_password, acc_contact, user_type) VALUES(?, ?, ?, ?, ?, ?)");
 					$query->execute(array($acc_fname, $acc_lname, $acc_email, $acc_password, $acc_contact, $user_type));
@@ -103,13 +61,6 @@
 						$id = $pdo->prepare("SELECT * FROM account ORDER BY acc_id DESC LIMIT 0, 1");
 						$id->execute();
 						$id = $id->fetch();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 						$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 						$order->execute(array($id['acc_id'], "No"));
 					}
@@ -121,13 +72,6 @@
 						$id = $pdo->prepare("SELECT * FROM account ORDER BY acc_id DESC LIMIT 0, 1");
 						$id->execute();
 						$id = $id->fetch();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
->>>>>>> 6e0e0e5b34916c22913f8874abc337791265b03c
 						$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 						$order->execute(array($id['acc_id'], "No"));
 					}
