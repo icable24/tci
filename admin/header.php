@@ -1,8 +1,16 @@
 <?php 
  $pdo = Database::connect();
+<<<<<<< HEAD
  $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE isViewed = 0");
  $NPO->execute();
  $NPO = $NPO->fetch();
+=======
+
+ $NPO = $pdo->prepare("SELECT count(*) FROM orders WHERE isViewed = 0");
+ $NPO->execute();
+ $NPO = $NPO->fetch();
+
+>>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
  $PO = $pdo->prepare("SELECT * FROM orders WHERE isViewed = 0");
  $PO->execute();
  $PO = $PO->fetchAll();

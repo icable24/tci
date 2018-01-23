@@ -1,12 +1,24 @@
 <?php 
 	session_start();
 	require("../database.php");
+<<<<<<< HEAD
 	$pdo = Database::connect();
 	if(isset($_GET['id'])){
 		$prod_id = $_GET['id'];
 		$inv = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ?");
 		$inv->execute(array($prod_id));
 		$inv = $inv->fetch();
+=======
+
+	$pdo = Database::connect();
+	if(isset($_GET['id'])){
+		$prod_id = $_GET['id'];
+
+		$inv = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ?");
+		$inv->execute(array($prod_id));
+		$inv = $inv->fetch();
+
+>>>>>>> 8b1eaa9840c376c5f9560bea61aca7095bc43c62
 		$quantity = $_POST['newquantity'];
 		$newquantity = $quantity + $inv['quantity'];
 		$store = $_POST['store'];
