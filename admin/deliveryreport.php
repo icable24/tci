@@ -13,13 +13,14 @@
       <!-- navbar-->
       <?php include('header.php'); ?>
       <!-- Body Section -->
-      <br>
+      <br><br><br><br><br><br>
         <div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
             <div>
               <h1>Delivery Report</h1>
             </div>
+            <br><br>
             <div class="card-block">
               <form action="../php/addprod.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
               
@@ -74,7 +75,7 @@
 
                                                      <!-- Select Basic -->
 
-        <div class="row">
+       <!-- <div class="row">
                 <div class="col">
                   <label for="radio1">
                     <span><a href="#specify"><input type="radio" name="test" id="all" value="radio1" checked="" onclick="btnCheck()" /> &nbsp;All</a></span>
@@ -87,7 +88,7 @@
                      &nbsp;Specify</span>
                   </label>
                 </div>
-                </div>
+                </div> -->
                         
 <br><br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button> 

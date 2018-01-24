@@ -31,18 +31,23 @@ class MYPDF extends TCPDF {
 if(!empty($_POST)){
 
 //start sang arguement
-    $act_type=$_POST['category'];
+    $act_type=$_POST['rcategory'];
+    $act_type2=$_POST['pcategory'];
+    //$act_type3=$_POST['slocation'];
+
     
-    //state1
-    //tree planting alone
-    if($act_type=='all'){
+    //BY Product
+    
+if ($act_type=='BP') {
+        
+    if($act_type2=='all'){
         $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
         // set document information
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('Tumandok Craft Industries');
-    $pdf->SetTitle('Inventory Report');
+    $pdf->SetTitle('Inventory Report - By Product');
     $pdf->SetSubject(' ');
     $pdf->SetKeywords(' ');
 
@@ -59,7 +64,7 @@ if(!empty($_POST)){
 
     Tumandok Craft Industries Management System
 
-    Inventory Report
+    Inventory Report - By Product
 
 
 
@@ -143,7 +148,7 @@ EOD;
         $pdf->Output('Inventory_report.pdf', 'I');
 
         }//end sang all
-        elseif ($act_type=='LF'){
+        elseif ($act_type2=='LF'){
         $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
@@ -151,7 +156,7 @@ EOD;
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('Tumandok Craft Industries');
 
-    $pdf->SetTitle('Light Furnitures Inventory Report');
+    $pdf->SetTitle('Light Furnitures Inventory Report - By Product');
     $pdf->SetSubject(' ');
     $pdf->SetKeywords(' ');
 
@@ -168,7 +173,7 @@ EOD;
 
     Tumandok Craft Industries Management System
 
-    Inventory Report
+    Inventory Report - By Product
 
     Light Furnitures
 
@@ -246,10 +251,10 @@ EOD;
 
         //==============================================================
 
-        $pdf->Output('Light Furnitures_Inventory_report.pdf', 'I');
+        $pdf->Output('Light Furnitures_Inventory Report - By Product_report.pdf', 'I');
         }//end sang LF
 
-        elseif ($act_type=='A'){
+        elseif ($act_type2=='A'){
         $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
@@ -257,7 +262,7 @@ EOD;
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('Tumandok Craft Industries');
 
-    $pdf->SetTitle('Accessories Inventory Report');
+    $pdf->SetTitle('Accessories Inventory Report - By Product');
     $pdf->SetSubject(' ');
     $pdf->SetKeywords(' ');
 
@@ -274,7 +279,7 @@ EOD;
 
     Tumandok Craft Industries Management System
 
-    Inventory Report
+    Inventory Report - By Product
 
     Accessories
 
@@ -352,10 +357,10 @@ EOD;
 
         //==============================================================
 
-        $pdf->Output('Accessories_Inventory_report.pdf', 'I');
+        $pdf->Output('Accessories_Inventory Report - By Product_report.pdf', 'I');
         }//end sang A
 
-        elseif ($act_type=='WD'){
+        elseif ($act_type2=='WD'){
         $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
@@ -363,7 +368,7 @@ EOD;
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('Tumandok Craft Industries');
 
-    $pdf->SetTitle('Wall Decor Inventory Report');
+    $pdf->SetTitle('Wall Decor Inventory Report - By Product');
     $pdf->SetSubject(' ');
     $pdf->SetKeywords(' ');
 
@@ -380,7 +385,7 @@ EOD;
 
     Tumandok Craft Industries Management System
 
-    Inventory Report
+    Inventory Report - By Product
 
     Wall Decor
 
@@ -458,9 +463,9 @@ EOD;
 
         //==============================================================
 
-        $pdf->Output('Wall Decor_Inventory_report.pdf', 'I');
+        $pdf->Output('Wall Decor_Inventory Report - By Product_report.pdf', 'I');
         }//end sang WD
-        elseif ($act_type=='L'){
+        elseif ($act_type2=='L'){
         $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
@@ -468,7 +473,7 @@ EOD;
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('Tumandok Craft Industries');
 
-    $pdf->SetTitle('Luminaries Inventory Report');
+    $pdf->SetTitle('Luminaries Inventory Report - By Product');
     $pdf->SetSubject(' ');
     $pdf->SetKeywords(' ');
 
@@ -485,7 +490,7 @@ EOD;
 
     Tumandok Craft Industries Management System
 
-    Inventory Report
+    Inventory Report - By Product
 
     Luminaries
 
@@ -563,9 +568,9 @@ EOD;
 
         //==============================================================
 
-        $pdf->Output('Luminaries_Inventory_report.pdf', 'I');
+        $pdf->Output('Luminaries_Inventory Report - By Product_report.pdf', 'I');
     }//end sang L
-        elseif ($act_type=='HF'){
+        elseif ($act_type2=='HF'){
         $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
@@ -573,7 +578,7 @@ EOD;
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('Tumandok Craft Industries');
 
-    $pdf->SetTitle('Home Furnitures Inventory Report');
+    $pdf->SetTitle('Home Furnitures Inventory Report - By Product');
     $pdf->SetSubject(' ');
     $pdf->SetKeywords(' ');
 
@@ -590,7 +595,7 @@ EOD;
 
     Tumandok Craft Industries Management System
 
-    Inventory Report
+    Inventory Report - By Product
 
     Home Furnitures
 
@@ -668,7 +673,139 @@ EOD;
 
         //==============================================================
 
-        $pdf->Output('Home Furnitures_Inventory_report.pdf', 'I');
+        $pdf->Output('Home Furnitures_Inventory Report - By Product_report.pdf', 'I');
         }//end sang HF
-    }//end sang Post
+    }//if($act_type2=='all')
+
+//...................................................................................................................................//
+//...................................................................................................................................//
+//...................................................................................................................................//
+//...................................................................................................................................//
+//...................................................................................................................................//
+//...................................................................................................................................//
+
+if ($act_type=='BC') {
+    if ($act_type3=='R') {
+    
+    if($act_type2=='A'){
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        //==============================================================
+        // set document information
+    $pdf->SetCreator(PDF_CREATOR);
+    $pdf->SetAuthor('Tumandok Craft Industries');
+    $pdf->SetTitle('Inventory Report');
+    $pdf->SetSubject(' ');
+    $pdf->SetKeywords(' ');
+
+    // set font
+    $pdf->SetFont('times', 'R', 12);
+
+    // add a page
+    $pdf->AddPage();
+
+// set some text to print
+    $txt = <<<EOD
+
+
+
+    Tumandok Craft Industries Management System
+
+    Inventory Report
+
+
+
+
+EOD;
+
+    // print a block of text using Write()
+    $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+    // ---------------------------------------------------------
+
+    // set header and footer fonts
+    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+    // set margins
+    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+    // set auto page breaks
+    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+    if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+        require_once(dirname(__FILE__).'/lang/eng.php');
+        $pdf->setLanguageArray($l);
+    }
+
+        //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+      $sql = "SELECT * FROM inventory, product WHERE storeid = '1' ORDER BY inventory_id ASC";
+
+      $result = mysqli_query($connect, $sql);  
+
+        $tbl = '<table style="width: 638px;" cellspacing="0">';
+
+        $inventory_id = "Code";
+        $prod_image = "Product Image";
+        $prod_name = "Product Name";
+        $pc_name = "Category";
+        $prod_desc = "Description";
+        $quantity = "Qty.";
+
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 80px;">'.$inventory_id.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$prod_image.'</td>
+                  <td style="border: 0px solid #ffffff; width: 200px;">'.$prod_name.'</td>
+                  <td style="border: 0px solid #ffffff; width: 50px;">'.$pc_name.'</td>
+                  <td style="border: 0px solid #ffffff; width: 2900px;">'.$prod_desc.'</td>
+                  <td style="border: 0px solid #ffffff; width: 50px;">'.$quantity.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $inventory_id = $row["inventory_id"];
+        $prod_image = $row["prod_image"];
+        $prod_name = $row["prod_name"];
+        $pc_name = $row["pc_name"];
+        $prod_desc = $row["prod_desc"];
+        $quantity = $row["quantity"];
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                <td style="border: 0px solid #ffffff; width: 80px;">'.$inventory_id.'</td>
+                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 1px solid #000000; width: 50px;">'.$pc_name.'</td>
+                <td style="border: 1px solid #000000; width: 290px;">'.$prod_desc.'</td>
+                <td style="border: 0px solid #ffffff; width: 50px;">'.$quantity.'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        //==============================================================
+
+        $pdf->Output('Inventory Report - By Product_report.pdf', 'I');
+
+        }//end sang all
+       
+      
+    }//if($act_type2=='all')
+}//if ($act_type=='R') end
+}//if ($act_type=='BC')end
+
+
 ?>

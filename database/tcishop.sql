@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2018 at 11:50 AM
+-- Generation Time: Jan 24, 2018 at 05:10 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -62,7 +62,23 @@ INSERT INTO `account` (`acc_id`, `acc_fname`, `acc_lname`, `acc_add`, `acc_email
 (15, 'Hannah ', 'Montana', 'United States of America', 'hannah@gmail.com', 'customer', '09993456123', 'Single Buyer', '', ''),
 (16, 'Eric', 'Lagdameno', 'Bacolod City', 'eric@gmail.com', 'customer', '09335433888', 'Single Buyer', '', ''),
 (17, 'James', 'Bond', 'United States of America', 'james@gmail.com', 'customer', '09166665345', 'Single Buyer', '', ''),
-(18, 'Penuel', 'Tano', 'Gardenville, Bacolod City', 'penuel@gmail.com', 'customer', '09997654114', 'Single Buyer', '', '');
+(18, 'Penuel', 'Tano', 'Gardenville, Bacolod City', 'penuel@gmail.com', 'customer', '09997654114', 'Single Buyer', '', ''),
+(22, 'Alvin', 'Talite', '', 'alvin@tci.com', 'admin', '', 'admin', '', ''),
+(23, 'Jayson', 'Limbang', 'Alijis, Bacolod City', 'limbang@tci.com', 'customer', '09997677876', 'Single Buyer', '', ''),
+(24, 'Jessel', 'Solinap', 'Brgy. Sum-ag, Bacolod City', 'jessel@gmail.com', 'customer', '09123456435', 'Single Buyer', '', ''),
+(25, 'John', 'Solinap', 'Brgy. Sum-ag, Bacolod City', 'john@gmail.com', 'customer', '09991211276', 'Single Buyer', '', ''),
+(26, 'Joseph', 'Solinap', 'Brgy. Sum-ag, Bacolod City', 'joseph@gmail.com', 'customer', '09125465789', 'Single Buyer', '', ''),
+(27, 'Hannah ', 'Montana', 'Brgy. Sum-ag, Bacolod City', 'hannah@gmail.com', 'customer', '09109823456', 'Single Buyer', '', ''),
+(28, 'James', 'Bond', 'United States of America', 'james@gmail.com', 'customer', '09995433255', 'Single Buyer', '', ''),
+(29, 'Jayson', 'Solinap', 'Brgy. Sum-ag, Bacolod City', 'jayson@tci.com', 'customer', '09274215725', 'Single Buyer', '', ''),
+(30, 'jm', 'Solinap', 'Brgy. Sum-ag, Bacolod City', 'jm@gmail.com', 'customer', '091234567', 'Single Buyer', '', ''),
+(31, 'Bryan', 'Mills', 'Brgy Masilingan, Bacolod City', 'bryan@gmail.com', 'customer', '09276787888', 'Company', 'Coca Cola Company', '434-6777'),
+(32, 'Cinthia', 'Ramos', 'Makati', 'ramos@gmail.com', 'customer', '09996511436', 'Company', '7Eleven Merchandise', '434-5553'),
+(33, 'Mike', 'Smith', 'Jakarta, Indonesia', 'mike@gmail.com', 'customer', '09126578999', 'Company', 'EverGreen Company', '434-1324'),
+(34, 'Genevive', 'Montano', 'Alijis, Bacolod City', 'genevive@gmail.com', 'customer', '09123453231', 'Company', 'Munsterific', '434-9855'),
+(35, 'Nelson', 'Espadera', 'Kawit, Cavite', 'nelson@gmail.com', 'customer', '09104467512', 'Company', 'iMart Enterprise', '434-5231'),
+(36, 'Angel', 'Kim', 'Brgy Bata, Bacolod City', 'angel@gmail.com', 'customer', '09157855399', 'Company', 'Pepsi Company', '434-1055'),
+(37, 'Jenny', 'Lobordo', 'Araneta St. Bacolod City', 'jenny@gmail.com', 'customer', '09157745336', 'Company', 'Teresa Development Corporation', '434-7756');
 
 -- --------------------------------------------------------
 
@@ -91,7 +107,43 @@ INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`, `ca
 (36, 2, 27, 2, 12, 'Yes'),
 (37, 2, 26, 1, 12, 'Yes'),
 (38, 2, 27, 1, 13, 'No'),
-(39, 13, 27, 1, 19, 'No');
+(39, 13, 27, 1, 19, 'No'),
+(59, 28, 69, 6, 33, 'Yes'),
+(60, 28, 100, 4, 33, 'Yes'),
+(61, 28, 95, 3, 33, 'Yes'),
+(62, 28, 71, 2, 33, 'Yes'),
+(63, 28, 90, 4, 33, 'Yes'),
+(64, 24, 81, 3, 29, 'Yes'),
+(65, 24, 84, 3, 29, 'Yes'),
+(66, 24, 68, 5, 29, 'Yes'),
+(67, 29, 69, 7, 36, 'Yes'),
+(68, 29, 81, 3, 36, 'Yes'),
+(69, 29, 95, 2, 36, 'Yes'),
+(70, 29, 97, 2, 36, 'Yes'),
+(71, 29, 96, 2, 36, 'Yes'),
+(72, 29, 93, 4, 36, 'Yes'),
+(73, 25, 78, 3, 30, 'Yes'),
+(74, 25, 41, 3, 30, 'Yes'),
+(75, 25, 86, 3, 30, 'Yes'),
+(76, 25, 91, 3, 30, 'Yes'),
+(77, 30, 93, 1, 39, 'Yes'),
+(78, 30, 69, 1, 39, 'Yes'),
+(79, 26, 26, 2, 31, 'Yes'),
+(80, 26, 91, 3, 31, 'Yes'),
+(81, 26, 88, 3, 31, 'Yes'),
+(82, 26, 86, 4, 31, 'Yes'),
+(83, 31, 69, 10, 42, 'Yes'),
+(84, 31, 29, 15, 42, 'Yes'),
+(85, 31, 34, 15, 42, 'Yes'),
+(86, 31, 98, 5, 42, 'Yes'),
+(87, 32, 100, 10, 44, 'Yes'),
+(88, 32, 69, 10, 44, 'Yes'),
+(89, 32, 34, 10, 44, 'Yes'),
+(90, 32, 29, 8, 44, 'Yes'),
+(91, 33, 71, 5, 46, 'Yes'),
+(92, 33, 68, 5, 46, 'Yes'),
+(93, 33, 74, 5, 46, 'Yes'),
+(94, 33, 93, 10, 46, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -129,16 +181,18 @@ CREATE TABLE `inquiry` (
   `acc_email` varchar(30) NOT NULL,
   `subject` varchar(50) NOT NULL,
   `message` text NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0'
+  `date` date NOT NULL,
+  `status` varchar(7) NOT NULL DEFAULT 'Unread',
+  `statusView` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inquiry`
 --
 
-INSERT INTO `inquiry` (`inquiryID`, `acc_name`, `acc_email`, `subject`, `message`, `status`) VALUES
-(2, 'Jayson Solinap', 'jayson@tci.com', 'customization', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', 0),
-(3, 'Jayson Solinap', 'jayson@tci.com', 'Needs', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', 1);
+INSERT INTO `inquiry` (`inquiryID`, `acc_name`, `acc_email`, `subject`, `message`, `date`, `status`, `statusView`) VALUES
+(2, 'Jayson Solinap', 'jayson@tci.com', 'customization', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', '0000-00-00', 'Unread', 0),
+(3, 'Jayson Solinap', 'jayson@tci.com', 'Needs', 'hese parameters for for displaying attribution information below the quote; this should not be confused with a citing a source (see § Reference citations, below). These parameters are entirely optional, and are usually used with famous quotations, not routine block quotations, which are usually sourced at the end of the introductory line immediately before the quotation, with a normal <ref>...</ref> tag.\r\n\r\n|author= a.k.a. |2=—Optional Author/speaker attribution information that will appear below the quotation, and preceded with an attribution dash.\r\n\r\n|title= a.k.a. |3=—Optional title of the work the quote appears in, to display below the quotation. This parameter immediately follows the output of |author= (and an auto-generated comma), if one is provided. It does not auto-italicize. Major works (books, plays, albums, feature films, etc.) should be italicized; minor works (articles, chapters, poems, songs, TV episodes, etc.) go in quotation marks (see MOS:TITLES). Additional citation information can be provided in a fourth parameter, |source=, below, which will appear after the title.\r\n\r\n|source= a.k.a. |4=—Optionally used for additional source information to display, after |title=, like so: |title=\"The Aerodynamics of Shaved Weasels\"|source=\'\'Perspectives on Mammal Barbering\'\', 2016; a comma will be auto-generated between the two parameters. If |source= is used without |title=, it simply acts as |title=. (This parameter was added primarily to ease conversion from misuse of the pull quote template {{Quote frame}} for block quotation, but it may aid in cleaner meta-data implementation later.)\r\n\r\n|character= a.k.a. |char=—to attribute fictional speech to a fictional character, with other citation information. Can also be used to attribute real speech to a specific speaker among many, e.g. in a roundtable/panel transcript, a band interview, etc. This parameter outputs \"[Character\'s name], in\" after the attribution dash and before the output of the parameters above, thus one or more of those parameters must also be supplied. If you need to cite a fictional speaker in an article about a single work of fiction, where repeating the author and title information would be redundant, you can just use the |author= parameter instead of |character=.', '0000-00-00', 'read', 1);
 
 -- --------------------------------------------------------
 
@@ -160,7 +214,8 @@ CREATE TABLE `inventory` (
 INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `storeid`) VALUES
 (1, 46, 4, 1),
 (19, 47, 1, 1),
-(20, 48, 3, 1);
+(20, 48, 3, 1),
+(21, 86, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -190,9 +245,33 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`, `date_ordered`, `date_finished`, `isViewed`) VALUES
 (10, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '16500.00', 'Pending', '2018-01-11', '0000-00-00', 1),
 (11, 2, 'Brgy. 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '20000.00', 'Pending', '2018-01-11', '0000-00-00', 1),
-(12, 2, 'Barangay 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6108, '45000.00', 'Pending', '2018-01-23', '0000-00-00', 0),
+(12, 2, 'Barangay 40', 'Philippines', 'Negros Occidental', 'Bacolod City', 6108, '45000.00', 'Pending', '2018-01-23', '0000-00-00', 1),
 (13, 2, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
-(19, 13, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0);
+(19, 13, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(28, 23, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 1),
+(29, 24, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '19000.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(30, 25, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '28800.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(31, 26, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bago City', 6101, '47900.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(32, 27, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(33, 28, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '33400.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(34, 28, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(35, 24, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(36, 29, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '41300.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(37, 29, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(38, 25, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(39, 30, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '4000.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(40, 30, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(41, 26, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(42, 31, 'Brgy Mansilingan', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '256000.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(43, 31, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(44, 32, 'Makati', 'Brunei', 'NCR', 'Makati City', 6121, '174400.00', 'Pending', '2018-01-23', '0000-00-00', 0),
+(45, 32, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(46, 33, 'jakarta,Indonesia', 'Brunei', 'Indonesia', 'Depok City', 7600, '47000.00', 'Pending', '2018-01-23', '0000-00-00', 1),
+(47, 33, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(48, 34, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(49, 35, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(50, 36, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0),
+(51, 37, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -292,7 +371,17 @@ INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `pf_name`, `prod_pri
 (95, 'NTF2017-LF068', 'Daydream Wall Decor', 1, '3000.00', 3, 'WALL DÃ‰COR - DAY DREAM                                                  INLAY WITH BANANA BARK & CAPIZ GOLD SHELL; DIAMOND/ SEMI GLOSS\r\n', 'WallDecorDaydream.jpg', 100, 100, 5, 0, 0, 0),
 (96, 'NTF2017-LF088', 'Eclipse Wall Decor', 3, '3500.00', 3, 'WALL DÃ‰COR - ECLIPSE                                                 INLAY WITH BANANA BARK & CAPIZ GOLD SHELL; DIAMOND/ SEMI GLOSS\r\n', 'WallDecor-Eclipse.PNG', 100, 100, 5, 0, 0, 0),
 (97, 'NTF2017-LF070', 'Black and White Wall Decor', 1, '2700.00', 3, 'WALL DÃ‰COR - Black & White                                                  INLAY WITH CAPIZ GOLD SHELL, SINAMAY IBER & COCOTWIG; DIAMOND/ SEMI GLOSS\r\n', 'WALLDECOR.jpg', 100, 100, 4, 0, 0, 0),
-(98, 'NTF2017-LF089', 'Waste Basket', 1, '800.00', 1, 'Waste Basket - BANANA & CAPIZ GOLD STRIPES; SEMI GLOSS\r\n', 'wast basket-invertedbanana.jpg', 35, 40, 47, 0, 0, 0);
+(98, 'NTF2017-LF089', 'Waste Basket', 1, '800.00', 1, 'Waste Basket - BANANA & CAPIZ GOLD STRIPES; SEMI GLOSS\r\n', 'wast basket-invertedbanana.jpg', 35, 40, 47, 0, 0, 0),
+(99, 'NTF2017-HFV097', 'Warp Vase - Large', 3, '1400.00', 5, 'WARP VASE (REVISE SIZE) - SENTIMENTO BROWN & CAPIZ GOLD SHELL; DIAMOND FINISH\r\n', 'WARPVASELARGE.jpg', 30, 23, 28, 0, 0, 0),
+(100, 'NTF2017-LF055', 'Folding Table', 1, '1900.00', 1, 'FOLDING TABLE (SET OF 2) - KAPOK BLACK IN SQUARE; SEMI GLOSS \r\n\r\n', 'FoldingTableCheckeredBlack.jpg', 50, 35, 47, 0, 0, 0),
+(101, 'NTF2017-HFV025', 'Fan Vase', 1, '1700.00', 5, 'FAN VASE (SET OF 2) - KAPOK IN BLACK; SEMI GLOSS\r\n\r\n', 'FanVase.jpg', 23, 9, 27, 0, 0, 0),
+(102, 'NTF2017-HFV018', 'Mini Jonathan Vase - Small', 3, '1300.00', 5, 'MINI JONATHAN VASE (S/2) - SIMEON CLEAR DESIGN; DIAMOND FINISH\r\n\r\n', 'MiniJoathan Vase.jpg', 26, 9, 15, 0, 0, 0),
+(103, 'NTF2017-LF066', 'Bar Stool with Iron Legs', 1, '1300.00', 1, 'BAR STOOL WITH IRON LEGS - HARDWOOD\r\nSemi-Gloss', 'stool.jpg', 30, 30, 25, 0, 0, 0),
+(104, 'NTF2017-LF069', 'Banana Tree Wall Decor', 3, '2200.00', 3, 'WALL DÃ‰COR - INFINITY                                                  INLAY WITH BANANA BARK & CAPIZ GOLD SHELL; DIAMOND\r\n', 'WallDecorBananaTree.jpg', 100, 100, 4, 0, 0, 0),
+(105, 'NTF2017-LM096', 'Ceramic Lamp', 1, '1600.00', 4, 'CERAMIC LAMP - HATCHET BLACK & SINAMAY FIBER; SEMI GLOSS\r\n', 'ceramiclamp.jpg', 0, 0, 0, 50, 50, 0),
+(106, 'NTF2017-LM091', 'Mica Small Table Lamp', 1, '1300.00', 4, 'MICA SMALL TABLE LAMP - SADDLE OYSTER SHELL & SEMI GLOSS\r\n', 'micasmalltablelamp.jpg', 0, 0, 0, 30, 25, 0),
+(107, 'NTF2017-LM092', 'Tea Root Lamp', 1, '1400.00', 4, 'TEA ROOT LAMP - HATCHET WHITE & SINAMAY FIBER; SEMI GLOSS\r\n', 'teakrootlamp.jpg', 0, 0, 0, 38, 25, 0),
+(108, 'NTF2017-LM093', 'Floor Corner Lamp', 1, '1800.00', 4, 'FLOOR CORNER LAMP - BLACK & CAPIZ GOLD SHELL; SEMI GLOSS\r\n\r\n', 'floorcornerlamp.jpg', 0, 0, 0, 35, 50, 0);
 
 -- --------------------------------------------------------
 
@@ -492,13 +581,13 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `featuredprod`
@@ -510,25 +599,25 @@ ALTER TABLE `featuredprod`
 -- AUTO_INCREMENT for table `inquiry`
 --
 ALTER TABLE `inquiry`
-  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `productcategory`

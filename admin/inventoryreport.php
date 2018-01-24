@@ -20,15 +20,37 @@
               <h1>Inventory Report</h1>
             </div>
             <div class="card-block">
-              <form action="tcireport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+              <form action="generateinventoryreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 
                     <br>
                     <center>
                       <div class="control-group">
                       <label class="control-label" for="inputcategory">Report Category</label>
                       <div class="controls">
-                        <select  style="width: 3in" class="form-control" required="required" id="inputcategory" name="category">
+                        <select  style="width: 3in" class="form-control" required="required" id="inputcategory" name="rcategory">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Category ------</option>
+                          <option value="BC" disabled="">By Company</option>
+                          <option value="BP">By Product</option>
+                        </select>
+                    </div>
+                  </div>
+                  <br><br>
+                   <div class="control-group">
+                      <label class="control-label" for="inputcategory">Store Location</label>
+                      <div class="controls">
+                        <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="slocation" disabled="">
+                          <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Store Location ------</option>
+                          <option value="R">Robinsons</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <br><br>
+                   <div class="control-group">
+                      <label class="control-label" for="inputcategory">Product Category</label>
+                      <div class="controls">
+                        <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="pcategory">
+                          <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Product Category ------</option>
                           <option value="all">All</option>
                           <option value="LF">Light Furniture</option>
                           <option value="A">Accessories</option>

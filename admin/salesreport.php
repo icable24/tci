@@ -13,7 +13,7 @@
       <!-- navbar-->
       <?php include('header.php'); ?>
       <!-- Body Section -->
-      <br>
+      <br><br><br><br><br>
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
@@ -22,17 +22,32 @@
             </div>
             <div class="card-block">
               <form action="../php/addprod.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
-                
-                <div class="control-group">
+                <div class="row">
+                <div class="col control-group">
                       <label class="control-label" for="pf_name">Report Category</label>
                       <div class="controls">
                         <select id="pf_name" name="pf_name" style="width: 2in" class="form-control" required="">
                           <option></option>
-                          <option >Best Seller</option>
-                          <option>Total Sales Report</option>
+                          <option value="BS">Best Seller</option>
+                          <option value="TSR">Total Sales Report</option>
                         </select>
                     </div>
                   </div>
+                  <div class="col control-group">
+                      <label class="control-label" for="pf_name">Product Category</label>
+                      <div class="controls">
+                        <select id="pf_name" name="pf_name" style="width: 2in" class="form-control" required="">
+                          <option></option>
+                           <option value="all">All</option>
+                          <option value="LF">Light Furniture</option>
+                          <option value="A">Accessories</option>
+                          <option value="WD">Wall Decor</option>
+                          <option value="L">Luminaries</option>
+                          <option value="HF">Home Furniture</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
                     <br><br>
 				<div class="row justify-content-center">
                   <div class="col-6">
@@ -81,24 +96,6 @@
 				</div>
 
 							<br></br>
-
-
-                                                     <!-- Select Basic -->
-
-				<div class="row">
-                <div class="col">
-                  <label for="radio1">
-                    <span><input type="radio" name="test" id="all" value="radio1" checked="" onclick="btnCheck()" /> &nbsp;All</a></span>
-                  </label> 
-                </div>
-                <div class="col">
-                  <label for="radio2">
-                    <span>
-                    	<a href="#specify"><input type="radio" name="test" id="specify" value="radio2" onclick="btnCheck2()">
-                     &nbsp;Specify</a></span>
-                  </label>
-                </div>
-              	</div>
                         
 <br><br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button>	

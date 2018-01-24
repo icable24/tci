@@ -56,7 +56,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Subject</th>
-            <th>Status</th>
+            <th>Date</th>
             <th></th>
           </tr>
         </thead>
@@ -67,13 +67,13 @@
               $iqname = $row['acc_name'];
               $iqemail = $row['acc_email'];
               $subject = $row['subject'];
-              $status = $row['status'];
+              $date = $row['date'];
               echo "
                 <tr>
                   <td>$iqname</td>
                   <td>$iqemail</td>
                   <td>$subject</td>
-                  <td>$status</td>
+                  <td>$date</td>
                   <td class='class-center'>
                     <a href='viewInquiry.php?id=$inquiryID' class='btn btn-primary btn-md' data-toggle='tooltip' title='View'><span>View</span></a>
                   </td>
