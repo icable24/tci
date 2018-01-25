@@ -3,7 +3,7 @@
   include('../database.php');
   
  $pdo = Database::connect();
-  $inquiry = $pdo->prepare("SELECT * FROM inquiry WHERE NOT (status = 'Unread')");
+  $inquiry = $pdo->prepare("SELECT * FROM inquiry");
   $inquiry->execute();
   $inquiry = $inquiry->fetchAll();
 ?>
