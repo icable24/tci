@@ -45,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<input id="acc_name" name="acc_name" type="text" placeholder="Enter Fullname" required>
 						<input id="acc_email" name="acc_email" type="text" placeholder="Enter Email" required>
 						<input id="subject" name="subject" placeholder="Enter Subject" type="text">
-						<textarea id="message" name="message" cols="77" rows="6" required>Message</textarea>
+						<textarea id="message" name="message" cols="77" rows="6" required placeholder="Message"></textarea>
 					<div class="send">
 					<input type="submit" value="Send">
 					</div>
@@ -67,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h4>Factory:</h4>
 							<p>Purok, Ma. Morena, Calumangan,</p>
 							<p>Bago City, Negros Occidental,</p>
-							<p>Philippines 6100</p>
+							<p>Philippines 6101</p>
 						<h5>Tel. No.:</h5><p>(+6334) 476.1050 | 702.2658</p>
 						<h5>Mobile. No.:</h5><p>+63917.301.7571</p>
 						<h5>Email:</h5><p>tci.bcdphilippines@gmail.com</p>

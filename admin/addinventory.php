@@ -13,6 +13,20 @@
   $inv = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ?");
   $inv->execute(array($id));
   $inv = $inv->fetch();
+
+  $rob = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = 1");
+  $rob->execute(array($id));
+  $rob = $rob->fetchAll();
+
+  $anp = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
+  $anp->execute(array($id, 2));
+  $anp = $anp->fetchAll();
+
+  $bago = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
+  $bago->execute(array($id, 3));
+  $bago = $bago->fetchAll();
+
+
   if($inv){
     $quantity = $inv['quantity'];
   }else{
@@ -57,14 +71,17 @@
                     <div class="controls">
                       <select class="form-control" name="store" id="store">
                         <option></option>
-                        <option <?php if($inv['storeid'] == '1')echo 'selected="selected"';?> value="1">Robinsons</option>
+                        <option value="1">G/F Cybergate Center Robinsons, Singcang</option>
+                        <option value="2">ANP, City Walk Robinsons Mall, Mandalagan</option>
+                        <option value="3">Purok Ma. Morena, Calumangan Bago City</option>
                       </select>
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label">On Shelf</label>
                     <div class="controls">
-                      <input type="number" name="quantity" class="form-control" <?php echo "value='$quantity'"; ?> disabled>
+                      <input type="number" name="quantity" class="form-control" id="quantity" disabled>
+                      <?php var_dump($bago); ?>
                     </div>
                   </div>
                   <div class="control-group">
@@ -89,6 +106,21 @@
       <!-- Footer Section -->
       <?php include('footer.php'); ?>
     </div>
+    <script type="text/javascript">
+      var select = document.getElementById("quantity");
+
+      select.onchange = function checkStock(){
+        var store = document.getElementById("store").value;
+
+        if(store == '1'){
+          document.getElementById("quantity").value = 1;
+        }elseif(store == '2'){
+          document.getElementById("quantity").value = 2;
+        }else{
+          document.getElementById("quantity").value = 3;
+        }
+      }
+    </script>
     <!-- Javascript files-->
     <?php include('js.php'); ?>
   </body>

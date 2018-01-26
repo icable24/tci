@@ -50,22 +50,50 @@
 					<div class="alert alert-success">
 						<h1>Order # <?php echo $order['order_id']; ?></h1>
 						<div class="card-block">
-							<div class="row">
-								<div class="col-5">
-									<h3>Order Date:</h3>
+								<div class="row">
+									<div class="col-5">
+										<h3>Order Date:</h3>
+									</div>
+									<div class="col-7">
+										<h3><?php echo 	date("F j, Y", $date);  ?></h3>
+									</div>		
 								</div>
-								<div class="col-7">
-									<h3><?php echo 	date("F j, Y", $date);  ?></h3>
-								</div>		
-							</div>
-							<div class="row">
-								<div class="col-5">
-									<h3>Order Status:</h3>
+							<form action=" <?php echo '../php/updateorder.php?id='. $order_id?>" id="myform" name="myform" enctype="multipart/form-data" method="post">
+								<div class="row">
+									<div class="col-5">
+										<h3>Order Status:</h3>
+									</div>
+									<div class="col-7">
+										<?php if($order['order_finish'] == 'Pending'){
+											echo "
+												<select id='order_finish' name='order_finish' class='form-control' required>
+													<option></option>
+													<option selected value='Pending'>Pending</option>
+													<option value='Processing'>Processing</option>
+												</select>
+											";
+											echo $order['order_finish'];
+											} elseif($order['order_finish'] == 'Processing'){
+												echo "
+												<select id='order_finish' name='order_finish' class='form-control' required>
+													<option></option>
+													<option selected>Processing</option>
+													<option>Completed</option>
+												</select>
+											";
+											}else{
+												echo "<h3>Completed</h3>";
+											}
+										?>
+									</div>		
 								</div>
-								<div class="col-7">
-									<h3><?php echo 	$order['order_finish']  ?></h3>
-								</div>		
-							</div>			
+								<?php if($order['order_finish'] != "Completed"){ ?>
+								<div class="clearfix"></div><br>
+								<div class="row">
+									<div class="offset-9"><button type="submit" class="btn btn-success">Update</button></div>
+								</div>	
+								<?php } ?>
+							</form>		
 						</div>
 					</div>
 					<div class="alert alert-success">

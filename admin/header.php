@@ -8,6 +8,14 @@
  $PO = $pdo->prepare("SELECT * FROM orders WHERE isViewed = 0 AND order_finish = 'Pending'");
  $PO->execute();
  $PO = $PO->fetchAll();
+
+ $inq = $pdo->prepare("SELECT count(*) FROM inquiry WHERE status = 0");
+ $inq->execute();
+ $inq = $inq->fetch();
+
+ $inquire = $pdo->prepare("SELECT * FROM inquiry WHERE status = 0");
+ $inquire->execute();
+ $inquire = $inquire->fetchAll();  
 ?>
 <header class="header">
          <nav class="navbar">
@@ -16,9 +24,10 @@
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.php" class="navbar-brand">
                   <div class="brand-text hidden-sm-down"><span>Tumandok Craft and Industries Management Information System</span></div></a></div>
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php if($NPO['count(*)'] > 0){echo $NPO['count(*)'];} ?></span></a><ul aria-labelledby='notifications' class='dropdown-menu'>
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning"><?php if($NPO['count(*)'] > 0){echo $NPO['count(*)'];} ?></span></a>
                  <?php 
                     if($NPO['count(*)'] > 0){
+                      echo "<ul aria-labelledby='notifications' class='dropdown-menu'>";
                       foreach($PO as $row){
                         $order_id = $row['order_id'];
 
@@ -35,48 +44,29 @@
                             </div></a></li>
                         ";
                       }
-
-                      // for($i = 0; $i < 4; $i++){
-                      //   $order_id = $PO[$i]['order_id'];
-
-                      //   $user = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
-                      //   $user->execute(array($PO[$i]['acc_id']));
-                      //   $user = $user->fetch();
-
-                      //   $name = $user['acc_fname'] . ' ' . $user['acc_lname'];
-                      //   if(!empty($order_id)){
-                      //   echo "
-                      //       <li><a rel='nofollow' href='vieworder.php?id=$order_id' class='dropdown-item'> 
-                      //       <div class='notification d-flex justify-content-between'>
-                      //         <div class='notification-content'><i class='fa fa-user'></i>$name</div>
-                      //         <div class='notification-time'><small>Order Number: $order_id</small></div>
-                      //       </div></a></li>
-                      //   ";
-                      //   }
-                      // }
-                    } 
+                      echo "</ul>";
+                    }
                   ?>
-                  </ul>
+                  
                 </li>
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><!-- <span class="badge badge-info">10</span> --></a>
-                    <!-- <ul aria-labelledby="notifications" class="dropdown-menu">
-                      <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                          <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                          <div class="msg-body">
-                            <h3 class="h5">Jason Doe</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
-                          </div></a></li>
-                      <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                          <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                          <div class="msg-body">
-                            <h3 class="h5">Frank Williams</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
-                          </div></a></li>
-                      <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                          <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                          <div class="msg-body">
-                            <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
-                          </div></a></li>
-                      <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
-                    </ul> -->
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i> <span class="badge badge-info"><?php if($inq['count(*)']){echo $inq['count(*)'];} ?></span></a>
+                 <?php 
+                    if($inq['count(*)'] > 0){
+                      echo "<ul aria-labelledby='notifications' class='dropdown-menu'>";
+                      foreach($inquire as $row){
+                        $inquiryID = $row['inquiryID'];
+                        $acc_name = $row['acc_name'];
+                        echo "
+                            <li><a rel='nofollow' href='viewinquiry.php?id=$inquiryID' class='dropdown-item'> 
+                            <div class='notification d-flex justify-content-between'>
+                              <div class='notification-content'><i class='fa fa-user'></i>$acc_name</div>
+                              <div class='notification-time'><small>Inquiry Number: $inquiryID</small></div>
+                            </div></a></li>
+                        ";
+                      }
+                      echo "</ul>";
+                    }
+                  ?>                    
                 </li>
                 <li class="nav-item"><a href="../index.php" class="nav-link logout">View Shop</a></li>
                 <li class="nav-item"><a href="../php/logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
