@@ -33,20 +33,6 @@
                         </select>
                     </div>
                   </div>
-                  <div class="col control-group">
-                      <label class="control-label" for="pf_name">Product Category</label>
-                      <div class="controls">
-                        <select id="pf_name" name="pf_name" style="width: 2in" class="form-control" required="">
-                          <option></option>
-                           <option value="all">All</option>
-                          <option value="LF">Light Furniture</option>
-                          <option value="A">Accessories</option>
-                          <option value="WD">Wall Decor</option>
-                          <option value="L">Luminaries</option>
-                          <option value="HF">Home Furniture</option>
-                        </select>
-                    </div>
-                  </div>
                 </div>
                     <br><br>
 				<div class="row justify-content-center">

@@ -22,7 +22,7 @@
             </div>
             <br><br>
             <div class="card-block">
-              <form action="../php/addprod.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+              <form action="generatedeliveryreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
               
         <div class="row justify-content-center">
                   <div class="col-6">
@@ -72,23 +72,6 @@
 
               <br></br>
 
-
-                                                     <!-- Select Basic -->
-
-       <!-- <div class="row">
-                <div class="col">
-                  <label for="radio1">
-                    <span><a href="#specify"><input type="radio" name="test" id="all" value="radio1" checked="" onclick="btnCheck()" /> &nbsp;All</a></span>
-                  </label> 
-                </div>
-                <div class="col">
-                  <label for="radio2">
-                    <span>
-                      <input type="radio" name="test" id="specify" value="radio2" onclick="btnCheck2()">
-                     &nbsp;Specify</span>
-                  </label>
-                </div>
-                </div> -->
                         
 <br><br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button> 

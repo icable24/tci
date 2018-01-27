@@ -12,7 +12,23 @@
       <!-- navbar-->
       <?php include('header.php');?>
       <!-- Body Section -->
-      <br>
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#reportcategory").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+      <br><br><br><br>
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
@@ -27,26 +43,27 @@
                       <div class="control-group">
                       <label class="control-label" for="inputcategory">Report Category</label>
                       <div class="controls">
-                        <select  style="width: 3in" class="form-control" required="required" id="inputcategory" name="rcategory">
+                        <select  style="width: 3in" class="form-control" required="required" id="reportcategory" name="rcategory">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Category ------</option>
-                          <option value="BC" disabled="">By Company</option>
+                          <option value="BS">By Store</option>
                           <option value="BP">By Product</option>
                         </select>
                     </div>
                   </div>
                   <br><br>
-                   <div class="control-group">
+                   <div class="BS box">
                       <label class="control-label" for="inputcategory">Store Location</label>
                       <div class="controls">
-                        <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="slocation" disabled="">
+                        <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="slocation">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Store Location ------</option>
-                          <option value="R">Robinsons</option>
+                          <option value="CCR">G/F Cybergate Center Robinsons, Singcang</option>
+                          <option value="ANP">ANP, City Walk Robinsons Mall, Mandalagan</option>
+                          <option value="PMM">Purok Ma. Morena, Calumangan Bago City</option>
+
                         </select>
                     </div>
                   </div>
-
-                  <br><br>
-                   <div class="control-group">
+                   <div class="BP box">
                       <label class="control-label" for="inputcategory">Product Category</label>
                       <div class="controls">
                         <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="pcategory">

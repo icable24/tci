@@ -77,9 +77,9 @@
       <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-bar-chart"></i><span>Reports</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="account-nav-list" class="collapse list-unstyled">
-            <li> <a href="salesreport.php"><span>Sales</span></a></li>
-            <li><a href="inventoryreport.php"><span>Inventory</span></a></li>
-            <li> <a href="deliveryreport.php"><span>Delivery</span></a></li>
+            <li> <a href="reportsales.php"><span>Sales</span></a></li>
+            <li><a href="reportinventory.php"><span>Inventory</span></a></li>
+            <li> <a href="reportdelivery.php"><span>Delivery</span></a></li>
           </ul>
         </li>
       </ul>
