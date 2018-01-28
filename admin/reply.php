@@ -3,9 +3,8 @@
  	include('../database.php');
 
  	
-	$pdo = Database::connect();
-
-	if(!empty($_GET['id'])){
+	 $pdo = Database::connect();
+		if(!empty($_GET['id'])){
 		$inquiryID = $_REQUEST['id'];
 
 		$inquiry = $pdo->prepare("SELECT * FROM inquiry WHERE inquiryID = ?");
@@ -43,7 +42,7 @@
 				<table class="table">
 					<thead>
 						<tr class="alert-success">
-							<th style="text-align: justify;">From: &nbsp;&nbsp;&nbsp;<?php echo $inquiry['acc_name'];?></th>
+							<th style="text-align: justify;">To: &nbsp;&nbsp;&nbsp;<?php echo $inquiry['acc_name'];?></th>
 						</tr>
 					</thead>
 				</table>
@@ -64,27 +63,19 @@
 				<table class="table">
 					<thead>
 						<tr class="alert-success">
-							<th style="text-align: justify;">Message:</th>
+							<th style="text-align: justify;">Message:</th>	
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="alert-success">
-							<th style="text-align: justify;"><?php echo $inquiry['message'];?></th>
-						</tr>
-						
+							<th ><textarea id="message" name="message"  cols="137" rows="6" type="text" required="" placeholder="Message"></textarea></th>
+						</tr>	
 					</tbody>
-				
 					</table>
-				</div>	
-
-					<?php
-					echo "
-					 <td class='class-center'>
-                    <a href='reply.php?id=$inquiryID' class='btn btn-primary pull-right' data-toggle='tooltip' title='Reply'><span>Reply</span></a>
+				</div>
+				 <td class='class-center'>
+                    <a href='index.php' class='btn btn-primary pull-right' data-toggle='tooltip' title='Send'><span>Send</span></a>
                   </td>
-                  		";
-                  	?>
-
 				</div>		
 			</div>			
 		</div>

@@ -22,6 +22,30 @@
     .nav>li>a{
         padding-top: 5px !important;
     }
+
+
+#register .short{
+color:#FF0000;
+font-size:small;
+}
+#register .weak{
+color:orange;
+font-size:small;
+}
+#register .good{
+color:#2D98F3;
+font-size:small;
+}
+#register .strong{
+color: limegreen;
+font-size:small;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
     
 </style>
 <html>
@@ -62,7 +86,7 @@
                             function viewByCategory($category){
                                 if($category == 'Single Buyer'){
                         ?>
-                                    <form action="php/cust_signup.php?user_type=Single Buyer" method="post">
+                                    <form action="php/cust_signup.php?user_type=Single Buyer" method="post" id="register">
                                         <?php $_POST['user_type'] = "Single Buyer"?>
                                         <label class="control-label" for="acc_fname">Firstname:</label>
                                         <div class="control-group">
@@ -76,12 +100,13 @@
 
                                         <label class="control-label" for="acc_email">E-mail:</label>
                                         <div class="control-group">
-                                            <input class="form-control" type="text" required="" id="acc_email" name="acc_email" placeholder="E-mail Address"></input>
+                                            <input class="form-control" type="email" required="" id="acc_email" name="acc_email" placeholder="E-mail Address"></input>
                                         </div>
 
-                                        <label class="control-label" for="password1">Password:</label>
+                                        <label class="control-label" for="password1">Password: <span id="result"></span></label>
                                         <div class="control-group">
                                             <input class="form-control" type="password" required="" id="password1" name="password1" placeholder="Password"></input>
+                                            
                                         </div>
 
                                         <label class="control-label" for="password2">Retype Password:</label>
@@ -91,11 +116,11 @@
 
                                         <label class="control-label">Contact Number</label>
                                         <div class="control-group">
-                                            <input class="form-control" type="text" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
+                                            <input class="form-control" type="number" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
                                         </div>
 
                                         <div class="text-center submit">
-                                            <button class="btn btn-success" type="submit">Signup</button>
+                                            <button class="btn btn-success" type="submit" id="btnSubmit">Signup</button>
                                             <a href="index.php"><span class="btn btn-danger">Cancel</span></a>
                                         </div>
                                     </form>
@@ -103,8 +128,8 @@
                                 }elseif($category == 'Company'){
                                     
                         ?>
-                                    <form action="php/cust_signup.php?user_type=Company" method="post">
-                                        <?php $_POST['user_type'] = "Single Buyer"?>
+                                    <form action="php/cust_signup.php?user_type=Company" method="post" id="register">
+                                        <?php $_POST['user_type'] = "Company"?>
 
                                         <label class="control-label">Buying Agent:</label>
                                         <br><br>
@@ -121,10 +146,10 @@
 
                                         <label class="control-label" for="acc_email">E-mail:</label>
                                         <div class="control-group">
-                                            <input class="form-control" type="text" required="" id="acc_email" name="acc_email" placeholder="E-mail Address"></input>
+                                            <input class="form-control" type="email" required="" id="acc_email" name="acc_email" placeholder="E-mail Address"></input>
                                         </div>
 
-                                        <label class="control-label" for="password1">Password:</label>
+                                        <label class="control-label" for="password1">Password: <span id="result"></span></label>
                                         <div class="control-group">
                                             <input class="form-control" type="password" required="" id="password1" name="password1" placeholder="Password"></input>
                                         </div>
@@ -136,7 +161,7 @@
 
                                         <label class="control-label">Contact Number</label>
                                         <div class="control-group">
-                                            <input class="form-control" type="text" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
+                                            <input class="form-control" type="number" name="acc_contact" id="acc_contact" style="sco" required="" placeholder="Contact Number">
                                         </div>
 
                                         <br>
@@ -153,11 +178,11 @@
 
                                         <label class="control-label" for="acc_comp_contact">Company Contact Number:</label>
                                         <div class="control-group">
-                                            <input class="form-control" type="text" required="" id="acc_comp_contact" name="acc_comp_contact" placeholder="Company Contact Number"></input>
+                                            <input class="form-control" type="number" required="" id="acc_comp_contact" name="acc_comp_contact" placeholder="Company Contact Number"></input>
                                         </div>
 
                                         <div class="text-center submit">
-                                            <button class="btn btn-success" type="submit">Signup</button>
+                                            <button class="btn btn-success" type="submit" id="btnSubmit">Signup</button>
                                             <a href="index.php"><span class="btn btn-danger">Cancel</span></a>
                                         </div>
                                     </form>

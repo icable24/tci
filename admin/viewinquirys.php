@@ -4,7 +4,6 @@
 
  	
 	$pdo = Database::connect();
-
 	if(!empty($_GET['id'])){
 		$inquiryID = $_REQUEST['id'];
 
@@ -73,22 +72,11 @@
 						</tr>
 						
 					</tbody>
-				
-					</table>
+				</table>
 				</div>	
-
-					<?php
-					echo "
-					 <td class='class-center'>
-                    <a href='reply.php?id=$inquiryID' class='btn btn-primary pull-right' data-toggle='tooltip' title='Reply'><span>Reply</span></a>
-                  </td>
-                  		";
-                  	?>
-
 				</div>		
 			</div>			
 		</div>
-		
 		<?php include("footer.php"); ?>
 	</div>	
 	<?php include("js.php"); ?>

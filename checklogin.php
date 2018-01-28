@@ -16,7 +16,7 @@ session_start();
     }
     else
     {
-       header('Location:../wrong_password.php');
+       header('Location:../wrong_login.php');
 	   
     }
 }

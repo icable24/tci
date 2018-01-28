@@ -23,7 +23,7 @@ session_start();
     }
     else
     {
-       header('Location:../login.php');
+       header('Location:../wrong_login.php');
        
     }
 }

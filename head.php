@@ -25,4 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link  href="css/w3.css" rel="stylesheet" type="text/css" media="all">
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script src="js/imagezoom.js"></script>
+<!-- for error traps-->
+<!---password strengths-->
+<script src="js/passwordscheck.js"></script><!-- Include Your jQUery file here-->
+<!--password matched -->
+ <script src="js/passmatchedcheck.js"></script>
 </head>

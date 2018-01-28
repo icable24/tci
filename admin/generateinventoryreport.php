@@ -1,5 +1,4 @@
 <?php
-include('../database.php');
 require_once('tcpdf.php');
 
 class MYPDF extends TCPDF {
@@ -121,7 +120,7 @@ EOD;
 
         while($row = mysqli_fetch_array($result)){
         $prod_code = $row["prod_code"];
-        $prod_image = $row["prod_image"];
+        $prod_image = "../prod_img/" . $row['prod_image'];
         $prod_name = $row["prod_name"];
         $pc_name = $row["pc_name"];
         $prod_desc = $row["prod_desc"];
@@ -134,7 +133,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 50px;">'.$pc_name.'</td>
                 <td style="border: 1px solid #000000; width: 290px;">'.$prod_desc.'</td>
@@ -228,7 +227,7 @@ EOD;
 
         while($row = mysqli_fetch_array($result)){
         $prod_code = $row["prod_code"];
-        $prod_image = $row["prod_image"];
+        $prod_image = "../prod_img/" . $row['prod_image'];
         $prod_name = $row["prod_name"];
         $prod_desc = $row["prod_desc"];
         
@@ -241,7 +240,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
@@ -334,7 +333,7 @@ EOD;
 
         while($row = mysqli_fetch_array($result)){
         $prod_code = $row["prod_code"];
-        $prod_image = $row["prod_image"];
+        $prod_image = "../prod_img/" . $row['prod_image'];
         $prod_name = $row["prod_name"];
         $prod_desc = $row["prod_desc"];
         
@@ -347,7 +346,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
@@ -440,7 +439,7 @@ EOD;
 
         while($row = mysqli_fetch_array($result)){
         $prod_code = $row["prod_code"];
-        $prod_image = $row["prod_image"];
+        $prod_image = "../prod_img/" . $row['prod_image'];
         $prod_name = $row["prod_name"];
         $prod_desc = $row["prod_desc"];
         
@@ -453,7 +452,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
@@ -545,7 +544,7 @@ EOD;
 
         while($row = mysqli_fetch_array($result)){
         $prod_code = $row["prod_code"];
-        $prod_image = $row["prod_image"];
+        $prod_image = "../prod_img/" . $row['prod_image'];
         $prod_name = $row["prod_name"];
         $prod_desc = $row["prod_desc"];
         
@@ -558,7 +557,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
@@ -650,7 +649,7 @@ EOD;
 
         while($row = mysqli_fetch_array($result)){
         $prod_code = $row["prod_code"];
-        $prod_image = $row["prod_image"];
+        $prod_image = "../prod_img/" . $row['prod_image'];
         $prod_name = $row["prod_name"];
         $prod_desc = $row["prod_desc"];
         
@@ -663,7 +662,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$prod_image.'</td>
+                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
@@ -714,7 +713,6 @@ if ($act_type=='BS') {
 
 
 
-
 EOD;
 
     // print a block of text using Write()
@@ -740,17 +738,21 @@ EOD;
     }
 
         //==============================================================
-      $pdo = Database::connect();
-    $inventory = $pdo->prepare("SELECT * FROM inventory");
-              $inventory->execute();
-              $inventory = $inventory->fetchAll();
-              foreach($inventory as $row){
+      $pdo =  mysqli_connect("localhost", "root", "", "tcishop");
+           $invreport = $pdo->prepare("SELECT * FROM inventory WHERE storeid = ?");
+            $invreport->execute(array($storeid));
+            $invreport = $invreport->fetchAll();
+            foreach($invreport as $row){
                 $prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
                 $prod->execute(array($row['prod_id']));
                 $prod = $prod->fetch();
+                $prod_id = $prod['prod_code'];
+                $prod_image = "../prod_img/" . $prod['prod_image'];
+                $prod_name = $prod['prod_name'];
+                $quantity = $row['quantity'];
+                $store = $store['storename'];
                 
-
-        $result = mysqli_query($pdo, $inventory);  
+              $result->execute($pdo, $invreport);
 
         $tbl = '<table style="width: 638px;" cellspacing="0">';
 
@@ -791,7 +793,6 @@ EOD;
                 <td style="border: 1px solid #000000; width: 130px;">'.'<img src='.$prod_image.' alt="Product Image" style="width:50px; height: 50px;"/>'.'</td>
                 <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 290px;">'.$prod_name.'</td>
-
                 <td style="border: 1px solid #000000; width: 50px;">'.$quantity.'</td>
 
             </tr>';
@@ -802,12 +803,8 @@ EOD;
         //==============================================================
 
         $pdf->Output('Inventory Report - By Store_report.pdf', 'I');
-    }
-        }//end sang all
-       
-      
-    }//if($act_type2=='all')
-}//if ($act_type=='R') end
-
-
+    }//end sang foreach
+        }//end sang CCR 
+    }//if($act_type2=='BC')
+}//end of post
 ?>

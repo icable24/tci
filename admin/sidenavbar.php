@@ -40,7 +40,6 @@
                 <li> <a href="productlist.php"><span>Product List</span></a></li>
                 <li><a href="productcreate.php"><span>Add New Product</span></a></li>
                 <li> <a href="featuredproduct.php"><span>Featured Product</span></a></li>
-                <li><a href="#"><span>Materials</span></a></li>
               </ul>
             </li>
             <li><a href="#customer-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Customer</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>

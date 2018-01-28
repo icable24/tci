@@ -92,6 +92,11 @@ EOD;
 
         //==============================================================
     $pdo = Database::connect();
+
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = DateTime::createFromFormat("Y-m-d", $_POST['sdate'])->format('m-d-Y');
+    $edate = DateTime::createFromFormat("Y-m-d", $_POST['edate'])->format('m-d-Y');
+    
     $orders = $pdo->prepare("SELECT * FROM orders ORDER BY order_id ASC");
     $orders->execute();
     $orders = $orders->fetchAll(); 

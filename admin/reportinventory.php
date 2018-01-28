@@ -54,7 +54,7 @@ $(document).ready(function(){
                    <div class="BS box">
                       <label class="control-label" for="inputcategory">Store Location</label>
                       <div class="controls">
-                        <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="slocation">
+                        <select  style="width: 5in;" class="form-control" required="required" id="slocation" name="slocation">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Store Location ------</option>
                           <option value="CCR">G/F Cybergate Center Robinsons, Singcang</option>
                           <option value="ANP">ANP, City Walk Robinsons Mall, Mandalagan</option>
@@ -63,10 +63,26 @@ $(document).ready(function(){
                         </select>
                     </div>
                   </div>
+                  <br>
+                   <div class="BS box">
+                      <label class="control-label" for="inputcategory">Product Category</label>
+                      <div class="controls">
+                        <select  style="width: 5in;" class="form-control" required="required" id="pcategory" name="pcategory">
+                          <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Product Category ------</option>
+                          <option value="all">All</option>
+                          <option value="LF">Light Furniture</option>
+                          <option value="A">Accessories</option>
+                          <option value="WD">Wall Decor</option>
+                          <option value="L">Luminaries</option>
+                          <option value="HF">Home Furniture</option>
+                        </select>
+                    </div>
+                  </div>
+
                    <div class="BP box">
                       <label class="control-label" for="inputcategory">Product Category</label>
                       <div class="controls">
-                        <select  style="width: 5in;" class="form-control" required="required" id="inputcategory" name="pcategory">
+                        <select  style="width: 5in;" class="form-control" required="required" id="pcategory" name="pcategory">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Product Category ------</option>
                           <option value="all">All</option>
                           <option value="LF">Light Furniture</option>

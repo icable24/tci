@@ -69,7 +69,7 @@
                     <div class="control-group">
                       <label class="control-label" for="pc_name">Category</label>
                         <div class="controls">
-                          <select class="form-control" name="pc_name" id="pc_name">
+                          <select class="form-control" name="pc_name" id="pc_name" required="">
                             <option></option>
                             <option>Light Furnitures</option>
                             <option>Accessories</option>
