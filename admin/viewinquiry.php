@@ -80,7 +80,7 @@
 					<?php
 					echo "
 					 <td class='class-center'>
-                    <a href='reply.php?id=$inquiryID' class='btn btn-primary pull-right' data-toggle='tooltip' title='Reply'><span>Reply</span></a>
+                    <a href='#' onclick='myFunction()' class='btn btn-primary pull-right' data-toggle='tooltip' title='Reply'><span>Reply</span></a>
                   </td>
                   		";
                   	?>
@@ -88,6 +88,72 @@
 				</div>		
 			</div>			
 		</div>
+<br>
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+</script>
+		<div class="container-fluid" id="myDIV" style="display:none">
+			
+			<div class="clearfix"></div>
+			<div class="row">
+				<div class="col-12">	
+				<div class="alert alert-success">
+				<table class="table">
+					<thead>
+						<tr class="alert-success">
+							<th style="text-align: justify;">To: &nbsp;&nbsp;&nbsp;<?php echo $inquiry['acc_name'];?></th>
+						</tr>
+					</thead>
+				</table>
+				<table class="table">
+					<thead>
+						<tr class="alert-success">
+							<th style="text-align: justify;">Email: &nbsp;&nbsp;&nbsp;<?php echo $inquiry['acc_email'];?></th>
+						</tr>
+					</thead>
+				</table>
+				<table class="table">
+					<thead>
+						<tr class="alert-success">
+							<th style="text-align: justify;">Subject: &nbsp;&nbsp;&nbsp;<?php echo $inquiry['subject'];?></th>
+						</tr>
+					</thead>
+				</table>
+				<table class="table">
+					<thead>
+						<tr class="alert-success">
+							<th style="text-align: justify;">Message:</th>	
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="alert-success">
+							<th ><textarea id="message" name="message"  cols="137" rows="6" type="text" required="" placeholder="Message"></textarea></th>
+						</tr>	
+					</tbody>
+					</table>
+				</div>	
+
+					<?php
+					echo "
+					 <td class='class-center'>
+                    <a href='reply.php?id=$inquiryID' class='btn btn-primary pull-right' data-toggle='tooltip' title='Send'><span>Send</span></a>
+                  </td>
+                  		";
+                  	?>
+
+				</div>		
+			</div>			
+		</div>
+
+
+
 		
 		<?php include("footer.php"); ?>
 	</div>	
