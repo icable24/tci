@@ -238,7 +238,7 @@ $row9 = mysqli_fetch_object($query9);
       <td class="circle-tile ">
         <div class="circle-tile-content dark-blue">
           <div class="circle-tile-number text-faded "><?php echo $row7->total7;?></div>
-          <a class="circle-tile-footer" style="color: white">Home Furnitures</a>
+          <a class="circle-tile-footer" style="color: white">Home Furnishing</a>
         </div>
       </td> 
       <td class="circle-tile ">

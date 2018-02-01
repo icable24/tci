@@ -54,11 +54,10 @@ $(document).ready(function(){
                    <div class="BS box">
                       <label class="control-label" for="inputcategory">Store Location</label>
                       <div class="controls">
-                        <select  style="width: 5in;" class="form-control" required="required" id="slocation" name="slocation">
+                        <select  style="width: 5in;" class="form-control" required="required" id="storelocation" name="slocation">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Store Location ------</option>
                           <option value="CCR">G/F Cybergate Center Robinsons, Singcang</option>
                           <option value="ANP">ANP, City Walk Robinsons Mall, Mandalagan</option>
-                          <option value="PMM">Purok Ma. Morena, Calumangan Bago City</option>
 
                         </select>
                     </div>
@@ -67,14 +66,14 @@ $(document).ready(function(){
                    <div class="BS box">
                       <label class="control-label" for="inputcategory">Product Category</label>
                       <div class="controls">
-                        <select  style="width: 5in;" class="form-control" required="required" id="pcategory" name="pcategory">
+                        <select  style="width: 5in;" class="form-control" required="required" id="productcategory" name="p1category">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Product Category ------</option>
-                          <option value="all">All</option>
-                          <option value="LF">Light Furniture</option>
-                          <option value="A">Accessories</option>
-                          <option value="WD">Wall Decor</option>
-                          <option value="L">Luminaries</option>
-                          <option value="HF">Home Furniture</option>
+                          <option value="all1">All</option>
+                          <option value="LF1">Light Furniture</option>
+                          <option value="A1">Accessories</option>
+                          <option value="WD1">Wall Decor</option>
+                          <option value="L1">Luminaries</option>
+                          <option value="HF1">Home Furnishing</option>
                         </select>
                     </div>
                   </div>
@@ -82,14 +81,14 @@ $(document).ready(function(){
                    <div class="BP box">
                       <label class="control-label" for="inputcategory">Product Category</label>
                       <div class="controls">
-                        <select  style="width: 5in;" class="form-control" required="required" id="pcategory" name="pcategory">
+                        <select  style="width: 5in;" class="form-control" required="required" id="productcategory" name="pcategory">
                           <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Product Category ------</option>
                           <option value="all">All</option>
                           <option value="LF">Light Furniture</option>
                           <option value="A">Accessories</option>
                           <option value="WD">Wall Decor</option>
                           <option value="L">Luminaries</option>
-                          <option value="HF">Home Furniture</option>
+                          <option value="HF">Home Furnishing</option>
                         </select>
                     </div>
                   </div>
@@ -102,9 +101,8 @@ $(document).ready(function(){
 </div>
 </div>
 </form>
-<br>
-</form>
-</div>
+
+
       <!-- Footer Section -->
       <?php include('footer.php'); ?>
     </div>

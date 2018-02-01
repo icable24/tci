@@ -76,7 +76,7 @@ body {
   <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Compare Products</h3>
   <div class="container">
     <div class="col-10">
-        <!-- <?php
+        <?php
           $pdo = Database::connect();
 
           for($i = 0; $i < 3; $i++){
@@ -97,7 +97,7 @@ body {
               echo '</div>';
             echo '</div>';
           }
-        ?> -->
+        ?>
         <div class="table-responsive">
           <table class="table table-hover table-striped" id="myTable">
             <thead class="success-info">

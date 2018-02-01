@@ -2,19 +2,19 @@
 	include('../login_success.php');
  	include('../database.php');
 
- 	
-	$pdo = Database::connect();
+ 	$pdo = Database::connect();
 
-	if(!empty($_GET['id'])){
-		$inquiryID = $_REQUEST['id'];
+ 	if(isset($_GET['id'])){
+ 		$inquiryID = $_GET['id'];
+ 	}else{
+ 		header("location: inquiry.php");
+ 	}
 
-		$inquiry = $pdo->prepare("SELECT * FROM inquiry WHERE inquiryID = ?");
-		$inquiry->execute(array($inquiryID));
-		$inquiry = $inquiry->fetch(PDO::FETCH_ASSOC);
+ 	$setViewed = $pdo->prepare("UPDATE inquiry SET statusView = ? WHERE inquiryID = ?");
+ 	$setViewed->execute(array(1, $inquiryID));
 
-	}else{
-		header('location:index.php');
-	}
+ 	$setStatus = $pdo->prepare("UPDATE inquiry SET status = ? WHERE inquiryID = ?");
+ 	$setStatus->execute(array('read', $inquiryID));
 ?>
 <!DOCTYPE html>
 <style type="text/css">
@@ -32,7 +32,14 @@
 	include("sidenavbar.php");
 ?>
 	<div class="page home-page">
-		<?php include("header.php");?>
+		<?php
+		include("header.php");
+		$pdo = Database::connect();
+		$inquiry = $pdo->prepare("SELECT * FROM inquiry WHERE inquiryID = ?");
+		$inquiry->execute(array($inquiryID));
+		$inquiry = $inquiry->fetch();
+
+		?>
 		<br><br>
 		<div class="container-fluid">
 			
@@ -77,17 +84,18 @@
 					</table>
 				</div>	
 
-					<?php
-					echo "
-					 <td class='class-center'>
-                    <a href='#' onclick='myFunction()' class='btn btn-primary pull-right' data-toggle='tooltip' title='Reply'><span>Reply</span></a>
-                  </td>
-                  		";
+					<!--<?php
+					//echo "
+					// <td class='class-center'>
+                   // <a href='#' onclick='myFunction()' class='btn btn-primary pull-right' data-toggle='tooltip' title='Reply'><span>Reply</span></a>
+                 // </td>
+                  	//	";
                   	?>
-
+-->
 				</div>		
 			</div>			
 		</div>
+		<!--
 <br>
 <script>
 function myFunction() {
@@ -141,19 +149,17 @@ function myFunction() {
 				</div>	
 
 					<?php
-					echo "
-					 <td class='class-center'>
-                    <a href='reply.php?id=$inquiryID' class='btn btn-primary pull-right' data-toggle='tooltip' title='Send'><span>Send</span></a>
-                  </td>
-                  		";
-                  	?>
+					//echo "
+					// <td class='class-center'>
+                    //<a href='reply.php?id=$inquiryID' class='btn btn-primary pull-right' data-toggle='tooltip' title='Send'><span>Send</span></a>
+                 // </td>
+                  		//";
+                  ?>
 
 				</div>		
 			</div>			
 		</div>
-
-
-
+-->
 		
 		<?php include("footer.php"); ?>
 	</div>	

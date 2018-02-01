@@ -51,7 +51,7 @@
                     $tprice += $itemPrice;
                     echo "
                     	<div class='cart-header'>
-                    		<div class='close2'></div>
+                    		<div><a href='' class='close2'></a></div>
                     		<div class='cart-sec simpleCart_shelfItem'>
                     			<div class='cart-item cyc'>
 									 <img src='$prodImage' class='img-responsive' alt=''/>

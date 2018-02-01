@@ -75,7 +75,7 @@
                             <option>Accessories</option>
                             <option>Wall Decor</option>
                             <option>Luminaries</option>
-                            <option>Home Furnitures</option>
+                            <option>Home Furnishing</option>
                           </select>
                         </div>
                     </div>

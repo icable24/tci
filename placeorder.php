@@ -85,16 +85,16 @@ tr:nth-child(even) {
                       <div class="controls">
                         <input id="name" name="name" value="<?php echo $user_id['acc_fname'].' '.$user_id['acc_lname'] ?>" type="text" class="form-control" required="" disabled>               
                       </div>
-                      <br>
+                      <br><br>
                       <label class="control-label" for="acc_company">
                         Company
                       </label>
                       <div class="controls">
-                        <input id="acc_company" name="acc_company" type="text" class="form-control" disabled="">               
+                        <input id="acc_company" name="acc_company" value="<?php echo $user_id['acc_company'] ?>" type="text" class="form-control" disabled="">               
                       </div>
                       <br>
                       <label class="control-label" for="shippingaddress">
-                        Address *
+                        Complete Delivery Address *
                       </label>
                       <div class="controls">
                         <textarea id="shippingaddress" value="<?php echo $user_id['acc_add'] ?>" name="shippingaddress" type="text" class="form-control" required=""></textarea>            
@@ -117,7 +117,7 @@ tr:nth-child(even) {
                                     <option>Vietnam</option>
                       </select>
                       </div>
-                      <br>
+                      <br><br>
                       <label class="control-label" for="state">
                         State/Province *
                       </label>
@@ -142,7 +142,7 @@ tr:nth-child(even) {
                       </div>
                        <br>
                       <label class="control-label" for="acc_contact">
-                        Tel. No. / Mobile No. *
+                        Tel. No. / Mobile No. * <br><small>(Format: xxx-xxxx / +63xxxxxxxxxx)</small>
                       </label>
                       <div class="controls">
                         <input id="acc_contact" name="acc_contact" value="<?php echo $user_id['acc_contact']?>" type="text" class="form-control" required="">               
