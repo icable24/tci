@@ -37,7 +37,8 @@
 			$order = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
 			$order->execute(array($order_id));
 			$order = $order->fetch();
-			$date = strtotime($order['date_ordered']);
+			$dateOrdered = strtotime($order['date_ordered']);
+			$dateFinished = strtotime($order['date_finished']);
 
 			$customer = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 			$customer->execute(array($order['acc_id']));
@@ -55,9 +56,19 @@
 										<h3>Order Date:</h3>
 									</div>
 									<div class="col-7">
-										<h3><?php echo 	date("F j, Y", $date);  ?></h3>
+										<h3><?php echo 	date("F j, Y", $dateOrdered);  ?></h3>
 									</div>		
 								</div>
+								<?php if($order['order_finish'] == 'Delivery' || $order['order_finish'] == 'Completed'){ ?>
+									<div class="row">
+									<div class="col-5">
+										<h3>Delivery Date:</h3>
+									</div>
+									<div class="col-7">
+										<h3><?php echo 	date("F j, Y", $dateFinished);  ?></h3>
+									</div>		
+								</div>
+								<?php } ?>
 							<form action=" <?php echo '../php/updateorder.php?id='. $order_id?>" id="myform" name="myform" enctype="multipart/form-data" method="post">
 								<div class="row">
 									<div class="col-5">
@@ -67,7 +78,6 @@
 										<?php if($order['order_finish'] == 'Pending'){
 											echo "
 												<select id='order_finish' name='order_finish' class='form-control' required>
-													<option></option>
 													<option selected value='Pending'>Pending</option>
 													<option value='Processing'>Processing</option>
 												</select>
@@ -75,9 +85,15 @@
 											echo $order['order_finish'];
 											} elseif($order['order_finish'] == 'Processing'){
 												echo "
+												<select id='order_finish' name='order_finish' id='order_finish' class='form-control' required onchange='showDate()'>
+													<option selected value='Processing'>Processing</option>
+													<option value='Delivery'>Delivery</option>
+												</select>
+											";
+											}elseif($order['order_finish'] == 'Delivery'){
+												echo "
 												<select id='order_finish' name='order_finish' class='form-control' required>
-													<option></option>
-													<option selected>Processing</option>
+													<option selected>Delivery</option>
 													<option>Completed</option>
 												</select>
 											";
@@ -88,12 +104,19 @@
 									</div>		
 								</div>
 								<?php if($order['order_finish'] != "Completed"){ ?>
+								<div class="row" style="display: none;" id='finished'>
+									<div class="col">
+										<h3>Delivery Date:</h3>
+									<input type="date" name="date_finished" id="date_finished" class="form-control">
+									</div>
+								</div>
 								<div class="clearfix"></div><br>
 								<div class="row">
 									<div class="offset-9"><button type="submit" class="btn btn-success">Update</button></div>
 								</div>	
 								<?php } ?>
-							</form>		
+							</form>	
+							<div class="clearfix"></div>
 						</div>
 					</div>
 					<div class="alert alert-success">
@@ -203,6 +226,18 @@
 		</div>
 		<?php include("footer.php"); ?>
 	</div>	
+	<script type="text/javascript">
+		function showDate(){
+			var order_finish = document.getElementById("order_finish");
+			var date = document.getElementById("finished");
+
+			if(order_finish.value == "Delivery"){
+				date.style.display = "block";
+			}else{
+				date.style.display = "none";
+			}
+		}
+	</script>
 	<?php include("js.php"); ?>
 </body>
 </html>

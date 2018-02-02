@@ -4,8 +4,8 @@
   $pdo = Database::connect();
   if(isset($_GET['id'])){
     $id = $_REQUEST['id'];
-  }
-  $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+  
+      $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
   $product->execute(array($id));
   $product = $product->fetch();
   $prod_id = $product['prod_code'];
@@ -14,23 +14,17 @@
   $inv->execute(array($id));
   $inv = $inv->fetch();
 
-  $rob = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = 1");
-  $rob->execute(array($id));
-  $rob = $rob->fetchAll();
+  $rob = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
+  $rob->execute(array($id, 1));
+  $rob = $rob->fetch();
 
   $anp = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
   $anp->execute(array($id, 2));
-  $anp = $anp->fetchAll();
+  $anp = $anp->fetch();
 
   $bago = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
   $bago->execute(array($id, 3));
-  $bago = $bago->fetchAll();
-
-
-  if($inv){
-    $quantity = $inv['quantity'];
-  }else{
-    $quantity = 0;
+  $bago = $bago->fetch();
   }
 ?>
 <!DOCTYPE html>
@@ -63,31 +57,67 @@
                   <div class="control-group">
                     <label class="control-label">Product Name</label>
                     <div class="controls">
-                      <input type="text" name="prod_name" placeholder="Product Name" class="form-control" disabled <?php if(isset($id)){echo "value='$prod_name'";} ?>>
+                      <input type="text" name="prod_name" placeholder="Product Name" class="form-control" disabled <?php if(isset($id)){echo "value='$prod_name'";} ?> id="prod_name">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label">Location</label>
                     <div class="controls">
-                      <select class="form-control" name="store" id="store">
+                      <select class="form-control" name="store" id="store" onchange="showQuantity()">
                         <option></option>
                         <option value="1">G/F Cybergate Center Robinsons, Singcang</option>
                         <option value="2">ANP, City Walk Robinsons Mall, Mandalagan</option>
-                        <option value="3">Purok Ma. Morena, Calumangan Bago City</option>
                       </select>
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">On Shelf</label>
-                    <div class="controls">
-                      <input type="number" name="quantity" class="form-control" id="quantity" disabled>
-                      <?php var_dump($bago); ?>
+                  <div id="rob" style="display: none">
+                    <div class="control-group">
+                      <label class="control-label">On Shelf</label>
+                      <div class="controls">
+                        <input type="number" name="quantity" class="form-control" id="quantity" disabled value="<?php 
+                          if($rob){
+                            echo $rob['quantity'];
+                          }else{
+                            echo '0';
+                          } 
+                        ?>">  
+                      </div>
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">Add Quantity</label>
-                    <div class="controls">
-                      <input type="Number" name="newquantity" class="form-control" placeholder="New Quantity" required>
+                  <div id="mandalagan" style="display: none"> 
+                    <div class="control-group">
+                      <label class="control-label">On Shelf</label>
+                      <div class="controls">
+                        <input type="number" name="quantity" class="form-control" id="quantity" disabled value="<?php 
+                          if($anp){
+                            echo $anp['quantity'];
+                          }else{
+                            echo '0';
+                          } 
+                        ?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="bago" style="display: none">
+                    <div class="control-group">
+                      <label class="control-label">On Shelf</label>
+                      <div class="controls">
+                        <input type="number" name="quantity" class="form-control" id="quantity" disabled value="<?php 
+                          if($bago){
+                            echo $bago['quantity'];
+                          }else{
+                            echo '0';
+                          } 
+                        ?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="qty">
+                    <div class="control-group">
+                      <label class="control-label">Add Quantity</label>
+                      <div class="controls">
+                        <input type="Number" name="newquantity" id="newquantity" class="form-control" placeholder="New Quantity" required>
+                      </div>
                     </div>
                   </div>
                   <br>
@@ -102,26 +132,38 @@
             </div>
           </div>
         </div>
-      </div>
       <!-- Footer Section -->
       <?php include('footer.php'); ?>
     </div>
+    <!-- Javascript files-->
+    <?php include('js.php'); ?>
     <script type="text/javascript">
-      var select = document.getElementById("quantity");
+      function showQuantity(){
+        var store = document.getElementById("store");
+        var rob = document.getElementById("rob");
+        var mandalagan = document.getElementById("mandalagan");
+        var bago = document.getElementById("bago");   
 
-      select.onchange = function checkStock(){
-        var store = document.getElementById("store").value;
-
-        if(store == '1'){
-          document.getElementById("quantity").value = 1;
-        }elseif(store == '2'){
-          document.getElementById("quantity").value = 2;
+        if(store.value == 1){
+          rob.style.display = "block";
+          mandalagan.style.display = "none";
+          bago.style.display = "none";
+        }else
+        if(store.value == 2){
+          rob.style.display = "none";
+          mandalagan.style.display = "block";
+          bago.style.display = "none";
+        }else
+        if(store.value == 3){
+          rob.style.display = "none";
+          mandalagan.style.display = "none";
+          bago.style.display = "block";
         }else{
-          document.getElementById("quantity").value = 3;
+          rob.style.display = "none";
+          mandalagan.style.display = "none";
+          bago.style.display = "none";
         }
       }
     </script>
-    <!-- Javascript files-->
-    <?php include('js.php'); ?>
   </body>
 </html>

@@ -34,7 +34,7 @@
 					$acc_id->execute(array($_SESSION['login_username']));
 					$acc_id = $acc_id->fetch();
 
-					$order = $pdo->prepare("SELECT * FROM orders WHERE acc_id = ?");
+					$order = $pdo->prepare("SELECT * FROM orders WHERE NOT order_finish = 'No' AND acc_id = ?");
 					$order->execute(array($acc_id['acc_id']));
 					$order = $order->fetchAll();
 

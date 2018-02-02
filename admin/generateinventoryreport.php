@@ -1,6 +1,6 @@
 <?php
 require_once('tcpdf.php');
-
+require_once("../database.php");
 class MYPDF extends TCPDF {
 
     //Page header
@@ -738,9 +738,9 @@ EOD;
     }
 
         //==============================================================
-      $pdo =  mysqli_connect("localhost", "root", "", "tcishop");
+      $pdo =  Database::connect();
            $invreport = $pdo->prepare("SELECT * FROM inventory WHERE storeid = ?");
-            $invreport->execute(array($storeid));
+            $invreport->execute(array(3));
             $invreport = $invreport->fetchAll();
             foreach($invreport as $row){
                 $prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
@@ -750,9 +750,11 @@ EOD;
                 $prod_image = "../prod_img/" . $prod['prod_image'];
                 $prod_name = $prod['prod_name'];
                 $quantity = $row['quantity'];
-                $store = $store['storename'];
                 
-              $result->execute($pdo, $invreport);
+                $store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
+                $store->execute(array($row['storeid']));
+                $store = $store->fetch();
+                
 
         $tbl = '<table style="width: 638px;" cellspacing="0">';
 

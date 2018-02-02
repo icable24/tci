@@ -99,11 +99,8 @@ $(document).ready(function(){
 </center>
 </div>
 </div>
-</div>
-</div>
 </form>
-<br>
-</form>
+</div>
 </div>
       <!-- Footer Section -->
       <?php include('footer.php'); ?>

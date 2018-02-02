@@ -46,18 +46,21 @@
                     $productPrice = "Php " . number_format($product['prod_price'], 2);
                     $prodTPrice =  "Php " . number_format($product['prod_price'] * $row['quantity'], 2);
                     $quantity = $row['quantity'];
+                    $prod_id = $row['prod_id'];
+                    $cart_id = $row['cart_id'];
 
                     $itemPrice = $product['prod_price'] * $row['quantity'];
                     $tprice += $itemPrice;
                     echo "
                     	<div class='cart-header'>
-                    		<div class='close2'></div>
+                    		<a href='deleteitem.php?id=$cart_id' class='close2'></a>
+
                     		<div class='cart-sec simpleCart_shelfItem'>
                     			<div class='cart-item cyc'>
 									 <img src='$prodImage' class='img-responsive' alt=''/>
 								</div>
 								<div class='cart-item-info'>
-									<h3><a href='#'>$productName</a><span>Product Code: $productCode</span></h3>
+									<h3><a href='productdetails.php?id=$productCode'>$productName</a><span>Product Code: $productCode</span></h3>
 									<ul class='qty'>
 										<li><p>Individual Price  :  $productPrice</p></li>
 										<div class='clearfix'></div>
@@ -101,8 +104,6 @@
 			<div class="clearfix"> </div>
 	 </div>
 	 </div>
-
-
 <!--//content-->
 <!--footer-->
   <?php include('footer.php'); ?>

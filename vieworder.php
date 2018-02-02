@@ -36,6 +36,7 @@
 				$cart = $pdo->prepare("SELECT * FROM cart WHERE order_id = ?");
 				$cart->execute(array($order['order_id']));
 				$cart = $cart->fetchAll();
+				$ct = 0;
 
 				foreach($cart as $row){
 					$product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
@@ -48,10 +49,11 @@
 					$prodPrice = $product['prod_price'];
 					$quantity = $row['quantity'];
 
+					$ct++;
 					echo"
-                		<div class='col-lg-6'>
+                		<div class='col-md-6'>
                 			<div class='cart-item'>
-								 <img src='$prodImg' alt='' style='length:120px;width:120px;'/>
+								 <img src='$prodImg' alt='' style='height:120px;width:120px;'/>
 							</div>
 							<div class='cart-item-info'>
 								<h3><a href='#'>$prodName</a><span>Product Code: $prodCode</span></h3>
@@ -63,6 +65,10 @@
 						    </div>
                 		</div>	
 					";
+
+					if($ct % 2 == 0){
+						echo "<br><br><br><br><br><br><br><br>";
+					}
 				}
 			?>
 		</div>

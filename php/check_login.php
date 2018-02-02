@@ -14,6 +14,14 @@ session_start();
     if($count!="")
     {
         $_SESSION['login_username']=$user;
+
+        $order = $pdo->prepare("SELECT * FROM orders WHERE acc_id = ? AND order_finish = ?");
+        $order->execute(array($count['acc_id'], "No"));
+        $order = $order->fetch();
+        if(!$order){
+            $insert = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
+            $insert->execute(array($count['acc_id'], "No"));
+        }
         if($count['user_type'] == 'admin'){
            header("Location:../admin/index.php"); 
         }else{

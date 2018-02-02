@@ -45,8 +45,9 @@ input[type=text]:focus {
               <option disabled selected style="color: gray">Filter</option>
               <option></option>
               <option>G/F Cybergate Center Robinsons, Singcang</option>
-              <option>ANP, City Walk Robinsons Mall, Mandalagan</option>
-              <option>Purok Ma. Morena, Calumangan Bago City</option>
+              <option
+
+              >Purok Ma. Morena, Calumangan Bago City</option>
             </select>
             </div>
           <br><br>
@@ -64,7 +65,7 @@ input[type=text]:focus {
           </thead>
           <tbody>
             <?php  
-              $inventory = $pdo->prepare("SELECT * FROM inventory");
+              $inventory = $pdo->prepare("SELECT * FROM inventory WHERE NOT storeid = 3");
               $inventory->execute();
               $inventory = $inventory->fetchAll();
               foreach($inventory as $row){

@@ -36,6 +36,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h2 style="font-family: verdana;"><?php echo $prod['prod_name'] ?></h2>
 		</div>
 	</div>
+	<div class="row text-center" id="full" style="display: none;">
+		<h6 class="alert-danger">Compare product already full!</h6>
+	</div>
+	<div class="row text-center" id="added" style="display: none;" >
+		<h6 class="alert-danger">Product has already been added!</h6>
+	</div>
 	<!-- grow -->
 	
 		<div class="product">
@@ -44,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-sing">
 				<div class="col-md-6 single-top">	
 						<div class="flexslider">
-			        <div> <img <?php echo "src=prod_img/" . $prod['prod_image'] ?> data-imagezoom="true" class="img-responsive"> </div>
+			        <div> <img <?php echo "src=prod_img/" . $prod['prod_image'] ?> data-imagezoom="true" class="img-responsive" style="width: 300px; height:300px;"> </div>
 						</div>
 
 	<div class="clearfix"> </div>
@@ -85,7 +91,7 @@ $(window).load(function() {
 										</form>
 									</div>
 									<div class="col-md-6">
-										<form method="POST" action="php/addSession.php?type=compare">
+										<form method="POST" action="php/addCompare.php?id=<?php echo $prod['prod_id'] ?>">
 											<div class="row">
 												<input type="hidden" name="compProd" id="compProd" value="<?php echo $prod_code ?>">
 												<button type="submit" class="btn btn-success">Compare</button>
@@ -147,5 +153,37 @@ $(window).load(function() {
 <!--//content-->
 <!--footer-->
 <?php include('footer.php'); ?>
+<script type="text/javascript">
+	function showFull(){
+		var full = document.getElementById("full");
+
+		full.style.display = "block";
+	}
+
+	function showAdded(){
+		var added = document.getElementById("added");
+
+		added.style.display = "block";
+	}
+</script>
+<?php 
+if(isset($_GET['error'])){
+		$error = $_REQUEST['error'];
+
+		if($error == '1'){
+			echo "
+			<script type='text/javascript'>
+				showFull();
+			</script>
+			";			
+		}elseif($error == '2'){
+			echo "
+			<script type='text/javascript'>
+				showAdded();
+			</script>
+			";
+		}
+	}
+?>
 </body>
 </html>		

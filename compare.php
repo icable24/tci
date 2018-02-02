@@ -1,123 +1,134 @@
 <?php 
-  include('database.php');
+  session_start();
+  include("database.php");
 
   $pdo = Database::connect();
-  if(!empty($_GET['id'])){
-    $prod_code = $_REQUEST['id'];
 
-    $prod = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
-    $prod->execute(array($prod_code));
-    $prod = $prod->fetch(PDO::FETCH_ASSOC);
+  $account = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+  $account->execute(array($_SESSION['login_username']));
+  $account = $account->fetch();
 
-  }else{
-    header('location:index.php');
-  }
+  $compare = $pdo->prepare("SELECT * FROM compare WHERE acc_id = ?");
+  $compare->execute(array($account['acc_id']));
+  $compare = $compare->fetchAll();
 ?>
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
-<style type="text/css">
-  .img-responsive{
-  height: 500px;
-  width: 500px;
-  }
-</style>
 <html>
-<?php include('head.php'); ?>
-
+<?php 
+  include("head.php");
 ?>
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.img-responsive{
-  width: 500px
-  height: 300px;
-}
-</style>
-
 <body>
-<?php include('header.php'); ?>
-  <!-- grow -->
+<?php include("header.php"); ?>
   <div class="alert alert-success">
     <div class="container">
-      <h2 style="font-family: verdana;"><?php echo $prod['prod_name'] ?></h2>
+      <h3 style="font-family: verdana;">Compare Products</h3>
     </div>
   </div>
-  <!-- grow -->
-    <div class="product">
-      <div class="container">
-        <div class="product-price1">
-        <div class="top-sing">
-        <div class="col-md-7 single-top"> 
-            <div class="flexslider">
-              <div> <img <?php echo "src=prod_img/" . $prod['prod_image'] ?> data-imagezoom="true" class="img-responsive"> </div>
-<!--content-->
-      
-  
-  <h3 style="font-family: verdana; background-color: #ebebc6; text-align: center; ">Compare Products</h3>
   <div class="container">
-    <div class="col-10">
-        <!-- <?php
-          $pdo = Database::connect();
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row text-center">
+          <div class='col-md-3' style=" text-align: left;">
+            <div class='row' style="height: 138px;">
+              <br><br>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Product Image:</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class='row'>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Product Name:</h3>
+            </div>
+            <div class="clearfix"></div><br><br>
+            <div class='row'>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Product Code:</h3>
+            </div>
+            <div class="clearfix"></div><br><br>
+            <div class='row'>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Category:</h3>
+            </div>
+            <div class="clearfix"></div><br><br>
+            <div class='row'>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Product Finish:</h3>
+            </div>
+            <div class="clearfix"></div><br><br>
+            <div class='row'>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Dimension:</h3>
+            </div>
+            <div class="clearfix"></div><br><br>
+            <div class='row'>
+              <h3>&nbsp;&nbsp;&nbsp;&nbsp;Product Price:</h3>
+            </div>
+            <div class="clearfix"></div><br><br>
+          </div>
+        <?php 
+          foreach($compare as $row){
+            $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+            $product->execute(array($row['prod_id']));
+            $product = $product->fetch();
 
-          for($i = 0; $i < 3; $i++){
-            $pp = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
-            $pp->execute(array($_SESSION['compare'][$i]));
-            $pp = $pp->fetch();
+            $pf = $pdo->prepare("SELECT * FROM productfinish WHERE pf_id = ?");
+            $pf->execute(array($product['pf_name']));
+            $pf = $pf->fetch();
 
-            echo '<div class="column simpleCart_shelfItem">';
-              echo '<div class="row">'; 
-                echo '<div class="product-at ">';
-                  echo '<img src="prod_img/'. $pp['prod_image'] .'" class="img-responsive" alt=""/>';
-                echo '</div>';
-              echo '</div>';
-              echo '<div class="row">';
-                echo '<div class="product-at ">';
-                  echo '<img src="prod_img/'. $pp['prod_image'] .'" class="img-responsive" alt=""/>';
-                echo '</div>';
-              echo '</div>';
-            echo '</div>';
+            $pc = $pdo->prepare("SELECT * FROM productcategory WHERE pc_id = ?");
+            $pc->execute(array($product['pc_name']));
+            $pc = $pc->fetch();
+
+            $image = "prod_img/" . $product['prod_image'];
+            $prod_name = $product['prod_name'];
+            $prod_code = $product['prod_code'];
+            $prod_cat = $pc['pc_name'];
+            $prod_fin = $pf['pf_name'];
+            $prod_id = $product['prod_id'];
+
+            if($product['prod_length']!='0' && $product['prod_width'] != '0' && $product['prod_height'] != '0'){
+              $dimension = $product['prod_length'].' x '. $product['prod_width'] . ' x ' . $product['prod_height'];
+            }else{
+              $dimension = $product['prod_diameter']. ' Dia. x '. $product['prod_height2'] . ' Ht.';
+            }
+
+            $prod_price = "Php " . number_format($product['prod_price'], 2);
+            echo "
+              <div class='col-md-3'>
+                <div class='row'>
+                  <img src='$image' style='height:100px; width=100px;'>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <h3>$prod_name</h3>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <h3>$prod_code</h3>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <h3>$prod_cat</h3>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <h3>$prod_fin</h3>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <h3>$dimension</h3>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <h3>$prod_price</h3>
+                </div>
+                <div class='clearfix'></div><br><br>
+                <div class='row'>
+                  <a class='btn btn-danger' href='php/removecompare.php?id=$prod_id'>Remove</a>
+                </div>
+              </div>
+            ";
           }
-        ?> -->
-        <div class="table-responsive">
-          <table class="table table-hover table-striped" id="myTable">
-            <thead class="success-info">
-            
-          </thead>
-            <?php 
-              $pdo = Database::connect();
-
-              for($i = 0; $i < 3; $i++){
-                $pp = $pdo->prepare("SELECT * FROM product WHERE prod_code = ?");
-                $pp->execute(array($_SESSION['compare'][$i]));
-                $pp = $pp->fetch();
-
-                echo '';
-              }
-            ?>
-        </table>
-      </div>
+        ?> 
+        </div>
+      </div>  
     </div>
   </div>
-<?php include('footer.php'); ?>
+<?php include("footer.php"); ?>
 </body>
 </html>
