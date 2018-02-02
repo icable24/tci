@@ -55,7 +55,7 @@ input[type=text]:focus {
               <option>Accessories</option>
               <option>Wall Decor</option>
               <option>Luminaries</option>
-              <option>Home Furniture</option>
+              <option>Home Furnishing</option>
             </select>
             </div>
           <br><br>

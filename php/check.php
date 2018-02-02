@@ -8,9 +8,8 @@
 	$city = $_POST['city'];
 	$zip_code = $_POST['zip_code'];
 	$order_amount = 0;
-	$getDate = getDate();
+	$Date = date('m-d-Y');
 
-	$Date = $getDate['year']. '-' . $getDate['mon']. '-' . $getDate['mday']; 
 	
 
 	$pdo = Database::connect();

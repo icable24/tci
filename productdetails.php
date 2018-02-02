@@ -52,8 +52,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="flexslider">
 			        <div> <img <?php echo "src=prod_img/" . $prod['prod_image'] ?> data-imagezoom="true" class="img-responsive" style="width: 300px; height:300px;"> </div>
 						</div>
-
-	<div class="clearfix"> </div>
 <!-- slide -->
 
 
@@ -85,16 +83,17 @@ $(window).load(function() {
 								<div class="row">
 									<div class="col-md-6">
 										<form method="POST" action="php/addToCart.php?id=<?php echo $prod_code; ?>">
-												&nbsp; &nbsp; <label>Quantity</label>
+												&nbsp; &nbsp; <label>Quantity
 												<input type="Number" name="quantity" id="quantity" style="width: 40px;" value="1">
 												<button type="submit" class="btn btn-success">Add To Cart</button>
+											</label>
 										</form>
 									</div>
 									<div class="col-md-6">
 										<form method="POST" action="php/addCompare.php?id=<?php echo $prod['prod_id'] ?>">
 											<div class="row">
 												<input type="hidden" name="compProd" id="compProd" value="<?php echo $prod_code ?>">
-												<button type="submit" class="btn btn-success">Compare</button>
+												<button type="submit" style="width: 1.3in" class="btn btn-success">Compare</button>
 											</div>
 										</form>
 									</div> 
@@ -145,8 +144,6 @@ $(window).load(function() {
 			<div class="clearfix"> </div>
 		</div> -->
 </div>
-
-		<div class="clearfix"> </div>
 		</div>
 		</div>
 	</div>

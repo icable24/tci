@@ -1,3 +1,4 @@
+
 <?php 
   include('../login_success.php');
   include('../database.php');
@@ -12,8 +13,24 @@
     <div class="page home-page">
       <!-- navbar-->
       <?php include('header.php'); ?>
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#deliveryreport").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
       <!-- Body Section -->
-      <br><br><br><br><br><br>
+      <br><br><br><br>
         <div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
@@ -23,9 +40,22 @@
             <br><br>
             <div class="card-block">
               <form action="generatedeliveryreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+                <div class="row">
+                <div class="col control-group">
+                      <label class="control-label" for="inputcategory">Report Type</label>
+                      <div class="controls">
+                        <select id="deliveryreport" name="dreport" style="width: 2in" class="form-control" required="">
+                          <option></option>
+                          <option value="S">Summary</option>
+                          <option value="D">Detailed</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                    <br><br>
               
         <div class="row justify-content-center">
-                  <div class="col-6">
+                  <div class="col-6 S box">
                     <div class="control-group">
                       <label class="control-label" for="sdate">Start Date:</label>
                                             <div class="controls">
@@ -48,7 +78,7 @@
 
                                                         <!-- Text input-->
               
-          <div class="col-6">
+          <div class="col-6 S box">
                     <div class="control-group">
                       <label class="control-label" for="edate">End Date:</label>
                                             <div class="controls">
@@ -78,10 +108,11 @@
 </center>
 </div>
 </div>
+
 </div>
 </div>
 </form>
-</div>
+
 
 
 

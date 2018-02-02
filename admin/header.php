@@ -9,11 +9,11 @@
  $PO->execute();
  $PO = $PO->fetchAll();
 
- $inq = $pdo->prepare("SELECT count(*) FROM inquiry WHERE status = 0");
+ $inq = $pdo->prepare("SELECT count(*) FROM inquiry WHERE statusView = 0 AND status = 'Unread'");
  $inq->execute();
  $inq = $inq->fetch();
 
- $inquire = $pdo->prepare("SELECT * FROM inquiry WHERE status = 0");
+ $inquire = $pdo->prepare("SELECT * FROM inquiry WHERE statusView = 0 AND status = 'Unread'");
  $inquire->execute();
  $inquire = $inquire->fetchAll();  
 ?>
@@ -49,7 +49,7 @@
                   ?>
                   
                 </li>
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i> <span class="badge badge-info"><?php if($inq['count(*)']){echo $inq['count(*)'];} ?></span></a>
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i> <span class="badge badge-info"><?php if($inq['count(*)'] > 0){echo $inq['count(*)'];} ?></span></a>
                  <?php 
                     if($inq['count(*)'] > 0){
                       echo "<ul aria-labelledby='notifications' class='dropdown-menu'>";

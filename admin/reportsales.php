@@ -21,12 +21,12 @@
               <h1>Sales Report</h1>
             </div>
             <div class="card-block">
-              <form action="../php/addprod.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+              <form action="generatesalesreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 <div class="row">
                 <div class="col control-group">
-                      <label class="control-label" for="pf_name">Report Category</label>
+                      <label class="control-label" for="inputcategory">Report Category</label>
                       <div class="controls">
-                        <select id="pf_name" name="pf_name" style="width: 2in" class="form-control" required="">
+                        <select id="salesreport" name="sreport" style="width: 2in" class="form-control" required="">
                           <option></option>
                           <option value="BS">Best Seller</option>
                           <option value="TSR">Total Sales Report</option>
@@ -69,12 +69,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.2/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
                     <script type="text/javascript">
                       // When the document is ready
-                      
                         
                         $('#edate').datepicker({
                           format: "yyyy-mm-dd"
-                        });  
-                      
+                        });
                     </script>
 							  									</div>
 																</div>
@@ -88,10 +86,10 @@
 </center>
 </div>
 </div>
+
 </div>
 </div>
 </form>
-</div>
 
 
 

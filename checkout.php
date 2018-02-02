@@ -54,7 +54,6 @@
                     echo "
                     	<div class='cart-header'>
                     		<a href='deleteitem.php?id=$cart_id' class='close2'></a>
-
                     		<div class='cart-sec simpleCart_shelfItem'>
                     			<div class='cart-item cyc'>
 									 <img src='$prodImage' class='img-responsive' alt=''/>

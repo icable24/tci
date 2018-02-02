@@ -2,7 +2,7 @@
 	include('../login_success.php');
  	include('../database.php');
  	$pdo = Database::connect();
- 	$orders = $pdo->prepare("SELECT * FROM orders WHERE NOT (order_finish = 'No')");
+ 	$orders = $pdo->prepare("SELECT * FROM orders WHERE NOT (order_finish = 'No') ORDER BY order_id DESC");
  	$orders->execute();
  	$orders = $orders->fetchAll();
 ?>
@@ -41,11 +41,17 @@
 	<div class="page home-page">
 		<?php include("header.php"); ?>
 		<br>
-		<div class="container">
-			<div> 
-				<input type="text" id="myInput" onkeyup="myFunction()" name="search" placeholder="Search..">                 
+		<div class="container"> 
+			<div>	      
+              <select id="filters" name="filters" onChange="myFilter()" placeholder="filter" class="pull-right">
+              <option disabled selected style="color: gray">Filter</option>
+              <option></option>
+              <option>Pending</option>
+              <option>Processing</option>
+              <option>Completed</option>
+            </select>
             </div>
-          	<br><br>
+          <br><br>
           	<div><h1>Orders</h1></div>
           	<br>
           	<table class="table" id="myTable">
@@ -90,6 +96,27 @@
 				</tbody>          		
           	</table>
         </div>
+
+
+         <script>
+function myFilter() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("filters");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[4];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 		<?php include("footer.php"); ?>
 	<?php include("js.php"); ?>
 </body>

@@ -1,4 +1,18 @@
-$(document).ready(function() {
+
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var password = $("#password1").val();
+            var confirmPassword = $("#password2").val();
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        });
+    });
+
+
+    $(document).ready(function() {
 $('#password1').keyup(function() {
 $('#result').html(checkStrength($('#password1').val()))
 })

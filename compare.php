@@ -25,7 +25,7 @@
       <h3 style="font-family: verdana;">Compare Products</h3>
     </div>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row text-center">

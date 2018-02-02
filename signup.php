@@ -114,9 +114,9 @@ input[type=number]::-webkit-outer-spin-button {
                                             <input class="form-control" type="password" required="" id="password2" name="password2" placeholder="Password"></input>
                                         </div>
 
-                                        <label class="control-label">Contact Number</label>
+                                        <label class="control-label">Contact Number <small style="color: gray">(Format: xxx-xxxx / +63xxxxxxxxxx)</small></label>
                                         <div class="control-group">
-                                            <input class="form-control" type="number" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
+                                            <input class="form-control" type="text" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
                                         </div>
 
                                         <div class="text-center submit">
@@ -149,7 +149,7 @@ input[type=number]::-webkit-outer-spin-button {
                                             <input class="form-control" type="email" required="" id="acc_email" name="acc_email" placeholder="E-mail Address"></input>
                                         </div>
 
-                                        <label class="control-label" for="password1">Password: <span id="result"></span></label>
+                                        <label class="control-label" for="password1">Password: <span id="result1"></span></label>
                                         <div class="control-group">
                                             <input class="form-control" type="password" required="" id="password1" name="password1" placeholder="Password"></input>
                                         </div>
@@ -159,9 +159,9 @@ input[type=number]::-webkit-outer-spin-button {
                                             <input class="form-control" type="password" required="" id="password2" name="password2" placeholder="Password"></input>
                                         </div>
 
-                                        <label class="control-label">Contact Number</label>
+                                        <label class="control-label">Tel. No. / Mobile No. <small style="color: gray">(Format: xxx-xxxx / +63xxxxxxxxxx)</small></label>
                                         <div class="control-group">
-                                            <input class="form-control" type="number" name="acc_contact" id="acc_contact" style="sco" required="" placeholder="Contact Number">
+                                            <input class="form-control" type="text" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
                                         </div>
 
                                         <br>
@@ -176,13 +176,13 @@ input[type=number]::-webkit-outer-spin-button {
                                             <input class="form-control" type="text" required="" id="acc_add" name="acc_add" placeholder="Company Address" focus=""/>
                                         </div>
 
-                                        <label class="control-label" for="acc_comp_contact">Company Contact Number:</label>
+                                        <label class="control-label" for="acc_comp_contact">Company Contact Number: <br><small style="color: gray">(Format: xxx-xxxx / +63xxxxxxxxxx)</small></label>
                                         <div class="control-group">
-                                            <input class="form-control" type="number" required="" id="acc_comp_contact" name="acc_comp_contact" placeholder="Company Contact Number"></input>
+                                            <input class="form-control" type="text" required="" id="acc_comp_contact" name="acc_comp_contact" placeholder="Company Contact Number"></input>
                                         </div>
 
                                         <div class="text-center submit">
-                                            <button class="btn btn-success" type="submit" id="btnSubmit">Signup</button>
+                                            <button class="btn btn-success" type="submit" id="btnSubmit1">Signup</button>
                                             <a href="index.php"><span class="btn btn-danger">Cancel</span></a>
                                         </div>
                                     </form>
