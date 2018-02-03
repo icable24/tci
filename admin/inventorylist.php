@@ -45,9 +45,7 @@ input[type=text]:focus {
               <option disabled selected style="color: gray">Filter</option>
               <option></option>
               <option>G/F Cybergate Center Robinsons, Singcang</option>
-              <option
-
-              >Purok Ma. Morena, Calumangan Bago City</option>
+              <option>ANP, City Walk Robinsons Mall, Mandalagan</option>
             </select>
             </div>
           <br><br>

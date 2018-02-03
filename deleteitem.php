@@ -1,18 +1,15 @@
 <?php 
 	require('database.php');
 	$tprice = 0;
-
 	if(isset($_GET['id'])){
 		$id = $_REQUEST['id'];
 	}else{
 		header("location: checkout.php");
 	}
-
 	$pdo = Database::connect();
 	$cart = $pdo->prepare("SELECT * FROM cart WHERE cart_id = ?");
 	$cart->execute(array($id));
 	$cart = $cart->fetch();
-
 	$product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
 	$product->execute(array($cart['prod_id']));
 	$product = $product->fetch();

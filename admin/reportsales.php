@@ -28,7 +28,7 @@
                       <div class="controls">
                         <select id="salesreport" name="sreport" style="width: 2in" class="form-control" required="">
                           <option></option>
-                          <option value="BS">Best Seller</option>
+                          <option value="BS" disabled="">Best Seller</option>
                           <option value="TSR">Total Sales Report</option>
                         </select>
                     </div>

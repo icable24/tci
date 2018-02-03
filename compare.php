@@ -1,13 +1,10 @@
 <?php 
   session_start();
   include("database.php");
-
   $pdo = Database::connect();
-
   $account = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
   $account->execute(array($_SESSION['login_username']));
   $account = $account->fetch();
-
   $compare = $pdo->prepare("SELECT * FROM compare WHERE acc_id = ?");
   $compare->execute(array($account['acc_id']));
   $compare = $compare->fetchAll();
@@ -25,7 +22,7 @@
       <h3 style="font-family: verdana;">Compare Products</h3>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row text-center">
@@ -65,28 +62,23 @@
             $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
             $product->execute(array($row['prod_id']));
             $product = $product->fetch();
-
             $pf = $pdo->prepare("SELECT * FROM productfinish WHERE pf_id = ?");
             $pf->execute(array($product['pf_name']));
             $pf = $pf->fetch();
-
             $pc = $pdo->prepare("SELECT * FROM productcategory WHERE pc_id = ?");
             $pc->execute(array($product['pc_name']));
             $pc = $pc->fetch();
-
             $image = "prod_img/" . $product['prod_image'];
             $prod_name = $product['prod_name'];
             $prod_code = $product['prod_code'];
             $prod_cat = $pc['pc_name'];
             $prod_fin = $pf['pf_name'];
             $prod_id = $product['prod_id'];
-
             if($product['prod_length']!='0' && $product['prod_width'] != '0' && $product['prod_height'] != '0'){
               $dimension = $product['prod_length'].' x '. $product['prod_width'] . ' x ' . $product['prod_height'];
             }else{
               $dimension = $product['prod_diameter']. ' Dia. x '. $product['prod_height2'] . ' Ht.';
             }
-
             $prod_price = "Php " . number_format($product['prod_price'], 2);
             echo "
               <div class='col-md-3'>
@@ -120,6 +112,8 @@
                 <div class='clearfix'></div><br><br>
                 <div class='row'>
                   <a class='btn btn-danger' href='php/removecompare.php?id=$prod_id'>Remove</a>
+                  <a class='btn btn-success' href='php/addToCart.php?id=$prod_code'>Choose</a>
+
                 </div>
               </div>
             ";

@@ -107,15 +107,15 @@ EOD;
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
     if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
-    $sdate = DateTime::createFromFormat("Y-m-d", $_POST['sdate'])->format('m-d-Y');
-    $edate = DateTime::createFromFormat("Y-m-d", $_POST['edate'])->format('m-d-Y');
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
     
 
     echo $sdate;
     echo $edate;
 
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_ordered between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -170,15 +170,15 @@ EOD;
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
     if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
-    $sdate = DateTime::createFromFormat("Y-m-d", $_POST['sdate'])->format('m-d-Y');
-    $edate = DateTime::createFromFormat("Y-m-d", $_POST['edate'])->format('m-d-Y');
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
     
 
     echo $sdate;
     echo $edate;
 
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_ordered between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
 
       $result = mysqli_query($connect, $sql);  
 

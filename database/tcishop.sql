@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2018 at 03:45 PM
+-- Generation Time: Feb 02, 2018 at 10:41 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -35,10 +35,10 @@ CREATE TABLE `account` (
   `acc_add` varchar(50) NOT NULL,
   `acc_email` varchar(30) NOT NULL,
   `acc_password` varchar(30) NOT NULL,
-  `acc_contact` int(20) NOT NULL,
+  `acc_contact` varchar(20) NOT NULL,
   `user_type` varchar(12) NOT NULL,
   `acc_company` varchar(50) NOT NULL DEFAULT 'None',
-  `acc_comp_contact` int(20) NOT NULL
+  `acc_comp_contact` varchar(20) NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -46,32 +46,31 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`acc_id`, `acc_fname`, `acc_lname`, `acc_add`, `acc_email`, `acc_password`, `acc_contact`, `user_type`, `acc_company`, `acc_comp_contact`) VALUES
-(1, 'Alvin', 'Talite', 'Bacolod City', 'alvin@tci.com', 'admin', 2147483647, 'admin', '', 0),
-(2, 'Jayson', 'Solinap', 'Bacolod City', 'jayson@tci.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(4, 'JJ', 'Belo', 'Bacolod City', 'jjbelo@tci.com', '1234', 2147483647, 'Company', 'Belo Inc.', 2147483647),
-(5, 'Jessel May', 'Solinap', 'Bacolod City', 'jessel@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(6, 'Joseph', 'Solinap', 'Bacolod City', 'joseph@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(7, 'John', 'Solinap', 'Cavite', 'john@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(8, 'Bryan', 'Mills', 'Brgy Masilingan, Bacolod City', 'bryan@gmail.com', 'customer', 2147483647, 'Company', 'Coca-Cola Complany', 434),
-(9, 'Cinthia', 'Ramos', 'Taguig', 'ramos@gmail.com', 'customer', 2147483647, 'Company', '7Eleven', 434),
-(10, 'Mike', 'Smith', 'Tarlac', 'mike@gmail.com', 'customer', 2147483647, 'Company', 'Jollibee', 434),
-(11, 'Michael', 'Mayers', 'Jakarta, Indonesia', 'meyers@gmail.com', 'customer', 2147483647, 'Company', 'EverGreen Company', 434),
-(12, 'Samuel', 'Tano', 'Marikina', 'samuel@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(13, 'Jayson', 'Limbang', 'Bago', 'limbang@tci.com', '123', 2147483647, 'Company', 'Tumandok', 2147483647),
-(14, 'Johnny', 'Cruz', 'Myanmar', 'johnny@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(15, 'Hannah ', 'Montana', 'United States of America', 'hannah@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(16, 'Eric', 'Lagdameno', 'Bacolod City', 'eric@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(17, 'James', 'Bond', 'United States of America', 'james@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(18, 'Penuel', 'Tano', 'Gardenville, Bacolod City', 'penuel@gmail.com', 'customer', 2147483647, 'Single Buyer', '', 0),
-(31, 'Bryan', 'Mills', 'Brgy Masilingan, Bacolod City', 'bryan@gmail.com', 'customer', 2147483647, 'Company', 'Coca Cola Company', 434),
-(32, 'Cinthia', 'Ramos', 'Makati', 'ramos@gmail.com', 'customer', 2147483647, 'Company', '7Eleven Merchandise', 434),
-(33, 'Mike', 'Smith', 'Jakarta, Indonesia', 'mike@gmail.com', 'customer', 2147483647, 'Company', 'EverGreen Company', 434),
-(34, 'Genevive', 'Montano', 'Alijis, Bacolod City', 'genevive@gmail.com', 'customer', 2147483647, 'Company', 'Munsterific', 434),
-(35, 'Nelson', 'Espadera', 'Kawit, Cavite', 'nelson@gmail.com', 'customer', 2147483647, 'Company', 'iMart Enterprise', 434),
-(36, 'Angel', 'Kim', 'Brgy Bata, Bacolod City', 'angel@gmail.com', 'customer', 2147483647, 'Company', 'Pepsi Company', 434),
-(37, 'Jenny', 'Lobordo', 'Araneta St. Bacolod City', 'jenny@gmail.com', 'customer', 2147483647, 'Company', 'Teresa Development Corporation', 434),
-(38, 'renter', 'aride', 'Sum-ag, Bacolod City', 'renter@gmail.com', 'customer', 2147483647, 'Company', 'Evergreen Company', 434),
-(40, 'Luzzcia', 'Alvarez', '', 'zee@tci.com', '12345', 2147483647, 'Single Buyer', 'None', 0);
+(1, 'Alvin', 'Talite', 'Bacolod City', 'alvin@tci.com', 'admin', '09123456789', 'admin', 'None', 'None'),
+(2, 'Jayson', 'Solinap', 'Bacolod City', 'jayson@tci.com', 'customer', '09234567890', 'Single Buyer', 'None', 'None'),
+(4, 'JJ', 'Belo', 'Bacolod City', 'jjbelo@tci.com', '1234', '09123212341', 'Company', 'Belo Inc.', '09333232231'),
+(5, 'Jessel May', 'Solinap', 'Bacolod City', 'jessel@gmail.com', 'customer', '09194543123', 'Single Buyer', 'None', 'None'),
+(6, 'Joseph', 'Solinap', 'Bacolod City', 'joseph@gmail.com', 'customer', '09298787987', 'Single Buyer', 'None', 'None'),
+(7, 'John', 'Solinap', 'Cavite', 'john@gmail.com', 'customer', '09192312765', 'Single Buyer', 'None', 'None'),
+(8, 'Bryan', 'Mills', 'Brgy Masilingan, Bacolod City', 'bryan@gmail.com', 'customer', '09995644111', 'Company', 'Coca-Cola Complany', '434-6745'),
+(9, 'Cinthia', 'Ramos', 'Taguig', 'ramos@gmail.com', 'customer', '09215576324', 'Company', '7Eleven', '434-5553'),
+(10, 'Mike', 'Smith', 'Tarlac', 'mike@gmail.com', 'customer', '09199888456', 'Company', 'Jollibee', '434-9855'),
+(11, 'Michael', 'Mayers', 'Jakarta, Indonesia', 'meyers@gmail.com', 'customer', '09323356787', 'Company', 'EverGreen Company', '434-1324'),
+(12, 'Samuel', 'Tano', 'Marikina', 'samuel@gmail.com', 'customer', '09336543234', 'Single Buyer', 'None', 'None'),
+(13, 'Jayson', 'Limbang', 'Bago', 'limbang@tci.com', '123', '09123456789', 'Company', 'Tumandok', '09234353233'),
+(14, 'Johnny', 'Cruz', 'Myanmar', 'johnny@gmail.com', 'customer', '09999812435', 'Single Buyer', 'None', 'None'),
+(15, 'Hannah ', 'Montana', 'United States of America', 'hannah@gmail.com', 'customer', '09993456123', 'Single Buyer', 'None', 'None'),
+(16, 'Eric', 'Lagdameno', 'Bacolod City', 'eric@gmail.com', 'customer', '09335433888', 'Single Buyer', 'None', 'None'),
+(17, 'James', 'Bond', 'United States of America', 'james@gmail.com', 'customer', '09166665345', 'Single Buyer', 'None', 'None'),
+(18, 'Penuel', 'Tano', 'Gardenville, Bacolod City', 'penuel@gmail.com', 'customer', '09997654114', 'Single Buyer', 'None', 'None'),
+(31, 'Bryan', 'Mills', 'Brgy Masilingan, Bacolod City', 'bryan@gmail.com', 'customer', '09276787888', 'Company', 'Coca Cola Company', '434-6777'),
+(32, 'Cinthia', 'Ramos', 'Makati', 'ramos@gmail.com', 'customer', '09996511436', 'Company', '7Eleven Merchandise', '434-5553'),
+(33, 'Mike', 'Smith', 'Jakarta, Indonesia', 'mike@gmail.com', 'customer', '09126578999', 'Company', 'EverGreen Company', '434-1324'),
+(34, 'Genevive', 'Montano', 'Alijis, Bacolod City', 'genevive@gmail.com', 'customer', '09123453231', 'Company', 'Munsterific', '434-9855'),
+(35, 'Nelson', 'Espadera', 'Kawit, Cavite', 'nelson@gmail.com', 'customer', '09104467512', 'Company', 'iMart Enterprise', '434-5231'),
+(36, 'Angel', 'Kim', 'Brgy Bata, Bacolod City', 'angel@gmail.com', 'customer', '09157855399', 'Company', 'Pepsi Company', '434-1055'),
+(37, 'Jenny', 'Lobordo', 'Araneta St. Bacolod City', 'jenny@gmail.com', 'customer', '09157745336', 'Company', 'Teresa Development Corporation', '434-7756'),
+(38, 'renter', 'aride', 'Sum-ag, Bacolod City', 'renter@gmail.com', 'customer', '09898776644', 'Company', 'Evergreen Company', '434-5565');
 
 -- --------------------------------------------------------
 
@@ -117,8 +116,28 @@ INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`, `ca
 (22, 38, 71, 4, 30, 'Yes'),
 (23, 2, 116, 4, 24, 'Yes'),
 (24, 2, 97, 5, 24, 'Yes'),
-(25, 2, 68, 4, 24, 'Yes'),
-(28, 40, 122, 4, 33, 'Yes');
+(25, 2, 68, 4, 24, 'Yes');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `compare`
+--
+
+CREATE TABLE `compare` (
+  `compare_id` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL,
+  `acc_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `compare`
+--
+
+INSERT INTO `compare` (`compare_id`, `prod_id`, `acc_id`) VALUES
+(15, 122, 1),
+(17, 97, 1),
+(18, 129, 1);
 
 -- --------------------------------------------------------
 
@@ -230,8 +249,7 @@ INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state
 (26, 7, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '9300.00', 'Processing', '01-25-2018', '0000-00-00', 1),
 (28, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14600.00', 'Processing', '01-25-2018', '0000-00-00', 1),
 (30, 38, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '8200.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(33, 40, 'Bacolod City', 'Brunei', 'negros occidental', 'bacolod city', 1256, '3200.00', 'Pending', '02-01-2018', '0000-00-00', 0),
-(34, 40, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0);
+(35, 2, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -575,7 +593,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `product`

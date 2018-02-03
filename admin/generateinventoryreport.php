@@ -1,7 +1,6 @@
 <?php
 include '../login_success.php';
 require_once('tcpdf.php');
-require_once("../database.php");
 class MYPDF extends TCPDF {
 
     //Page header
