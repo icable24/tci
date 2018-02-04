@@ -1,6 +1,11 @@
 <?php
 include '../login_success.php';
 require_once('tcpdf.php');
+if(isset($_GET['id'])){
+    $order_id = $_REQUEST['id'];
+}else{
+    header("location: orderlist.php");
+}
 
 class MYPDF extends TCPDF {
 
@@ -52,8 +57,7 @@ class MYPDF extends TCPDF {
     $txt = <<<EOD
 
 
-
-    Purchased Order
+    Delivery Receipt
 EOD;
 
     // print a block of text using Write()
@@ -84,15 +88,19 @@ include "../database.php";
   
 // $tbl = '<table style="width: 638px;" cellspacing="0">';
 
-$order_id = $_REQUEST['id'];
-
 $pdo = Database::connect();
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "SELECT *  FROM cart JOIN account ON cart.user_id = account.acc_id JOIN orders ON cart.order_id=orders.order_id";
-$q = $pdo->prepare($sql);
-$q->execute(array($order_id));
-$po = $q->fetch(PDO::FETCH_ASSOC);
-Database::disconnect();
+
+$order = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
+$order->execute(array($order_id));
+$order = $order->fetch();
+
+$cart = $pdo->prepare("SELECT * FROM cart WHERE order_id = ?");
+$cart->execute(array($order_id));
+$cart = $cart->fetchAll();
+
+$account = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
+$account->execute(array($order['acc_id']));
+$account = $account->fetch();
 
 
   $tbl = '
@@ -106,12 +114,12 @@ Database::disconnect();
 'Philippines 6101</small>'.
 '</p>'.
 '<br><br>'.
-'<p style="text-align: right; font-size: 11px; margin-left: 2in">Date:'.$po["date_finished"].
+'<p style="text-align: right; font-size: 11px; margin-left: 2in">Date:'.$order["date_finished"].
 '<br>'.
-'Order ID:'.'&nbsp;'.$po["order_id"].'</p>'.
+'Order ID:'.'&nbsp;'.$order["order_id"].'</p>'.
 '<br>'.
-'<p>Customer\'s Name: <br>&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $po["acc_fname"]. ' '. $po["acc_lname"]. '</span>' . '</p>'.
-'<p>Shipping Address: <br>&nbsp;&nbsp;'.'<span style="font-size: 14px">'. $po["zip_code"]. ','.' '. $po["shippingaddress"]. ','.' '. $po["city"]. ','.' '.$po["state"]. ','.' '.$po["country"]. '</span>' . '</p>'.
+'<p>Customer\'s Name: <br>&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $account["acc_fname"]. ' '. $account["acc_lname"]. '</span>' . '</p>'.
+'<p>Shipping Address: <br>&nbsp;&nbsp;'.'<span style="font-size: 14px">'. $order["zip_code"]. ','.' '. $order["shippingaddress"]. ','.' '. $order["city"]. ','.' '.$order["state"]. ','.' '.$order["country"]. '</span>' . '</p>'.
 '<br><br>';
 
 
@@ -124,33 +132,49 @@ Database::disconnect();
  
         $tbl = $tbl . '
               <tr>
-                  <td style="border: 0px solid #ffffff; width: 300px;">'.$prod_name.'</td>
-                  <td style="border: 0px solid #ffffff; width: 50px;">'.$qty.'</td>
-                  <td style="border: 0px solid #ffffff; width: 90px;">'.$uprice.'</td>
-                  <td style="border: 0px solid #ffffff; width: 120px;">'.$order_amount.'</td>
+                  <td style="border: 0px solid #000000; width: 240px;">'.$prod_name.'</td>
+                  <td style="border: 0px solid #000000; width: 20px;">'.$qty.'</td>
+                  <td style="border: 0px solid #000000; width: 130px;">'.$uprice.'</td>
+                  <td style="border: 0px solid #000000; width: 130px;">'.$order_amount.'</td>
 
 
               </tr>';
 
-       foreach ($pdo->query($sql) as $row) {
-        $prod_name = $row["prod_name"];
-        $prod_desc = $row["prod_desc"];
+       foreach ($cart as $row) {
         $qty = $row["quantity"];
-        $uprice = $row["prod_price"];
-        $order_amount = $row["order_amount"];
+
+        $pdo = Database::connect();
+        $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+        $product->execute(array($row["prod_id"]));
+        $product  = $product->fetch();
+
+        $prod_name = $product["prod_name"];
+        $prod_desc = $product["prod_desc"];
+        $uprice = $product["prod_price"];
+        $total_price = $uprice * $row['quantity'];
+        $order_amount = $order["order_amount"];
 
           // -----------------------------------------------------------------------------
 
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 80px;">'.$prod_name.'  '.$prod_desc.'</td>
-                <td style="border: 1px solid #000000; width: 190px;">'.$qty.'</td>
+                <td style="border: 1px solid #000000; width: 240px;">'.$prod_name.'</td>
+                <td style="border: 1px solid #000000; width: 20px;">'.$qty.'</td>
                 <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($uprice, 2).'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($total_price, 2).'</td>
 
             </tr>';
         }
+
+        $tbl = $tbl .'
+            <tr>
+                <td style="border: 1px solid #000000; width: 390px;">Total Price</td>
+                <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
+
+            </tr>
+        ';
+
         $tbl = $tbl . '</table>';
 
         $pdf->writeHTML($tbl, true, false, false, false, '');
