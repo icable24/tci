@@ -33,10 +33,10 @@ $(document).ready(function(){
         <div class="offset-1 col-10">
           <div class="alert alert-success">
             <div>
-              <h1>Inventory Report</h1>
+              <h1>Product Catalog Report</h1>
             </div>
             <div class="card-block">
-              <form action="generateinventoryreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+              <form action="generateprodcatalog.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 
                     <br>
                     <center>
