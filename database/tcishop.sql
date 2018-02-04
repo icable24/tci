@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2018 at 10:41 AM
+-- Generation Time: Feb 04, 2018 at 11:49 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -137,7 +137,9 @@ CREATE TABLE `compare` (
 INSERT INTO `compare` (`compare_id`, `prod_id`, `acc_id`) VALUES
 (15, 122, 1),
 (17, 97, 1),
-(18, 129, 1);
+(18, 129, 1),
+(0, 116, 2),
+(0, 106, 2);
 
 -- --------------------------------------------------------
 
@@ -245,11 +247,26 @@ INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state
 (12, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14400.00', 'Processing', '01-25-2018', '2018-02-28', 1),
 (13, 5, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '5800.00', 'Processing', '01-25-2018', '2018-02-28', 1),
 (15, 7, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '19900.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(24, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '26700.00', 'Completed', '01-25-2018', '0000-00-00', 1),
+(24, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '26700.00', 'Completed', '01-25-2018', '2018-02-28', 1),
 (26, 7, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '9300.00', 'Processing', '01-25-2018', '0000-00-00', 1),
 (28, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14600.00', 'Processing', '01-25-2018', '0000-00-00', 1),
 (30, 38, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '8200.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(35, 2, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0);
+(35, 2, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0),
+(36, 1, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paymenthistory`
+--
+
+CREATE TABLE `paymenthistory` (
+  `payment_id` int(11) NOT NULL,
+  `account_num` varchar(50) NOT NULL,
+  `pay_date` date NOT NULL,
+  `amount` decimal(11,2) NOT NULL,
+  `order_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -516,6 +533,13 @@ ALTER TABLE `orders`
   ADD KEY `acc_id` (`acc_id`);
 
 --
+-- Indexes for table `paymenthistory`
+--
+ALTER TABLE `paymenthistory`
+  ADD PRIMARY KEY (`payment_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -563,13 +587,13 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `featuredprod`
@@ -593,7 +617,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `paymenthistory`
+--
+ALTER TABLE `paymenthistory`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -661,6 +691,12 @@ ALTER TABLE `inventory`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`acc_id`) REFERENCES `account` (`acc_id`);
+
+--
+-- Constraints for table `paymenthistory`
+--
+ALTER TABLE `paymenthistory`
+  ADD CONSTRAINT `paymenthistory_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 -- Constraints for table `product`
