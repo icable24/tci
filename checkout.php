@@ -63,8 +63,12 @@
 									<ul class='qty'>
 										<li><p>Individual Price  :  $productPrice</p></li>
 										<div class='clearfix'></div>
-										<li><p>Quantity  :  $quantity</p></li>
 									</ul>
+									<form action='updatequantity.php?id=$prod_id' method='post' enctype='multipart/form'>
+										<label><h6>Quantity</h6></label>
+										<input type='number' value='$quantity' id='quantity' style='width:50px;' onclick='showBtn()'>
+										<button class='btn btn-success' id='updateqty' type='submit' style='display: none'>Done</button>
+									</form>
 									<div class='delivery'>
 										 <p>Total Price : $prodTPrice</p>
 										 <div class='clearfix'></div>
@@ -107,5 +111,10 @@
 <!--footer-->
   <?php include('footer.php'); ?>
 </body>
+<script type="text/javascript">
+	function showBtn(){
+		document.getElementById('updateqty').style.display = "Block";
+	}
+</script>
 </html>
 			

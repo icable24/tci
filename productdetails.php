@@ -37,10 +37,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	<div class="row text-center" id="full" style="display: none;">
-		<h6 class="alert-danger">Compare product already full!</h6>
+		<h3 class="alert-danger">Compare product already full!</h3>
 	</div>
 	<div class="row text-center" id="added" style="display: none;" >
-		<h6 class="alert-danger">Product has already been added!</h6>
+		<h3 class="alert-danger">Product has already been added!</h3>
 	</div>
 	<!-- grow -->
 	

@@ -12,6 +12,10 @@
 
  	$setViewed = $pdo->prepare("UPDATE orders SET isViewed = ? WHERE order_id = ?");
  	$setViewed->execute(array(1, $order_id));
+
+ 	$checkhist = $pdo->prepare("SELECT * FROM paymenthistory WHERE order_id = ?");
+ 	$checkhist->execute(array($order_id));
+ 	$checkhist = $checkhist->fetch();
 ?>
 <!DOCTYPE html>
 <style type="text/css">
@@ -59,6 +63,7 @@
 										<h3><?php echo 	date("F j, Y", $dateOrdered);  ?></h3>
 									</div>		
 								</div>
+								<?php if($order['order_finish'] != 'Cancelled'){ ?>
 								<?php if($order['order_finish'] == 'Delivery' || $order['order_finish'] == 'Completed'){ ?>
 									<div class="row">
 									<div class="col-5">
@@ -97,7 +102,7 @@
 													<option>Completed</option>
 												</select>
 											";
-											}else{
+											}elseif($order['order_finish'] == 'Completed'){
 												echo "<h3>Completed</h3>";
 											}
 										?>
@@ -114,6 +119,16 @@
 								<div class="row">
 									<div class="offset-9"><button type="submit" class="btn btn-success">Update</button></div>
 								</div>	
+								<?php } ?>
+								<?php }else{?>
+									<div class="row">
+										<div class="col-5">
+											<h3>Order Status:</h3>
+										</div>
+										<div class="col-7">
+											<h3>Cancelled</h3>
+										</div>		
+									</div>
 								<?php } ?>
 							</form>	
 							<div class="clearfix"></div>
@@ -160,7 +175,54 @@
 							<h3><?php echo $order['country']; ?></h3>
 						</div>
 					</div>
-				</div>	
+					<div class="clearfix"></div>
+					<div class="alert alert-success">
+						<?php if($order['order_finish'] != 'Cancelled'){ ?>
+							<h1>Payment History
+								<?php if(!($checkhist)){ ?>
+								<span class="pull-right">
+									<a href='addpayment.php?id=<?php echo $order_id ?>' class='btn btn-success btn-md' data-toggle='tooltip' title='Add'><span>Add</span></a>
+								</span>
+								<?php } ?>
+							</h1>
+							<div class="card-block">
+								<div class="row">
+									<div class="col-5">
+										<h3>Account Number: </h3>
+									</div>
+									<div class="col-7">
+										<?php echo $checkhist['account_num'] ?>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-5">
+										<h3>Payment Date: </h3>
+									</div>
+									<div class="col-7">
+										<?php if($checkhist){echo date("F j, Y", strtotime($checkhist['pay_date']));} ?>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-5">
+										<h3>Amount: </h3>
+									</div>
+									<div class="col-7">
+										<?php if($checkhist){echo "Php " . number_format($checkhist['amount'], 2);} ?>
+									</div>
+								</div>
+							</div>					
+						<?php } ?>
+					</div>	
+					<?php if($order['order_finish'] == 'Completed'){ echo "
+						<div class='row'>
+							<div class='offset-1 col-7'>
+								<h3>Print Delivery Receipt</h3>
+							</div>
+						<a href='printorder.php?id=$order_id' class='btn btn-info btn-md' data-toggle='tooltip' title='Print'><span class='fa fa-print'>&nbsp;&nbsp;&nbsp; Print</span></a>
+						</div>
+						<br>
+					";} ?>
+				</div>
 			</div>
 			<div class="clearfix"></div>
 			<div class="row">

@@ -85,7 +85,6 @@
 									<td>$status</td>
 									<td class='class-center'>
 										<a href='vieworder.php?id=$order_id' class='btn btn-primary btn-md' data-toggle='tooltip' title='View'><span class='fa fa-eye'></span></a>
-										<a href='printorder.php?id=$order_id' class='btn btn-info btn-md' data-toggle='tooltip' title='Print'><span class='fa fa-print'></span></a>
 									</td>
 								</tr>
 							";

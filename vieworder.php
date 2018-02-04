@@ -27,7 +27,10 @@
 <body>
 	<div class="alert-success">
 		<div class="container">
-			<h4 style="font-family: verdana;">Order# <?php echo $order['order_id'] ?> <span class="pull-right">Status: <?php echo $order['order_finish'] ?></span></h4>
+			<h3 style="font-family: verdana;">Order# <?php echo $order['order_id'] ?><?php if($order['order_finish'] == 'Pending'){ echo "
+					<span class='pull-right'>Cancel Order: <a href='php/cancelorder.php?id=$order_id' class='btn btn-danger'>Cancel</a></span>
+				";} ?><span class="pull-right">Status: <?php echo $order['order_finish'] ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	</span></h3>
+
 		</div>
 	</div>
 	<div class="container">
@@ -72,6 +75,57 @@
 				}
 			?>
 		</div>
+		<br><br><br><br><br><br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Total Amount: </h3>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4><?php echo "Php " . number_format($order['order_amount'],2);
+						 ?></h4>
+					</div>
+				</div>
+				<div class="clearfix"></div><br>
+				<div class="row">
+					<div class="col-md-6">
+						<h2>Delivery Details: </h2>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Delivery Address:</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h4><?php echo $order['shippingaddress'] . ', ' .$order['city'] . ', ' . $order['state'] . ', '. $order['country']; ?></h4>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Delivery Date: </h3>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<h4><?php if($order['order_finish'] == 'Delivery' && $order['order_finish'] != 'Completed'){
+							echo date("F j, Y", strtotime($order['date_finished']));}else{
+							echo "N/A";
+						} ?></h4>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<br><br><br>
+	<?php include("footer.php"); ?>
 </body>
 </html>
