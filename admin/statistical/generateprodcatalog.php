@@ -794,7 +794,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;height:100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:75px; height: 75px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
@@ -902,7 +902,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px; height:100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
@@ -1011,7 +1011,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;height:100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:75px; height: 75px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
@@ -1120,7 +1120,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;height:100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:75px; height: 75px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
@@ -1228,7 +1228,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px; height: 100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:75px; height: 75px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
@@ -1336,7 +1336,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px; height: 100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:75px; height: 75px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
@@ -1445,7 +1445,7 @@ EOD;
       
             <tr>
                 <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px; height: 100px;"><br><br><img src="'.$prod_image.'" alt="Product Image" style="width:75px; height: 75px;"/></td>
+                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
                 <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
                 <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
 
