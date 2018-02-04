@@ -12,31 +12,47 @@
     <div class="page home-page">
       <!-- navbar-->
       <?php include('header.php'); ?>
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#salesreport").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
       <!-- Body Section -->
       <br><br><br><br><br>
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
             <div>
-              <h1>Sales Report</h1>
+              <h1>Total Sales Report</h1>
             </div>
             <div class="card-block">
               <form action="generatesalesreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 <div class="row">
                 <div class="col control-group">
-                      <label class="control-label" for="inputcategory">Report Category</label>
+                      <label class="control-label" for="inputcategory">Report Type</label>
                       <div class="controls">
                         <select id="salesreport" name="sreport" style="width: 2in" class="form-control" required="">
                           <option></option>
-                          <option value="BS" disabled="">Best Seller</option>
-                          <option value="TSR">Total Sales Report</option>
+                          <option value="STS">Summary</option>
+                          <option value="DTS">Detailed</option>
                         </select>
                     </div>
                   </div>
                 </div>
                     <br><br>
-				<div class="row justify-content-center">
-                  <div class="col-6">
+				<div class="row justify-content-center ">
+                  <div class="col-6 STS box">
                     <div class="control-group">
                      <label class="control-label" for="sdate">Start Date:</label>
                                             <div class="controls">
@@ -59,7 +75,7 @@
 
                                                         <!-- Text input-->
               
-          <div class="col-6">
+          <div class="col-6 STS box">
                     <div class="control-group">
                       <label class="control-label" for="edate">End Date:</label>
                                             <div class="controls">

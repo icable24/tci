@@ -9,7 +9,7 @@ $(document).ready(function(){
 			var score = [];
 
 			for(var i in data) {
-				player.push("Products " + data[i].prod_id);
+				player.push(data[i].prod_name);
 				score.push(data[i].total);
 			}
 

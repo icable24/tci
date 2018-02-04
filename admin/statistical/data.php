@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = ("SELECT prod_id, count(*) as total FROM cart GROUP BY prod_id");
+$query = ("SELECT prod_name prod_id, count(*) as total FROM cart JOIN product ON cart.prod_id=product.prod_id GROUP BY prod_id");
 
 //execute query
 $result = $mysqli->query($query);

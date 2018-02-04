@@ -76,9 +76,13 @@
       <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-bar-chart"></i><span>Reports</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="account-nav-list" class="collapse list-unstyled">
-            <li> <a href="reportsales.php"><span>Sales</span></a></li>
-            <li><a href="reportinventory.php"><span>Inventory</span></a></li>
-            <li> <a href="reportdelivery.php"><span>Delivery</span></a></li>
+            <li><a href="reportinventory.php"><i class="fa fa-cube"></i><span>Inventory</span></a></li>
+            <li> <a href="reportdelivery.php"><i class="fa fa-truck"></i><span>Delivery</span></a></li>
+            <li><a href="#sales-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-dollar"></i><span>Sales</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+            <ul id="sales-nav-list" class="collapse list-unstyled">
+              <li><a href="reportsales.php"><span>Total Sales</span></a></li>
+              <li><a href="bestseller.php"><span>Best Seller</span></a></li>    
+            </ul>
           </ul>
         </li>
       </ul>
