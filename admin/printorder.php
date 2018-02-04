@@ -114,9 +114,9 @@ $account = $account->fetch();
 'Philippines 6101</small>'.
 '</p>'.
 '<br><br>'.
-'<p style="text-align: right; font-size: 11px; margin-left: 2in">Date:'.$order["date_finished"].
+'<p style="text-align: right; font-size: 11px; margin-left: 2in">Date:'.'&nbsp;'.$order["date_finished"].
 '<br>'.
-'Order ID:'.'&nbsp;'.$order["order_id"].'</p>'.
+'Order ID:'.'&nbsp;'.$order["order_id"].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>'.
 '<br>'.
 '<p>Customer\'s Name: <br>&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $account["acc_fname"]. ' '. $account["acc_lname"]. '</span>' . '</p>'.
 '<p>Shipping Address: <br>&nbsp;&nbsp;'.'<span style="font-size: 14px">'. $order["zip_code"]. ','.' '. $order["shippingaddress"]. ','.' '. $order["city"]. ','.' '.$order["state"]. ','.' '.$order["country"]. '</span>' . '</p>'.
@@ -133,7 +133,7 @@ $account = $account->fetch();
         $tbl = $tbl . '
               <tr>
                   <td style="border: 0px solid #000000; width: 240px;">'.$prod_name.'</td>
-                  <td style="border: 0px solid #000000; width: 20px;">'.$qty.'</td>
+                  <td style="border: 0px solid #000000; width: 27px;">'.$qty.'</td>
                   <td style="border: 0px solid #000000; width: 130px;">'.$uprice.'</td>
                   <td style="border: 0px solid #000000; width: 130px;">'.$order_amount.'</td>
 
@@ -160,7 +160,7 @@ $account = $account->fetch();
       
             <tr>
                 <td style="border: 1px solid #000000; width: 240px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 20px;">'.$qty.'</td>
+                <td style="border: 1px solid #000000; width: 27px;">'.$qty.'</td>
                 <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($uprice, 2).'</td>
                 <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($total_price, 2).'</td>
 
@@ -169,11 +169,31 @@ $account = $account->fetch();
 
         $tbl = $tbl .'
             <tr>
-                <td style="border: 1px solid #000000; width: 390px;">Total Price</td>
+                <td style="border: 1px solid #000000; width: 397px;">Total Price</td>
                 <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
 
             </tr>
+            <br><br>
         ';
+
+         $tbl = $tbl .'
+         <div>
+         <p> Additional Notes: <br>
+          _________________________________________<br>
+          _________________________________________<br>
+          _________________________________________<br>
+          _________________________________________<br>
+          _________________________________________<br>
+         </p>
+         </div>
+         <br><br>
+         <div style="text-align: right">
+         <p> ______________________________________<br>
+         Donnah Polvorido, Production Officer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </p>
+         </div>
+
+         ';
 
         $tbl = $tbl . '</table>';
 
