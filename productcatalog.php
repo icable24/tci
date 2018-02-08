@@ -29,7 +29,13 @@ body {
 /* Create three equal columns that floats next to each other */
 .column {
     float: left;
-    width: 33.33%;
+    width: 30%;
+    padding:2%;
+    margin-left: 1.65%;
+    margin-right: 1.65%;
+    margin-bottom: 1.65%;
+    border-radius: 5px;
+    border: 1px solid #000000;
     /* Should be removed. Only for demonstration */
 }
 
@@ -41,7 +47,7 @@ body {
 }
 
 .img-responsive{
-	height: 400px;
+	height: 350px;
 	width: 300px;
 }
 </style>
@@ -77,10 +83,10 @@ body {
 											echo '</div>';
 										echo '</a>';
 									echo '</div>';
-									echo '<p class="tun">'. $row['prod_name'] . '</p>';
-									echo '<div class="ca-rt">';
-										echo '<p class="number item_price"><i> </i> Php '. number_format($row['prod_price'], 2) . '</p>'	;
-									echo '</div>';
+									echo '<div class="cleafix"></div><br>';
+									echo '<p style="color:#6e7786;">'. $row['prod_name'] . '</p>';
+									echo "<div class='clearfix'></div><br>";
+										echo '<span> Php '. number_format($row['prod_price'], 2) . '</span>'	;
 								echo '</div>';
 								}
 						}else{

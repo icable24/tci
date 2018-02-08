@@ -139,7 +139,7 @@ if(!isset($_SESSION)){
           <div class=" h_menu4">
                 <ul class="memenu skyblue" style="font-family: verdana; font-weight: regular">
                     <li><a class="color1" href="index.php">Home</a>
-                    <li><a class="color1" href="#">Products</a>
+                    <li><a class="color1" href="productcategory.php">Products</a>
                     <div class="mepanel">
                         <div class="row">
                             <div class="*">

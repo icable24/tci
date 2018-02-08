@@ -65,7 +65,7 @@
 					                <div class="footer">
 					                  <div class="form-actions text-center forms">
 					                    <button type="submit" class="btn btn-success">Submit</button>
-					                    <a class="btn btn-secondary" href="vieworder.php?id=<?php echo $order_id ?>">Cancel</a>
+					                    <a class="btn btn-danger" href="vieworder.php?id=<?php echo $order_id ?>">Cancel</a>
 					                  </div>
 					                </div>
 					              </form>

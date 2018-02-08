@@ -64,7 +64,7 @@
 									</div>		
 								</div>
 								<?php if($order['order_finish'] != 'Cancelled'){ ?>
-								<?php if($order['order_finish'] == 'Delivery' || $order['order_finish'] == 'Completed'){ ?>
+								<?php if($order['order_finish'] == 'Delivery' || $order['order_finish'] == 'Delivered'){ ?>
 									<div class="row">
 									<div class="col-5">
 										<h3>Delivery Date:</h3>
@@ -82,12 +82,11 @@
 									<div class="col-7">
 										<?php if($order['order_finish'] == 'Pending'){
 											echo "
-												<select id='order_finish' name='order_finish' class='form-control' required>
+												<select id='order_finish' name='order_finish' class='form-control' required onchange='showDate()'>
 													<option selected value='Pending'>Pending</option>
 													<option value='Processing'>Processing</option>
 												</select>
 											";
-											echo $order['order_finish'];
 											} elseif($order['order_finish'] == 'Processing'){
 												echo "
 												<select id='order_finish' name='order_finish' id='order_finish' class='form-control' required onchange='showDate()'>
@@ -99,20 +98,20 @@
 												echo "
 												<select id='order_finish' name='order_finish' class='form-control' required>
 													<option selected>Delivery</option>
-													<option>Completed</option>
+													<option>Delivered</option>
 												</select>
 											";
-											}elseif($order['order_finish'] == 'Completed'){
-												echo "<h3>Completed</h3>";
+											}elseif($order['order_finish'] == 'Delivered'){
+												echo "<h3>Delivered</h3>";
 											}
 										?>
 									</div>		
 								</div>
-								<?php if($order['order_finish'] != "Completed"){ ?>
+								<?php if($order['order_finish'] != "Delivered"){ ?>
 								<div class="row" style="display: none;" id='finished'>
 									<div class="col">
 										<h3>Delivery Date:</h3>
-									<input type="date" name="date_finished" id="date_finished" class="form-control">
+									<input type="date" name="date_finished" id="date_finished" class="form-control" value="<?php echo $order['date_finished'] ?>">
 									</div>
 								</div>
 								<div class="clearfix"></div><br>
@@ -213,7 +212,7 @@
 							</div>					
 						<?php } ?>
 					</div>	
-					<?php if($order['order_finish'] == 'Completed'){ echo "
+					<?php if($order['order_finish'] == 'Delivered'){ echo "
 						<div class='row'>
 							<div class='offset-1 col-7'>
 								<h3>Print Delivery Receipt</h3>
@@ -294,6 +293,8 @@
 			var date = document.getElementById("finished");
 
 			if(order_finish.value == "Delivery"){
+				date.style.display = "block";
+			}else if(order_finish.value == "Processing"){
 				date.style.display = "block";
 			}else{
 				date.style.display = "none";

@@ -25,6 +25,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	height: 500px;
 	width: 500px;
 	}
+	.sub{
+		color: rgba(196, 195, 195, 1);
+	}
 </style>
 <html>
 <?php include('head.php'); ?>
@@ -72,19 +75,33 @@ $(window).load(function() {
 					<div class="col-md-6 single-top-in simpleCart_shelfItem">
 						<div class="single-para ">
 							<h5 class="item_price">
+
 								<?php 
+									echo "Price ";
 									if(isset($_SESSION['login_username'])){
-										echo "Php " . number_format($prod['prod_price'], 2);
+										echo "<span class='pull-right'>Php " . number_format($prod['prod_price'], 2) . "</span>";
 									}
 								?>
 							</h5>
 							<p><?php echo $prod['prod_desc']; ?></p>
+							<div class="clearfix"></div>
+							<h6>Dimension <span class="sub">(in cm)</span><div class="clearfix"></div>
+								<?php 
+									if($prod['prod_length']!='0' && $prod['prod_width'] != '0' && $prod['prod_height'] != '0'){
+				                      echo '<p>'.$prod['prod_length'].' x '. $prod['prod_width'] . ' x ' . $prod['prod_height'] .'</p>';
+				                    }else{
+				                      echo '<p>'.$prod['prod_diameter']. ' Dia. x '. $prod['prod_height2'] . ' Ht.'. '</p>';
+				                    }
+								?>
+							</h6>
+							<div class="clearfix"></div><br>
+							
 							<?php if(isset($_SESSION['login_username'])){ ?>
 								<div class="row">
 									<div class="col-md-6">
 										<form method="POST" action="php/addToCart.php?id=<?php echo $prod_code; ?>">
 												&nbsp; &nbsp; <label>Quantity
-												<input type="Number" name="quantity" id="quantity" style="width: 40px;" value="1">
+												<input type="Number" name="quantity" id="quantity" style="width: 40px;" value="1" min="1">
 												<button type="submit" class="btn btn-success">Add To Cart</button>
 											</label>
 										</form>

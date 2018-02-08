@@ -1,6 +1,7 @@
 <?php 
   session_start();
   include("database.php");
+  if(isset($_SESSION['login_username'])){
   $pdo = Database::connect();
   $account = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
   $account->execute(array($_SESSION['login_username']));
@@ -8,6 +9,7 @@
   $compare = $pdo->prepare("SELECT * FROM compare WHERE acc_id = ?");
   $compare->execute(array($account['acc_id']));
   $compare = $compare->fetchAll();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@
 <?php include("header.php"); ?>
   <div class="alert alert-success">
     <div class="container">
-      <h3 style="font-family: verdana;">Compare Products</h3>
+      <h3 style="font-family: verdana;">Compare Products <span class="pull-right"><?php if(isset($_SESSION['login_username'])){ ?><a href="productcategory.php" class="btn btn-success">Add Product</a></span><?php } ?></h3>
     </div>
   </div>
   <div class="container">
@@ -58,6 +60,7 @@
             <div class="clearfix"></div><br><br>
           </div>
         <?php 
+        if(isset($_SESSION['login_username'])){
           foreach($compare as $row){
             $product = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
             $product->execute(array($row['prod_id']));
@@ -118,6 +121,7 @@
               </div>
             ";
           }
+        }
         ?> 
         </div>
       </div>  
