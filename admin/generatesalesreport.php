@@ -8,8 +8,7 @@ class MYPDF extends TCPDF {
     public function Header() {
 
         // Logo
-        $image_file = K_PATH_IMAGES.'tci.png';
-       $this->Image($image_file, 50, 10, 300, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+       
         // Set font
         $this->SetY(15);
         $this->SetFont('times', 'B', 24);
@@ -133,9 +132,9 @@ EOD;
               <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
                   <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
-                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
                   <td style="border: 0px solid #ffffff; width: 100px;">'.$date_ordered.'</td>
                   <td style="border: 0px solid #ffffff; width: 100px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
 
 
               </tr>';
@@ -145,7 +144,7 @@ EOD;
         $acc_fname = $row["acc_fname"];
         $acc_lname = $row["acc_lname"];
         $order_amount = $row["order_amount"];
-        $date_ordered = $row["date_ordered"];
+        $date_ordered = strtotime($row["date_ordered"]);
         $date_finished = strtotime($row["date_finished"]);
         
         
@@ -157,9 +156,9 @@ EOD;
             <tr>
                 <td style="border: 1px solid #000000; width: 60px;">'.$order_id.'</td>
                 <td style="border: 1px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$order_amount.'</td>
-                <td style="border: 1px solid #000000; width: 100px;">'.$date_ordered.'</td>
+                <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 1px solid #000000; width: 130px;">'.$order_amount.'</td>
 
             </tr>';
         }
@@ -192,9 +191,9 @@ EOD;
               <tr>
               <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
                   <td style="border: 0px solid #ffffff; width: 85px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 100px;">'.$total.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$total.'</td>
 
 
               </tr>';
@@ -211,9 +210,9 @@ EOD;
             <tr>
             <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
                   <td style="border: 0px solid #ffffff; width: 85px;"></td>
-                <td style="border: 1px solid #000000; width: 100px;">'.$total.'</td>
+                <td style="border: 1px solid #000000; width: 130px;">'.$total.'</td>
 
             </tr>';
         }
@@ -305,9 +304,9 @@ EOD;
               <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
                   <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
-                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
                   <td style="border: 0px solid #ffffff; width: 100px;">'.$date_ordered.'</td>
                   <td style="border: 0px solid #ffffff; width: 100px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
 
 
               </tr>';
@@ -329,9 +328,9 @@ EOD;
             <tr>
                 <td style="border: 1px solid #000000; width: 60px;">'.$order_id.'</td>
                 <td style="border: 1px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$order_amount.'</td>
                 <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 1px solid #000000; width: 130px;">'.$order_amount.'</td>
 
             </tr>';
         }
@@ -355,9 +354,9 @@ EOD;
               <tr>
               <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
                   <td style="border: 0px solid #ffffff; width: 85px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 100px;">'.$total.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$total.'</td>
 
 
               </tr>';
@@ -374,9 +373,9 @@ EOD;
             <tr>
             <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
                   <td style="border: 0px solid #ffffff; width: 85px;"></td>
-                <td style="border: 1px solid #000000; width: 100px;">'.$total.'</td>
+                <td style="border: 1px solid #000000; width: 130px;">'.$total.'</td>
 
             </tr>';
         }

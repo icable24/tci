@@ -38,6 +38,7 @@ $(document).ready(function(){
             </div>
             <div class="card-block">
               <form action="generatesalesreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+                <br> <br> <br>
                 <div class="row">
                 <div class="col control-group">
                       <label class="control-label" for="inputcategory">Report Type</label>
@@ -94,8 +95,6 @@ $(document).ready(function(){
 																</div>
 																</div>
 				</div>
-
-							<br></br>
                         
 <br><br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button>	

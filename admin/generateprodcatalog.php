@@ -6,8 +6,7 @@ class MYPDF extends TCPDF {
     //Page header
     public function Header() {
         // Logo
-        $image_file = K_PATH_IMAGES.'tci.png';
-       $this->Image($image_file, 50, 10, 300, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        
         // Set font
         $this->SetY(15);
         $this->SetFont('times', 'B', 24);
