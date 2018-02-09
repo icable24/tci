@@ -59,6 +59,7 @@ input[type=text]:focus {
               <th>Product Name</th>
               <th>Store Location</th>
               <th>Quantity</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -78,6 +79,7 @@ input[type=text]:focus {
                 $prod_name = $prod['prod_name'];
                 $quantity = $row['quantity'];
                 $store = $store['storename'];
+                $inventory_id = $row['inventory_id'];
                 echo "
                   <tr>
                     <td>$prod_id</td>
@@ -85,6 +87,7 @@ input[type=text]:focus {
                     <td>$prod_name</td>
                     <td>$store</td>
                     <td>$quantity</td>
+                    <td><a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout Stock</a></td>
                   </tr>
                 ";
               }

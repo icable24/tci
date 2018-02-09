@@ -74,7 +74,7 @@
 							$customerName = $customer['acc_fname'] . ' ' . $customer['acc_lname'];
 							$order_id = $row['order_id'];
 							$total = "Php " . number_format($row['order_amount'], 2);
-							$date_ordered = $row['date_ordered'];
+							$date_ordered = date("F j, Y", strtotime($row['date_ordered']));
 							$status = $row['order_finish'];
 							echo "
 								<tr>

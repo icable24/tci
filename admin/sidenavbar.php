@@ -58,7 +58,9 @@
           <li><a href="#inventory-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-cube"></i><span>Inventory</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="inventory-nav-list" class="collapse list-unstyled">
               <li><a href="inventorylist.php"><span>Inventory List</span></a></li>
-              <li><a href="addinventory.php"><span>Add New Inventory</span></a></li>    
+              <li><a href="addinventory.php"><span>Add New Inventory</span></a></li>
+              <li><a href="pulloutinventory.php"><span>Pull Out Inventory</span></a></li>  
+              <li><a href="pulloutlist.php"><span>Pull Out List</span></a></li>    
             </ul>
           </li>
         </ul>
