@@ -115,7 +115,7 @@
                 <div class='clearfix'></div><br><br>
                 <div class='row'>
                   <a class='btn btn-danger' href='php/removecompare.php?id=$prod_id'>Remove</a>
-                  <a class='btn btn-success' href='php/addToCart.php?id=$prod_code'>Choose</a>
+                  <a class='btn btn-success' style='width:1in' href='php/addToCart.php?id=$prod_code'>Add</a>
 
                 </div>
               </div>

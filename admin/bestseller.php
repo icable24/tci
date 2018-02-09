@@ -45,7 +45,7 @@
                      ]);  
                 var options = {  
                       //is3D:true,  
-                      pieHole: 0.5 
+                      pieHole: 0.1 
                      };  
                 var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
                 chart.draw(data, options);  
@@ -60,19 +60,18 @@
       
       <!-- Body Section -->
       <br><br><br><br><br>
-      	<div class="container-fluid">
-        <div class="offset-1 col-10">
+      	<div class="container-fluid" style="width: 100%">
           <div class="alert alert-success">
            
             <div class="card-block">
-                <div id="printableArea" style="width:900px;">
+                <div id="printableArea" style="width:100%;">
                <h3 align="center"> <img src="../img/tci.png"> <br><br>
                 Tumandok Craft Industries <br><br>
                 Best Seller Products </span></h3> <br>  
-                <div id="piechart" style="width: 1000px; height: 1000px;"></div>  
+                <div id="piechart" style="width: 100%; height: 1000px;"></div>  
 <br><br>
 
-<h3 class="pull-right">____________________________________ <br>Printed By:</h3>
+<h3 class="pull-right">________________________________ &nbsp;&nbsp;&nbsp; <br>Printed By:</h3>
               </div> 
 
 <script type="text/javascript">
@@ -95,7 +94,6 @@
 </div>
 </div>
 
-</div>
 </div>
 
       <!-- Footer Section -->
