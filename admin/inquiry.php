@@ -67,7 +67,7 @@
               $iqname = $row['acc_name'];
               $iqemail = $row['acc_email'];
               $subject = $row['subject'];
-              $date = $row['date'];
+              $date = date("F j, Y", strtotime($row['date']));
               echo "
                 <tr>
                   <td>$iqname</td>

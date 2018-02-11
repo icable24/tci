@@ -6,7 +6,8 @@ class MYPDF extends TCPDF {
     //Page header
     public function Header() {
         // Logo
-        
+         $image_file = K_PATH_IMAGES.'logo.png';
+       $this->Image($image_file, 50, 10, 300, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
         $this->SetY(15);
         $this->SetFont('times', 'B', 24);
@@ -76,7 +77,6 @@ if(!empty($_POST)){
 
 
 
-
 EOD;
 
     // print a block of text using Write()
@@ -140,11 +140,11 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 90px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 120px;">'.$pc_name.'</td>
-                <td style="border: 1px solid #000000; width: 260px;">'.$prod_desc.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 90px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$pc_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 260px;">'.$prod_desc.'</td>
 
             </tr>';
         }
@@ -182,7 +182,6 @@ EOD;
     Tumandok Craft Industries Management System
 
     Product Catalog
-
     Light Furnitures
 
 
@@ -247,10 +246,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
             </tr>';
         }
@@ -288,7 +287,6 @@ EOD;
     Tumandok Craft Industries Management System
 
     Product Catalog
-
     Accessories
 
 
@@ -353,10 +351,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
             </tr>';
         }
@@ -394,7 +392,6 @@ EOD;
     Tumandok Craft Industries Management System
 
     Product Catalog
-
     Wall Decor
 
 
@@ -459,10 +456,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
             </tr>';
         }
@@ -499,7 +496,6 @@ EOD;
     Tumandok Craft Industries Management System
 
     Product Catalog
-
     Luminaries
 
 
@@ -564,10 +560,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
             </tr>';
         }
@@ -604,7 +600,6 @@ EOD;
     Tumandok Craft Industries Management System
 
     Product Catalog
-
     Home Furnishing
 
 
@@ -669,10 +664,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 200px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 330px;">'.$prod_desc.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 330px;">'.$prod_desc.'</td>
 
             </tr>';
         }

@@ -28,7 +28,7 @@ $(document).ready(function(){
     }).change();
 });
 </script>
-      <br><br><br><br><br>
+      <br><br><br>
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
@@ -67,7 +67,7 @@ $(document).ready(function(){
                         </select>
                     </div>
                   </div>
-                  </center>
+                 
                    <br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>Generate </button>
 </center>

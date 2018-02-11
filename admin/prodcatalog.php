@@ -12,7 +12,7 @@
       <!-- navbar-->
       <?php include('header.php');?>
       <!-- Body Section -->
-      <br><br><br><br><br>
+      <br><br><br>
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
