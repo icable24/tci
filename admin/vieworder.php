@@ -23,7 +23,7 @@
 		width:75px;
 		height: 75px;
 	}
-</style>
+</style> j
 <html>
 <?php 
 	include("head.php");
@@ -47,6 +47,12 @@
 			$customer = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 			$customer->execute(array($order['acc_id']));
 			$customer = $customer->fetch();
+
+			if($order['discount_amount'] > 0){
+				$discount = $pdo->prepare("SELECT * FROM discount WHERE order_id = ?");
+				$discount->execute(array($order_id));
+				$discount = $discount->fetch();
+			}
 		?>
 		<br><br>
 		<div class="container-fluid">
@@ -212,15 +218,6 @@
 							</div>					
 						<?php } ?>
 					</div>	
-					<?php if($order['order_finish'] == 'Delivered'){ echo "
-						<div class='row'>
-							<div class='offset-1 col-7'>
-								<h3>Print Delivery Receipt</h3>
-							</div>
-						<a href='printorder.php?id=$order_id' class='btn btn-info btn-md' data-toggle='tooltip' title='Print'><span class='fa fa-print'>&nbsp;&nbsp;&nbsp; Print</span></a>
-						</div>
-						<br>
-					";} ?>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -276,14 +273,47 @@
 							<td></td>
 							<td></td>
 							<td></td>
-							<td>Grand Total: 		</td>
+							<td>Total: 		</td>
 							<td class="pull-right"><?php echo "Php " . number_format($grandTotal, 2); ?></td>
+						</tr'                                                                          >
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><a href="adddiscount.php?id=<?php echo $order_id ?>" class="btn btn-success">Add Discount</a></td>
+							<td>Discount:</td>
+							<td class="pull-right"><?php if($order['discount_amount'] > 0){echo number_format($discount['discount'],2) . "%";}else{echo "0.00%";} ?></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="pull-right"><?php if($order['discount_amount'] > 0){echo "Php " . number_format($discount['amount'],2);}else{echo "Php 0.00";} ?></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>Grand Total: 		</td>
+							<td class="pull-right"><?php if($order['discount_amount'] > 0){echo "Php " . number_format($order['discount_amount'],2);}else{echo "Php " . number_format($grandTotal, 2);} ?></td>
 						</tr>
 					</tbody>
 				</table>
 				</div>	
 				</div>		
-			</div>			
+			</div>
+								<?php if($order['order_finish'] == 'Delivered'){ echo "
+						<div class='row'>
+							<div class='offset-7 col-3'>
+								<h3>Print Delivery Receipt</h3>
+							</div>
+						<a href='printorder.php?id=$order_id' class='btn btn-info btn-md' data-toggle='tooltip' title='Print'><span class='fa fa-print'>&nbsp;&nbsp;&nbsp; Print</span></a>
+						</div>
+						<br>
+					";} ?>			
 		</div>
 		<?php include("footer.php"); ?>
 	</div>	

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 11:03 PM
+-- Generation Time: Feb 11, 2018 at 11:02 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -25,16 +25,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pullout`
+-- Table structure for table `stock`
 --
 
-CREATE TABLE `pullout` (
-  `pullout_id` int(11) NOT NULL,
+CREATE TABLE `stock` (
+  `stock_id` int(11) NOT NULL,
   `storeid` int(11) NOT NULL,
   `prod_id` int(11) NOT NULL,
-  `pullout_quantity` int(11) NOT NULL,
-  `pullout_date` date NOT NULL,
-  `details` varchar(50) NOT NULL
+  `added` int(11) NOT NULL,
+  `deducted` int(11) NOT NULL,
+  `trans_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,32 +42,32 @@ CREATE TABLE `pullout` (
 --
 
 --
--- Indexes for table `pullout`
+-- Indexes for table `stock`
 --
-ALTER TABLE `pullout`
-  ADD PRIMARY KEY (`pullout_id`),
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`stock_id`),
   ADD KEY `prod_id` (`prod_id`),
-  ADD KEY `pullout_ibfk_3` (`storeid`);
+  ADD KEY `storeid` (`storeid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `pullout`
+-- AUTO_INCREMENT for table `stock`
 --
-ALTER TABLE `pullout`
-  MODIFY `pullout_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `stock`
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `pullout`
+-- Constraints for table `stock`
 --
-ALTER TABLE `pullout`
-  ADD CONSTRAINT `pullout_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
-  ADD CONSTRAINT `pullout_ibfk_3` FOREIGN KEY (`storeid`) REFERENCES `store` (`storeid`);
+ALTER TABLE `stock`
+  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
+  ADD CONSTRAINT `stock_ibfk_2` FOREIGN KEY (`storeid`) REFERENCES `store` (`storeid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

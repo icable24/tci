@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 11:03 PM
+-- Generation Time: Feb 11, 2018 at 09:44 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -25,49 +25,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pullout`
+-- Table structure for table `discount`
 --
 
-CREATE TABLE `pullout` (
-  `pullout_id` int(11) NOT NULL,
-  `storeid` int(11) NOT NULL,
-  `prod_id` int(11) NOT NULL,
-  `pullout_quantity` int(11) NOT NULL,
-  `pullout_date` date NOT NULL,
-  `details` varchar(50) NOT NULL
+CREATE TABLE `discount` (
+  `discount_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `discount` decimal(11,2) NOT NULL,
+  `amount` decimal(11,2) NOT NULL,
+  `total` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `discount`
+--
+
+INSERT INTO `discount` (`discount_id`, `order_id`, `discount`, `amount`, `total`) VALUES
+(1, 30, '30.00', '2460.00', '5740.00'),
+(2, 26, '20.00', '1860.00', '7440.00');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `pullout`
+-- Indexes for table `discount`
 --
-ALTER TABLE `pullout`
-  ADD PRIMARY KEY (`pullout_id`),
-  ADD KEY `prod_id` (`prod_id`),
-  ADD KEY `pullout_ibfk_3` (`storeid`);
+ALTER TABLE `discount`
+  ADD PRIMARY KEY (`discount_id`),
+  ADD KEY `order_id` (`order_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `pullout`
+-- AUTO_INCREMENT for table `discount`
 --
-ALTER TABLE `pullout`
-  MODIFY `pullout_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `discount`
+  MODIFY `discount_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `pullout`
+-- Constraints for table `discount`
 --
-ALTER TABLE `pullout`
-  ADD CONSTRAINT `pullout_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
-  ADD CONSTRAINT `pullout_ibfk_3` FOREIGN KEY (`storeid`) REFERENCES `store` (`storeid`);
+ALTER TABLE `discount`
+  ADD CONSTRAINT `discount_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

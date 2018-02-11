@@ -116,7 +116,7 @@
 				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-12">
-						<h4><?php if($order['order_finish'] == 'Delivery' && $order['order_finish'] != 'Completed'){
+						<h4><?php if($order['order_finish'] == 'Delivery' && $order['order_finish'] != 'Delivered'){
 							echo date("F j, Y", strtotime($order['date_finished']));}else{
 							echo "N/A";
 						} ?></h4>

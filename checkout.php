@@ -153,10 +153,6 @@
 				 <h3>Price Details</h3>
 				 <span>Total</span>
 				 <span class="total1"><?php echo number_format($tprice) ?></span>
-				 <span>Discount</span>
-				 <span class="total1">---</span>
-				 <span>Delivery Charges</span>
-				 <span class="total1">---</span>
 				 <div class="clearfix"></div>				 
 			 </div>	
 			 <ul class="total_price">

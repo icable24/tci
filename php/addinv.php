@@ -10,6 +10,7 @@
 		$inv = $inv->fetch();
 		$quantity = $_POST['newquantity'];
 		$newquantity = $quantity + $inv['quantity'];
+		$date_added = $_POST['date_added'];
 
 
 		if($inv){
@@ -20,10 +21,13 @@
 			$new->execute(array($prod_id, $quantity, $store));
 		}
 
+		$addstock = $pdo->prepare("INSERT INTO stock(storeid, prod_id, added, trans_date) VALUES(?, ?, ?, ?)");
+		$addstock->execute(array($store, $prod_id, $quantity, $date_added));
+
 		$check = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
 		$check->execute(array($prod_id, 3));
 		$check = $check->fetch();
-
+ 
 		$store = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND NOT storeid = ?");
 		$store->execute(array($prod_id, 3));
 		$store = $store->fetchAll();

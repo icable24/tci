@@ -87,7 +87,8 @@ input[type=text]:focus {
                     <td>$prod_name</td>
                     <td>$store</td>
                     <td>$quantity</td>
-                    <td><a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout Stock</a></td>
+                    <td><a href='inventoryhistory.php?id=$inventory_id' class='btn btn-success'>View</a>
+                    <a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout Stock</a></td>
                   </tr>
                 ";
               }

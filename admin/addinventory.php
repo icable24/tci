@@ -120,6 +120,12 @@
                       </div>
                     </div>
                   </div>
+                  <div class="control-group">
+                    <label class="control-label">Date Added</label>
+                    <div class="controls">
+                      <input type="date" name="date_added" id="date_added" class="form-control" required="">
+                    </div>
+                  </div>
                   <br>
                   <div class="footer">
                     <div class="form-actions text-center forms">

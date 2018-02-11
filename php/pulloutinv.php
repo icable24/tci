@@ -9,6 +9,7 @@
 		$pullout_quantity = $_POST['pullout_quantity'];
 		$pullout_date = $_POST['pullout_date'];
 		$details = $_POST['details'];
+		$storeid = $_POST['storeid'];
 
 		$inventory = $pdo->prepare("SELECT * FROM inventory WHERE inventory_id = ?");
 		$inventory->execute(array($inventory_id));
@@ -23,8 +24,11 @@
 			$delete->execute(array($inventory_id));
 		}
 
-		$pullout = $pdo->prepare("INSERT INTO pullout(inventory_id, prod_id, pullout_quantity, pullout_date, details) VALUES(?, ?, ?, ?, ?)");
-		$pullout->execute(array($inventory_id, $prod_id, $pullout_quantity, $pullout_date, $details));
+		$addstock = $pdo->prepare("INSERT INTO stock(storeid, prod_id, deducted, trans_date) VALUES(?, ?, ?, ?)");
+		$addstock->execute(array($storeid, $prod_id, $pullout_quantity, $pullout_date));
+
+		$pullout = $pdo->prepare("INSERT INTO pullout(storeid, prod_id, pullout_quantity, pullout_date, details) VALUES(?, ?, ?, ?, ?)");
+		$pullout->execute(array($storeid, $prod_id, $pullout_quantity, $pullout_date, $details));
 		header("location: ../admin/pulloutlist.php");
 	}	
 ?>

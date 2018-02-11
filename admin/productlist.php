@@ -87,7 +87,7 @@ input[type=text]:focus {
                   $pc = $query->fetch(PDO::FETCH_ASSOC);  
                   echo '<tr>';
                     echo '<td>'.$row['prod_code'] . '</td>';
-                    echo '<td>'. '<img src="../prod_img/'. $row['prod_image'] . '" alt="Product Image" style="width:75px;height:75px;"/>' . '</td>';
+                    echo '<td>'. '<img src="../prod_img/'. $row['prod_image'] . '" alt="Product Image" style="width:55px;height:55px;"/>' . '</td>';
                     echo '<td>'.$row['prod_name']. '</td>';
                     echo '<td>'.$pc['pc_name'].'</td>';
                     echo '<td>'.' Php '.$row['prod_price'].'</td>';

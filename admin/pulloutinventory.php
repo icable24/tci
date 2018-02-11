@@ -10,6 +10,10 @@
   		$inventory = $pdo->prepare("SELECT * FROM inventory JOIN product ON inventory.prod_id = product.prod_id WHERE inventory_id = ?");
   		$inventory->execute(array($id));
   		$inventory = $inventory->fetch();
+
+  		$store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
+  		$store->execute(array($inventory['storeid']));
+  		$store = $store->fetch();
   	}
 ?>
 <!DOCTYPE html>
@@ -29,8 +33,9 @@
 			                  <a href="inventorylist.php" class="btn btn-primary">Add Product</a>
 			                </div>
 	            			<form action="../php/pulloutinv.php" method="post" enctype="multipart/form">
-	            				<input type="hidden" name="inventory_id" id="inventory_id" value="<?php echo $id ?>">
-	            				<input type="hidden" name="prod_id" id="prod_id" value="<?php echo $inventory['prod_id'] ?>">
+	            				<input type="hidden" name="inventory_id" id="inventory_id" value="<?php echo $id; ?>">
+	            				<input type="hidden" name="prod_id" id="prod_id" value="<?php echo $inventory['prod_id']; ?>">
+	            				<input type="hidden" name="storeid" id="storeid" value="<?php echo $inventory['storeid']; ?>">
 	            				<div class="control-group">
 	            					<label class="control-label">Product Name</label>
 	            					<input type="text" class="form-control" disabled value="<?php if(isset($id)){ echo $inventory['prod_name'];} ?>">
@@ -38,6 +43,10 @@
 	            				<div class="control-group">
 	            					<label class="control-label">Quantity</label>
 	            					<input type="Number" class="form-control" disabled value="<?php if(isset($id)){ echo $inventory['quantity'];} ?>">
+	            				</div>
+	            				<div class="control-group">
+	            					<label class="control-label">Store Location</label>
+	            					<input type="text" class="form-control" disabled="" value="<?php if(isset($id)){ echo $store['storename'];} ?>">
 	            				</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Pull Out Quantity</label>
