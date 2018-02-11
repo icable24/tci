@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2018 at 11:49 PM
+-- Generation Time: Feb 11, 2018 at 08:25 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -116,7 +116,8 @@ INSERT INTO `cart` (`cart_id`, `user_id`, `prod_id`, `quantity`, `order_id`, `ca
 (22, 38, 71, 4, 30, 'Yes'),
 (23, 2, 116, 4, 24, 'Yes'),
 (24, 2, 97, 5, 24, 'Yes'),
-(25, 2, 68, 4, 24, 'Yes');
+(25, 2, 68, 4, 24, 'Yes'),
+(27, 2, 104, 30, 35, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -185,13 +186,12 @@ CREATE TABLE `inquiry` (
 --
 
 INSERT INTO `inquiry` (`inquiryID`, `acc_name`, `acc_email`, `subject`, `message`, `date`, `status`, `statusView`) VALUES
-(2, 'Jayson Solinap', 'jayson@tci.com', 'customization', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', '0000-00-00', 'read', 1),
-(3, 'Jayson Solinap', 'jayson@tci.com', 'Needs', 'hese parameters for for displaying attribution information below the quote; this should not be confused with a citing a source (see § Reference citations, below). These parameters are entirely optional, and are usually used with famous quotations, not routine block quotations, which are usually sourced at the end of the introductory line immediately before the quotation, with a normal <ref>...</ref> tag.\r\n\r\n|author= a.k.a. |2=—Optional Author/speaker attribution information that will appear below the quotation, and preceded with an attribution dash.\r\n\r\n|title= a.k.a. |3=—Optional title of the work the quote appears in, to display below the quotation. This parameter immediately follows the output of |author= (and an auto-generated comma), if one is provided. It does not auto-italicize. Major works (books, plays, albums, feature films, etc.) should be italicized; minor works (articles, chapters, poems, songs, TV episodes, etc.) go in quotation marks (see MOS:TITLES). Additional citation information can be provided in a fourth parameter, |source=, below, which will appear after the title.\r\n\r\n|source= a.k.a. |4=—Optionally used for additional source information to display, after |title=, like so: |title=\"The Aerodynamics of Shaved Weasels\"|source=\'\'Perspectives on Mammal Barbering\'\', 2016; a comma will be auto-generated between the two parameters. If |source= is used without |title=, it simply acts as |title=. (This parameter was added primarily to ease conversion from misuse of the pull quote template {{Quote frame}} for block quotation, but it may aid in cleaner meta-data implementation later.)\r\n\r\n|character= a.k.a. |char=—to attribute fictional speech to a fictional character, with other citation information. Can also be used to attribute real speech to a specific speaker among many, e.g. in a roundtable/panel transcript, a band interview, etc. This parameter outputs \"[Character\'s name], in\" after the attribution dash and before the output of the parameters above, thus one or more of those parameters must also be supplied. If you need to cite a fictional speaker in an article about a single work of fiction, where repeating the author and title information would be redundant, you can just use the |author= parameter instead of |character=.', '0000-00-00', 'read', 1),
-(6, 'Jenny Labordo', 'jenny@gmail.com', 'Product Inquiry', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.\r\n', '0000-00-00', 'read', 1),
-(7, 'Jessel Solinap', 'jessel@gmail.com', 'Product Inquiry', 'Good Afternoon! How can I get discounts?\r\n', '0000-00-00', 'read', 1),
-(8, 'Jessel Solinap', 'jessel@gmail.com', 'Product Inquiry', 'Hello! Is there any discounts depending on the number of items I buy?\r\n', '0000-00-00', 'read', 1),
-(9, 'Ana  Smith', 'ana@gmail.com', 'Product Inquiry', 'Hello! ', '0000-00-00', 'read', 1),
-(10, 'Taeyang Lee', 'Lee@tci.com', 'Product Customization', 'Hi!', '0000-00-00', 'read', 1);
+(2, 'Jayson Solinap', 'jayson@tci.com', 'customization', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', '2018-01-09', 'read', 1),
+(3, 'Jayson Solinap', 'jayson@tci.com', 'Needs', 'hese parameters for for displaying attribution information below the quote; this should not be confused with a citing a source (see § Reference citations, below). These parameters are entirely optional, and are usually used with famous quotations, not routine block quotations, which are usually sourced at the end of the introductory line immediately before the quotation, with a normal <ref>...</ref> tag.\r\n\r\n|author= a.k.a. |2=—Optional Author/speaker attribution information that will appear below the quotation, and preceded with an attribution dash.\r\n\r\n|title= a.k.a. |3=—Optional title of the work the quote appears in, to display below the quotation. This parameter immediately follows the output of |author= (and an auto-generated comma), if one is provided. It does not auto-italicize. Major works (books, plays, albums, feature films, etc.) should be italicized; minor works (articles, chapters, poems, songs, TV episodes, etc.) go in quotation marks (see MOS:TITLES). Additional citation information can be provided in a fourth parameter, |source=, below, which will appear after the title.\r\n\r\n|source= a.k.a. |4=—Optionally used for additional source information to display, after |title=, like so: |title=\"The Aerodynamics of Shaved Weasels\"|source=\'\'Perspectives on Mammal Barbering\'\', 2016; a comma will be auto-generated between the two parameters. If |source= is used without |title=, it simply acts as |title=. (This parameter was added primarily to ease conversion from misuse of the pull quote template {{Quote frame}} for block quotation, but it may aid in cleaner meta-data implementation later.)\r\n\r\n|character= a.k.a. |char=—to attribute fictional speech to a fictional character, with other citation information. Can also be used to attribute real speech to a specific speaker among many, e.g. in a roundtable/panel transcript, a band interview, etc. This parameter outputs \"[Character\'s name], in\" after the attribution dash and before the output of the parameters above, thus one or more of those parameters must also be supplied. If you need to cite a fictional speaker in an article about a single work of fiction, where repeating the author and title information would be redundant, you can just use the |author= parameter instead of |character=.', '2018-01-17', 'read', 1),
+(6, 'Jenny Labordo', 'jenny@gmail.com', 'Product Inquiry', 'Lorem Ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.\r\n', '2018-01-31', 'read', 1),
+(7, 'Jessel Solinap', 'jessel@gmail.com', 'Product Inquiry', 'Good Afternoon! How can I get discounts?\r\n', '2018-01-25', 'read', 1),
+(8, 'Jessel Solinap', 'jessel@gmail.com', 'Product Inquiry', 'Hello! Is there any discounts depending on the number of items I buy?\r\n', '2018-02-02', 'read', 1),
+(9, 'Ana  Smith', 'ana@gmail.com', 'Product Inquiry', 'Hello! ', '2018-02-07', 'read', 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +233,7 @@ CREATE TABLE `orders` (
   `zip_code` int(10) NOT NULL,
   `order_amount` decimal(11,2) NOT NULL,
   `order_finish` varchar(15) NOT NULL,
-  `date_ordered` varchar(18) NOT NULL,
+  `date_ordered` date NOT NULL,
   `date_finished` date NOT NULL,
   `isViewed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -243,16 +243,16 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`, `date_ordered`, `date_finished`, `isViewed`) VALUES
-(10, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '22200.00', 'Completed', '01-25-2018', '2018-02-28', 1),
-(12, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14400.00', 'Processing', '01-25-2018', '2018-02-28', 1),
-(13, 5, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '5800.00', 'Processing', '01-25-2018', '2018-02-28', 1),
-(15, 7, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '19900.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(24, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '26700.00', 'Completed', '01-25-2018', '2018-02-28', 1),
-(26, 7, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '9300.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(28, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14600.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(30, 38, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '8200.00', 'Processing', '01-25-2018', '0000-00-00', 1),
-(35, 2, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0),
-(36, 1, '', '', '', '', 0, '0.00', 'No', '', '0000-00-00', 0);
+(10, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '22200.00', 'Completed', '2018-01-09', '2018-02-28', 1),
+(12, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14400.00', 'Processing', '2018-01-16', '2018-02-28', 1),
+(13, 5, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '5800.00', 'Processing', '2018-01-16', '2018-02-28', 1),
+(15, 7, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '19900.00', 'Processing', '2018-01-17', '2018-02-05', 1),
+(24, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '26700.00', 'Completed', '2018-01-09', '2018-02-28', 1),
+(26, 7, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '9300.00', 'Processing', '2018-01-08', '2018-02-20', 1),
+(28, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14600.00', 'Processing', '2018-01-17', '2018-02-21', 1),
+(30, 38, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '8200.00', 'Delivery', '2018-01-23', '2018-02-06', 1),
+(35, 2, 'Bacolod City', 'Brunei', 'negros occidental', 'Bacolod', 2147483647, '66000.00', 'Pending', '2018-02-09', '0000-00-00', 1),
+(38, 1, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -456,6 +456,21 @@ CREATE TABLE `productgroup` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pullout`
+--
+
+CREATE TABLE `pullout` (
+  `pullout_id` int(11) NOT NULL,
+  `inventory_id` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL,
+  `pullout_quantity` int(11) NOT NULL,
+  `pullout_date` date NOT NULL,
+  `details` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `statbar`
 --
 
@@ -566,6 +581,14 @@ ALTER TABLE `productgroup`
   ADD PRIMARY KEY (`pg_id`);
 
 --
+-- Indexes for table `pullout`
+--
+ALTER TABLE `pullout`
+  ADD PRIMARY KEY (`pullout_id`),
+  ADD KEY `inventory_id` (`inventory_id`),
+  ADD KEY `prod_id` (`prod_id`);
+
+--
 -- Indexes for table `statbar`
 --
 ALTER TABLE `statbar`
@@ -593,7 +616,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `featuredprod`
@@ -605,7 +628,7 @@ ALTER TABLE `featuredprod`
 -- AUTO_INCREMENT for table `inquiry`
 --
 ALTER TABLE `inquiry`
-  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -617,7 +640,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `paymenthistory`
@@ -648,6 +671,12 @@ ALTER TABLE `productfinish`
 --
 ALTER TABLE `productgroup`
   MODIFY `pg_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pullout`
+--
+ALTER TABLE `pullout`
+  MODIFY `pullout_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `statbar`
@@ -704,6 +733,12 @@ ALTER TABLE `paymenthistory`
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`pf_name`) REFERENCES `productfinish` (`pf_id`),
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`pc_name`) REFERENCES `productcategory` (`pc_id`);
+
+--
+-- Constraints for table `pullout`
+--
+ALTER TABLE `pullout`
+  ADD CONSTRAINT `pullout_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`);
 
 --
 -- Constraints for table `statbar`

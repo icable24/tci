@@ -80,7 +80,7 @@
           <ul id="account-nav-list" class="collapse list-unstyled">
             <li><a href="prodcatalog.php"><i class="icon-form"></i><span>Product Catalog</span></a></li>
             <li><a href="reportinventory.php"><i class="fa fa-cube"></i><span>Inventory</span></a></li>
-            <li><a href="reportcanorders.php"><i class="fa fa-truck"></i><span>Orders</span></a></li>
+            <li><a href="reportorder.php"><i class="fa fa-truck"></i><span>Orders</span></a></li>
             <li><a href="#sales-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-dollar"></i><span>Sales</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="sales-nav-list" class="collapse list-unstyled">
               <li><a href="reportsales.php"><span>Total Sales</span></a></li>

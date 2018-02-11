@@ -6,7 +6,9 @@
 		$acc_email = $_POST['acc_email'];
                 $subject = $_POST['subject'];
                 $message = $_POST['message'];
-                $Date = date('m-d-Y');
+                $getDate = getDate();
+
+                $Date = $getDate['year']. '-' . $getDate['mon']. '-' . $getDate['mday']; 
 
                 //$date = $getDate['year']. '-' . $getDate['mon']. '-' . $getDate['mday']; 
                 $pdo = Database::connect();

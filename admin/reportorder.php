@@ -44,7 +44,7 @@ $(document).ready(function(){
     }).change();
 });
 </script>
-     <br><br><br><br><br>
+     <br><br><br>
         <div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
@@ -52,10 +52,21 @@ $(document).ready(function(){
               <h1>Order Report</h1>
             </div>
             <div class="card-block">
-              <form action="generatecanorders.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
+              <form action="generateorder.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 
-                    <br> <br>
+                    <br> 
                     <center>
+                      <div class="control-group">
+                      <label class="control-label" for="inputcategory">Customer Type</label>
+                      <div class="controls">
+                        <select  style="width: 3in" class="form-control" required="required" id="custype" name="custype">
+                          <option value="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------ Select Type ------</option>
+                          <option value="SB">Single Buyer</option>
+                          <option value="C">Company</option>
+                        </select>
+                    </div>
+                  </div>
+                  <br>
                       <div class="control-group">
                       <label class="control-label" for="inputcategory">Report Category</label>
                       <div class="controls">
@@ -173,8 +184,8 @@ $(document).ready(function(){
                                 </div>
                                 </div>
         </div>
-                  </center>
-                   <br>
+                 
+                   <br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span>Generate </button>
 </center>
 </form>

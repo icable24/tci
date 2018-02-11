@@ -15,7 +15,7 @@
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-    $("#salesreport").change(function(){
+    $("#reporttype").change(function(){
         $(this).find("option:selected").each(function(){
             var optionValue = $(this).attr("value");
             if(optionValue){
@@ -29,7 +29,7 @@ $(document).ready(function(){
 });
 </script>
       <!-- Body Section -->
-      <br><br><br><br><br>
+      <br><br><br>
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
@@ -38,12 +38,27 @@ $(document).ready(function(){
             </div>
             <div class="card-block">
               <form action="generatesalesreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
-                <br> <br> <br>
+                <br> <br>
+                <center>
+                <div class="row">
+                <div class="col control-group">
+                      <label class="control-label" for="inputcategory">Customer Type</label>
+                      <div class="controls">
+                        <select id="custype" name="custype" style="width: 3in" class="form-control" required="">
+                          <option></option>
+                          <option value="all">All</option>
+                          <option value="SB">Single Buyer</option>
+                          <option value="C">Company</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
                 <div class="row">
                 <div class="col control-group">
                       <label class="control-label" for="inputcategory">Report Type</label>
                       <div class="controls">
-                        <select id="salesreport" name="sreport" style="width: 2in" class="form-control" required="">
+                        <select id="reporttype" name="reporttype" style="width: 3in" class="form-control" required="">
                           <option></option>
                           <option value="STS">Summary</option>
                           <option value="DTS">Detailed</option>
@@ -51,6 +66,7 @@ $(document).ready(function(){
                     </div>
                   </div>
                 </div>
+                
                     <br><br>
 				<div class="row justify-content-center ">
                   <div class="col-6 STS box">
@@ -95,7 +111,7 @@ $(document).ready(function(){
 																</div>
 																</div>
 				</div>
-                        
+                    
 <br><br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button>	
 </center>

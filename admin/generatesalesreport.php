@@ -8,7 +8,8 @@ class MYPDF extends TCPDF {
     public function Header() {
 
         // Logo
-       
+       $image_file = K_PATH_IMAGES.'logo.png';
+       $this->Image($image_file, 50, 10, 300, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
         $this->SetY(15);
         $this->SetFont('times', 'B', 24);
@@ -42,16 +43,17 @@ class MYPDF extends TCPDF {
 if(!empty($_POST)){
 
 //start sang arguement
-    $categ = isset($_POST['sreport']) ? $_POST['sdate'] : '0' ? $_POST['edate'] : '0';
-    $categ = $_POST['sreport'];
+    $categ1 = $_POST['custype'];
+    $categ = isset($_POST['reporttype']) ? $_POST['sdate'] : '0' ? $_POST['edate'] : '0';
+    $categ = $_POST['reporttype'];
     //$act_type3=$_POST['slocation'];
 
     
     //BY totl sales report
     
-        
+    if ($categ1=='all') {
     if($categ=='STS'){
-        $pdf = new MYPDF('R', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
         // set document information
@@ -75,8 +77,6 @@ if(!empty($_POST)){
     Tumandok Craft Industries Management System
 
     Sales Report
-
-
 
 
 
@@ -116,13 +116,14 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
 
       $result = mysqli_query($connect, $sql);  
 
         $tbl = '<table style="width: 638px;" cellspacing="0">';
         $order_id = "Order ID";
         $acc_fname = "Customer Name";
+        $acc_company = "Company";
         $order_amount = "Total Amount";
         $date_ordered = "Ordered Date";
         $date_finished = "Delivery Date";
@@ -132,8 +133,9 @@ EOD;
               <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
                   <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
-                  <td style="border: 0px solid #ffffff; width: 100px;">'.$date_ordered.'</td>
-                  <td style="border: 0px solid #ffffff; width: 100px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;">'.$acc_company.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_finished.'</td>
                   <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
 
 
@@ -143,6 +145,7 @@ EOD;
         $order_id = $row["order_id"];
         $acc_fname = $row["acc_fname"];
         $acc_lname = $row["acc_lname"];
+        $acc_company = $row["acc_company"];
         $order_amount = $row["order_amount"];
         $date_ordered = strtotime($row["date_ordered"]);
         $date_finished = strtotime($row["date_finished"]);
@@ -154,11 +157,12 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 60px;">'.$order_id.'</td>
-                <td style="border: 1px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
-                <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_ordered).'</td>
-                <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$order_amount.'</td>
+                <td style="border: 0.5px solid #000000; width: 60px;">'.$order_id.'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -179,7 +183,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -189,10 +193,11 @@ EOD;
  
         $tbl = $tbl . '
               <tr>
-              <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 85px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 120px;"></td>
                   <td style="border: 0px solid #ffffff; width: 130px;">'.$total.'</td>
 
 
@@ -208,11 +213,12 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-            <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 85px;"></td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$total.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 115px;"></td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
 
             </tr>';
         }
@@ -222,18 +228,14 @@ EOD;
 
         //==============================================================
         ob_end_clean();
-        $pdf->Output('Inventory_report.pdf', 'I');
+        $pdf->Output('Sales_report.pdf', 'I');
 
         }
       }
     }
 
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     if($categ=='DTS'){
-        $pdf = new MYPDF('R', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         //==============================================================
         // set document information
@@ -257,7 +259,6 @@ EOD;
     Tumandok Craft Industries Management System
 
     Detailed Sales Report
-
 
 
 
@@ -288,7 +289,184 @@ EOD;
         //==============================================================
    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+       $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $order_id = "Order ID";
+        $acc_fname = "Customer Name";
+        $acc_company = "Company";
+        $order_amount = "Total Amount";
+        $date_ordered = "Ordered Date";
+        $date_finished = "Delivery Date";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
+                  <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;">'.$acc_company.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $order_id = $row["order_id"];
+        $acc_fname = $row["acc_fname"];
+        $acc_lname = $row["acc_lname"];
+        $acc_company = $row["acc_company"];
+        $order_amount = $row["order_amount"];
+        $date_ordered = strtotime($row["date_ordered"]);
+        $date_finished = strtotime($row["date_finished"]);
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                <td style="border: 0.5px solid #000000; width: 60px;">'.$order_id.'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+             //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+        $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $total = "Total Sales";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 120px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$total.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $total = $row["total"];
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 115px;"></td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        //==============================================================
+        ob_end_clean();
+        $pdf->Output('Sales_report.pdf', 'I');
+
+        }
+      }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if ($categ1=='SB') {
+    if($categ=='STS'){
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        //==============================================================
+        // set document information
+    $pdf->SetCreator(PDF_CREATOR);
+    $pdf->SetAuthor('Tumandok Craft Industries');
+    $pdf->SetTitle('Sales Report');
+    $pdf->SetSubject(' ');
+    $pdf->SetKeywords(' ');
+
+    // set font
+    $pdf->SetFont('times', 'R', 12);
+
+    // add a page
+    $pdf->AddPage();
+
+// set some text to print
+    $txt = <<<EOD
+
+
+
+    Tumandok Craft Industries Management System
+
+    Sales Report
+    Single Buyers
+
+
+
+
+EOD;
+
+    // print a block of text using Write()
+    $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+    // ---------------------------------------------------------
+
+    // set header and footer fonts
+    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+    // set margins
+    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+    // set auto page breaks
+    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+    if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+        require_once(dirname(__FILE__).'/lang/eng.php');
+        $pdf->setLanguageArray($l);
+    }
+
+        //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
+    
+
+    echo $sdate;
+    echo $edate;
+
+
+      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -303,10 +481,10 @@ EOD;
         $tbl = $tbl . '
               <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
-                  <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
-                  <td style="border: 0px solid #ffffff; width: 100px;">'.$date_ordered.'</td>
-                  <td style="border: 0px solid #ffffff; width: 100px;">'.$date_finished.'</td>
-                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;">'.$acc_fname.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 200px;">'.$order_amount.'</td>
 
 
               </tr>';
@@ -326,11 +504,11 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 60px;">'.$order_id.'</td>
-                <td style="border: 1px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
-                <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_ordered).'</td>
-                <td style="border: 1px solid #000000; width: 100px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$order_amount.'</td>
+                <td style="border: 0.5px  #000000; width: 60px;">'.$order_id.'</td>
+                <td style="border: 0.5px  #000000; width: 180px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px  #000000; width: 130px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px  #000000; width: 130px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px  #000000; width: 200px;">'."Php " .number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -342,7 +520,16 @@ EOD;
              //==============================================================
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed'"; 
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
+    
+
+    echo $sdate;
+    echo $edate;
+
+
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -352,10 +539,353 @@ EOD;
  
         $tbl = $tbl . '
               <tr>
-              <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 200px;">'.$total.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $total = $row["total"];
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                <td style="border: 0.5px #000000; width: 200px;">'."Php " .number_format($total, 2).'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        //==============================================================
+        ob_end_clean();
+        $pdf->Output('Single Buyer Sales_report.pdf', 'I');
+
+        }
+      }
+    }
+
+    if($categ=='DTS'){
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        //==============================================================
+        // set document information
+    $pdf->SetCreator(PDF_CREATOR);
+    $pdf->SetAuthor('Tumandok Craft Industries');
+    $pdf->SetTitle('Single Buyer Sales Report');
+    $pdf->SetSubject(' ');
+    $pdf->SetKeywords(' ');
+
+    // set font
+    $pdf->SetFont('times', 'R', 12);
+
+    // add a page
+    $pdf->AddPage();
+
+// set some text to print
+    $txt = <<<EOD
+
+
+
+    Tumandok Craft Industries Management System
+
+    Sales Report
+    Single Buyer
+
+
+
+EOD;
+
+    // print a block of text using Write()
+    $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+    // ---------------------------------------------------------
+
+    // set header and footer fonts
+    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+    // set margins
+    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+    // set auto page breaks
+    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+    if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+        require_once(dirname(__FILE__).'/lang/eng.php');
+        $pdf->setLanguageArray($l);
+    }
+
+        //==============================================================
+   $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+       $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $order_id = "Order ID";
+        $acc_fname = "Customer Name";
+        $order_amount = "Total Amount";
+        $date_ordered = "Ordered Date";
+        $date_finished = "Delivery Date";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 80px;">'.$order_id.'</td>
+                  <td style="border: 0px solid #ffffff; width: 200px;">'.$acc_fname.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 220px;">'.$order_amount.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $order_id = $row["order_id"];
+        $acc_fname = $row["acc_fname"];
+        $acc_lname = $row["acc_lname"];
+        $order_amount = $row["order_amount"];
+        $date_ordered = strtotime($row["date_ordered"]);
+        $date_finished = strtotime($row["date_finished"]);
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                <td style="border: 0.5px solid #000000; width: 80px;">'.$order_id.'</td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 220px;">'."Php " .number_format($order_amount, 2).'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+             //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+        $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $total = "Total Sales";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 80px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 200px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 115px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 220px;">'.$total.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $total = $row["total"];
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                  <td style="border: 0px solid #ffffff; width: 80px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 200px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 115px;"></td>
+                <td style="border: 0.5px solid #000000; width: 220px;">'."Php " .number_format($total, 2).'</td>
+
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        //==============================================================
+        ob_end_clean();
+        $pdf->Output('Single Buyer Sales_report.pdf', 'I');
+
+        }
+      }
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    if ($categ1=='C') {
+    if($categ=='STS'){
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        //==============================================================
+        // set document information
+    $pdf->SetCreator(PDF_CREATOR);
+    $pdf->SetAuthor('Tumandok Craft Industries');
+    $pdf->SetTitle('Sales Report');
+    $pdf->SetSubject(' ');
+    $pdf->SetKeywords(' ');
+
+    // set font
+    $pdf->SetFont('times', 'R', 12);
+
+    // add a page
+    $pdf->AddPage();
+
+// set some text to print
+    $txt = <<<EOD
+
+
+
+    Tumandok Craft Industries Management System
+
+    Sales Report
+    Company
+
+
+
+EOD;
+
+    // print a block of text using Write()
+    $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+    // ---------------------------------------------------------
+
+    // set header and footer fonts
+    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+    // set margins
+    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+    // set auto page breaks
+    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+    if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+        require_once(dirname(__FILE__).'/lang/eng.php');
+        $pdf->setLanguageArray($l);
+    }
+
+        //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
+    
+
+    echo $sdate;
+    echo $edate;
+
+
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Company'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+        $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $order_id = "Order ID";
+        $acc_fname = "Customer Name";
+        $acc_company = "Company";
+        $order_amount = "Total Amount";
+        $date_ordered = "Ordered Date";
+        $date_finished = "Delivery Date";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
+                  <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;">'.$acc_company.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $order_id = $row["order_id"];
+        $acc_fname = $row["acc_fname"];
+        $acc_lname = $row["acc_lname"];
+        $acc_company = $row["acc_company"];
+        $order_amount = $row["order_amount"];
+        $date_ordered = strtotime($row["date_ordered"]);
+        $date_finished = strtotime($row["date_finished"]);
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                <td style="border: 0.5px solid #000000; width: 60px;">'.$order_id.'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+             //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
+    
+
+    echo $sdate;
+    echo $edate;
+
+
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Company'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+        $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $total = "Total Sales";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 85px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 120px;"></td>
                   <td style="border: 0px solid #ffffff; width: 130px;">'.$total.'</td>
 
 
@@ -371,11 +901,12 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-            <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 100px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 85px;"></td>
-                <td style="border: 1px solid #000000; width: 130px;">'.$total.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 115px;"></td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
 
             </tr>';
         }
@@ -385,9 +916,175 @@ EOD;
 
         //==============================================================
         ob_end_clean();
-        $pdf->Output('Inventory_report.pdf', 'I');
+        $pdf->Output('Company Sales_report.pdf', 'I');
 
         }
       }
+    }
 
+    if($categ=='DTS'){
+        $pdf = new MYPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        //==============================================================
+        // set document information
+    $pdf->SetCreator(PDF_CREATOR);
+    $pdf->SetAuthor('Tumandok Craft Industries');
+    $pdf->SetTitle('Company Sales Report');
+    $pdf->SetSubject(' ');
+    $pdf->SetKeywords(' ');
+
+    // set font
+    $pdf->SetFont('times', 'R', 12);
+
+    // add a page
+    $pdf->AddPage();
+
+// set some text to print
+    $txt = <<<EOD
+
+
+
+    Tumandok Craft Industries Management System
+
+    Sales Report
+    Company
+
+
+
+EOD;
+
+    // print a block of text using Write()
+    $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+    // ---------------------------------------------------------
+
+    // set header and footer fonts
+    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+    // set margins
+    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+    // set auto page breaks
+    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+    if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+        require_once(dirname(__FILE__).'/lang/eng.php');
+        $pdf->setLanguageArray($l);
+    }
+
+        //==============================================================
+   $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Company'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+       $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $order_id = "Order ID";
+        $acc_fname = "Customer Name";
+        $acc_company = "Company";
+        $order_amount = "Total Amount";
+        $date_ordered = "Ordered Date";
+        $date_finished = "Delivery Date";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
+                  <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
+                  <td style="border: 0px solid #ffffff; width: 180px;">'.$acc_company.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 120px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$order_amount.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $order_id = $row["order_id"];
+        $acc_fname = $row["acc_fname"];
+        $acc_lname = $row["acc_lname"];
+        $acc_company = $row["acc_company"];
+        $order_amount = $row["order_amount"];
+        $date_ordered = strtotime($row["date_ordered"]);
+        $date_finished = strtotime($row["date_finished"]);
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                <td style="border: 0.5px solid #000000; width: 60px;">'.$order_id.'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
+
+            </tr>';
+        }
+
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+             //==============================================================
+    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
+
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Company'"; 
+
+      $result = mysqli_query($connect, $sql);  
+
+        $tbl = '<table style="width: 638px;" cellspacing="0">';
+        $total = "Total Sales";
+
+ 
+        $tbl = $tbl . '
+              <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 120px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 130px;">'.$total.'</td>
+
+
+              </tr>';
+
+        while($row = mysqli_fetch_array($result)){
+        $total = $row["total"];
+        
+        
+
+          // -----------------------------------------------------------------------------
+
+        $tbl = $tbl . '
+      
+            <tr>
+                  <td style="border: 0px solid #ffffff; width: 60px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 110px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 115px;"></td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
+
+            </tr>';
+        }
+        $tbl = $tbl . '</table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        //==============================================================
+        ob_end_clean();
+        $pdf->Output('Single Buyer Sales_report.pdf', 'I');
+
+        }
+      }
+    }
 ?>

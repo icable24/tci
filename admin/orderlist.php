@@ -47,8 +47,10 @@
               <option disabled selected style="color: gray">Filter</option>
               <option></option>
               <option>Pending</option>
+              <option>Cancelled</option>
               <option>Processing</option>
               <option>Completed</option>
+              <option>Delivery</option>
             </select>
             </div>
           <br><br>
@@ -84,7 +86,7 @@
 									<td>$date_ordered</td>
 									<td>$status</td>
 									<td class='class-center'>
-										<a href='vieworder.php?id=$order_id' class='btn btn-primary btn-md' data-toggle='tooltip' title='View'><span class='fa fa-eye'></span></a>
+										<a href='vieworder.php?id=$order_id' class='btn btn-primary btn-md' data-toggle='tooltip' title='View'><span>View</span></a>
 									</td>
 								</tr>
 							";

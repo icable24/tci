@@ -5,7 +5,8 @@ class MYPDF extends TCPDF {
     //Page header
     public function Header() {
         // Logo
-        
+         $image_file = K_PATH_IMAGES.'logo.png';
+       $this->Image($image_file, 10, 10, 200, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
         $this->SetY(15);
         $this->SetFont('times', 'B', 24);
@@ -58,6 +59,7 @@ if(!empty($_POST)){
 
 
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     Cybergate Center Robinsons
 
@@ -110,10 +112,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -139,12 +141,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     Cybergate Center Robinsons - Light Furnitures
-
-
 
 
 
@@ -195,10 +195,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -224,11 +224,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     Cybergate Center Robinsons - Accessories
-
 
 
 
@@ -279,10 +278,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -308,11 +307,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     Cybergate Center Robinsons - Wall Decor
-
 
 
 
@@ -363,10 +361,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -392,8 +390,8 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     Cybergate Center Robinsons - Luminaries
 
@@ -446,10 +444,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -475,11 +473,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     Cybergate Center Robinsons - Home Furnishing
-
 
 
 
@@ -530,10 +527,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -557,9 +554,16 @@ EOD;
     $pdf->AddPage();
 // set some text to print
     $txt = <<<EOD
+
+
+
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall
+
+
+
 EOD;
     // print a block of text using Write()
     $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
@@ -607,10 +611,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -633,9 +637,16 @@ EOD;
     $pdf->AddPage();
 // set some text to print
     $txt = <<<EOD
+
+
+
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall - Light Furnitures
+
+
+
 EOD;
     // print a block of text using Write()
     $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
@@ -683,10 +694,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -712,11 +723,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall - Accessories
-
 
 
 
@@ -767,10 +777,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -796,11 +806,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall - Wall Decor
-
 
 
 
@@ -851,10 +860,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -882,9 +891,9 @@ EOD;
 
 
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall - Luminaries
-
 
 
 
@@ -935,10 +944,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -966,9 +975,9 @@ EOD;
 
 
     Tumandok Craft Industries Management System
+
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall - Home Furnishing
-
 
 
 
@@ -1019,10 +1028,10 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 140px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 250px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 250px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -1048,11 +1057,10 @@ EOD;
 
 
 
-
     Tumandok Craft Industries Management System
+    
     Inventory Report - By Store
     ANP, City Walk Robinsons Mall
-
 
 
     
@@ -1106,11 +1114,11 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 120px;">'.$prod_code.'</td>
-                <td style="border: 1px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
-                <td style="border: 1px solid #000000; width: 150px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 30px;">'.$quantity.'</td>
-                <td style="border: 1px solid #000000; width: 150px;">'.$storename.'</td>
+                <td style="border: 0.5px solid #000000; width: 120px;">'.$prod_code.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;"><img src="'.$prod_image.'" alt="Product Image" style="width:65px; height: 65px;"/></td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$quantity.'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.$storename.'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
