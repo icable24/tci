@@ -73,6 +73,10 @@ if(!empty($_POST)){
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -255,6 +259,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -421,6 +429,10 @@ if ($categ1=='SB') {
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -481,9 +493,9 @@ EOD;
         $tbl = $tbl . '
               <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
-                  <td style="border: 0px solid #ffffff; width: 180px;">'.$acc_fname.'</td>
-                  <td style="border: 0px solid #ffffff; width: 130px;">'.$date_ordered.'</td>
-                  <td style="border: 0px solid #ffffff; width: 130px;">'.$date_finished.'</td>
+                  <td style="border: 0px solid #ffffff; width: 200px;">'.$acc_fname.'</td>
+                  <td style="border: 0px solid #ffffff; width: 150px;">'.$date_ordered.'</td>
+                  <td style="border: 0px solid #ffffff; width: 150px;">'.$date_finished.'</td>
                   <td style="border: 0px solid #ffffff; width: 200px;">'.$order_amount.'</td>
 
 
@@ -504,11 +516,11 @@ EOD;
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 0.5px  #000000; width: 60px;">'.$order_id.'</td>
-                <td style="border: 0.5px  #000000; width: 180px;">'.$acc_fname. ' ' .$acc_lname.'</td>
-                <td style="border: 0.5px  #000000; width: 130px;">'.date("F j, Y", $date_ordered).'</td>
-                <td style="border: 0.5px  #000000; width: 130px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px  #000000; width: 200px;">'."Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 60px;">'.$order_id.'</td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'.$acc_fname. ' ' .$acc_lname.'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 150px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'."Php " .number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -540,9 +552,9 @@ EOD;
         $tbl = $tbl . '
               <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 190px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
                   <td style="border: 0px solid #ffffff; width: 200px;">'.$total.'</td>
 
 
@@ -559,10 +571,10 @@ EOD;
       
             <tr>
                   <td style="border: 0px solid #ffffff; width: 60px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 180px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
-                  <td style="border: 0px solid #ffffff; width: 130px;"></td>
-                <td style="border: 0.5px #000000; width: 200px;">'."Php " .number_format($total, 2).'</td>
+                  <td style="border: 0px solid #ffffff; width: 190px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                  <td style="border: 0px solid #ffffff; width: 150px;"></td>
+                <td style="border: 0.5px solid #000000; width: 200px;">'."Php " .number_format($total, 2).'</td>
 
             </tr>';
         }
@@ -599,6 +611,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -760,6 +776,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -943,6 +963,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 

@@ -75,6 +75,10 @@ if(!empty($_POST)){
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -202,6 +206,10 @@ if ($categ1=='D') {
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -321,6 +329,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -450,6 +462,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -576,6 +592,10 @@ if ($categ1=='D') {
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 
@@ -694,6 +714,10 @@ EOD;
     $txt = <<<EOD
 
 
+Purok, Ma. Morena, Calumangan,
+Bago City, Negros Occidental,
+Philippines 6101
+702-2658|+63917-301-7571
 
     Tumandok Craft Industries Management System
 

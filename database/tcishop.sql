@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 08:25 AM
+-- Generation Time: Feb 12, 2018 at 12:01 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -145,6 +145,29 @@ INSERT INTO `compare` (`compare_id`, `prod_id`, `acc_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `discount`
+--
+
+CREATE TABLE `discount` (
+  `discount_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `discount` decimal(11,2) NOT NULL,
+  `amount` decimal(11,2) NOT NULL,
+  `total` decimal(11,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `discount`
+--
+
+INSERT INTO `discount` (`discount_id`, `order_id`, `discount`, `amount`, `total`) VALUES
+(1, 30, '30.00', '2460.00', '5740.00'),
+(2, 26, '20.00', '1860.00', '7440.00'),
+(3, 12, '20.00', '2880.00', '11520.00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `featuredprod`
 --
 
@@ -232,6 +255,7 @@ CREATE TABLE `orders` (
   `city` varchar(20) NOT NULL,
   `zip_code` int(10) NOT NULL,
   `order_amount` decimal(11,2) NOT NULL,
+  `discount_amount` decimal(11,2) NOT NULL,
   `order_finish` varchar(15) NOT NULL,
   `date_ordered` date NOT NULL,
   `date_finished` date NOT NULL,
@@ -242,17 +266,17 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `order_finish`, `date_ordered`, `date_finished`, `isViewed`) VALUES
-(10, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '22200.00', 'Completed', '2018-01-09', '2018-02-28', 1),
-(12, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14400.00', 'Processing', '2018-01-16', '2018-02-28', 1),
-(13, 5, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '5800.00', 'Processing', '2018-01-16', '2018-02-28', 1),
-(15, 7, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '19900.00', 'Processing', '2018-01-17', '2018-02-05', 1),
-(24, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '26700.00', 'Completed', '2018-01-09', '2018-02-28', 1),
-(26, 7, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '9300.00', 'Processing', '2018-01-08', '2018-02-20', 1),
-(28, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14600.00', 'Processing', '2018-01-17', '2018-02-21', 1),
-(30, 38, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '8200.00', 'Delivery', '2018-01-23', '2018-02-06', 1),
-(35, 2, 'Bacolod City', 'Brunei', 'negros occidental', 'Bacolod', 2147483647, '66000.00', 'Pending', '2018-02-09', '0000-00-00', 1),
-(38, 1, '', '', '', '', 0, '0.00', 'No', '0000-00-00', '0000-00-00', 0);
+INSERT INTO `orders` (`order_id`, `acc_id`, `shippingaddress`, `country`, `state`, `city`, `zip_code`, `order_amount`, `discount_amount`, `order_finish`, `date_ordered`, `date_finished`, `isViewed`) VALUES
+(10, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '22200.00', '0.00', 'Completed', '2018-01-09', '2018-02-28', 1),
+(12, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14400.00', '11520.00', 'Delivery', '2018-01-16', '2018-02-27', 1),
+(13, 5, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '5800.00', '0.00', 'Processing', '2018-01-16', '2018-02-28', 1),
+(15, 7, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '19900.00', '0.00', 'Processing', '2018-01-17', '2018-02-05', 1),
+(24, 2, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '26700.00', '0.00', 'Completed', '2018-01-09', '2018-02-28', 1),
+(26, 7, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '9300.00', '7440.00', 'Processing', '2018-01-08', '2018-02-20', 1),
+(28, 37, 'Prk Mahigugmaon', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '14600.00', '0.00', 'Processing', '2018-01-17', '2018-02-21', 1),
+(30, 38, 'Prk. Fatima Sum-ag', 'Philippines', 'Negros Occidental', 'Bacolod City', 6100, '8200.00', '5740.00', 'Delivery', '2018-01-23', '2018-02-06', 1),
+(35, 2, 'Bacolod City', 'Brunei', 'negros occidental', 'Bacolod', 6100, '66000.00', '0.00', 'Pending', '2018-02-09', '0000-00-00', 1),
+(36, 1, '', '', '', '', 0, '0.00', '0.00', 'No', '0000-00-00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -461,7 +485,7 @@ CREATE TABLE `productgroup` (
 
 CREATE TABLE `pullout` (
   `pullout_id` int(11) NOT NULL,
-  `inventory_id` int(11) NOT NULL,
+  `storeid` int(11) NOT NULL,
   `prod_id` int(11) NOT NULL,
   `pullout_quantity` int(11) NOT NULL,
   `pullout_date` date NOT NULL,
@@ -471,13 +495,16 @@ CREATE TABLE `pullout` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statbar`
+-- Table structure for table `stock`
 --
 
-CREATE TABLE `statbar` (
-  `statbID` int(11) NOT NULL,
+CREATE TABLE `stock` (
+  `stock_id` int(11) NOT NULL,
+  `storeid` int(11) NOT NULL,
   `prod_id` int(11) NOT NULL,
-  `pc_name` int(11) NOT NULL
+  `added` int(11) NOT NULL,
+  `deducted` int(11) NOT NULL,
+  `trans_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -517,6 +544,13 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
   ADD KEY `prod_id` (`prod_id`),
   ADD KEY `user_id` (`user_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- Indexes for table `discount`
+--
+ALTER TABLE `discount`
+  ADD PRIMARY KEY (`discount_id`),
   ADD KEY `order_id` (`order_id`);
 
 --
@@ -585,16 +619,16 @@ ALTER TABLE `productgroup`
 --
 ALTER TABLE `pullout`
   ADD PRIMARY KEY (`pullout_id`),
-  ADD KEY `inventory_id` (`inventory_id`),
-  ADD KEY `prod_id` (`prod_id`);
+  ADD KEY `prod_id` (`prod_id`),
+  ADD KEY `pullout_ibfk_3` (`storeid`);
 
 --
--- Indexes for table `statbar`
+-- Indexes for table `stock`
 --
-ALTER TABLE `statbar`
-  ADD PRIMARY KEY (`statbID`),
-  ADD KEY `stat_ibfk_1` (`prod_id`),
-  ADD KEY `stat_ibfk_2` (`pc_name`);
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`stock_id`),
+  ADD KEY `prod_id` (`prod_id`),
+  ADD KEY `storeid` (`storeid`);
 
 --
 -- Indexes for table `store`
@@ -619,6 +653,12 @@ ALTER TABLE `cart`
   MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
+-- AUTO_INCREMENT for table `discount`
+--
+ALTER TABLE `discount`
+  MODIFY `discount_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `featuredprod`
 --
 ALTER TABLE `featuredprod`
@@ -628,7 +668,7 @@ ALTER TABLE `featuredprod`
 -- AUTO_INCREMENT for table `inquiry`
 --
 ALTER TABLE `inquiry`
-  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `inquiryID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -640,7 +680,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `paymenthistory`
@@ -679,10 +719,10 @@ ALTER TABLE `pullout`
   MODIFY `pullout_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `statbar`
+-- AUTO_INCREMENT for table `stock`
 --
-ALTER TABLE `statbar`
-  MODIFY `statbID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `stock`
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `store`
@@ -701,6 +741,12 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `account` (`acc_id`),
   ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
+
+--
+-- Constraints for table `discount`
+--
+ALTER TABLE `discount`
+  ADD CONSTRAINT `discount_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 -- Constraints for table `featuredprod`
@@ -738,13 +784,15 @@ ALTER TABLE `product`
 -- Constraints for table `pullout`
 --
 ALTER TABLE `pullout`
-  ADD CONSTRAINT `pullout_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`);
+  ADD CONSTRAINT `pullout_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
+  ADD CONSTRAINT `pullout_ibfk_3` FOREIGN KEY (`storeid`) REFERENCES `store` (`storeid`);
 
 --
--- Constraints for table `statbar`
+-- Constraints for table `stock`
 --
-ALTER TABLE `statbar`
-  ADD CONSTRAINT `stat_ibfk_2` FOREIGN KEY (`pc_name`) REFERENCES `product` (`pc_name`);
+ALTER TABLE `stock`
+  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`),
+  ADD CONSTRAINT `stock_ibfk_2` FOREIGN KEY (`storeid`) REFERENCES `store` (`storeid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
