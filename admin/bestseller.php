@@ -67,7 +67,14 @@
                 <div id="printableArea" style="width:100%;">
                <h3 align="center"> <img src="../img/tci.png"> <br><br>
                 Tumandok Craft Industries <br><br>
-                Best Seller Products </span></h3> <br>  
+                 <center>
+                <h5>Purok, Ma. Morena, Calumangan, Bago City, Negros Occidental,</h5>
+<h5>Philippines 6101</h5>
+<h5>702-2658|+63917-301-7571</h5></center>
+<br>
+                Best Seller Products</h3>
+
+ <br>  
                 <div id="piechart" style="width: 100%; height: 1000px;"></div>  
 <br><br>
 
