@@ -46,11 +46,11 @@
               <select id="filters" name="filters" onChange="myFilter()" placeholder="filter" class="pull-right">
               <option disabled selected style="color: gray">Filter</option>
               <option></option>
-              <option>Pending</option>
               <option>Cancelled</option>
+              <option>Pending</option>
               <option>Processing</option>
-              <option>Completed</option>
               <option>Delivery</option>
+              <option>Delivered</option>
             </select>
             </div>
           <br><br>

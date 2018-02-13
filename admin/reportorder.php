@@ -142,7 +142,7 @@ $(document).ready(function(){
         <div class="row justify-content-center">
                   <div class="col-6 CO box">
                     <div class="control-group">
-                      <label class="control-label" for="sdate">Start Date:</label>
+                      <label class="control-label" for="ssdate">Start Date:</label>
                                             <div class="controls">
                                                               <input style="background-color: white; text-align: center;" id="ssdate" name="ssdate" type="ssdate" class="form-control datepicker" style="width: 2in">
                     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> 
@@ -165,7 +165,7 @@ $(document).ready(function(){
               
           <div class="col-6 CO box">
                     <div class="control-group">
-                      <label class="control-label" for="edate">End Date:</label>
+                      <label class="control-label" for="eedate">End Date:</label>
                                             <div class="controls">
                                                               <input style="background-color: white; text-align: center;" id="eedate" name="eedate" type="eedate" class="form-control datepicker" style="width: 2in">
                      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> 

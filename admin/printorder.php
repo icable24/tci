@@ -12,8 +12,8 @@ class MYPDF extends TCPDF {
     //Page header
     public function Header() {
         // Logo
-        $image_file = K_PATH_IMAGES.'tci.png';
-       $this->Image($image_file, 50, 10, 300, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        $image_file = K_PATH_IMAGES.'logo.png';
+       $this->Image($image_file, 10, 10, 200, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
         $this->SetY(15);
         $this->SetFont('times', 'B', 20);
@@ -98,6 +98,10 @@ $cart = $pdo->prepare("SELECT * FROM cart WHERE order_id = ?");
 $cart->execute(array($order_id));
 $cart = $cart->fetchAll();
 
+$discount = $pdo->prepare("SELECT * FROM discount WHERE order_id = ?");
+$discount->execute(array($order_id));
+$discount = $discount->fetch();
+
 $account = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 $account->execute(array($order['acc_id']));
 $account = $account->fetch();
@@ -116,7 +120,7 @@ $account = $account->fetch();
 '<br><br>'.
 '<p style="text-align: right; font-size: 11px; margin-left: 2in">Date:'.'&nbsp;'.$order["date_finished"].
 '<br>'.
-'Order ID:'.'&nbsp;'.$order["order_id"].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>'.
+'Order ID:'.'&nbsp;'.$order["order_id"].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>'.
 '<br>'.
 '<p>Customer\'s Name: <br>&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $account["acc_fname"]. ' '. $account["acc_lname"]. '</span>' . '</p>'.
 '<p>Shipping Address: <br>&nbsp;&nbsp;'.'<span style="font-size: 14px">'. $order["zip_code"]. ','.' '. $order["shippingaddress"]. ','.' '. $order["city"]. ','.' '.$order["state"]. ','.' '.$order["country"]. '</span>' . '</p>'.
@@ -153,24 +157,46 @@ $account = $account->fetch();
         $uprice = $product["prod_price"];
         $total_price = $uprice * $row['quantity'];
         $order_amount = $order["order_amount"];
+        $amount = $discount["discount"];
+        $amount_total = $discount["amount"];
+        $grand_total = $order_amount - $amount_total;
 
           // -----------------------------------------------------------------------------
 
         $tbl = $tbl . '
       
             <tr>
-                <td style="border: 1px solid #000000; width: 240px;">'.$prod_name.'</td>
-                <td style="border: 1px solid #000000; width: 27px;">'.$qty.'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($uprice, 2).'</td>
-                <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($total_price, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 240px;">'.$prod_name.'</td>
+                <td style="border: 0.5px solid #000000; width: 27px;">'.$qty.'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($uprice, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($total_price, 2).'</td>
 
             </tr>';
         }
 
+        
+
         $tbl = $tbl .'
             <tr>
-                <td style="border: 1px solid #000000; width: 397px;">Total Price</td>
-                <td style="border: 1px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 397px;">Total Price</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
+
+            </tr>
+            
+        ';
+
+        $tbl = $tbl .'
+            <tr>
+                <td style="border: 0.5px solid #000000; width: 397px;">Discount &nbsp; '.$amount. "%".'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($amount_total, 2).'</td>
+
+            </tr>
+            
+        ';
+         $tbl = $tbl .'
+            <tr>
+                <td style="border: 0.5px solid #000000; width: 397px;">Grand Total</td>
+                <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($grand_total, 2).'</td>
 
             </tr>
             <br><br>
