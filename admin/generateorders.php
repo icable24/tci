@@ -42,7 +42,7 @@ class MYPDF extends TCPDF {
 if(!empty($_POST)){
 
 //start sang arguement
-    $categ1 = isset($_POST['rcategory']) ? $_POST['ssdate'] : '0' ? $_POST['eedate'] : '0';
+    $categ1 = isset($_POST['rcategory']) ? $_POST['sdate'] : '0' ? $_POST['edate'] : '0';
     $categ1 = $_POST['rcategory'];
     $categ = isset($_POST['rtype']) ? $_POST['sdate'] : '0' ? $_POST['edate'] : '0';
     $categ = $_POST['rtype'];
@@ -123,7 +123,10 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT *  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered' AND user_type = 'Single Buyer'"; 
+      $sql = "SELECT * FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered' AND user_type = 'Single Buyer'"; 
+
+     
+
 
       $result = mysqli_query($connect, $sql);  
 
@@ -141,7 +144,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 60px;">'.$order_id.'</td>
                   <td style="border: 0px solid #ffffff; width: 150px;">'.$acc_fname.'</td>
                   <td style="border: 0px solid #ffffff; width: 100px;">'.$acc_contact.'</td>
-                  <td style="border: 0px solid #ffffff; width: 230px;">'.$shippingaddress.'</td>
+                  <td style="border: 0px solid #ffffff; width: 100px;">'.$shippingaddress.'</td>
                   <td style="border: 0px solid #ffffff; width: 120px;">'.$order_amount.'</td>
                   <td style="border: 0px solid #ffffff; width: 130px;">'.$date_finished.'</td>
 
@@ -149,6 +152,7 @@ EOD;
               </tr>';
 
         while($row = mysqli_fetch_array($result)){
+
         $order_id = $row["order_id"];
         $acc_fname = $row["acc_fname"];
         $acc_lname = $row["acc_lname"];
@@ -156,6 +160,7 @@ EOD;
         $shippingaddress = $row["shippingaddress"];
         $order_amount = $row["order_amount"];
         $date_finished = strtotime($row["date_finished"]);
+        $discount = $row["discount_amount"];
         
         
 
@@ -167,9 +172,10 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 60px;">'.$order_id.'</td>
                 <td style="border: 0.5px solid #000000; width: 150px;">'.$acc_fname. ' ' .$acc_lname.'</td>
                 <td style="border: 0.5px solid #000000; width: 100px;">'.$acc_contact.'</td>
-                <td style="border: 0.5px solid #000000; width: 230px;">'.$shippingaddress.'</td>
+                <td style="border: 0.5px solid #000000; width: 100px;">'.$shippingaddress.'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'."Php " .number_format($order_amount, 2).'</td>
                 <td style="border: 0.5px solid #000000; width: 130px;">'.date("F j, Y", $date_finished).'</td>
+                <td style="border: 0.5px solid #000000; width: 30px;">'.$discount.'</td>
 
             </tr>';
         }
@@ -368,16 +374,16 @@ EOD;
         //==============================================================
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-    if(!empty($_POST['ssdate']) && !empty($_POST['eedate'])){
-    $ssdate = $_POST['ssdate'];
-    $eedate = $_POST['eedate'];
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
     
 
-    echo $ssdate;
-    echo $eedate;
+    echo $sdate;
+    echo $edate;
 
 
-      $sql = "SELECT *  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_ordered between '$ssdate' and '$eedate' AND order_finish = 'Cancelled' AND user_type = 'Single Buyer'"; 
+      $sql = "SELECT *  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_ordered between '$sdate' and '$edate' AND order_finish = 'Cancelled' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -419,7 +425,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 190px;">'.$acc_fname. ' ' .$acc_lname.'</td>
                 <td style="border: 0.5px solid #000000; width: 250px;">'.$shippingaddress.'</td>
                 <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
-                <td style="border: 0.5px solid #000000; width: 140px;">'. date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'. date("F j, Y", $date_finished).'</td>
 
             </tr>';
         }
@@ -753,16 +759,16 @@ EOD;
         //==============================================================
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-    if(!empty($_POST['ssdate']) && !empty($_POST['eedate'])){
-    $ssdate = $_POST['ssdate'];
-    $eedate = $_POST['eedate'];
+    if(!empty($_POST['sdate']) && !empty($_POST['edate'])){
+    $sdate = $_POST['sdate'];
+    $edate = $_POST['edate'];
     
 
-    echo $ssdate;
-    echo $eedate;
+    echo $sdate;
+    echo $edate;
 
 
-      $sql = "SELECT *  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_ordered between '$ssdate' and '$eedate' AND order_finish = 'Cancelled' AND user_type = 'Company'"; 
+      $sql = "SELECT *  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_ordered between '$sdate' and '$edate' AND order_finish = 'Cancelled' AND user_type = 'Company'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -803,7 +809,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 190px;">'.$acc_company.'</td>
                 <td style="border: 0.5px solid #000000; width: 250px;">'.$shippingaddress.'</td>
                 <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($order_amount, 2).'</td>
-                <td style="border: 0.5px solid #000000; width: 140px;">'. date("F j, Y", $date_ordered).'</td>
+                <td style="border: 0.5px solid #000000; width: 140px;">'. date("F j, Y", $date_finished).'</td>
 
             </tr>';
         }

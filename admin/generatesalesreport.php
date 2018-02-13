@@ -120,7 +120,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -166,7 +166,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px; text-align:right">'.number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -187,7 +187,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -222,7 +222,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 180px;"></td>
                   <td style="border: 0px solid #ffffff; width: 110px;"></td>
                   <td style="border: 0px solid #ffffff; width: 115px;"></td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px; text-align:right">'."Php " .number_format($total, 2).'</td>
 
             </tr>';
         }
@@ -297,7 +297,7 @@ EOD;
         //==============================================================
    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Delivered'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -343,7 +343,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;text-align:right">'.number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -355,7 +355,7 @@ EOD;
              //==============================================================
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Delivered'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -390,8 +390,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 180px;"></td>
                   <td style="border: 0px solid #ffffff; width: 110px;"></td>
                   <td style="border: 0px solid #ffffff; width: 115px;"></td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
-
+                <td style="border: 0.5px solid #000000; width: 130px;text-align:right">'."Php " .number_format($total, 2).'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -478,7 +477,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -520,7 +519,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 200px;">'.$acc_fname. ' ' .$acc_lname.'</td>
                 <td style="border: 0.5px solid #000000; width: 150px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 0.5px solid #000000; width: 150px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px solid #000000; width: 200px;">'."Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 200px; text-align: right">'.number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -541,7 +540,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -574,7 +573,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 190px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
                   <td style="border: 0px solid #ffffff; width: 150px;"></td>
-                <td style="border: 0.5px solid #000000; width: 200px;">'."Php " .number_format($total, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 200px; text-align: right">'.number_format($total, 2).'</td>
 
             </tr>';
         }
@@ -650,7 +649,7 @@ EOD;
         //==============================================================
    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Delivered' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -692,7 +691,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 200px;">'.$acc_fname. ' ' .$acc_lname.'</td>
                 <td style="border: 0.5px solid #000000; width: 130px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 0.5px solid #000000; width: 130px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px solid #000000; width: 220px;">'."Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 220px;text-align:right">'.number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -704,7 +703,7 @@ EOD;
              //==============================================================
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Single Buyer'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Delivered' AND user_type = 'Single Buyer'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -737,8 +736,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 200px;"></td>
                   <td style="border: 0px solid #ffffff; width: 130px;"></td>
                   <td style="border: 0px solid #ffffff; width: 115px;"></td>
-                <td style="border: 0.5px solid #000000; width: 220px;">'."Php " .number_format($total, 2).'</td>
-
+                <td style="border: 0.5px solid #000000; width: 220px;text-align:right">'."Php " .number_format($total, 2).'</td>
 
             </tr>';
         }
@@ -824,7 +822,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Company'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered' AND user_type = 'Company'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -870,7 +868,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
+                <td style="border: 0.5px solid #000000; width: 130px;text-align:right">'.number_format($order_amount, 2).'</td>
 
             </tr>';
         }
@@ -891,7 +889,7 @@ EOD;
     echo $edate;
 
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Completed' AND user_type = 'Company'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE date_finished between '$sdate' and '$edate' AND order_finish = 'Delivered' AND user_type = 'Company'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -926,8 +924,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 180px;"></td>
                   <td style="border: 0px solid #ffffff; width: 110px;"></td>
                   <td style="border: 0px solid #ffffff; width: 115px;"></td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
-
+                <td style="border: 0.5px solid #000000; width: 130px;text-align:right">'."Php " .number_format($total, 2).'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
@@ -1002,7 +999,7 @@ EOD;
         //==============================================================
    $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Company'"; 
+      $sql = "SELECT order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Delivered' AND user_type = 'Company'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -1048,8 +1045,7 @@ EOD;
                 <td style="border: 0.5px solid #000000; width: 180px;">'.$acc_company.'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_ordered).'</td>
                 <td style="border: 0.5px solid #000000; width: 120px;">'.date("F j, Y", $date_finished).'</td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($order_amount, 2).'</td>
-
+                <td style="border: 0.5px solid #000000; width: 130px;text-align:right">'.number_format($order_amount, 2).'</td>
             </tr>';
         }
 
@@ -1061,7 +1057,7 @@ EOD;
              //==============================================================
     $connect = mysqli_connect("localhost", "root", "", "tcishop");  
 
-      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Completed' AND user_type = 'Company'"; 
+      $sql = "SELECT SUM(order_amount) as 'total', order_id, acc_fname, acc_lname, acc_company, order_amount, date_ordered, date_finished  FROM orders JOIN account ON orders.acc_id = account.acc_id WHERE order_finish = 'Delivered' AND user_type = 'Company'"; 
 
       $result = mysqli_query($connect, $sql);  
 
@@ -1096,8 +1092,7 @@ EOD;
                   <td style="border: 0px solid #ffffff; width: 180px;"></td>
                   <td style="border: 0px solid #ffffff; width: 110px;"></td>
                   <td style="border: 0px solid #ffffff; width: 115px;"></td>
-                <td style="border: 0.5px solid #000000; width: 130px;">'."Php " .number_format($total, 2).'</td>
-
+                <td style="border: 0.5px solid #000000; width: 130px;text-align:right">'."Php " .number_format($total, 2).'</td>
             </tr>';
         }
         $tbl = $tbl . '</table>';
