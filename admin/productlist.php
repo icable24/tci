@@ -59,7 +59,8 @@ input[type=text]:focus {
             </select>
             </div>
           <br><br>
-          <div><h1>Products <span class="pull-right"><a href="productcreate.php" class="btn btn-success">Add Product</a></span></h1></div>
+          <?php if($name['user_type'] != 'inventory'){ ?><div><h1>Products <span class="pull-right"><a href="productcreate.php" class="btn btn-success">Add Product</a></span></h1></div>
+          <?php } ?>
           <br>
          </div>
          <table class="table" id="myTable">
@@ -96,11 +97,18 @@ input[type=text]:focus {
                     }else{
                       echo '<td>'.$row['prod_diameter']. ' Dia. x '. $row['prod_height2'] . ' Ht.'. '</td>';
                     }
-                    echo '<td>
-                          <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit"></span></a>
-                          <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Feature"><span class="fa fa-star"></span></a>
-                          <a class="btn btn-info btn-md" href="addinventory.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Add Inventory"><span class="fa fa-cube"></span></a>
-                          </td>';                 
+                    if($name['user_type'] != 'inventory'){
+                        echo '<td>
+                            <a class="btn btn-primary btn-md" href="productupdate.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-edit"></span></a>
+                            <a class="btn btn-warning btn-md" href="../php/addfeature.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Feature"><span class="fa fa-star"></span></a>
+                            <a class="btn btn-info btn-md" href="addinventory.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="Add Inventory"><span class="fa fa-cube"></span></a>
+                            </td>';  
+                    }else{
+                        echo '
+                            <td>
+                              <a class="btn btn-primary btn-md" href="productview.php?id='.$row['prod_id'].'" data-toggle="tooltip" title="View"><span class="fa fa-eye"></span></a>
+                            </td>';  
+                          }               
                   echo '</tr>';
                 }
                 Database::disconnect();

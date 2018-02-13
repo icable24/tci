@@ -24,6 +24,8 @@ session_start();
         }
         if($count['user_type'] == 'admin'){
            header("Location:../admin/index.php"); 
+        }elseif($count['user_type'] == 'inventory'){
+            header("location:../admin/index.php");
         }else{
             header("Location:../index.php");
         }     

@@ -16,6 +16,12 @@
  $inquire = $pdo->prepare("SELECT * FROM inquiry WHERE statusView = 0 AND status = 'Unread'");
  $inquire->execute();
  $inquire = $inquire->fetchAll();  
+
+   $user1 = $_SESSION['login_username'];
+  $pdo = Database::connect();
+  $abc = $pdo->prepare("SELECT * FROM account WHERE acc_email = ?");
+  $abc->execute(array($user1));
+  $abc = $abc->fetch(PDO::FETCH_ASSOC); 
 ?>
 <header class="header">
          <nav class="navbar">
@@ -68,7 +74,9 @@
                     }
                   ?>                    
                 </li>
+                 <?php if($abc['user_type'] != 'inventory'){ ?>
                 <li class="nav-item"><a href="../index.php" class="nav-link logout">View Shop</a></li>
+                <?php } ?>
                 <li class="nav-item"><a href="../php/logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
