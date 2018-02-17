@@ -46,17 +46,13 @@ $(document).ready(function(){
                       <div class="controls">
                         <select id="custype" name="custype" style="width: 3in" class="form-control" required="">
                           <option></option>
+                          <option value="all">All</option>
                           <option value="SB">Single Buyer</option>
                           <option value="C">Company</option>
                         </select>
                     </div>
                   </div>
                 </div>
-                <br> <br>
-                  <div class="control-group">
-                     <label class="radio-inline"><input type="radio" name="optradio" value="DO" required="">&nbsp;&nbsp;Discounted</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="radio-inline"><input type="radio" name="optradio" value="NO" required="">&nbsp;&nbsp;Non-discounted</label>
-                  </div>
                 <br>
                 <div class="row">
                 <div class="col control-group">
@@ -71,7 +67,7 @@ $(document).ready(function(){
                   </div>
                 </div>
                 
-                    <br>
+                    <br><br>
 				<div class="row justify-content-center ">
                   <div class="col-6 STS box">
                     <div class="control-group">
@@ -116,7 +112,7 @@ $(document).ready(function(){
 																</div>
 				</div>
                     
-<br><br>
+<br><br><br><br>
 <button type="submit" name="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Generate </button>	
 </center>
 </div>

@@ -76,7 +76,7 @@ input[type=text]:focus {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //sql statement to get products and sort by product code
-                $sql = 'SELECT * FROM account WHERE user_type != "admin" ORDER BY user_type ASC';
+                $sql = 'SELECT * FROM account WHERE user_type != "admin" and user_type != "inventory" ORDER BY user_type ASC';
 
                 //display all products in the database
                 foreach ($pdo->query($sql) as $row) {
@@ -108,7 +108,7 @@ function myFunction() {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";

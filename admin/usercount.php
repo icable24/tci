@@ -130,7 +130,7 @@
 
 $connection = mysqli_connect("localhost", "root", "", "tcishop");
 
-$queryString1 = "SELECT COUNT(*)  AS total1 FROM account WHERE user_type != 'admin'";
+$queryString1 = "SELECT COUNT(*)  AS total1 FROM account WHERE user_type != 'admin' AND user_type != 'inventory'";
 $queryString8 = "SELECT COUNT(*)  AS total8 FROM account WHERE user_type = 'Company'";
 $queryString9 = "SELECT COUNT(*)  AS total9 FROM account WHERE user_type = 'Single Buyer'";
 

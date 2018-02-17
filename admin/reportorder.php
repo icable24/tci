@@ -78,6 +78,11 @@ $(document).ready(function(){
                     </div>
                   </div>
                   <br>
+                  <div class="D box">
+                     <label class="radio-inline"><input type="radio" name="optradio" value="DO">&nbsp;&nbsp;Discounted Orders</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label class="radio-inline"><input type="radio" name="optradio" value="NO">&nbsp;&nbsp;Non-discounted Orders</label>
+                  </div>
+                  <br>
                    <div class="D box">
                       <label class="control-label" for="inputcategory">Report Type</label>
                       <div class="controls">
