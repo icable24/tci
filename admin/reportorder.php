@@ -48,7 +48,8 @@ $(document).ready(function(){
         <div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
-            <div>
+            <div align="center">
+              <span class="fa fa-truck fa-3x"></span>
               <h1>Order Report</h1>
             </div>
             <div class="card-block">

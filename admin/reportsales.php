@@ -33,12 +33,13 @@ $(document).ready(function(){
       	<div class="container-fluid">
         <div class="offset-1 col-10">
           <div class="alert alert-success">
-            <div>
+           <div align="center">
+              <span class="fa fa-line-chart fa-3x"></span>
               <h1>Total Sales Report</h1>
             </div>
             <div class="card-block">
               <form action="generatesalesreport.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
-                <br> <br>
+                <br>
                 <center>
                 <div class="row">
                 <div class="col control-group">

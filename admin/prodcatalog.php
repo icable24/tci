@@ -17,13 +17,14 @@
         <div class="offset-1 col-10">
           <div class="alert alert-success">
             <br>
-            <div>
+            <div align="center">
+              <span class="fa fa-tags fa-3x"></span>
               <h1>Product Catalog Report</h1>
             </div>
             <div class="card-block" style="height: 4in">
               <form action="generateprodcatalog.php" id="myform" name="myform" enctype="multipart/form-data" method="post">
                 
-                    <br> <br> <br> <br>
+                    <br> <br> <br>
                     <center>
                       <div class="control-group">
                       <label class="control-label" for="inputcategory">Product Category</label>

@@ -35,7 +35,7 @@
          <li><a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-padnote"></i><span>Profiles</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="pages-nav-list" class="collapse list-unstyled">
-            <li><a href="#product-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-form"></i><span>Product</span>
+            <li><a href="#product-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-tags"></i><span>Product</span>
               <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
               <ul id="product-nav-list" class="collapse list-unstyled">
                 <li> <a href="productlist.php"><span>Product List</span></a></li>
@@ -54,8 +54,8 @@
       <li><a href="#transact-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-interface-windows"></i><span>Transaction</span>
         <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
         <ul id="transact-nav-list" class="collapse list-unstyled">
-          <li><a href="orderlist.php"><span>Purchase Order</span></a></li>
-          <li><a href="inquiry.php"><span>Inquiry</span></a></li>
+          <li><a href="orderlist.php"><i class="fa fa-list-alt"></i><span>Purchase Order</span></a></li>
+          <li><a href="inquiry.php"><i class="fa fa-question-circle"></i><span>Inquiry</span></a></li>
           <li><a href="#inventory-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-cube"></i><span>Inventory</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="inventory-nav-list" class="collapse list-unstyled">
               <li><a href="inventorylist.php"><span>Inventory List</span></a></li>
@@ -69,10 +69,10 @@
       <li><a href="#account-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-bar-chart"></i><span>Reports</span>
           <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
           <ul id="account-nav-list" class="collapse list-unstyled">
-            <li><a href="prodcatalog.php"><i class="icon-form"></i><span>Product Catalog</span></a></li>
+            <li><a href="prodcatalog.php"><i class="fa fa-tags"></i><span>Product Catalog</span></a></li>
             <li><a href="reportinventory.php"><i class="fa fa-cube"></i><span>Inventory</span></a></li>
             <li><a href="reportorder.php"><i class="fa fa-truck"></i><span>Orders</span></a></li>
-            <li><a href="#sales-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-dollar"></i><span>Sales</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+            <li><a href="#sales-nav-list" data-toggle="collapse" aria-expanded="false"><i class="fa fa-line-chart"></i><span>Sales</span><div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
             <ul id="sales-nav-list" class="collapse list-unstyled">
               <li><a href="reportsales.php"><span>Total Sales</span></a></li>
               <li><a href="bestseller.php"><span>Best Seller</span></a></li>    
