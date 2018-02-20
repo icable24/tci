@@ -40,8 +40,12 @@
 
 					foreach($order as $row){
 						$order_id = $row['order_id'];
-						$date = $row['date_ordered'];
-						$amount = "Php " . number_format($row['order_amount']);
+						$date = date("F j, Y", strtotime($row['date_ordered']));
+						if($row['discount_amount'] > 0){
+							$amount = "Php " . number_format($row['discount_amount']);
+						}else{
+							$amount = "Php " . number_format($row['order_amount']);
+						}
 						$status = $row['order_finish'];
 						echo"
 							<tr>

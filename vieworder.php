@@ -20,6 +20,14 @@
 	 	$order = $pdo->prepare('SELECT * FROM orders WHERE order_id = ?');
 	 	$order->execute(array($order_id));
 	 	$order = $order->fetch();
+
+	 	$payment = $pdo->prepare("SELECT * FROM paymenthistory WHERE order_id = ?");
+	 	$payment->execute(array($order_id));
+	 	$payment = $payment->fetch();
+
+	 	$discount = $pdo->prepare("SELECT * FROM discount WHERE order_id = ?");
+	 	$discount->execute(array($order_id));
+	 	$discount = $discount->fetch();
 	 }else{
 	 	header("location: orderhistory.php");
 	 }
@@ -80,13 +88,34 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-6">
-						<h3>Total Amount: </h3>
+						<h3>Amount</h3>
+					</div>
+					<div class="col-md-6">
+						<h4><?php echo "Php " . number_format($order['order_amount'],2); ?></h4>
 					</div>
 				</div>
-				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-6">
-						<h4><?php echo "Php " . number_format($order['order_amount'],2);
+						<h3>Discount</h3>
+					</div>
+					<div class="col-md-6">
+						<h3><?php if($order['discount_amount'] > 0){echo $discount['discount'] . "%";}else{echo "----";} ?></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						
+					</div>
+					<div class="col-md-6">
+						<h3><?php if($order['discount_amount'] > 0){echo "Php " . number_format($discount['amount'], 2);}else{echo "----";} ?></h3>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Discounted Amount: </h3>
+					</div>
+					<div class="col-md-6">
+						<h4><?php if($order['discount_amount']> 0){echo "Php " . number_format($order['discount_amount'],2 		);}else{echo "Php " . number_format($order['order_amount'],2);}
 						 ?></h4>
 					</div>
 				</div>
@@ -116,10 +145,39 @@
 				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-12">
-						<h4><?php if($order['order_finish'] == 'Delivery' && $order['order_finish'] != 'Delivered'){
-							echo date("F j, Y", strtotime($order['date_finished']));}else{
-							echo "N/A";
+						<h4><?php if($order['order_finish'] == 'Pending' && $order['order_finish'] != 'Processing'){
+							echo "N/A";}else{
+							echo date("F j, Y", strtotime($order['date_finished']));							
 						} ?></h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<h3>Payment History</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Account Number</h4>
+					</div>
+					<div class="col-md-6">
+						<h4><?php if($payment){echo $payment['account_num'];} ?></h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Amount</h4>
+					</div>
+					<div class="col-md-6">
+						<h4><?php if($payment){echo "Php " . number_format($payment['amount'],2);} ?></h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Payment Date</h4>
+					</div>
+					<div class="col-md-6">
+						<h4><?php if($payment){echo date("F j, Y", strtotime($payment['pay_date']));} ?></h4>
 					</div>
 				</div>
 			</div>

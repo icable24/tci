@@ -75,7 +75,11 @@
 							$customer = $customer->fetch();
 							$customerName = $customer['acc_fname'] . ' ' . $customer['acc_lname'];
 							$order_id = $row['order_id'];
-							$total = "Php " . number_format($row['order_amount'], 2);
+							if($row['discount_amount'] > 0){
+								$total = "Php " . number_format($row['discount_amount'], 2);
+							}else{
+								$total = "Php " . number_format($row['order_amount'], 2);
+							}
 							$date_ordered = date("F j, Y", strtotime($row['date_ordered']));
 							$status = $row['order_finish'];
 							echo "
