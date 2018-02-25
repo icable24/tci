@@ -2,10 +2,28 @@
   include('../login_success.php');
   include('../database.php');
   $user_name = $_SESSION['login_username'];
+
+  $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+  $perPage = 20;
+
+// Positioning
+  $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
   $pdo = Database::connect();
   $name = $pdo->prepare("SELECT * FROM account WHERE user_name like '$user_name'");
   $name->execute();
-  $name = $name->fetch(PDO::FETCH_ASSOC); 
+  $name = $name->fetch(PDO::FETCH_ASSOC);
+
+  $p = $pdo->prepare("SELECT count(*) FROM product");
+  $p->execute();
+  $p = $p->fetch(PDO::FETCH_ASSOC);
+
+  $total = $p['count(*)'];
+  $pages = ceil($total / $perPage);
+
+  $prod = $pdo->prepare("SELECT * FROM product LIMIT {$start},{$perPage}");
+  $prod->execute();
+  $prod = $prod->fetchAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,6 +53,15 @@ select{
 }
 input[type=text]:focus {
     width: 50%;
+}
+
+.pager{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.active{
+  color: #666666;
+  text-decoration: underline;
 }
     </style>
 
@@ -77,12 +104,9 @@ input[type=text]:focus {
             </thead>
             <tbody>
               <?php       
-                $pdo = Database::connect();
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //sql statement to get products and sort by product code
-                $sql = 'SELECT * FROM product ORDER BY prod_code ASC';
+
                 //display all products in the database
-                foreach ($pdo->query($sql) as $row) {
+                foreach ($prod as $row) {
                 $query = $pdo->prepare("SELECT * FROM productcategory WHERE pc_id = ?");
                   $query->execute(array($row['pc_name']));
                   $pc = $query->fetch(PDO::FETCH_ASSOC);  
@@ -93,9 +117,9 @@ input[type=text]:focus {
                     echo '<td>'.$pc['pc_name'].'</td>';
                     echo '<td>'.' Php '.$row['prod_price'].'</td>';
                     if($row['prod_length']!='0' && $row['prod_width'] != '0' && $row['prod_height'] != '0'){
-                      echo '<td>'.$row['prod_length'].' x '. $row['prod_width'] . ' x ' . $row['prod_height'] .'</td>';
+                      echo '<td>'.$row['prod_length'].' x '. $row['prod_width'] . ' x ' . $row['prod_height'] .' cm</td>';
                     }else{
-                      echo '<td>'.$row['prod_diameter']. ' Dia. x '. $row['prod_height2'] . ' Ht.'. '</td>';
+                      echo '<td>'.$row['prod_diameter']. ' Dia. x '. $row['prod_height2'] . ' Ht.'. ' cm</td>';
                     }
                     if($name['user_type'] != 'inventory'){
                         echo '<td>
@@ -115,9 +139,39 @@ input[type=text]:focus {
               ?>
             </tbody>
          </table>
+         <div class="row">
+        <div class="offset-5 col">
+          <div class="row">
+       <nav class="text-center">
+          <ul class="pagination">
+          <?php if($page > 1){?>
+            <li class="pager">
+              <a href="?page=<?php echo $page-1; ?>" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          <?php }?>
+          
+          <?php for($x = 1; $x <= $pages; $x++) : ?>
+            <li class="pager"><a href="?page=<?php echo $x; ?>"  <?php if($x === $page){echo 'class=active disabled';} ?>><?php echo $x; ?></a></li>
+          <?php endfor; ?>
+          
+          <?php if($page < $pages){?>
+            <li class="pager">
+              <a href="?page=<?php echo $page+1; ?>" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          <?php }?>
+          
+          </ul>
+      </nav>
+      </div>
+        </div>
+      </div>
       </div>
       <!-- Footer Section -->
-      <?php include('footer.php'); ?>
+     <?php include('footer.php'); ?>
     </div>
     <!-- Javascript files-->
     <?php include('js.php'); ?>

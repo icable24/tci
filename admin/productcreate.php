@@ -108,7 +108,7 @@
                 </div>
               <div class="row">
                 <div class="col">
-                  <label>Dimension:</label>
+                  <label>Dimension (in cm):</label>
                 </div>
               </div>
               <div class="row">

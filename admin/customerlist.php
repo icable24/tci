@@ -7,6 +7,23 @@
   $name = $pdo->prepare("SELECT * FROM account WHERE user_name like '$user_name'");
   $name->execute();
   $name = $name->fetch(PDO::FETCH_ASSOC); 
+
+  $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $perPage = 20;
+
+// Positioning
+    $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+    $acc = $pdo->prepare("SELECT * FROM account WHERE user_type != 'admin' and user_type != 'inventory' ORDER BY user_type ASC  LIMIT {$start},{$perPage}");
+    $acc->execute();
+    $acc = $acc->fetchAll();
+
+  $p = $pdo->prepare("SELECT count(*) FROM account WHERE user_type != 'admin' and user_type != 'inventory'");
+  $p->execute();
+  $p = $p->fetch(PDO::FETCH_ASSOC);
+
+  $total = $p['count(*)'];
+    $pages = ceil($total / $perPage);
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,6 +52,14 @@ select{
 }
 input[type=text]:focus {
     width: 50%;
+}
+.pager{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.active{
+  color: #666666;
+  text-decoration: underline;
 }
     </style>
     <!-- Side Navbar -->
@@ -73,13 +98,9 @@ input[type=text]:focus {
             </thead>
             <tbody>
             <?php       
-                $pdo = Database::connect();
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //sql statement to get products and sort by product code
-                $sql = 'SELECT * FROM account WHERE user_type != "admin" and user_type != "inventory" ORDER BY user_type ASC';
 
                 //display all products in the database
-                foreach ($pdo->query($sql) as $row) {
+                foreach ($acc as $row) {
               echo '<tr>';
                 echo '<td>'.  $row["user_type"]. ' </td>' ;
                 echo '<td>'. $row['acc_fname'] ." ". $row['acc_lname'] . '</td>';
@@ -93,6 +114,36 @@ input[type=text]:focus {
               ?>
         </tbody>
          </table>
+         <div class="row">
+        <div class="offset-5 col">
+          <div class="row">
+       <nav class="text-center">
+          <ul class="pagination">
+          <?php if($page > 1){?>
+            <li class="pager">
+              <a href="?page=<?php echo $page-1; ?>" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          <?php }?>
+          
+          <?php for($x = 1; $x <= $pages; $x++) : ?>
+            <li class="pager"><a href="?page=<?php echo $x; ?>"  <?php if($x === $page){echo 'class=active disabled';} ?>><?php echo $x; ?></a></li>
+          <?php endfor; ?>
+          
+          <?php if($page < $pages){?>
+            <li class="pager">
+              <a href="?page=<?php echo $page+1; ?>" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          <?php }?>
+          
+          </ul>
+      </nav>
+      </div>
+        </div>
+      </div>
       </div>
       <!-- Footer Section -->
       <?php include('footer.php'); ?>

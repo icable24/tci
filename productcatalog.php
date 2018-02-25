@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <?php 	
 	include('head.php');
@@ -16,6 +16,19 @@
 	}else{
 		header('location:index.php');
 	}
+
+	$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+  	$perPage = 9;
+
+// Positioning
+  	$start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+  	$p = $pdo->prepare("SELECT count(*) FROM product WHERE pc_name = ?");
+	$p->execute(array($category['pc_id']));
+	$p = $p->fetch(PDO::FETCH_ASSOC);
+
+	$total = $p['count(*)'];
+    $pages = ceil($total / $perPage);
 ?>
 <style>
 * {
@@ -50,6 +63,16 @@ body {
 	height: 350px;
 	width: 300px;
 }
+
+.pagination > li > a:hover{
+	background-color: #8ce78a;
+	border-color: #8ce78a;
+}
+
+.page1{
+	border-color: #dff0d8 !important;
+	background-color: #dff0d8 !important;
+}
 </style>
 <body>
 <?php  include('header.php'); ?>
@@ -69,8 +92,8 @@ body {
 						if(isset($_SESSION['login_username'])){
 							$pc_id = $category['pc_id'];
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-							$product= $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM product WHERE pc_name = ? ORDER BY prod_code');
-							$product->execute(array($pc_id));
+							$product= $pdo->prepare("SELECT * FROM product WHERE pc_name = $pc_id LIMIT {$start},{$perPage}");
+							$product->execute();
 							$product = $product->fetchAll(PDO::FETCH_ASSOC);
 
 							foreach($product as $row){
@@ -94,8 +117,8 @@ body {
 
 							$pc_id = $category['pc_id'];
 							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-							$product= $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM product WHERE pc_name = ? ORDER BY prod_code');
-							$product->execute(array($pc_id));
+							$product= $pdo->prepare("SELECT * FROM product WHERE pc_name = $pc_id LIMIT {$start},{$perPage}");
+							$product->execute();
 							$product = $product->fetchAll(PDO::FETCH_ASSOC);
 
 							foreach($product as $row){
@@ -109,15 +132,44 @@ body {
 											echo '</div>';
 										echo '</a>';
 									echo '</div>';
-									echo '<p class="tun">'. $row['prod_name'] . '</p>';
-									echo '<div class="ca-rt">';
-									echo '</div>';
+									echo '<div class="cleafix"></div><br>';
+									echo '<p style="color:#6e7786;">'. $row['prod_name'] . '</p>';
 								echo '</div>';
 										}
 										 
-									}
+							}
 						?>
 					</div>
+					<div class="row">
+        <div class="offset-5 col">
+          <div class="row">
+       <nav class="text-center">
+          <ul class="pagination">
+          <?php if($page > 1){?>
+            <li>
+              <a href="productcatalog.php?id=<?php echo $category['pc_id']; ?>&page=<?php echo $page-1; ?>" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          <?php }?>
+          
+          <?php for($x = 1; $x <= $pages; $x++) : ?>
+            <li><a href="productcatalog.php?id=<?php echo $category['pc_id']; ?>&page=<?php echo $x; ?>" <?php if($x === $page){echo "class=page1";} ?>><?php echo $x; ?></a></li>
+          <?php endfor; ?>
+          
+          <?php if($page < $pages){?>
+            <li>
+              <a href="productcatalog.php?id=<?php echo $category['pc_id']; ?>&page=<?php echo $page+1; ?>" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          <?php }?>
+          
+          </ul>
+      </nav>
+      </div>
+        </div>
+      </div>
 				</div>
 			</div>
 		</div>
