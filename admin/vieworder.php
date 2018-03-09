@@ -16,6 +16,10 @@
  	$checkhist = $pdo->prepare("SELECT * FROM paymenthistory WHERE order_id = ?");
  	$checkhist->execute(array($order_id));
  	$checkhist = $checkhist->fetch();
+
+ 	$carrierinfo = $pdo->prepare("SELECT * FROM carrier WHERE order_id = ?");
+ 	$carrierinfo->execute(array($order_id));
+ 	$carrierinfo = $carrierinfo->fetch();
 ?>
 <!DOCTYPE html>
 <style type="text/css">
@@ -174,6 +178,36 @@
 								</div>		
 							</div>
 						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="alert alert-success">
+						<?php if($order['order_finish'] != 'Cancelled'){ ?>
+							<h1>Carrier Information
+								<?php if(!($carrierinfo)){ ?>
+								<span class="pull-right">
+									<a href='addcarrier.php?id=<?php echo $order_id ?>' class='btn btn-success btn-md' data-toggle='tooltip' title='Add'><span>Add</span></a>
+								</span>
+								<?php } ?>
+							</h1>
+							<div class="card-block">
+								<div class="row">
+									<div class="col-5">
+										<h3>Carrier Name: </h3>
+									</div>
+									<div class="col-7">
+										<?php echo $carrierinfo['carrierName'] ?>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-5">
+										<h3>Waivel No. </h3>
+									</div>
+									<div class="col-7">
+										<?php echo $carrierinfo['waivelNo'] ?>
+									</div>
+								</div>
+							</div>					
+						<?php } ?>
 					</div>
 				</div>
 				<div class="col-6">
