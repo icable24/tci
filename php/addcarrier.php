@@ -4,16 +4,16 @@
 	if(isset($_GET['id'])){
 		$order_id = $_REQUEST['id'];
 
-		$carrierName = $_POST['carrierName'];
-		$waivelNo = $_POST['waivelNo'];
+		$carrier_name = $_POST['carrier_name'];
+		$waivel_number = $_POST['waivel_number'];
 
 		$pdo = Database::connect();
 
-		$add = $pdo->prepare("INSERT INTO carrier(carrierName, waivelNo, order_id) VALUES(?,?,?)");
-		$add->execute(array($carrierName, $waivelNo, $order_id));
+		$add = $pdo->prepare("INSERT INTO carrier(carrier_name, waivel_number, order_id) VALUES(?,?,?)");
+		$add->execute(array($carrier_name, $waivel_number, $order_id));
 		
-		header("location: ../admin/vieworder.php?id=" . $order_id);
+		//header("location: ../admin/vieworder.php?id=" . $order_id);
 	}else{
-		header("location: ../admin/orderlist.php");
+		//header("location: ../admin/orderlist.php");
 	}
 ?>

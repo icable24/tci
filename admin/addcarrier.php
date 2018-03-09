@@ -33,9 +33,9 @@
 								<div class="row">
 									<div class="col-12">	
 										<div class="control-group">
-											<label class="control-label" for='carrierName'>Carrier Name</label>
+											<label class="control-label" for='carrier_name'>Carrier Name</label>
 											<div class="controls">
-												<input type="text" name="carrierName" id="carrierName" required="" class="form-control">
+												<input type="text" name="carrier_name" id="carrier_name" required="" class="form-control">
 											</div>
 										</div>
 									</div>
@@ -43,9 +43,9 @@
 								<div class="row">
 									<div class="col-12">	
 										<div class="control-group">
-											<label class="control-label" for='waivelNo'>Waivel No</label>
+											<label class="control-label" for='waivel_number'>Waivel No</label>
 											<div class="controls">
-												<input type="text" name="waivelNo" id="waivelNo" required="" class="form-control">
+												<input type="text" name="waivel_number" id="waivel_number" required="" class="form-control">
 											</div>
 										</div>
 									</div>

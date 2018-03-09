@@ -27,7 +27,7 @@
 		width:75px;
 		height: 75px;
 	}
-</style> j
+</style> 
 <html>
 <?php 
 	include("head.php");
@@ -195,7 +195,7 @@
 										<h3>Carrier Name: </h3>
 									</div>
 									<div class="col-7">
-										<?php echo $carrierinfo['carrierName'] ?>
+										<?php echo $carrierinfo['carrier_name'] ?>
 									</div>
 								</div>
 								<div class="row">
@@ -203,7 +203,7 @@
 										<h3>Waivel No. </h3>
 									</div>
 									<div class="col-7">
-										<?php echo $carrierinfo['waivelNo'] ?>
+										<?php echo $carrierinfo['waivel_number'] ?>
 									</div>
 								</div>
 							</div>					

@@ -105,7 +105,7 @@ input[type=text]:focus {
                     <td class='text-right'>
                     <a href='inventorydetails.php?id=$prod_code' class='btn btn-success'>Details</a>
                     <a href='inventoryhistory.php?id=$inventory_id' class='btn btn-success'>History</a>
-                    <a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout</a></td>
+                    <a href='pulloutinventory.php?id=$prod_code' class='btn btn-success'>Pullout</a></td>
                   </tr>
                 ";
               }

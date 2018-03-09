@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2018 at 04:01 PM
+-- Generation Time: Mar 09, 2018 at 08:27 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,11 +29,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `carrier` (
-  `carrierId` int(11) NOT NULL,
-  `carrierName` varchar(50) NOT NULL,
-  `waivelNo` varchar(20) NOT NULL,
-  `orderId` int(11) NOT NULL
+  `carrier_id` int(11) NOT NULL,
+  `carrier_name` varchar(50) NOT NULL,
+  `waivel_number` varchar(20) NOT NULL,
+  `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `carrier`
+--
+
+INSERT INTO `carrier` (`carrier_id`, `carrier_name`, `waivel_number`, `order_id`) VALUES
+(1, '123', '123', 155);
 
 --
 -- Indexes for dumped tables
@@ -43,8 +50,8 @@ CREATE TABLE `carrier` (
 -- Indexes for table `carrier`
 --
 ALTER TABLE `carrier`
-  ADD PRIMARY KEY (`carrierId`),
-  ADD KEY `carrier_ibfk_1` (`orderId`);
+  ADD PRIMARY KEY (`carrier_id`),
+  ADD KEY `carrier_ibfk_1` (`order_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -54,8 +61,7 @@ ALTER TABLE `carrier`
 -- AUTO_INCREMENT for table `carrier`
 --
 ALTER TABLE `carrier`
-  MODIFY `carrierId` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `carrier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -64,7 +70,7 @@ ALTER TABLE `carrier`
 -- Constraints for table `carrier`
 --
 ALTER TABLE `carrier`
-  ADD CONSTRAINT `carrier_ibfk_1` FOREIGN KEY (`orderId`) REFERENCES `orders` (`order_id`);
+  ADD CONSTRAINT `carrier_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

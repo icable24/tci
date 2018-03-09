@@ -7,14 +7,21 @@
   	if(isset($_GET['id'])){
   		$id = $_REQUEST['id'];
 
-  		$inventory = $pdo->prepare("SELECT * FROM inventory JOIN product ON inventory.prod_id = product.prod_id WHERE inventory_id = ?");
+  		$inventory = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? ORDER BY storeid");
   		$inventory->execute(array($id));
-  		$inventory = $inventory->fetch();
+  		$inventory = $inventory->fetchAll();
+
+  		$prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+  		$prod->execute(array($id));
+  		$prod = $prod->fetch();
 
   		$store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
-  		$store->execute(array($inventory['storeid']));
+  		$store->execute(array($inventory[0]['storeid']));
   		$store = $store->fetch();
   	}
+  		$qty1 = $inventory[0]['quantity'];
+  		$qty2 = $inventory[1]['quantity'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,20 +45,28 @@
 	            				<input type="hidden" name="storeid" id="storeid" value="<?php echo $inventory['storeid']; ?>">
 	            				<div class="control-group">
 	            					<label class="control-label">Product Name</label>
-	            					<input type="text" class="form-control" disabled value="<?php if(isset($id)){ echo $inventory['prod_name'];} ?>">
-	            				</div>
-	            				<div class="control-group">
-	            					<label class="control-label">Quantity</label>
-	            					<input type="Number" class="form-control" disabled name="qty" id="qty+">
+	            					<input type="text" class="form-control" disabled value="<?php if(isset($id)){ echo $prod['prod_name'];} ?>">
 	            				</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Store Location</label>
-	            					<select class="form-control" name="storeid" id="storeid" required="">
+	            					<select class="form-control" name="storeid" id="storeid" required="" onchange="showQuantity()">
 	            						<option></option>
 	            						<option value="1">G/F Cybergate Center Robinsons, Singcang</option>
 	            						<option value="2">ANP, City Walk Robinsons Mall, Mandalagan</option>
 	            					</select>
 	            				</div>
+	            				<div id="quantity_one" style="display:none">
+	            				<div class="control-group">
+		            					<label class="control-label">Quantity</label>
+		            					<input type="text" class="form-control" disabled value="<?php if(isset($id)){ echo $qty1;} ?>">
+		            				</div>
+	            				</div>
+	            				<div id="quantity_two" style="display: none">
+	            				<div class="control-group">
+		            					<label class="control-label">Quantity</label>
+		            					<input type="text" class="form-control" disabled value="<?php if(isset($id)){ echo $qty2;} ?>">
+		            				</div>
+		            			</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Pull Out Quantity</label>
 	            					<input type="Number" min="1" max="<?php if(isset($id)){echo $inventory['quantity'];} ?>" class="form-control" name="pullout_quantity" id="pullout_quantity" required>
@@ -76,10 +91,21 @@
 	            			</form>
 	            		</div>
 	            	</div>
-	            </div>
+	            </div>                            
 	        </div>
 		<?php include("footer.php"); ?>
 	</div>
 	<?php include("js.php"); ?>
+	<script type="text/javascript">
+		function showQuantity(){
+			var store = document.getElementById("storeid");
+			var quantity_one = document.getElementById("quantity_one");
+			var quantity_two = document.getElementById("quantity_two");
+			if(store.value == 1){
+				quantity_one.style.display = "block";
+				quantity_two.style.display = "none";
+			}
+		}
+	</script>
 </body>
 </html>
