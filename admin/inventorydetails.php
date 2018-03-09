@@ -6,15 +6,10 @@
 		$id = $_REQUEST['id'];
 
 		$pdo = Database::connect();
-		$inventory = $pdo->prepare("SELECT * FROM inventory JOIN product ON inventory.prod_id = product.prod_id WHERE inventory_id = ?");
-		$inventory->execute(array($id));
-		$inventory = $inventory->fetch();
-		$prod_id = $inventory['prod_id'];
-		$storeid = $inventory['storeid'];
 
-		$stock = $pdo->prepare("SELECT * FROM stock WHERE prod_id = ? AND storeid =? ORDER BY trans_date");
-		$stock->execute(array($prod_id, $storeid));
-		$stock = $stock->fetchAll();
+		$inventory = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ?");
+		$inventory->execute(array($id));
+		$inventory = $inventory->fetchAll();
 
 	}else{
 		header("location: inventorylist.php");
@@ -35,42 +30,33 @@
 				<thead>
 					<tr class="alert alert-success">
 						<th>Product Name</th>
-						<th>Quantity Added</th>
-						<th>Quantity Pullout</th>
 						<th>Store Location</th>
-						<th>Date</th>
+						<th>Quantity</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
-						foreach($stock as $row){
-							$prod_name = $inventory['prod_name'];
-							$added = $row['added'];
-							$deducted = $row['deducted'];
-							$trans_date = date("F j, Y", strtotime($row['trans_date']));
+						foreach($inventory as $row){
+							$prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
+							$prod->execute(array($row['prod_id']));
+							$prod = $prod->fetch();
+
+							$prod_name = $prod['prod_name'];
 							$store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
 							$storeid = $row["storeid"];
 							$store->execute(array($storeid));
 							$store = $store->fetch();
 							$storename = $store['storename'];
-
+							$quantity = $row['quantity'];
 							echo "
 								<tr>
 									<td>$prod_name</td>
-									<td>$added</td>
-									<td>$deducted</td>
 									<td>$storename</td>
-									<td>$trans_date</td>
+									<td>$quantity</td>
 								</tr>
 							";
 						}
 					?>
-					<tr>
-						<td></td>
-						<td></td>
-						<td>Total Quantity</td>
-						<td><?php echo $inventory['quantity']; ?></td>
-					</tr>
 				</tbody>
 			</table>
 		</div>

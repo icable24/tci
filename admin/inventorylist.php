@@ -77,7 +77,6 @@ input[type=text]:focus {
               <th>Product ID</th>
               <th>Product Image</th>
               <th>Product Name</th>
-              <th>Store Location</th>
               <th>Quantity</th>
               <th></th>
             </tr>
@@ -96,14 +95,17 @@ input[type=text]:focus {
                 $prod_name = $prod['prod_name'];
                 $quantity = $row['SUM(quantity)'];
                 $inventory_id = $row['inventory_id'];
+                $prod_code = $prod['prod_id'];
                 echo "
                   <tr>
                     <td>$prod_id</td>
                     <td><img src='$prod_image' alt='Product Image' style='width:50px; height: 50px;'/></td>
                     <td>$prod_name</td>
                     <td>$quantity</td>
-                    <td><a href='inventoryhistory.php?id=$inventory_id' class='btn btn-success'>View</a>
-                    <a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout Stock</a></td>
+                    <td class='text-right'>
+                    <a href='inventorydetails.php?id=$prod_code' class='btn btn-success'>Details</a>
+                    <a href='inventoryhistory.php?id=$inventory_id' class='btn btn-success'>History</a>
+                    <a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout</a></td>
                   </tr>
                 ";
               }

@@ -42,11 +42,15 @@
 	            				</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Quantity</label>
-	            					<input type="Number" class="form-control" disabled value="<?php if(isset($id)){ echo $inventory['quantity'];} ?>">
+	            					<input type="Number" class="form-control" disabled name="qty" id="qty+">
 	            				</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Store Location</label>
-	            					<input type="text" class="form-control" disabled="" value="<?php if(isset($id)){ echo $store['storename'];} ?>">
+	            					<select class="form-control" name="storeid" id="storeid" required="">
+	            						<option></option>
+	            						<option value="1">G/F Cybergate Center Robinsons, Singcang</option>
+	            						<option value="2">ANP, City Walk Robinsons Mall, Mandalagan</option>
+	            					</select>
 	            				</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Pull Out Quantity</label>
@@ -58,7 +62,7 @@
 	            				</div>
 	            				<div class="control-group">
 	            					<label class="control-label">Details</label>
-	            					<select type="Date" class="form-control" name="details" id="details" required="">
+	            					<select class="form-control" name="details" id="details" required="">
 	            						<option></option>
 	            						<option>Product Sold</option>
 	            						<option>Returned to Warehouse</option>
