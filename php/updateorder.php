@@ -7,10 +7,15 @@
 	if(isset($_GET['id'])){
 		$order_id = $_REQUEST['id'];
 	$order_finish = $_POST['order_finish'];
-	$order = $pdo->prepare("SELECT * FROM orders WHERE order_if = ?");
+	$order = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
 	$order->execute(array($order_id));
 	$order = $order->fetch();
 	$date_finished = $_POST['date_finished'];
+	if($order_finish == "Processing"){
+		$curdate = date("m/d/Y");
+		$pdate = $pdo->prepare("UPDATE orders SET date_processed = ? WHERE order_id = ?");
+		$pdate->execute(array($curdate, $order_id));
+	}
 
 		echo $date_finished;
 		echo $order_finish;

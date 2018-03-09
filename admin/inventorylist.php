@@ -84,28 +84,23 @@ input[type=text]:focus {
           </thead>
           <tbody>
             <?php  
-              $inventory = $pdo->prepare("SELECT * FROM inventory WHERE NOT storeid = 3 LIMIT {$start},{$perPage}");
+              $inventory = $pdo->prepare("SELECT inventory_id, prod_id, SUM(quantity), storeid FROM inventory WHERE NOT storeid = 3 GROUP BY prod_id");
               $inventory->execute();
               $inventory = $inventory->fetchAll();
               foreach($inventory as $row){
                 $prod = $pdo->prepare("SELECT * FROM product WHERE prod_id = ?");
                 $prod->execute(array($row['prod_id']));
                 $prod = $prod->fetch();
-                $store = $pdo->prepare("SELECT * FROM store WHERE storeid = ?");
-                $store->execute(array($row['storeid']));
-                $store = $store->fetch();
                 $prod_id = $prod['prod_code'];
                 $prod_image = "../prod_img/" . $prod['prod_image'];
                 $prod_name = $prod['prod_name'];
-                $quantity = $row['quantity'];
-                $store = $store['storename'];
+                $quantity = $row['SUM(quantity)'];
                 $inventory_id = $row['inventory_id'];
                 echo "
                   <tr>
                     <td>$prod_id</td>
                     <td><img src='$prod_image' alt='Product Image' style='width:50px; height: 50px;'/></td>
                     <td>$prod_name</td>
-                    <td>$store</td>
                     <td>$quantity</td>
                     <td><a href='inventoryhistory.php?id=$inventory_id' class='btn btn-success'>View</a>
                     <a href='pulloutinventory.php?id=$inventory_id' class='btn btn-success'>Pullout Stock</a></td>
@@ -115,34 +110,6 @@ input[type=text]:focus {
             ?>
           </tbody>
         </table>
-        <div class="offset-5 col">
-          <div class="row">
-       <nav class="text-center">
-          <ul class="pagination">
-          <?php if($page > 1){?>
-            <li class="pager">
-              <a href="?page=<?php echo $page-1; ?>" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-          <?php }?>
-          
-          <?php for($x = 1; $x <= $pages; $x++) : ?>
-            <li class="pager"><a href="?page=<?php echo $x; ?>"  <?php if($x === $page){echo 'class=active disabled';} ?>><?php echo $x; ?></a></li>
-          <?php endfor; ?>
-          
-          <?php if($page < $pages){?>
-            <li class="pager">
-              <a href="?page=<?php echo $page+1; ?>" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          <?php }?>
-          
-          </ul>
-      </nav>
-      </div>
-        </div>
       </div>
 
        <script>

@@ -6,7 +6,7 @@
 		$prod_id = $_GET['id'];
 		$store = $_POST['store'];
 		$inv = $pdo->prepare("SELECT * FROM inventory WHERE prod_id = ? AND storeid = ?");
-		$inv->execute(array($prod_id, $store));
+		$inv->execute(array($prod_id, 1));
 		$inv = $inv->fetch();
 		$quantity = $_POST['newquantity'];
 		$newquantity = $quantity + $inv['quantity'];

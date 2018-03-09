@@ -60,16 +60,6 @@
                       <input type="text" name="prod_name" placeholder="Product Name" class="form-control" disabled <?php if(isset($id)){echo "value='$prod_name'";} ?> id="prod_name">
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">Location</label>
-                    <div class="controls">
-                      <select class="form-control" name="store" id="store" onchange="showQuantity()">
-                        <option></option>
-                        <option value="1">G/F Cybergate Center Robinsons, Singcang</option>
-                        <option value="2">ANP, City Walk Robinsons Mall, Mandalagan</option>
-                      </select>
-                    </div>
-                  </div>
                   <div id="rob" style="display: none">
                     <div class="control-group">
                       <label class="control-label">On Shelf</label>

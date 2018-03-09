@@ -56,6 +56,13 @@
 		?>
 		<br><br>
 		<div class="container-fluid">
+			<div class="row">
+				<div class="offset-10 col-2 text-right">
+					<a href="orderlog.php?id=<?php echo $order_id; ?>" class="btn btn-success">History</a>
+				</div>
+			</div>
+			<br>
+			<div class="clearfix"></div>
 			<div class="row">	
 				<div class="col-6">	
 					<div class="alert alert-success">
@@ -305,7 +312,7 @@
 				</div>	
 				</div>		
 			</div>
-								<?php if($order['order_finish'] == 'Delivered'){ echo "
+								<?php if($order['order_finish'] == 'Delivered' || $order['order_finish'] == "Delivery"){ echo "
 						<div class='row'>
 							<div class='offset-7 col-3'>
 								<h3>Print Delivery Receipt</h3>
