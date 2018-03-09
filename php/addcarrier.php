@@ -12,8 +12,8 @@
 		$add = $pdo->prepare("INSERT INTO carrier(carrier_name, waivel_number, order_id) VALUES(?,?,?)");
 		$add->execute(array($carrier_name, $waivel_number, $order_id));
 		
-		//header("location: ../admin/vieworder.php?id=" . $order_id);
+		header("location: ../admin/vieworder.php?id=" . $order_id);
 	}else{
-		//header("location: ../admin/orderlist.php");
+		header("location: ../admin/orderlist.php");
 	}
 ?>

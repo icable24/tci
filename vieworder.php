@@ -25,6 +25,10 @@
 	 	$payment->execute(array($order_id));
 	 	$payment = $payment->fetch();
 
+	 	$carrier = $pdo->prepare("SELECT * FROM carrier WHERE order_id = ?");
+	 	$carrier->execute(array($order_id));
+	 	$carrier = $carrier->fetch();
+
 	 	$discount = $pdo->prepare("SELECT * FROM discount WHERE order_id = ?");
 	 	$discount->execute(array($order_id));
 	 	$discount = $discount->fetch();
@@ -178,6 +182,27 @@
 					</div>
 					<div class="col-md-6">
 						<h4><?php if($payment){echo date("F j, Y", strtotime($payment['pay_date']));} ?></h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<h3>Carrier Details</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Waivel No.</h4>
+					</div>
+					<div class="col-md-6">
+						<h4><?php if($carrier){echo $carrier['waivel_number'];} ?></h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Carrier Name</h4>
+					</div>
+					<div class="col-md-6">
+						<h4><?php if($carrier){echo $carrier['carrier_name'];} ?></h4>
 					</div>
 				</div>
 			</div>
