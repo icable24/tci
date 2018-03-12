@@ -64,6 +64,7 @@
 						$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 						$order->execute(array($id['acc_id'], "No"));
 					}
+					$_SESSION['login_username']=$acc_email;
 					header('location:../index.php');
 				}elseif($user_type == 'Company'){
 					$query = $pdo->prepare("INSERT INTO account(acc_fname, acc_lname, acc_email, acc_add, acc_password, acc_contact, acc_company, acc_comp_contact, user_type) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -75,6 +76,7 @@
 						$order = $pdo->prepare("INSERT INTO orders(acc_id, order_finish) VALUES(?, ?)");
 						$order->execute(array($id['acc_id'], "No"));
 					}
+					$_SESSION['login_username']=$acc_email;
 				header('location:../index.php');
 				}
 			}
