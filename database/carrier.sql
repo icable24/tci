@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2018 at 08:27 PM
+-- Generation Time: Mar 12, 2018 at 07:11 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -32,15 +32,9 @@ CREATE TABLE `carrier` (
   `carrier_id` int(11) NOT NULL,
   `carrier_name` varchar(50) NOT NULL,
   `waivel_number` varchar(20) NOT NULL,
-  `order_id` int(11) NOT NULL
+  `order_id` int(11) NOT NULL,
+  `delivery_range` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `carrier`
---
-
-INSERT INTO `carrier` (`carrier_id`, `carrier_name`, `waivel_number`, `order_id`) VALUES
-(1, '123', '123', 155);
 
 --
 -- Indexes for dumped tables
@@ -61,7 +55,7 @@ ALTER TABLE `carrier`
 -- AUTO_INCREMENT for table `carrier`
 --
 ALTER TABLE `carrier`
-  MODIFY `carrier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `carrier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

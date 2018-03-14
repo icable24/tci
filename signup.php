@@ -119,6 +119,10 @@ input[type=number]::-webkit-outer-spin-button {
                                             <input class="form-control" type="text" name="acc_contact" id="acc_contact" required="" placeholder="Contact Number">
                                         </div>
 
+                                        <div class="control-group">
+                                            <input type="checkbox" required=""><span>&nbsp;&nbsp;&nbsp;I agree with the <a href="termsandconditions.php" style="color:blue;">Terms and Conditions</a> of the service.</span></input>
+                                        </div>
+
                                         <div class="text-center submit">
                                             <button class="btn btn-success" type="submit" id="btnSubmit">Signup</button>
                                             <a href="index.php"><span class="btn btn-danger">Cancel</span></a>
@@ -179,6 +183,9 @@ input[type=number]::-webkit-outer-spin-button {
                                         <label class="control-label" for="acc_comp_contact">Company Contact Number: <br><small style="color: gray">(Format: xxx-xxxx / +63xxxxxxxxxx)</small></label>
                                         <div class="control-group">
                                             <input class="form-control" type="text" required="" id="acc_comp_contact" name="acc_comp_contact" placeholder="Company Contact Number"></input>
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="checkbox" required=""><span>&nbsp;&nbsp;&nbsp;I agree with the <a href="termsandconditions.php" style="color:blue;">Terms and Conditions</a> of the service.</span></input>
                                         </div>
 
                                         <div class="text-center submit">

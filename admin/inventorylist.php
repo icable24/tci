@@ -60,15 +60,7 @@ input[type=text]:focus {
       <!-- Body Section -->
       <br>
       <div class="container">
-        <div>            
-              <select id="filters" name="filters" onChange="myFilter()" placeholder="filter" class="pull-right" style="width: 4.5in">
-              <option disabled selected style="color: gray">Filter</option>
-              <option></option>
-              <option>G/F Cybergate Center Robinsons, Singcang</option>
-              <option>ANP, City Walk Robinsons Mall, Mandalagan</option>
-            </select>
-            </div>
-          <br><br>
+          <br>
         <div><h1>Inventory</h1></div>
         <br>
         <table class="table" id="myTable">

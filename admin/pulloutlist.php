@@ -26,6 +26,7 @@
 						<th>Pull Out Quantity</th>
 						<th>Pullout Date</th>
 						<th>Details</th>
+						<th>Comments</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,6 +36,7 @@
 							$pullout_quantity = $row['pullout_quantity'];
 							$pullout_date = date("F j, Y", strtotime($row['pullout_date']));
 							$details = $row['details'];
+							$comment = $row['comment'];
 
 							echo "
 								<tr>
@@ -42,6 +44,7 @@
 									<td>$pullout_quantity</td>
 									<td>$pullout_date</td>
 									<td>$details</td>
+									<td>$comment</td>
 								</tr>
 							";
 						}

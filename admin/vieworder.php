@@ -192,7 +192,7 @@
 							<div class="card-block">
 								<div class="row">
 									<div class="col-5">
-										<h3>Carrier Name: </h3>
+										<h3>Shipping Courier Name: </h3>
 									</div>
 									<div class="col-7">
 										<?php echo $carrierinfo['carrier_name'] ?>
@@ -200,10 +200,18 @@
 								</div>
 								<div class="row">
 									<div class="col-5">
-										<h3>Waivel No. </h3>
+										<h3>Waybill No. </h3>
 									</div>
 									<div class="col-7">
 										<?php echo $carrierinfo['waivel_number'] ?>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-5">
+										<h3>Delivery Range </h3>
+									</div>
+									<div class="col-7">
+										<?php echo $carrierinfo['delivery_range'] ?>
 									</div>
 								</div>
 							</div>					
