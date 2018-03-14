@@ -102,6 +102,10 @@ $discount = $pdo->prepare("SELECT * FROM discount WHERE order_id = ?");
 $discount->execute(array($order_id));
 $discount = $discount->fetch();
 
+$carrier = $pdo->prepare("SELECT * FROM carrier WHERE order_id = ?");
+$carrier->execute(array($order_id));
+$carrier = $carrier->fetch();
+
 $account = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 $account->execute(array($order['acc_id']));
 $account = $account->fetch();
@@ -199,7 +203,9 @@ $account = $account->fetch();
                 <td style="border: 0.5px solid #000000; width: 130px;">'. "Php " .number_format($grand_total, 2).'</td>
 
             </tr>
-            <br><br>
+        ';
+         $tbl = $tbl .'
+            <p><h4>Carrier Details:</h4> <br>Carrier\'s Name:&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $carrier["carrier_name"].'</span>&nbsp;&nbsp;&nbsp;&nbsp;Waybill No:&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $carrier["waivel_number"].'</span></p>
         ';
 
          $tbl = $tbl .'
