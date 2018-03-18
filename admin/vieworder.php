@@ -17,9 +17,9 @@
  	$checkhist->execute(array($order_id));
  	$checkhist = $checkhist->fetch();
 
- 	$carrierinfo = $pdo->prepare("SELECT * FROM carrier WHERE order_id = ?");
- 	$carrierinfo->execute(array($order_id));
- 	$carrierinfo = $carrierinfo->fetch();
+ 	$courierinfo = $pdo->prepare("SELECT * FROM courier WHERE order_id = ?");
+ 	$courierinfo->execute(array($order_id));
+ 	$courierinfo = $courierinfo->fetch();
 ?>
 <!DOCTYPE html>
 <style type="text/css">
@@ -182,10 +182,10 @@
 					<div class="clearfix"></div>
 					<div class="alert alert-success">
 						<?php if($order['order_finish'] != 'Cancelled'){ ?>
-							<h1>Carrier Information
-								<?php if(!($carrierinfo)){ ?>
+							<h1>courier Information
+								<?php if(!($courierinfo)){ ?>
 								<span class="pull-right">
-									<a href='addcarrier.php?id=<?php echo $order_id ?>' class='btn btn-success btn-md' data-toggle='tooltip' title='Add'><span>Add</span></a>
+									<a href='addcourier.php?id=<?php echo $order_id ?>' class='btn btn-success btn-md' data-toggle='tooltip' title='Add'><span>Add</span></a>
 								</span>
 								<?php } ?>
 							</h1>
@@ -195,7 +195,7 @@
 										<h3>Shipping Courier Name: </h3>
 									</div>
 									<div class="col-7">
-										<?php echo $carrierinfo['carrier_name'] ?>
+										<?php echo $courierinfo['courier_name'] ?>
 									</div>
 								</div>
 								<div class="row">
@@ -203,7 +203,7 @@
 										<h3>Waybill No. </h3>
 									</div>
 									<div class="col-7">
-										<?php echo $carrierinfo['waivel_number'] ?>
+										<?php echo $courierinfo['waybill_number'] ?>
 									</div>
 								</div>
 								<div class="row">
@@ -211,7 +211,7 @@
 										<h3>Delivery Range </h3>
 									</div>
 									<div class="col-7">
-										<?php echo $carrierinfo['delivery_range'] ?>
+										<?php echo $courierinfo['delivery_range'] ?>
 									</div>
 								</div>
 							</div>					

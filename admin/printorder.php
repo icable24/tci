@@ -102,9 +102,9 @@ $discount = $pdo->prepare("SELECT * FROM discount WHERE order_id = ?");
 $discount->execute(array($order_id));
 $discount = $discount->fetch();
 
-$carrier = $pdo->prepare("SELECT * FROM carrier WHERE order_id = ?");
-$carrier->execute(array($order_id));
-$carrier = $carrier->fetch();
+$courier = $pdo->prepare("SELECT * FROM courier WHERE order_id = ?");
+$courier->execute(array($order_id));
+$courier = $courier->fetch();
 
 $account = $pdo->prepare("SELECT * FROM account WHERE acc_id = ?");
 $account->execute(array($order['acc_id']));
@@ -127,8 +127,12 @@ $account = $account->fetch();
 'Order ID:'.'&nbsp;'.$order["order_id"].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>'.
 '<br>'.
 '<p>Customer\'s Name: <br>&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $account["acc_fname"]. ' '. $account["acc_lname"]. '</span>' . '</p>'.
-'<p>Shipping Address: <br>&nbsp;&nbsp;'.'<span style="font-size: 14px">'. $order["zip_code"]. ','.' '. $order["shippingaddress"]. ','.' '. $order["city"]. ','.' '.$order["state"]. ','.' '.$order["country"]. '</span>' . '</p>'.
-'<br><br>';
+'<p>Shipping Address: <br>&nbsp;&nbsp;'.'<span style="font-size: 14px">'. $order["zip_code"]. ','.' '. $order["shippingaddress"]. ','.' '. $order["city"]. ','.' '.$order["state"]. ','.' '.$order["country"]. '</span>' . '</p>';
+
+ $tbl = $tbl .'
+            <p><h4>Courier Details:</h4> <br>Courier\'s Name:&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $courier["courier_name"].'</span>&nbsp;&nbsp;&nbsp;&nbsp;Waybill No:&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $courier["waybill_number"].'</span></p>
+        ';
+
 
 
        $tbl = $tbl . '<table style="width: 638px;" cellspacing="0">';
@@ -204,10 +208,6 @@ $account = $account->fetch();
 
             </tr>
         ';
-         $tbl = $tbl .'
-            <p><h4>Carrier Details:</h4> <br>Carrier\'s Name:&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $carrier["carrier_name"].'</span>&nbsp;&nbsp;&nbsp;&nbsp;Waybill No:&nbsp;&nbsp;'. '<span style="font-size: 14px">'. $carrier["waivel_number"].'</span></p>
-        ';
-
          $tbl = $tbl .'
          <div>
          <p> Additional Notes: <br>

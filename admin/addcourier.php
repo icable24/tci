@@ -26,16 +26,16 @@
 				<div class="offset-3 col-6">
 					<div class="alert alert-success">
 						<div>
-			              <h1>Carrier Information</h1>
+			              <h1>Courier Information</h1>
 			            </div>
 						<div class="card-block">
-							<form action="../php/addcarrier.php?id=<?php echo $order_id ?>" id="myform" name="myform" enctype="multipart/form-data" method="post">
+							<form action="../php/addcourier.php?id=<?php echo $order_id ?>" id="myform" name="myform" enctype="multipart/form-data" method="post">
 								<div class="row">
 									<div class="col-12">	
 										<div class="control-group">
-											<label class="control-label" for='carrier_name'>Shipping Courier Name</label>
+											<label class="control-label" for='courier_name'>Shipping Courier Name</label>
 											<div class="controls">
-												<input type="text" name="carrier_name" id="carrier_name" required="" class="form-control">
+												<input type="text" name="courier_name" id="courier_name" required="" class="form-control">
 											</div>
 										</div>
 									</div>
@@ -43,9 +43,9 @@
 								<div class="row">
 									<div class="col-12">	
 										<div class="control-group">
-											<label class="control-label" for='waivel_number'>Waybill No.</label>
+											<label class="control-label" for='waybill_number'>Waybill No.</label>
 											<div class="controls">
-												<input type="text" name="waivel_number" id="waivel_number" required="" class="form-control">
+												<input type="text" name="waybill_number" id="waybill_number" required="" class="form-control">
 											</div>
 										</div>
 									</div>
@@ -53,7 +53,7 @@
 								<div class="row">
 									<div class="col-12">	
 										<div class="control-group">
-											<label class="control-label" for='waivel_number'>Delivery Range (Days)</label>
+											<label class="control-label" for='waybill_number'>Delivery Range (Days)</label>
 											<div class="controls">
 												<input type="number" name="delivery_range" id="delivery_range" required="" class="form-control">
 											</div>
